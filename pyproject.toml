@@ -1,0 +1,19 @@
+[project]
+name = "val-cat-conjugation-backend"
+version = "0.0.1"
+description = "A backend for valencian/catalan verb conjugation."
+authors = [
+    {name = "pavelbeard", email = "pavelborodin1995@gmail.com"},
+]
+dependencies = ["fastapi[standard]>=0.115.14", "fastapi>=0.115.14", "openai>=1.93.0", "pydantic-settings>=2.10.1"]
+requires-python = ">=3.13"
+readme = "README.md"
+license = {text = "Free to use"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
