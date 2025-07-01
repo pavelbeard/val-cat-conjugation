@@ -1,0 +1,20 @@
+services:
+  int-db:
+    image: mongo:latest
+    container_name: int-db
+    environment:
+      - MONGODB_INITDB_ROOT_USERNAME=admin
+      - MONGODB_INITDB_ROOT_PASSWORD=admin
+    ports:
+      - "27017:27017"
+    volumes:
+      - int-db-data:/data/db
+    networks:
+      - int-network
+
+volumes:
+  int-db-data:
+
+networks:
+  int-network:
+    driver: bridge
