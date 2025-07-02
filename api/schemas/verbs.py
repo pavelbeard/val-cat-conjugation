@@ -44,3 +44,20 @@ class VerbOut(VerbBase):
                 data,
             )
         )
+
+class VerbConjugation(BaseModel):
+    """
+    Model for verb conjugation.
+    """
+
+    pronoun: str
+    forms: list[str]
+    dialects: Optional[list[str]] = None
+    translation: Optional[str] = None
+
+    @classmethod
+    def model_validate_many(cls, data):
+        """
+        Validate and convert a list of dictionaries to a list of VerbConjugation instances.
+        """
+        return list(map(lambda x: cls.model_validate(x), data)) if data else []

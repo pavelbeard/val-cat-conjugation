@@ -8,18 +8,18 @@ import {
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Component 1",
-    href: "/component-1",
+    title: "Verbs",
+    href: "/verbs",
     description: "Description for component 1",
   },
   {
-    title: "Component 2",
-    href: "/component-2",
+    title: "Decks",
+    href: "/decks",
     description: "Description for component 2",
   },
   {
-    title: "Component 3",
-    href: "/component-3",
+    title: "Settings",
+    href: "/settings",
     description: "Description for component 3",
   },
 ];

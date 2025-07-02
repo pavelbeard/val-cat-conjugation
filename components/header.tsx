@@ -1,9 +1,22 @@
-import { headers } from "next/headers";
+"use client";
 
-export default async function Header() {
-  const header = await headers();
-  const xCurrPath = header.get("x-curr-path");
-  const pathname = xCurrPath !== "/" ? xCurrPath?.replace(/\//, "") : "";
+import { usePathname } from "next/navigation";
 
-  return <header className="flex-none">Header {pathname}</header>;
+export default function Header() {
+  const pathname = usePathname();
+
+  const verbName = new RegExp("/verbs/([^/]+)");
+  const pageName = new RegExp("/(\\w+)(?:/|$)");
+  const verbMatch = pathname.match(verbName);
+  const pageMatch = pathname.match(pageName);
+
+  if (verbMatch) return null;
+
+  return (
+    <header className="flex-none flex items-center justify-center p-4 gap-4">
+      <h1 className="text-lg font-semibold">
+        {pageMatch && pageMatch[1].toLocaleUpperCase()}
+      </h1>
+    </header>
+  );
 }

@@ -1,0 +1,1022 @@
+{
+    "conjugation_class": "1a conjugació",
+    "example_verb": "parlar",
+    "translation": "hablar",
+    "tenses": [
+        {
+            "tense": "Indicatiu present",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "parlo",
+                        "parle",
+                        "parl"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val.",
+                        "bal."
+                    ],
+                    "translation": "yo hablo"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "parles"
+                    ],
+                    "dialects": null,
+                    "translation": "tú hablas"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "parla"
+                    ],
+                    "dialects": null,
+                    "translation": "él/ella/usted habla"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "parlem",
+                        "parlam"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "bal."
+                    ],
+                    "translation": "nosotros hablamos"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "parleu",
+                        "parlau"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "bal."
+                    ],
+                    "translation": "vosotros habláis"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "parlen"
+                    ],
+                    "dialects": null,
+                    "translation": "ellos/ellas/ustedes hablan"
+                }
+            ]
+        },
+        {
+            "tense": "Indicatiu imperfet",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "parlava"
+                    ],
+                    "dialects": null,
+                    "translation": "yo hablaba"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "parlaves"
+                    ],
+                    "dialects": null,
+                    "translation": "tú hablabas"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "parlava"
+                    ],
+                    "dialects": null,
+                    "translation": "él/ella/usted hablaba"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "parlàvem"
+                    ],
+                    "dialects": null,
+                    "translation": "nosotros hablábamos"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "parlàveu"
+                    ],
+                    "dialects": null,
+                    "translation": "vosotros hablabais"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "parlaven"
+                    ],
+                    "dialects": null,
+                    "translation": "ellos/ellas/ustedes hablaban"
+                }
+            ]
+        },
+        {
+            "tense": "Indicatiu perfet",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "he parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "yo he hablado"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "has parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "tú has hablado"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "ha parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "él/ella/usted ha hablado"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "hem parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "nosotros hemos hablado"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "heu parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "vosotros habéis hablado"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "han parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "ellos/ellas/ustedes han hablado"
+                }
+            ]
+        },
+        {
+            "tense": "Indicatiu plusquamperfet",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "havia parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "yo había hablado"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "havies parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "tú habías hablado"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "havia parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "él/ella/usted había hablado"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "havíem parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "nosotros habíamos hablado"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "havíeu parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "vosotros habíais hablado"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "havien parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "ellos/ellas/ustedes habían hablado"
+                }
+            ]
+        },
+        {
+            "tense": "Indicatiu passat simple",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "parlé"
+                    ],
+                    "dialects": null,
+                    "translation": "yo hablé"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "parlares"
+                    ],
+                    "dialects": null,
+                    "translation": "tú hablaste"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "parlá"
+                    ],
+                    "dialects": null,
+                    "translation": "él/ella/usted habló"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "parlàrem"
+                    ],
+                    "dialects": null,
+                    "translation": "nosotros hablamos"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "parlàreu"
+                    ],
+                    "dialects": null,
+                    "translation": "vosotros hablasteis"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "parlaren"
+                    ],
+                    "dialects": null,
+                    "translation": "ellos/ellas/ustedes hablaron"
+                }
+            ]
+        },
+        {
+            "tense": "Indicatiu passat perifràstic",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "vaig parlar"
+                    ],
+                    "dialects": null,
+                    "translation": "yo hablé"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "vas parlar"
+                    ],
+                    "dialects": null,
+                    "translation": "tú hablaste"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "va parlar"
+                    ],
+                    "dialects": null,
+                    "translation": "él/ella/usted habló"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "vam parlar"
+                    ],
+                    "dialects": null,
+                    "translation": "nosotros hablamos"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "vau parlar"
+                    ],
+                    "dialects": null,
+                    "translation": "vosotros hablasteis"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "van parlar"
+                    ],
+                    "dialects": null,
+                    "translation": "ellos/ellas/ustedes hablaron"
+                }
+            ]
+        },
+        {
+            "tense": "Indicatiu passat anterior",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "haguí parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "yo hube hablado"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "haguessis parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "tú hubiste hablado"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "hagué parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "él/ella/usted hubo hablado"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "haguérem parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "nosotros hubimos hablado"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "haguéreu parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "vosotros hubisteis hablado"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "hagueren parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "ellos/ellas/ustedes hubieron hablado"
+                }
+            ]
+        },
+        {
+            "tense": "Indicatiu passat anterior perifràstic",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "vaig haver parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "yo hube hablado"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "vas haver parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "tú hubiste hablado"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "va haver parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "él/ella/usted hubo hablado"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "vam haver parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "nosotros hubimos hablado"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "vau haver parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "vosotros hubisteis hablado"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "van haver parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "ellos/ellas/ustedes hubieron hablado"
+                }
+            ]
+        },
+        {
+            "tense": "Indicatiu futur",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "parlaré"
+                    ],
+                    "dialects": null,
+                    "translation": "yo hablaré"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "parlaràs"
+                    ],
+                    "dialects": null,
+                    "translation": "tú hablarás"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "parlarà"
+                    ],
+                    "dialects": null,
+                    "translation": "él/ella/usted hablará"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "parlarem"
+                    ],
+                    "dialects": null,
+                    "translation": "nosotros hablaremos"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "parlareu"
+                    ],
+                    "dialects": null,
+                    "translation": "vosotros hablaréis"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "parlaran"
+                    ],
+                    "dialects": null,
+                    "translation": "ellos/ellas/ustedes hablarán"
+                }
+            ]
+        },
+        {
+            "tense": "Indicatiu futur perfet",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "hauré parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "yo habré hablado"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "hauràs parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "tú habrás hablado"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "haurà parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "él/ella/usted habrá hablado"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "haurem parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "nosotros habremos hablado"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "haureu parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "vosotros habréis hablado"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "hauran parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "ellos/ellas/ustedes habrán hablado"
+                }
+            ]
+        },
+        {
+            "tense": "Subjuntiu present",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "parli",
+                        "parle"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val."
+                    ],
+                    "translation": "yo hable"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "parlis",
+                        "parles"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val."
+                    ],
+                    "translation": "tú hables"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "parli",
+                        "parle"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val."
+                    ],
+                    "translation": "él/ella/usted hable"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "parlem"
+                    ],
+                    "dialects": null,
+                    "translation": "nosotros hablemos"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "parleu",
+                        "parlau"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val."
+                    ],
+                    "translation": "vosotros habléis"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "parlin",
+                        "parlen"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val."
+                    ],
+                    "translation": "ellos/ellas/ustedes hablen"
+                }
+            ]
+        },
+        {
+            "tense": "Subjuntiu imperfet",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "parlés",
+                        "parlara",
+                        "parlàs"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val.",
+                        "bal."
+                    ],
+                    "translation": "yo hablara"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "parlessis",
+                        "parlares",
+                        "parlassis",
+                        "parlesses",
+                        "parlasses"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val.",
+                        "bal.",
+                        "val.",
+                        "bal."
+                    ],
+                    "translation": "tú hablaras"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "parlés",
+                        "parlara",
+                        "parlàs"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val.",
+                        "bal."
+                    ],
+                    "translation": "él/ella/usted hablara"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "parléssim",
+                        "parlárem",
+                        "parlássim",
+                        "paréssem",
+                        "paràssem"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val.",
+                        "bal.",
+                        "val.",
+                        "bal."
+                    ],
+                    "translation": "nosotros habláramos"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "parléssiu",
+                        "parlàreu",
+                        "parlàssiu",
+                        "parésseu",
+                        "paràsseu"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val.",
+                        "bal.",
+                        "val.",
+                        "bal."
+                    ],
+                    "translation": "vosotros hablarais"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "parlessin",
+                        "parlaren",
+                        "parlassin",
+                        "paressen",
+                        "parassen"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val.",
+                        "bal.",
+                        "val.",
+                        "bal."
+                    ],
+                    "translation": "ellos/ellas/ustedes hablaran"
+                }
+            ]
+        },
+        {
+            "tense": "Subjuntiu perfet",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "hagi parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "yo haya hablado"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "hagis parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "tú hayas hablado"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "hagi parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "él/ella/usted haya hablado"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "haguem parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "nosotros hayamos hablado"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "hagueu parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "vosotros hayáis hablado"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "hagin parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "ellos/ellas/ustedes hayan hablado"
+                }
+            ]
+        },
+        {
+            "tense": "Subjuntiu plusquamperfet",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "hagués parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "yo hubiera hablado"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "haguessis parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "tú hubieras hablado"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "hagués parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "él/ella/usted hubiera hablado"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "haguéssim parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "nosotros hubiéramos hablado"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "haguéssiu parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "vosotros hubierais hablado"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "haguessin parlat"
+                    ],
+                    "dialects": null,
+                    "translation": "ellos/ellas/ustedes hubieran hablado"
+                }
+            ]
+        },
+        {
+            "tense": "Condicional simple",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "parlaria"
+                    ],
+                    "dialects": null,
+                    "translation": "yo hablaría"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "parlaries"
+                    ],
+                    "dialects": null,
+                    "translation": "tú hablarías"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "parlaria"
+                    ],
+                    "dialects": null,
+                    "translation": "él/ella/usted hablaría"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "parlaríem"
+                    ],
+                    "dialects": null,
+                    "translation": "nosotros hablaríamos"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "parlaríeu"
+                    ],
+                    "dialects": null,
+                    "translation": "vosotros hablaríais"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "parlarien"
+                    ],
+                    "dialects": null,
+                    "translation": "ellos/ellas/ustedes hablarían"
+                }
+            ]
+        },
+        {
+            "tense": "Condicional perfet",
+            "conjugation": [
+                {
+                    "pronoun": "jo",
+                    "forms": [
+                        "hauria parlat",
+                        "haguera parlat"
+                    ],
+                    "dialects": [
+                        null,
+                        "val."
+                    ],
+                    "translation": "yo habría hablado"
+                },
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "hauries parlat",
+                        "hagueres parlat"
+                    ],
+                    "dialects": [
+                        null,
+                        "val."
+                    ],
+                    "translation": "tú habrías hablado"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "hauria parlat",
+                        "haguera parlat"
+                    ],
+                    "dialects": [
+                        null,
+                        "val."
+                    ],
+                    "translation": "él/ella/usted habría hablado"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "hauríem parlat",
+                        "haguérem parlat"
+                    ],
+                    "dialects": [
+                        null,
+                        "val."
+                    ],
+                    "translation": "nosotros habríamos hablado"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "hauríeu parlat",
+                        "haguéreu parlat"
+                    ],
+                    "dialects": [
+                        null,
+                        "val."
+                    ],
+                    "translation": "vosotros habríais hablado"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "haurien parlat",
+                        "hagueren parlat"
+                    ],
+                    "dialects": [
+                        null,
+                        "val."
+                    ],
+                    "translation": "ellos/ellas/ustedes habrían hablado"
+                }
+            ]
+        },
+        {
+            "tense": "Imperatiu present",
+            "conjugation": [
+                {
+                    "pronoun": "tu",
+                    "forms": [
+                        "parla"
+                    ],
+                    "dialects": null,
+                    "translation": "(tú) habla"
+                },
+                {
+                    "pronoun": "ell/ella/vostè",
+                    "forms": [
+                        "parli",
+                        "parle"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val."
+                    ],
+                    "translation": "(usted) hable"
+                },
+                {
+                    "pronoun": "nosaltres",
+                    "forms": [
+                        "parlem"
+                    ],
+                    "dialects": null,
+                    "translation": "(nosotros) hablemos"
+                },
+                {
+                    "pronoun": "vosaltres",
+                    "forms": [
+                        "parleu",
+                        "parlau"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "bal."
+                    ],
+                    "translation": "(vosotros) hablad"
+                },
+                {
+                    "pronoun": "ells/elles/vostès",
+                    "forms": [
+                        "parlin",
+                        "parlen"
+                    ],
+                    "dialects": [
+                        "cent.",
+                        "val."
+                    ],
+                    "translation": "(ustedes) hablen"
+                }
+            ]
+        }
+    ]
+}
