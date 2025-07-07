@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 CONSTANTS = {
     "ENV_FILE": ".env",
-    "OPENAI_DEFAULT_MODEL": "gpt-3.5-turbo",
+    "AI_DEFAULT_MODEL": "gpt4o-mini",
 }
 
 
@@ -34,13 +34,13 @@ class Settings(BaseSettings):
         env="MONGODB_NAME",
     )
 
-    # OpenAI API key
-    OPENAI_API_KEY: str = Field(default="", description="The OpenAI API key.")
+    # AI API key
+    AI_SECRET_KEY: str = Field(default="", description="The AI API key.")
 
-    # OpenAI model to use
-    OPENAI_MODEL: str = Field(
-        default=CONSTANTS["OPENAI_DEFAULT_MODEL"],
-        description="The OpenAI model to use for requests.",
+    # AI model to use
+    AI_MODEL: str = Field(
+        default=CONSTANTS["AI_DEFAULT_MODEL"],
+        description="The AI model to use for requests.",
     )
 
 
