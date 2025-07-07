@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup, NavigableString
 from bs4.filter import _AtMostOneElement
 
 from api.schemas.verbs import VerbOut
-from api.utils.ai import AIHandlerEnum, AIHandlerFactory
+from api.utils.ai import AIHandlerEnum, ai_handler_factory
 
 prompts_path = os.path.join(os.path.dirname(__file__), "prompts", "verbs")
 
@@ -44,7 +44,7 @@ def perform_ai_translation(data: VerbOut) -> VerbOut:
     with open(os.path.join(prompts_path, "translator.md"), "r", encoding="utf-8") as f:
         translator = f.read()
 
-    ai_handler = AIHandlerFactory.create_handler(
+    ai_handler = ai_handler_factory(
         AIHandlerEnum.CHATGPT,
     )
     response = ai_handler.query_api(

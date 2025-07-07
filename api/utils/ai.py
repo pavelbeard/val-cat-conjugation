@@ -76,21 +76,16 @@ class ChatGPTHandler(AIHandler):
             result = None
 
         return result
-
-class AIHandlerFactory:
+    
+    
+def ai_handler_factory(handler_type: AIHandlerEnum, api_key: str = settings.AI_SECRET_KEY) -> AIHandler:
     """
-    Factory class to create instances of AIHandler subclasses based on the provided type.
+    Factory function to create an AI handler instance.
+    :param handler_type: The type of AI handler to create.
+    :param api_key: The API key for the handler.
+    :return: An instance of the specified AI handler.
     """
-
-    @staticmethod
-    def create_handler(handler_type: AIHandlerEnum, api_key: str = settings.AI_SECRET_KEY) -> AIHandler:
-        """
-        Create an instance of the specified AIHandler subclass.
-        :param handler_type: The type of AIHandler to create (e.g., "chatgpt").
-        :param api_key: The API key to use for the handler (optional if settings.AI_SECRET_KEY is set in .env).
-        :return: An instance of the specified AIHandler subclass.
-        """
-        if handler_type == AIHandlerEnum.CHATGPT:
-            return ChatGPTHandler(api_key=api_key)
-        # Add other AI handler types here as needed
-        raise ValueError(f"Unknown AI handler type: {handler_type}")
+    if handler_type == AIHandlerEnum.CHATGPT:
+        return ChatGPTHandler(api_key=api_key)
+    # Add other AI handler types here as needed
+    raise ValueError(f"Unknown AI handler type: {handler_type}")
