@@ -1,12 +1,23 @@
 from typing import List
+
 from fastapi import APIRouter
 from fastapi.responses import JSONResponse
-from api.db.client import db
 
 from api.schemas.verbs import VerbOut
-from api.utils.exceptions import AppException
+from api.services import verbs as verbs_service
 
 router = APIRouter()
+
+@router.post("/verbs/{name}", response_model=VerbOut, response_class=JSONResponse)
+async def create_verb(name: str):
+    """
+    Create a new verb.
+    """
+    verb = await verbs_service.create_verb(name)
+    return JSONResponse(
+        content=verb,
+        status_code=201,
+    )
 
 
 @router.get("/verbs", response_model=List[VerbOut], response_class=JSONResponse)
@@ -14,29 +25,20 @@ def get_verbs():
     """
     Retrieve a list of verbs.
     """
-    verbs = db.verbs.find().to_list(100)
-    content = VerbOut.model_validate_many(verbs)
-
+    verbs = verbs_service.get_verbs()
     return JSONResponse(
-        content=content,
+        content=verbs,
         status_code=200,
     )
 
 
-@router.get("/verbs/{_id}", response_model=VerbOut, response_class=JSONResponse)
-def get_verb(_id: str):
+@router.get("/verbs/{infinitive}", response_model=VerbOut, response_class=JSONResponse)
+def get_verb(infinitive: str):
     """
-    Retrieve a single verb by its ID.
+    Retrieve a single verb by its infinitive form.
     """
-    verb = db.verbs.find_one({"_id": _id})
-
-    if not verb:
-        raise AppException(
-            status_code=404, message="Verb not found", code="VERB_NOT_FOUND"
-        )
-
-    content = VerbOut.model_validate(verb).model_dump(mode="json")
+    verb = verbs_service.get_verb(infinitive)
     return JSONResponse(
-        content=content,
+        content=verb,
         status_code=200,
     )

@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:7d85b5aba23945f223e7d81770acc9c070ef59b688ca0374cd87ffb295878f07"
+content_hash = "sha256:07eab54e38512ae99c0171b66be104537294f8518b15a6f137620551dcb2b84e"
 
 [[metadata.targets]]
 requires_python = ">=3.13"
@@ -271,6 +271,17 @@ files = [
 ]
 
 [[package]]
+name = "iniconfig"
+version = "2.1.0"
+requires_python = ">=3.8"
+summary = "brain-dead simple config-ini parsing"
+groups = ["default"]
+files = [
+    {file = "iniconfig-2.1.0-py3-none-any.whl", hash = "sha256:9deba5723312380e77435581c6bf4935c94cbfab9b1ed33ef8d238ea168eb760"},
+    {file = "iniconfig-2.1.0.tar.gz", hash = "sha256:3abbd2e30b36733fee78f9c7f7308f2d0050e88f0087fd25c2645f63c773e1c7"},
+]
+
+[[package]]
 name = "jinja2"
 version = "3.1.6"
 requires_python = ">=3.7"
@@ -423,6 +434,28 @@ files = [
 ]
 
 [[package]]
+name = "packaging"
+version = "25.0"
+requires_python = ">=3.8"
+summary = "Core utilities for Python packages"
+groups = ["default"]
+files = [
+    {file = "packaging-25.0-py3-none-any.whl", hash = "sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484"},
+    {file = "packaging-25.0.tar.gz", hash = "sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"},
+]
+
+[[package]]
+name = "pluggy"
+version = "1.6.0"
+requires_python = ">=3.9"
+summary = "plugin and hook calling mechanisms for python"
+groups = ["default"]
+files = [
+    {file = "pluggy-1.6.0-py3-none-any.whl", hash = "sha256:e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746"},
+    {file = "pluggy-1.6.0.tar.gz", hash = "sha256:7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3"},
+]
+
+[[package]]
 name = "pydantic"
 version = "2.11.7"
 requires_python = ">=3.9"
@@ -557,6 +590,41 @@ files = [
     {file = "pymongo-4.13.2-cp313-cp313t-win32.whl", hash = "sha256:7ab86b98a18c8689514a9f8d0ec7d9ad23a949369b31c9a06ce4a45dcbffcc5e"},
     {file = "pymongo-4.13.2-cp313-cp313t-win_amd64.whl", hash = "sha256:c38168263ed94a250fc5cf9c6d33adea8ab11c9178994da1c3481c2a49d235f8"},
     {file = "pymongo-4.13.2.tar.gz", hash = "sha256:0f64c6469c2362962e6ce97258ae1391abba1566a953a492562d2924b44815c2"},
+]
+
+[[package]]
+name = "pytest"
+version = "8.4.1"
+requires_python = ">=3.9"
+summary = "pytest: simple powerful testing with Python"
+groups = ["default"]
+dependencies = [
+    "colorama>=0.4; sys_platform == \"win32\"",
+    "exceptiongroup>=1; python_version < \"3.11\"",
+    "iniconfig>=1",
+    "packaging>=20",
+    "pluggy<2,>=1.5",
+    "pygments>=2.7.2",
+    "tomli>=1; python_version < \"3.11\"",
+]
+files = [
+    {file = "pytest-8.4.1-py3-none-any.whl", hash = "sha256:539c70ba6fcead8e78eebbf1115e8b589e7565830d7d006a8723f19ac8a0afb7"},
+    {file = "pytest-8.4.1.tar.gz", hash = "sha256:7c67fd69174877359ed9371ec3af8a3d2b04741818c51e5e99cc1742251fa93c"},
+]
+
+[[package]]
+name = "pytest-asyncio"
+version = "1.0.0"
+requires_python = ">=3.9"
+summary = "Pytest support for asyncio"
+groups = ["default"]
+dependencies = [
+    "pytest<9,>=8.2",
+    "typing-extensions>=4.12; python_version < \"3.10\"",
+]
+files = [
+    {file = "pytest_asyncio-1.0.0-py3-none-any.whl", hash = "sha256:4f024da9f1ef945e680dc68610b52550e36590a67fd31bb3b4943979a1f90ef3"},
+    {file = "pytest_asyncio-1.0.0.tar.gz", hash = "sha256:d15463d13f4456e1ead2594520216b225a16f781e144f8fdf6c5bb4667c48b3f"},
 ]
 
 [[package]]

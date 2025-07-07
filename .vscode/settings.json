@@ -4,5 +4,12 @@
             "name": "localhost",
             "connectionString": "mongodb://localhost:27017"
         }
-    ]
+    ],
+    "python.testing.pytestArgs": [
+        "${workspaceFolder}/api/tests",
+        "-s"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.envFile": "${workspaceFolder}/api/.env",
 }
