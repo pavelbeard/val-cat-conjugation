@@ -1,6 +1,26 @@
 from datetime import datetime
-from typing import Dict, Optional
+from typing import List, Optional
 from openai import BaseModel
+
+
+class VerbConjugation(BaseModel):
+    """
+    Base model for verb conjugation.
+    """
+
+    pronoun: str
+    forms: list[str]
+    variation_types: Optional[list[str | None]] = None
+    translation: Optional[str] = None
+
+
+class VerbMode(BaseModel):
+    """
+    Model for verb mode.
+    """
+
+    tense: str
+    conjugation: List[VerbConjugation]
 
 
 class VerbBase(BaseModel):
@@ -13,7 +33,9 @@ class VerbBase(BaseModel):
 
 
 class VerbCreate(VerbBase):
-    pass
+    conjugation: List[VerbMode]
+    source: Optional[str] = None
+    created_at: datetime
 
 
 class VerbUpdate(VerbBase):
@@ -26,8 +48,7 @@ class VerbOut(VerbBase):
     """
 
     _id: str
-    conjugation: Optional[Dict[str, Dict[str, str]]] = None
-    translation: str
+    conjugation: List[VerbMode] = None
     source: Optional[str] = None
     created_at: datetime
 
@@ -44,20 +65,3 @@ class VerbOut(VerbBase):
                 data,
             )
         )
-
-class VerbConjugation(BaseModel):
-    """
-    Model for verb conjugation.
-    """
-
-    pronoun: str
-    forms: list[str]
-    dialects: Optional[list[str]] = None
-    translation: Optional[str] = None
-
-    @classmethod
-    def model_validate_many(cls, data):
-        """
-        Validate and convert a list of dictionaries to a list of VerbConjugation instances.
-        """
-        return list(map(lambda x: cls.model_validate(x), data)) if data else []
