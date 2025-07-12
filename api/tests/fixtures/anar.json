@@ -64,7 +64,7 @@
             ]
         },
         {
-            "tense": "indicatiu_present",
+            "tense": "indicatiu_perfecte",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -117,7 +117,7 @@
             ]
         },
         {
-            "tense": "indicatiu_present",
+            "tense": "indicatiu_imperfet",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -170,7 +170,7 @@
             ]
         },
         {
-            "tense": "indicatiu_present",
+            "tense": "indicatiu_plusquamperfet",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -223,7 +223,7 @@
             ]
         },
         {
-            "tense": "indicatiu_present",
+            "tense": "indicatiu_passat_simple",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -276,7 +276,7 @@
             ]
         },
         {
-            "tense": "indicatiu_present",
+            "tense": "indicatiu_passat_perfect_simple",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -329,7 +329,7 @@
             ]
         },
         {
-            "tense": "indicatiu_present",
+            "tense": "indicatiu_passat_perfect_compost",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -382,7 +382,7 @@
             ]
         },
         {
-            "tense": "indicatiu_present",
+            "tense": "indicatiu_passat_perfect_perfecte",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -435,7 +435,7 @@
             ]
         },
         {
-            "tense": "indicatiu_present",
+            "tense": "indicatiu_futur",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -488,7 +488,7 @@
             ]
         },
         {
-            "tense": "indicatiu_present",
+            "tense": "indicatiu_futur_perfect",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -541,7 +541,7 @@
             ]
         },
         {
-            "tense": "indicatiu_present",
+            "tense": "indicatiu_condicional",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -594,7 +594,7 @@
             ]
         },
         {
-            "tense": "indicatiu_present",
+            "tense": "indicatiu_condicional_perfect",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -716,7 +716,7 @@
             ]
         },
         {
-            "tense": "subjuntiu_present",
+            "tense": "subjuntiu_perfect",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -769,7 +769,7 @@
             ]
         },
         {
-            "tense": "subjuntiu_present",
+            "tense": "subjuntiu_imperfet",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -874,7 +874,7 @@
             ]
         },
         {
-            "tense": "subjuntiu_present",
+            "tense": "subjuntiu_plusquamperfet",
             "conjugation": [
                 {
                     "pronoun": "jo",
@@ -988,7 +988,7 @@
             ]
         },
         {
-            "tense": "personals_formes no personals",
+            "tense": "personals_formes_no_personals",
             "conjugation": [
                 {
                     "pronoun": "Infinitiu",

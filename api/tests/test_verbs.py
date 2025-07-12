@@ -28,7 +28,7 @@ def test_parse_verb_conjugation_data_with_local_data(sample_html):
 
 @pytest.mark.asyncio
 async def test_parse_verb_conjugation_data_with_remote_data():
-    verb = "eixir"
+    verb = "anar"
     response = await Fetch(
         f"https://www.softcatala.org/conjugador-de-verbs/verb/{verb}"
     ).get()
