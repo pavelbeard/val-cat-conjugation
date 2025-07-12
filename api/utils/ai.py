@@ -1,31 +1,42 @@
 import abc
 from enum import Enum
+from functools import partial
+from typing import Callable, Dict, Type
 
+import ollama
 import openai
 
 from api.core.config import settings
+from api.schemas.verbs import TenseBlocks, tense_block_response
 from api.utils.logger import create_logger
 
 logger = create_logger(__name__)
+
 
 class AIHandlerEnum(Enum):
     """
     Enum to define the types of AI handlers available.
     """
+
     CHATGPT = "chatgpt"
-    # Add other AI handlers here as needed, e.g., "google", "azure", etc.
+    OLLAMA = "ollama"
+
 
 class AIHandler(abc.ABC):
+    """
+    Abstract base class for AI handlers.
+    """
+
     model: str = ""
 
-    def __init__(self, api_key: str):
-        pass
+    def __init__(self, api_key: str, model: str):
+        self.api_key = api_key
+        self.model = model
 
     @abc.abstractmethod
-    def query_api(self, *args, **kwargs):
+    async def query_api(self, messages: list, **kwargs):
         """
-        Abstract method to query the AI API.
-        Must be implemented by subclasses.
+        Abstract method to query the AI API. Must be implemented by subclasses.
         """
         raise NotImplementedError("Subclasses must implement this method.")
 
@@ -35,57 +46,101 @@ class ChatGPTHandler(AIHandler):
     A class to handle interactions with OpenAI's ChatGPT API.
     """
 
-    model: str = settings.AI_MODEL
+    model: str = ""
 
-    def __init__(self, api_key: str = settings.AI_SECRET_KEY):
-        """
-        Initialize the ChatGPTHandler with the OpenAI API key.
-        """
-        openai.api_key = api_key
+    def __init__(
+        self, api_key: str = settings.AI_SECRET_KEY, model: str = settings.AI_MODEL
+    ):
+        super().__init__(api_key, model)
+        self.client = openai.OpenAI(api_key=self.api_key)
 
     def query_api(self, messages: list, **kwargs):
         """
-        Query the OpenAI ChatGPT API with the provided query string.
-
-        :param query: The query string to send to the API.
-        :param messages: A list of messages to include in the API call.
-        :param kwargs: Additional parameters for the API call.
-        :return: The response from the API.
+        Query the OpenAI ChatGPT API with the provided messages.
         """
-        logger.info(f"Querying OpenAI API with model {self.model} and query: {messages}")
-
+        logger.info(f"Querying OpenAI API with model {self.model}")
         if not messages:
             raise ValueError("Messages parameter is required for ChatGPT API call.")
-        
-        result = None
-        
-        try:
 
-            response = openai.ChatCompletion.create(
+        try:
+            response = self.client.chat.completions.parse(
                 model=self.model, messages=messages, **kwargs
             )
-            result = response.choices[0].message.content.strip() if response.choices else None
-        except openai.AuthenticationError as e:
-            logger.error(f"Authentication error: {e}")
-            result = None
+            return response.choices[0].message.content
         except openai.APIError as e:
-            logger.error(f"API error: {e}")
-            result = None
+            logger.error(f"OpenAI API error: {e}")
+            raise
         except Exception as e:
-            logger.error(f"Unexpected error: {e}")
-            result = None
+            logger.error(f"An unexpected error occurred: {e}")
+            raise
 
-        return result
-    
-    
-def ai_handler_factory(handler_type: AIHandlerEnum, api_key: str = settings.AI_SECRET_KEY) -> AIHandler:
+class OllamaHandler(AIHandler):
     """
-    Factory function to create an AI handler instance.
+    A class to handle interactions with a local Ollama API.
+    """
+
+    model: str = ""
+
+    def __init__(self, api_key: str = "test_api", model: str = settings.AI_MODEL):
+        super().__init__(api_key, model)
+        self.client = ollama.Client
+
+    def query_api(self, messages: list, **kwargs):
+        """
+        Query the Ollama API with the provided messages.
+        """
+        logger.info(
+            f"Querying Ollama API with model {self.model} and messages: {messages}"
+        )
+        if not messages:
+            raise ValueError("Messages parameter is required for API call.")
+
+        try:
+            client_instance = self.client(host="http://localhost:11434")
+            response_data = client_instance.chat(
+                model=self.model,
+                messages=messages,
+                stream=False,
+                **kwargs,
+            )
+            if response_data and response_data.get("done"):
+                return response_data.get("message", {}).get("content")
+        except Exception as e:
+            logger.error(f"An unexpected error occurred: {e}")
+        return None
+
+
+# Registry of available AI handlers
+_ai_handler_registry: Dict[AIHandlerEnum, Type[AIHandler]] = {
+    AIHandlerEnum.CHATGPT: ChatGPTHandler,
+    AIHandlerEnum.OLLAMA: OllamaHandler,
+}
+
+
+def ai_handler_factory(
+    handler_type: AIHandlerEnum,
+    api_key: str = settings.AI_SECRET_KEY,
+    model: str = settings.AI_MODEL,
+) -> AIHandler:
+    """
+    Factory function to create an AI handler instance based on the type.
+
     :param handler_type: The type of AI handler to create.
     :param api_key: The API key for the handler.
     :return: An instance of the specified AI handler.
     """
-    if handler_type == AIHandlerEnum.CHATGPT:
-        return ChatGPTHandler(api_key=api_key)
-    # Add other AI handler types here as needed
-    raise ValueError(f"Unknown AI handler type: {handler_type}")
+    handler_class = _ai_handler_registry.get(handler_type)
+    if not handler_class:
+        raise ValueError(f"Unknown AI handler type: {handler_type}")
+    return handler_class(api_key=api_key, model=model)
+
+
+def chatgpt_client() -> Callable:
+    client = ai_handler_factory(handler_type=AIHandlerEnum.CHATGPT)
+
+    return partial(
+        client.query_api,
+        max_tokens=2048,
+        temperature=0.05,
+        response_format=TenseBlocks
+    )

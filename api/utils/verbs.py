@@ -1,66 +1,136 @@
+import json
 import os
 import re
-from typing import Any, Generator
+from textwrap import dedent
+from typing import Any, Callable, Dict, Generator, List
 
 from bs4 import BeautifulSoup, NavigableString
 from bs4.filter import _AtMostOneElement
 
-from api.schemas.verbs import VerbOut
-from api.utils.ai import AIHandlerEnum, ai_handler_factory
+from api.schemas.verbs import VerbOut, VerbTranslate
+from api.types.verbs import TENSE_BLOCKS
+from api.utils.logger import create_logger
+
+logger = create_logger(__name__)
 
 prompts_path = os.path.join(os.path.dirname(__file__), "prompts", "verbs")
 
 
-def extract_translations(data: VerbOut) -> Generator[str, None, None]:
+def create_translation_prompt(
+    data: Any,
+) -> Dict[str, str]:
+    with open(os.path.join(prompts_path, "mini-translator.md"), "r", encoding="utf-8") as f:
+        translator = f.read()
+
+    system_prompt = {
+        "role": "system",
+        "content": dedent(translator),
+    }
+
+    user_prompt = {
+        "role": "user",
+        "content": f"Tradúceme las siguientes formas verbales al español, [{data}]",
+    }
+
+    return [
+        system_prompt,
+        user_prompt,
+    ]
+
+
+def extract_forms(data: VerbOut) -> Generator[Dict[str, str], None, None]:
     """
     Extract translations from the provided VerbOut data.
     """
+
     for tense in data.conjugation:
+        yield {
+            "tense": tense.tense,
+            "forms": [entry.forms[0] for entry in tense.conjugation],
+        }
+
+
+def update_translations(data: VerbTranslate, translations: List[str]) -> VerbTranslate:
+    """
+    Update the translations in the provided VerbTranslate data with the given list of translations.
+    """
+    copy_data = data.model_copy(deep=True)
+
+    for i, tense in enumerate(copy_data.conjugation):
         for entry in tense.conjugation:
-            yield entry.translation
+            entry.translation = translations[i]["forms"].pop(0)
+
+    return copy_data
 
 
-def update_translations(data: VerbOut, translations: list[str]) -> VerbOut:
+def handle_ai_response(response: str) -> List[str]:
     """
-    Update the translations in the provided VerbOut data with the given list of translations.
+    Handle the AI response and extract translations.
+    This function assumes the response is a JSON string containing a list of translations.
     """
-    idx = 0
-    for tense in data.conjugation:
-        for entry in tense.conjugation:
-            entry.translation = translations[idx]
-            idx += 1
+    try:
+        # Attempt to parse the response as JSON
+        python_object = json.loads(response)
+        if isinstance(python_object, dict) and python_object.get("result"):
+            return python_object["result"]
 
-    return data
+        raise ValueError(
+            "Response is not a valid JSON object or does not contain 'result' key."
+        )
+    except (json.JSONDecodeError, ValueError, Exception):
+        # If parsing fails, try to parse this way:
+
+        try:
+            stripped_response = response.strip("```json")
+            python_object = json.loads(stripped_response)
+            if isinstance(python_object, list):
+                return python_object
+            raise ValueError("Parsed response is not a list.")
+        except (json.JSONDecodeError, ValueError):
+            # If all parsing attempts fail, return an empty list
+            logger.error("Failed to parse AI response:", response)
+
+        return []
 
 
-def perform_ai_translation(data: VerbOut) -> VerbOut:
+def perform_ai_translation(
+    data: VerbTranslate,
+    ai_client: Callable = None,
+) -> VerbTranslate:
     """
-    This function is a placeholder for an AI-based translation service.
-    It should be replaced with actual AI translation logic.
+    :param data: The VerbTranslate data containing the verb to be translated.
+    :param ai_handler_type: The type of AI handler to use for translation.
+    :param ai_settings: Additional settings for the AI handler.
+    :param ai_client: The AI client function to use for making requests.
+    :return: A VerbTranslate object with updated translations.
     """
-    # For now, we just return the text as is.
-    translations = list(extract_translations(data))
+    if ai_client is None:
+        raise ValueError("AI client function must be provided.")
 
-    with open(os.path.join(prompts_path, "translator.md"), "r", encoding="utf-8") as f:
-        translator = f.read()
+    extracted_forms: TENSE_BLOCKS = list(extract_forms(data))
 
-    ai_handler = ai_handler_factory(
-        AIHandlerEnum.CHATGPT,
-    )
-    response = ai_handler.query_api(
-        messages=[
-            {
-                "role": "system",
-                "content": translator,
-            },
-            {
-                "role": "user",
-                "content": f"Tradúceme las siguientes formas verbales al español, [{translations}]",
-            },
-        ],
-    )
+    # new code
 
-    translated_list = response.choices[0].message.content.strip().split(", ")
+    translated_list: TENSE_BLOCKS = []
+
+    for d in extracted_forms:
+        messages = create_translation_prompt(d)
+        response = ai_client(messages=messages)
+        handled_response = handle_ai_response(response)
+
+        if handled_response:
+            translated_list.extend(handled_response)
+        else:
+            raise ValueError(f"Failed to handle AI response for tense: {d['tense']}")
+
+    # old code
+
+    # messages = create_translation_prompt(extracted_forms)
+    # response = ai_client(messages=messages)
+    # translated_list = handle_ai_response(response)
+
+    if not translated_list:
+        raise ValueError("No translations were returned from the AI client.")
 
     return update_translations(data, translated_list)
 
@@ -110,46 +180,33 @@ def create_mode_from_table(tense: str, table: _AtMostOneElement | int | Any):
     return mode
 
 
-def parse_verb_conjugation_data(html: str):
+def parse_verb_conjugation_data(html: str) -> list[dict]:
     """
-    Parse the HTML string containing verb conjugation data.
-    This function should extract the relevant conjugation information
-    and return it in a structured format.
+    Parse the HTML string containing verb conjugation data
+    and return a list of mode dictionaries.
     """
     soup = BeautifulSoup(html, "lxml")
+    tabs = [
+        tab
+        for tab in soup.find_all("div", class_="result-conjugador")
+        if tab.get("id") != "definicions"
+    ]
 
-    # Example parsing logic (to be replaced with actual logic)
+    tenses: list[dict] = []
+    for tab in tabs:
+        h4 = tab.find("h4")
+        title = h4.text.strip() if h4 else ""
+        if not re.match(r"^(Mode|Formes)", title):
+            continue
 
-    conjugation_data = soup.find_all("div", class_="result-conjugador")
+        mode_prefix = ""
+        if title != "Formes no personals":
+            mode_prefix = title.split()[-1].lower()
 
-    tenses = []
-
-    for tab in conjugation_data:
-        if tab.attrs.get("id") == "definicions":
-            break
-
-        title = None
-
-        if hasattr(tab.find("h4"), "text"):
-            title = tab.find("h4").text.strip()
-
-        tense_title = (
-            tab.find("h4")
-            .find_next_sibling("div", class_="col-md-12")
-            .find("div", class_="panel panel-primary")
-            .find("div", class_="panel-heading")
-            .text.strip()
-        )
-
-        assert re.match(r"^Mode|^Formes", title), "Title does not match expected value"
-
-        tense_name = title.split()[-1].lower() + "_" + tense_title.lower()
-
-        tables = tab.find_all("table")
-
-        for table in tables:
-            assert table is not None, "Table not found in the HTML"
-
+        for table in tab.find_all("table"):
+            heading = table.find_previous_sibling("div", class_="panel-heading")
+            slug = heading.text.strip().lower().replace(" ", "_") if heading else ""
+            tense_name = f"{mode_prefix}_{slug}" if mode_prefix else slug
             tenses.append(create_mode_from_table(tense_name, table))
 
     return tenses
