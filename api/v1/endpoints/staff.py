@@ -1,15 +1,15 @@
 from fastapi import APIRouter
 
 from api.core.config import settings
-from api.db.client import db
 from api.utils.exceptions import AppException, HttpStatus
+from api.utils.queries import staff as staff_queries
 
 router = APIRouter(tags=["System"])
 
 
 @router.get("/health")
 async def health_check():
-    return {"collections": db.list_collection_names()}
+    return {"collections": staff_queries.list_collections()}
 
 
 @router.get("/env")

@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 CONSTANTS = {
     "ENV_FILE": ".env",
-    "AI_DEFAULT_MODEL": "gpt4o-mini",
+    "AI_DEFAULT_MODEL": "gpt-4o-mini",
 }
 
 
@@ -22,7 +22,19 @@ class Settings(BaseSettings):
         description="The API version prefix.",
     )
 
-    # MongoDB connection string
+    # MongoDB credentials
+    MONGODB_USER: str = Field(
+        default="admin",
+        description="The MongoDB username.",
+        env="MONGODB_USER",
+    )
+    MONGODB_PASSWORD: str = Field(
+        default="admin",
+        description="The MongoDB password.",
+        env="MONGODB_PASSWORD", 
+    )
+    
+    # MongoDB connection URL and database name
     MONGODB_URL: str = Field(
         default="mongodb://localhost:27017",
         description="The MongoDB connection string.",
@@ -44,4 +56,16 @@ class Settings(BaseSettings):
     )
 
 
+class TestSettings(Settings):
+    """
+    Settings for testing environment.
+    """
+
+    model_config = SettingsConfigDict(
+        env_file=".env.test",
+        env_file_encoding="utf-8",
+    )
+
+
 settings = Settings()
+test_settings = TestSettings()

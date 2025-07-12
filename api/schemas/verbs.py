@@ -1,5 +1,6 @@
 from datetime import datetime
 from typing import List, Optional
+
 from openai import BaseModel
 
 
@@ -42,6 +43,22 @@ class VerbUpdate(VerbBase):
     pass
 
 
+class VerbTranslate(VerbBase):
+    """
+    Model for verb translation.
+    """
+
+    conjugation: List[VerbMode]
+    created_at: datetime
+
+    @classmethod
+    def model_validate_json(cls, data):
+        """
+        Validate and convert JSON data to a VerbTranslate instance.
+        """
+        return cls.model_validate(data)
+
+
 class VerbOut(VerbBase):
     """
     Output model for a verb.
@@ -65,3 +82,12 @@ class VerbOut(VerbBase):
                 data,
             )
         )
+
+
+class TenseBlock(BaseModel):
+    tense: str
+    forms: List[str]
+
+
+class TenseBlocks(BaseModel):
+    result: List[TenseBlock]

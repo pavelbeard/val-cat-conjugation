@@ -48,3 +48,7 @@ __pycache__
 
 # prompts
 .prompts.md
+
+# tests
+.pytest_cache
+.coverage

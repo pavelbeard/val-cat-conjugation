@@ -1,20 +1,21 @@
 from datetime import datetime
+from typing import Callable
 
-from api.db.client import db
-from api.schemas.verbs import VerbCreate, VerbOut
+from api.schemas.verbs import VerbCreate, VerbOut, VerbTranslate
 from api.utils import verbs as verbs_utils
 from api.utils.encoders import custom_jsonable_encoder
 from api.utils.exceptions import AppException, HttpStatus
 from api.utils.fetch import Fetch
+from api.utils.queries import verbs as verbs_queries
 
 
-async def create_verb(verb: str):
+async def create_verb(verb: str, ai_client: Callable = None):
     """
     Insert a verb and its full conjugation into the database.
     """
 
     # Check if the verb's conjugation already exists
-    existing_verb = db.verbs.find_one({"infinitive": verb})
+    existing_verb = verbs_queries.find_verb_by_infinitive(verb)
     if existing_verb and existing_verb.get("conjugation"):
         return custom_jsonable_encoder(existing_verb)
 
@@ -25,21 +26,19 @@ async def create_verb(verb: str):
     conjugation_data = verbs_utils.parse_verb_conjugation_data(response.text)
 
     conjugated_verb = verbs_utils.perform_ai_translation(
-        {
-            "infinitive": verb,
-            "translation": verb,
-            "conjugation": conjugation_data,
-            "created_at": datetime.now().isoformat(),
-        }
+        data=VerbTranslate(
+            infinitive=verb,
+            translation=verb,
+            conjugation=conjugation_data,
+            created_at=datetime.now().isoformat(),
+        ),
+        ai_client=ai_client,
     )
 
-    validated_verb = VerbCreate.model_validate(conjugated_verb)
+    validated_verb = VerbCreate.model_validate(conjugated_verb.model_dump())
 
-    created_or_updated_verb = db.verbs.find_one_and_update(
-        {"infinitive": validated_verb.infinitive},
-        {"$set": validated_verb.model_dump()},
-        upsert=True,
-        return_document=True,
+    created_or_updated_verb = verbs_queries.find_one_and_update_verb(
+        validated_verb.infinitive, validated_verb.model_dump()
     )
 
     return custom_jsonable_encoder(created_or_updated_verb)
@@ -49,7 +48,7 @@ def get_verbs():
     """
     Retrieve a list of verbs.
     """
-    verbs = db.verbs.find().to_list(100)
+    verbs = verbs_queries.find_first_100_verbs()
     validated_verbs = VerbOut.model_validate_many(verbs)
 
     return validated_verbs
@@ -59,7 +58,7 @@ def get_verb(infinitive: str):
     """
     Retrieve a single verb by its ID.
     """
-    verb = db.verbs.find_one({"infinitive": infinitive})
+    verb = verbs_queries.find_verb_by_infinitive(infinitive)
 
     if not verb:
         raise AppException(HttpStatus.NOT_FOUND, "Verb not found")
