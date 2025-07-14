@@ -1,0 +1,613 @@
+[
+  {
+    "infinitive": "anar-se",
+    "moods": [
+      {
+        "mood": "Indicatiu",
+        "tenses": [
+          {
+            "conjugation": [
+              {
+                "forms": ["jo me'n vaig"],
+                "pronoun": "jo",
+                "translation": "yo me voy"
+              },
+              {
+                "forms": ["tu te'n vas"],
+                "pronoun": "tu",
+                "translation": "tú te vas"
+              },
+              {
+                "forms": ["ell/ella se'n va"],
+                "pronoun": "ell/ella",
+                "translation": "él/ella se va"
+              },
+              {
+                "forms": ["nosaltres ens en anem"],
+                "pronoun": "nosaltres",
+                "translation": "nosotros/as nos vamos"
+              },
+              {
+                "forms": ["vosaltres us en aneu"],
+                "pronoun": "vosaltres",
+                "translation": "vosotros/as os vais"
+              },
+              {
+                "forms": ["ells/elles se'n van"],
+                "pronoun": "ells/elles",
+                "translation": "ellos/as se van"
+              }
+            ],
+            "tense": "present"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["jo me n'he anat"],
+                "pronoun": "jo",
+                "translation": "yo me he ido"
+              },
+              {
+                "forms": ["tu te n'has anat"],
+                "pronoun": "tu",
+                "translation": "tú te has ido"
+              },
+              {
+                "forms": ["ell/ella se n'ha anat"],
+                "pronoun": "ell/ella",
+                "translation": "él/ella se ha ido"
+              },
+              {
+                "forms": ["nosaltres ens en hem anat"],
+                "pronoun": "nosaltres",
+                "translation": "nosotros/as nos hemos ido"
+              },
+              {
+                "forms": ["vosaltres us en heu anat"],
+                "pronoun": "vosaltres",
+                "translation": "vosotros/as os habéis ido"
+              },
+              {
+                "forms": ["ells/elles se n'han anat"],
+                "pronoun": "ells/elles",
+                "translation": "ellos/as se han ido"
+              }
+            ],
+            "tense": "perfet"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["jo me'n anava"],
+                "pronoun": "jo",
+                "translation": "yo me iba"
+              },
+              {
+                "forms": ["tu te'n anaves"],
+                "pronoun": "tu",
+                "translation": "tú te ibas"
+              },
+              {
+                "forms": ["ell/ella se'n anava"],
+                "pronoun": "ell/ella",
+                "translation": "él/ella se iba"
+              },
+              {
+                "forms": ["nosaltres ens en anàvem"],
+                "pronoun": "nosaltres",
+                "translation": "nosotros/as nos íbamos"
+              },
+              {
+                "forms": ["vosaltres us en anàveu"],
+                "pronoun": "vosaltres",
+                "translation": "vosotros/as os ibais"
+              },
+              {
+                "forms": ["ells/elles se'n anaven"],
+                "pronoun": "ells/elles",
+                "translation": "ellos/as se iban"
+              }
+            ],
+            "tense": "imperfet"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["jo me n'havia anat"],
+                "pronoun": "jo",
+                "translation": "yo me había ido"
+              },
+              {
+                "forms": ["tu te n'havies anat"],
+                "pronoun": "tu",
+                "translation": "tú te habías ido"
+              },
+              {
+                "forms": ["ell/ella se n'havia anat"],
+                "pronoun": "ell/ella",
+                "translation": "él/ella se había ido"
+              },
+              {
+                "forms": ["nosaltres ens en havíem anat"],
+                "pronoun": "nosaltres",
+                "translation": "nosotros/as nos habíamos ido"
+              },
+              {
+                "forms": ["vosaltres us en havíeu anat"],
+                "pronoun": "vosaltres",
+                "translation": "vosotros/as os habíais ido"
+              },
+              {
+                "forms": ["ells/elles se n'havien anat"],
+                "pronoun": "ells/elles",
+                "translation": "ellos/as se habían ido"
+              }
+            ],
+            "tense": "plusquamperfet"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["jo me'n aní"],
+                "pronoun": "jo",
+                "translation": "yo me fui"
+              },
+              {
+                "forms": ["tu te'nanares"],
+                "pronoun": "tu",
+                "translation": "tú te fuiste"
+              },
+              {
+                "forms": ["ell/ella se'n anà"],
+                "pronoun": "ell/ella",
+                "translation": "él/ella se fue"
+              },
+              {
+                "forms": ["nosaltres ens en anàrem"],
+                "pronoun": "nosaltres",
+                "translation": "nosotros/as nos fuimos"
+              },
+              {
+                "forms": ["vosaltres us en anàreu"],
+                "pronoun": "vosaltres",
+                "translation": "vosotros/as os fuisteis"
+              },
+              {
+                "forms": ["ells/elles se'n anaren"],
+                "pronoun": "ells/elles",
+                "translation": "ellos/as se fueron"
+              }
+            ],
+            "tense": "passat_simple"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["jo me'n vaig anar"],
+                "pronoun": "jo",
+                "translation": "yo me fui"
+              },
+              {
+                "forms": ["tu te'n vas anar"],
+                "pronoun": "tu",
+                "translation": "tú te fuiste"
+              },
+              {
+                "forms": ["ell/ella se'n va anar"],
+                "pronoun": "ell/ella",
+                "translation": "él/ella se fue"
+              },
+              {
+                "forms": ["nosaltres ens en vam anar", "nosaltres ens en vàrem anar"],
+                "pronoun": "nosaltres",
+                "translation": "nosotros/as nos fuimos"
+              },
+              {
+                "forms": ["vosaltres us en vau anar", "vosaltres us en vàreu anar"],
+                "pronoun": "vosaltres",
+                "translation": "vosotros/as os fuisteis"
+              },
+              {
+                "forms": ["ells/elles se'n van anar", "ells/elles se'n vàren anar"],
+                "pronoun": "ells/elles",
+                "translation": "ellos/as se fueron"
+              }
+            ],
+            "tense": "passat_perifrastic"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["jo me n'haguí anat"],
+                "pronoun": "jo",
+                "translation": "yo me hube ido"
+              },
+              {
+                "forms": ["tu te n'hagueres anat"],
+                "pronoun": "tu",
+                "translation": "tú te hubiste ido"
+              },
+              {
+                "forms": ["ell/ella se n'hagué anat"],
+                "pronoun": "ell/ella",
+                "translation": "él/ella se hubo ido"
+              },
+              {
+                "forms": ["nosaltres ens en haguérem anat"],
+                "pronoun": "nosaltres",
+                "translation": "nosotros/as nos hubimos ido"
+              },
+              {
+                "forms": ["vosaltres us en haguéreu anat"],
+                "pronoun": "vosaltres",
+                "translation": "vosotros/as os hubisteis ido"
+              },
+              {
+                "forms": ["ells/elles se n'hagueren anat"],
+                "pronoun": "ells/elles",
+                "translation": "ellos/as se hubieron ido"
+              }
+            ],
+            "tense": "passat_anterior"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["jo me'n vaig haver anat"],
+                "pronoun": "jo",
+                "translation": "yo me hube ido"
+              },
+              {
+                "forms": ["tu te'n vas haver anat"],
+                "pronoun": "tu",
+                "translation": "tú te hubiste ido"
+              },
+              {
+                "forms": ["ell/ella se'n va haver anat"],
+                "pronoun": "ell/ella",
+                "translation": "él/ella se hubo ido"
+              },
+              {
+                "forms": ["nosaltres ens en vam haver anat", "nosaltres ens en vàrem haver anat"],
+                "pronoun": "nosaltres",
+                "translation": "nosotros/as nos hubimos ido"
+              },
+              {
+                "forms": ["vosaltres us en vau haver anat", "vosaltres us en vàreu haver anat"],
+                "pronoun": "vosaltres",
+                "translation": "vosotros/as os hubisteis ido"
+              },
+              {
+                "forms": ["ells/elles se'n van haver anat", "ells/elles se'n vàren haver anat"],
+                "pronoun": "ells/elles",
+                "translation": "ellos/as se hubieron ido"
+              }
+            ],
+            "tense": "passat_anterior_perifrastic"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["jo me'n aniré"],
+                "pronoun": "jo",
+                "translation": "yo me iré"
+              },
+              {
+                "forms": ["tu te'n aniràs"],
+                "pronoun": "tu",
+                "translation": "tú te irás"
+              },
+              {
+                "forms": ["ell/ella se'n anirà"],
+                "pronoun": "ell/ella",
+                "translation": "él/ella se irá"
+              },
+              {
+                "forms": ["nosaltres ens en anirem"],
+                "pronoun": "nosaltres",
+                "translation": "nosotros/as nos iremos"
+              },
+              {
+                "forms": ["vosaltres us en anireu"],
+                "pronoun": "vosaltres",
+                "translation": "vosotros/as os iréis"
+              },
+              {
+                "forms": ["ells/elles se'n aniran"],
+                "pronoun": "ells/elles",
+                "translation": "ellos/as se irán"
+              }
+            ],
+            "tense": "futur"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["jo me n'hauré anat"],
+                "pronoun": "jo",
+                "translation": "yo me habré ido"
+              },
+              {
+                "forms": ["tu te n'hauràs anat"],
+                "pronoun": "tu",
+                "translation": "tú te habrás ido"
+              },
+              {
+                "forms": ["ell/ella se n'haurà anat"],
+                "pronoun": "ell/ella",
+                "translation": "él/ella se habrá ido"
+              },
+              {
+                "forms": ["nosaltres ens en haurem anat"],
+                "pronoun": "nosaltres",
+                "translation": "nosotros/as nos habremos ido"
+              },
+              {
+                "forms": ["vosaltres us en haureu anat"],
+                "pronoun": "vosaltres",
+                "translation": "vosotros/as os habréis ido"
+              },
+              {
+                "forms": ["ells/elles se n'hauran anat"],
+                "pronoun": "ells/elles",
+                "translation": "ellos/as se habrán ido"
+              }
+            ],
+            "tense": "futur_perfet"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["jo me'n aniria"],
+                "pronoun": "jo",
+                "translation": "yo me iría"
+              },
+              {
+                "forms": ["tu te'n aniries"],
+                "pronoun": "tu",
+                "translation": "tú te irías"
+              },
+              {
+                "forms": ["ell/ella se'n aniria"],
+                "pronoun": "ell/ella",
+                "translation": "él/ella se iría"
+              },
+              {
+                "forms": ["nosaltres ens en aniríem"],
+                "pronoun": "nosaltres",
+                "translation": "nosotros/as nos iríamos"
+              },
+              {
+                "forms": ["vosaltres us en aniríeu"],
+                "pronoun": "vosaltres",
+                "translation": "vosotros/as os iríais"
+              },
+              {
+                "forms": ["ells/elles se'n anirien"],
+                "pronoun": "ells/elles",
+                "translation": "ellos/as se irían"
+              }
+            ],
+            "tense": "condicional"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["jo me n'hauria anat"],
+                "pronoun": "jo",
+                "translation": "yo me habría ido"
+              },
+              {
+                "forms": ["tu te n'hauries anat"],
+                "pronoun": "tu",
+                "translation": "tú te habrías ido"
+              },
+              {
+                "forms": ["ell/ella se n'hauria anat"],
+                "pronoun": "ell/ella",
+                "translation": "él/ella se habría ido"
+              },
+              {
+                "forms": ["nosaltres ens en hauríem anat"],
+                "pronoun": "nosaltres",
+                "translation": "nosotros/as nos habríamos ido"
+              },
+              {
+                "forms": ["vosaltres us en hauríeu anat"],
+                "pronoun": "vosaltres",
+                "translation": "vosotros/as os habríais ido"
+              },
+              {
+                "forms": ["ells/elles se n'haurien anat"],
+                "pronoun": "ells/elles",
+                "translation": "ellos/as se habrían ido"
+              }
+            ],
+            "tense": "condicional_perfet"
+          }
+        ]
+      },
+      {
+        "mood": "Subjuntiu",
+        "tenses": [
+          {
+            "conjugation": [
+              {
+                "forms": ["que jo me'n vaja", "que jo me'n vagi"],
+                "pronoun": "jo",
+                "translation": "que yo me vaya"
+              },
+              {
+                "forms": ["que tu te'n vages", "que tu te'n vagis"],
+                "pronoun": "tu",
+                "translation": "que tú te vayas"
+              },
+              {
+                "forms": ["que ell/ella se'n vaja", "que ell/ella se'n vagi"],
+                "pronoun": "ell/ella",
+                "translation": "que él/ella se vaya"
+              },
+              {
+                "forms": ["que nosaltres ens en vàgem", "que nosaltres ens en vàgim"],
+                "pronoun": "nosaltres",
+                "translation": "que nosotros/as nos vayamos"
+              },
+              {
+                "forms": ["que vosaltres us en vàgeu", "que vosaltres us en vàgiu"],
+                "pronoun": "vosaltres",
+                "translation": "que vosotros/as os vayáis"
+              },
+              {
+                "forms": ["que ells/elles se'n vagen", "que ells/elles se'n vagin"],
+                "pronoun": "ells/elles",
+                "translation": "que ellos/as se vayan"
+              }
+            ],
+            "tense": "present"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["que jo me n'haja anat", "que jo me n'hagi anat"],
+                "pronoun": "jo",
+                "translation": "que yo me haya ido"
+              },
+              {
+                "forms": ["que tu te n'hages anat", "que tu te n'hagis anat"],
+                "pronoun": "tu",
+                "translation": "que tú te hayas ido"
+              },
+              {
+                "forms": ["que ell/ella se n'haja anat", "que ell/ella se n'hagi anat"],
+                "pronoun": "ell/ella",
+                "translation": "que él/ella se haya ido"
+              },
+              {
+                "forms": ["que nosaltres ens en hàgem anat", "que nosaltres ens en hàgim anat"],
+                "pronoun": "nosaltres",
+                "translation": "que nosotros/as nos hayamos ido"
+              },
+              {
+                "forms": ["que vosaltres us en hàgeu anat", "que vosaltres us en hàgiu anat"],
+                "pronoun": "vosaltres",
+                "translation": "que vosotros/as os hayáis ido"
+              },
+              {
+                "forms": ["que ells/elles se n'hagen anat", "que ells/elles se n'hagin anat"],
+                "pronoun": "ells/elles",
+                "translation": "que ellos/as se hayan ido"
+              }
+            ],
+            "tense": "perfet"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["que jo me'n anara", "que jo me'n anàs"],
+                "pronoun": "jo",
+                "translation": "que yo me fuera/fuese"
+              },
+              {
+                "forms": ["que tu te'n anares", "que tu te'n anasses"],
+                "pronoun": "tu",
+                "translation": "que tú te fueras/fueses"
+              },
+              {
+                "forms": ["que ell/ella se'n anara", "que ell/ella se'n anàs"],
+                "pronoun": "ell/ella",
+                "translation": "que él/ella se fuera/fuese"
+              },
+              {
+                "forms": ["que nosaltres ens en anàrem", "que nosaltres ens en anàssem"],
+                "pronoun": "nosaltres",
+                "translation": "que nosotros/as nos fuéramos/fuésemos"
+              },
+              {
+                "forms": ["que vosaltres us en anàreu", "que vosaltres us en anàsseu"],
+                "pronoun": "vosaltres",
+                "translation": "que vosotros/as os fuerais/fueseis"
+              },
+              {
+                "forms": ["que ells/elles se'n anaren", "que ells/elles se'n anassen"],
+                "pronoun": "ells/elles",
+                "translation": "que ellos/as se fueran/fuesen"
+              }
+            ],
+            "tense": "imperfet"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["que jo me n'haguera anat", "que jo me n'hagués anat"],
+                "pronoun": "jo",
+                "translation": "que yo me hubiera/hubiese ido"
+              },
+              {
+                "forms": ["que tu te n'hagueres anat", "que tu te n'haguessis anat"],
+                "pronoun": "tu",
+                "translation": "que tú te hubieras/hubieses ido"
+              },
+              {
+                "forms": ["que ell/ella se n'haguera anat", "que ell/ella se n'hagués anat"],
+                "pronoun": "ell/ella",
+                "translation": "que él/ella se hubiera/hubiese ido"
+              },
+              {
+                "forms": ["que nosaltres ens en haguérem anat", "que nosaltres ens en haguéssim anat"],
+                "pronoun": "nosaltres",
+                "translation": "que nosotros/as nos hubiéramos/hubiésemos ido"
+              },
+              {
+                "forms": ["que vosaltres us en haguéreu anat", "que vosaltres us en haguéssiu anat"],
+                "pronoun": "vosaltres",
+                "translation": "que vosotros/as os hubierais/hubieseis ido"
+              },
+              {
+                "forms": ["que ells/elles se n'hagueren anat", "que ells/elles se n'haguessin anat"],
+                "pronoun": "ells/elles",
+                "translation": "que ellos/as se hubieran/hubiesen ido"
+              }
+            ],
+            "tense": "plusquamperfet"
+          }
+        ]
+      },
+      {
+        "mood": "Imperatiu",
+        "tenses": [
+          {
+            "conjugation": [
+              {
+                "forms": ["vés-te'n"],
+                "pronoun": "tu",
+                "translation": "vete (tú)"
+              },
+              {
+                "forms": ["vagi's ell/ella", "vaja's ell/ella"],
+                "pronoun": "ell/ella",
+                "translation": "váyase (él/ella)"
+              },
+              {
+                "forms": ["anem-nos-en"],
+                "pronoun": "nosaltres",
+                "translation": "vámonos (nosotros/as)"
+              },
+              {
+                "forms": ["aneu-vos-en"],
+                "pronoun": "vosaltres",
+                "translation": "idos (vosotros/as)"
+              },
+              {
+                "forms": ["vagin-se'n ells/elles", "vagen-se'n ells/elles"],
+                "pronoun": "ells/elles",
+                "translation": "váyanse (ellos/as)"
+              }
+            ],
+            "tense": "present"
+          }
+        ]
+      }
+    ],
+    "translation": "irse"
+  }
+]

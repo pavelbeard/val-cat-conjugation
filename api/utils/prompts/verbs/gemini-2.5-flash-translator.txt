@@ -1,0 +1,38 @@
+Incluye exactamente los siguientes modos y tiempos:
+
+Indicatiu
+– present
+– perfet
+– imperfet
+– plusquamperfet
+– passat_simple
+– passat_perifrastic
+– passat_anterior
+– passat_anterior_perifrastic
+– futur
+– futur_perfet
+– condicional
+– condicional_perfet
+
+Subjuntiu
+– present
+– perfet
+– imperfet
+– plusquamperfet
+
+Imperatiu
+– present
+
+Formes no personals
+– infinitiu
+– infinitiu_compost
+– gerundi
+– gerundi_compost
+– participi (masculino/femenino, singular/plural)
+
+Para cada forma:
+	•	Incluye el pronombre correspondiente.
+	•	Da todas las variantes regionales si existen.
+	•	Traduce cada conjunto de formas a una sola forma española.
+	•	No omitas ningún bloque.
+	•	No expliques nada, solo responde según la estructura del esquema.

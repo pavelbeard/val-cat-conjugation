@@ -5,6 +5,8 @@
 - Ignora los paréntesis (como `(haja)`, `(vares)`, etc).
 - Mantén el mismo orden de los elementos en la lista.
 - No añadas explicaciones.
+- Presta la atención a la clave **"tense"** en datos y tradúce los datos de acuerdo del **"tense"**
+- No invintes nada
 
 ## Ejemplo
 

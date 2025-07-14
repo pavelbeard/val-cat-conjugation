@@ -1,4 +1,4 @@
-import os
+from api.core.constants import CONSTANTS
 
-curr_path = os.path.dirname(__file__)
-fixtures_path = os.path.join(curr_path, "fixtures")
+FIXTURES_PATH = CONSTANTS["FIXTURES_PATH"]
+PROMPTS_VERBS_PATH = CONSTANTS["PROMPTS_VERBS_PATH"]

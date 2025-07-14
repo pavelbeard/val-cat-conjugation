@@ -1,4 +1,4 @@
-import json
+from copy import deepcopy
 import os
 import re
 from textwrap import dedent
@@ -7,8 +7,16 @@ from typing import Any, Callable, Dict, Generator, List
 from bs4 import BeautifulSoup, NavigableString
 from bs4.filter import _AtMostOneElement
 
-from api.schemas.verbs import VerbOut, VerbTranslate
-from api.types.verbs import TENSE_BLOCKS
+from api.core.constants import CONSTANTS
+from api.schemas.verbs import (
+    Database__ConjugatedForm,
+    Database__MoodBlock,
+    Database__TenseBlock,
+    AI__VerbOutput,
+    Database__VerbOutput,
+    Fetch__VerbCreated,
+)
+from api.utils.exceptions import AppException, HttpStatus
 from api.utils.logger import create_logger
 
 logger = create_logger(__name__)
@@ -16,132 +24,120 @@ logger = create_logger(__name__)
 prompts_path = os.path.join(os.path.dirname(__file__), "prompts", "verbs")
 
 
-def create_translation_prompt(
-    data: Any,
-) -> Dict[str, str]:
-    with open(os.path.join(prompts_path, "mini-translator.md"), "r", encoding="utf-8") as f:
-        translator = f.read()
-
-    system_prompt = {
-        "role": "system",
-        "content": dedent(translator),
-    }
+def create_translation_prompt_v3(data: Fetch__VerbCreated) -> List[Dict[str, str]]:
+    with open(
+        os.path.join(
+            CONSTANTS["PROMPTS_VERBS_PATH"], "gemini-2.5-flash-translator.txt"
+        ),
+        "r",
+    ) as file:
+        system_prompt = {
+            "role": "system",
+            "content": dedent(file.read()),
+        }
 
     user_prompt = {
         "role": "user",
-        "content": f"Tradúceme las siguientes formas verbales al español, [{data}]",
+        "content": f"Tradúceme el verbo catalán/valenciano '{data.infinitive}' al español en todos modos, tiempos verbales y formas no personal con gerundios y compuestos masculinos/femeninos/plurales.",
     }
 
-    return [
-        system_prompt,
-        user_prompt,
-    ]
+    return [system_prompt, user_prompt]
 
 
-def extract_forms(data: VerbOut) -> Generator[Dict[str, str], None, None]:
+def split_forms_non_personals_untranslated(
+    mood_block: Database__MoodBlock,
+) -> List[Database__TenseBlock]:
     """
-    Extract translations from the provided VerbOut data.
+    Split the forms of non-personal verbs into separate blocks.
+    This is used when the verb has no translation.
     """
+    name2key = {
+        "Infinitiu": "infinitiu",
+        "Infinitiu compost": "infinitiu_compost",
+        "Gerundi": "gerundi",
+        "Gerundi compost": "gerundi_compost",
+        "Participi": "participi",
+    }
 
-    for tense in data.conjugation:
-        yield {
-            "tense": tense.tense,
-            "forms": [entry.forms[0] for entry in tense.conjugation],
-        }
+    new_tenses: List[Database__TenseBlock] = []
+
+    for item in mood_block.tenses[0].conjugation:
+        key = name2key[item.pronoun]
+
+        if key != name2key["Participi"]:
+            conj = [deepcopy(item)]
+            conj[0].pronoun = key
+            conj[0].forms = [item.forms[0]]  # Keep only the first
+
+        else:
+            conj = []
+            for f in item.forms:
+                c = deepcopy(item)
+                c.pronoun = key
+                c.forms = [f]
+                conj.append(c)
+
+        new_tenses.append(type(mood_block.tenses[0])(tense=key, conjugation=conj))
+
+    return type(mood_block)(mood="Formes no personals", tenses=new_tenses)
 
 
-def update_translations(data: VerbTranslate, translations: List[str]) -> VerbTranslate:
-    """
-    Update the translations in the provided VerbTranslate data with the given list of translations.
-    """
+def update_translations_v3(
+    data: Fetch__VerbCreated, translated_data: AI__VerbOutput
+) -> Database__VerbOutput:
     copy_data = data.model_copy(deep=True)
 
-    for i, tense in enumerate(copy_data.conjugation):
-        for entry in tense.conjugation:
-            entry.translation = translations[i]["forms"].pop(0)
+    copy_data.translation = translated_data.translation
+
+    for idx, m in enumerate(copy_data.moods):
+        if m.mood == "formes_no_personals":
+            # If the verb has no translation, split the forms into separate blocks
+            copy_data.moods[idx] = split_forms_non_personals_untranslated(m)
+            break
+        
+    for i, mood in enumerate(copy_data.moods):
+        for j, entry in enumerate(mood.tenses):
+            for k, conjugation in enumerate(entry.conjugation):
+                conjugation.translation = (
+                    translated_data.moods[i].tenses[j].conjugation[k].translation
+                )
+                
 
     return copy_data
 
 
-def handle_ai_response(response: str) -> List[str]:
-    """
-    Handle the AI response and extract translations.
-    This function assumes the response is a JSON string containing a list of translations.
-    """
-    try:
-        # Attempt to parse the response as JSON
-        python_object = json.loads(response)
-        if isinstance(python_object, dict) and python_object.get("result"):
-            return python_object["result"]
-
-        raise ValueError(
-            "Response is not a valid JSON object or does not contain 'result' key."
-        )
-    except (json.JSONDecodeError, ValueError, Exception):
-        # If parsing fails, try to parse this way:
-
-        try:
-            stripped_response = response.strip("```json")
-            python_object = json.loads(stripped_response)
-            if isinstance(python_object, list):
-                return python_object
-            raise ValueError("Parsed response is not a list.")
-        except (json.JSONDecodeError, ValueError):
-            # If all parsing attempts fail, return an empty list
-            logger.error("Failed to parse AI response:", response)
-
-        return []
-
-
-def perform_ai_translation(
-    data: VerbTranslate,
+async def perform_ai_translation_v3(
+    data: Fetch__VerbCreated,
     ai_client: Callable = None,
-) -> VerbTranslate:
+) -> AI__VerbOutput:
     """
-    :param data: The VerbTranslate data containing the verb to be translated.
-    :param ai_handler_type: The type of AI handler to use for translation.
-    :param ai_settings: Additional settings for the AI handler.
-    :param ai_client: The AI client function to use for making requests.
-    :return: A VerbTranslate object with updated translations.
+    Perform AI translation on the provided verb.
+    This function is similar to perform_ai_translation but uses a different approach.
     """
+    if data is None:
+        raise AppException(
+            HttpStatus.BAD_REQUEST, "Invalid data provided for translation"
+        )
+
     if ai_client is None:
-        raise ValueError("AI client function must be provided.")
+        raise AppException(
+            HttpStatus.BAD_REQUEST, "AI client function must be provided."
+        )
 
-    extracted_forms: TENSE_BLOCKS = list(extract_forms(data))
+    messages = create_translation_prompt_v3(data)
+    translated_data: AI__VerbOutput = await ai_client(messages=messages)
 
-    # new code
+    if not translated_data:
+        raise AppException(
+            HttpStatus.INTERNAL_SERVER_ERROR,
+            "No translations received from the AI client.",
+        )
 
-    translated_list: TENSE_BLOCKS = []
-
-    for d in extracted_forms:
-        messages = create_translation_prompt(d)
-        response = ai_client(messages=messages)
-        handled_response = handle_ai_response(response)
-
-        if handled_response:
-            translated_list.extend(handled_response)
-        else:
-            raise ValueError(f"Failed to handle AI response for tense: {d['tense']}")
-
-    # old code
-
-    # messages = create_translation_prompt(extracted_forms)
-    # response = ai_client(messages=messages)
-    # translated_list = handle_ai_response(response)
-
-    if not translated_list:
-        raise ValueError("No translations were returned from the AI client.")
-
-    return update_translations(data, translated_list)
+    return update_translations_v3(data=data, translated_data=translated_data)
 
 
-def create_mode_from_table(tense: str, table: _AtMostOneElement | int | Any):
-    mode = {
-        "tense": None,
-        "conjugation": None,
-    }
-
-    conjugation = []
+def create_tense_block_from_table(tense: str, table: _AtMostOneElement | int | Any):
+    conjugation: List[Database__ConjugatedForm] = []
 
     for row in table.find_all("tr"):
         pronoun = row.find("th").text.strip()
@@ -166,18 +162,17 @@ def create_mode_from_table(tense: str, table: _AtMostOneElement | int | Any):
             variation_types = None
 
         conjugation.append(
-            {
-                "pronoun": pronoun,
-                "forms": forms,
-                "variation_types": variation_types,
-                "translation": forms[0],
-            }
+            Database__ConjugatedForm(
+                pronoun=pronoun,
+                forms=forms,
+                variation_types=variation_types,
+                translation=forms[0] if forms else None,
+            )
         )
 
-        mode["tense"] = tense.lower()
-        mode["conjugation"] = conjugation
+    tense_block = Database__TenseBlock(tense=tense.lower(), conjugation=conjugation)
 
-    return mode
+    return tense_block
 
 
 def parse_verb_conjugation_data(html: str) -> list[dict]:
@@ -207,6 +202,52 @@ def parse_verb_conjugation_data(html: str) -> list[dict]:
             heading = table.find_previous_sibling("div", class_="panel-heading")
             slug = heading.text.strip().lower().replace(" ", "_") if heading else ""
             tense_name = f"{mode_prefix}_{slug}" if mode_prefix else slug
-            tenses.append(create_mode_from_table(tense_name, table))
+            tenses.append(create_tense_block_from_table(tense_name, table))
+
+    return tenses
+
+
+def create_tenses_blocks_from_html(
+    tab: str,
+) -> Generator[Any, Any, Database__TenseBlock]:
+    for table in tab.find_all("table"):
+        heading = table.find_previous_sibling("div", class_="panel-heading")
+        tense_name = heading.text.strip().lower().replace(" ", "_") if heading else ""
+        tense_block = create_tense_block_from_table(tense_name, table)
+        yield tense_block
+
+
+def create_tense_blocks(html: str) -> List[Database__MoodBlock]:
+    """
+    Parse the HTML string containing verb conjugation data
+    and return a list of mode dictionaries.
+    """
+    soup = BeautifulSoup(html, "lxml")
+    tabs = [
+        tab
+        for tab in soup.find_all("div", class_="result-conjugador")
+        if tab.get("id") != "definicions"
+    ]
+
+    tenses: List[Database__MoodBlock] = []
+
+    for tab in tabs:
+        h4 = tab.find("h4")
+        title = h4.text.strip() if h4 else ""
+        if not re.match(r"^(Mode|Formes)", title):
+            continue
+
+        mode_prefix = ""
+        if title != "Formes no personals":
+            mode_prefix = title.split()[-1].lower()
+        else:
+            mode_prefix = "formes_no_personals"
+
+        tenses.append(
+            Database__MoodBlock(
+                mood=mode_prefix,
+                tenses=create_tenses_blocks_from_html(tab),
+            )
+        )
 
     return tenses

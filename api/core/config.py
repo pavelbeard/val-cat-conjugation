@@ -1,10 +1,7 @@
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-CONSTANTS = {
-    "ENV_FILE": ".env",
-    "AI_DEFAULT_MODEL": "gpt-4o-mini",
-}
+from api.core.constants import CONSTANTS
 
 
 class Settings(BaseSettings):
@@ -31,9 +28,9 @@ class Settings(BaseSettings):
     MONGODB_PASSWORD: str = Field(
         default="admin",
         description="The MongoDB password.",
-        env="MONGODB_PASSWORD", 
+        env="MONGODB_PASSWORD",
     )
-    
+
     # MongoDB connection URL and database name
     MONGODB_URL: str = Field(
         default="mongodb://localhost:27017",
@@ -46,13 +43,47 @@ class Settings(BaseSettings):
         env="MONGODB_NAME",
     )
 
-    # AI API key
-    AI_SECRET_KEY: str = Field(default="", description="The AI API key.")
+    # AI API keys
+    # GENERAL AI API key for OpenAI, Ollama, etc.
+    AI_SECRET_KEY: str = Field(
+        default="", description="The AI API key.", env="AI_SECRET_KEY"
+    )
 
-    # AI model to use
+    OPENAI_API_KEY: str = Field(
+        default="", description="The OpenAI API key.", env="OPENAI_API_KEY"
+    )
+
+    OLLAMA_API_KEY: str = Field(
+        default="", description="The Ollama API key.", env="OLLAMA_API_KEY"
+    )
+
+    GEMINI_API_KEY: str = Field(
+        default="", description="The Gemini API key.", env="GEMINI_API_KEY"
+    )
+
+    # AI models
+    # GENERAL AI model to use for requests
     AI_MODEL: str = Field(
         default=CONSTANTS["AI_DEFAULT_MODEL"],
         description="The AI model to use for requests.",
+    )
+
+    OPENAI_MODEL: str = Field(
+        default="gpt-4o-mini",
+        description="The OpenAI model to use for requests.",
+        env="OPENAI_MODEL",
+    )
+
+    OLLAMA_MODEL: str = Field(
+        default="llama3",
+        description="The Ollama model to use for requests.",
+        env="OLLAMA_MODEL",
+    )
+
+    GEMINI_MODEL: str = Field(
+        default="gemini-2.5-flash",
+        description="The Gemini model to use for requests.",
+        env="GEMINI_MODEL",
     )
 
 

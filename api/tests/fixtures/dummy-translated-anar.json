@@ -1,0 +1,246 @@
+{
+  "infinitive": "anar",
+  "translation": "ir",
+  "updated_at": "2024-04-23T12:00:00+00:00",
+  "moods": [
+    {
+      "mood": "Indicatiu",
+      "tenses": [
+        {
+          "tense": "present",
+          "conjugation": [
+            { "pronoun": "jo vaig", "translation": "yo voy" },
+            { "pronoun": "tu vas", "translation": "tú vas" },
+            { "pronoun": "ell/ella/vostè va", "translation": "él/ella/usted va" },
+            { "pronoun": "nosaltres anem", "translation": "nosotros vamos" },
+            { "pronoun": "vosaltres aneu", "translation": "vosotros vais" },
+            { "pronoun": "ells/elles/vostès van", "translation": "ellos/ellas/ustedes van" }
+          ]
+        },
+        {
+          "tense": "perfet",
+          "conjugation": [
+            { "pronoun": "jo he anat", "translation": "yo he ido" },
+            { "pronoun": "tu has anat", "translation": "tú has ido" },
+            { "pronoun": "ell/ella/vostè ha anat", "translation": "él/ella/usted ha ido" },
+            { "pronoun": "nosaltres hem anat", "translation": "nosotros hemos ido" },
+            { "pronoun": "vosaltres heu anat", "translation": "vosotros habéis ido" },
+            { "pronoun": "ells/elles/vostès han anat", "translation": "ellos/ellas/ustedes han ido" }
+          ]
+        },
+        {
+          "tense": "imperfet",
+          "conjugation": [
+            { "pronoun": "jo anava", "translation": "yo iba" },
+            { "pronoun": "tu anaves", "translation": "tú ibas" },
+            { "pronoun": "ell/ella/vostè anava", "translation": "él/ella/usted iba" },
+            { "pronoun": "nosaltres anàvem", "translation": "nosotros íbamos" },
+            { "pronoun": "vosaltres anàveu", "translation": "vosotros ibais" },
+            { "pronoun": "ells/elles/vostès anaven", "translation": "ellos/ellas/ustedes iban" }
+          ]
+        },
+        {
+          "tense": "plusquamperfet",
+          "conjugation": [
+            { "pronoun": "jo havia anat", "translation": "yo había ido" },
+            { "pronoun": "tu havies anat", "translation": "tú habías ido" },
+            { "pronoun": "ell/ella/vostè havia anat", "translation": "él/ella/usted había ido" },
+            { "pronoun": "nosaltres havíem anat", "translation": "nosotros habíamos ido" },
+            { "pronoun": "vosaltres havíeu anat", "translation": "vosotros habíais ido" },
+            { "pronoun": "ells/elles/vostès havien anat", "translation": "ellos/ellas/ustedes habían ido" }
+          ]
+        },
+        {
+          "tense": "passat_simple",
+          "conjugation": [
+            { "pronoun": "jo aní", "translation": "yo fui" },
+            { "pronoun": "tuanares", "translation": "tú fuiste" },
+            { "pronoun": "ell/ella/vostè anà", "translation": "él/ella/usted fue" },
+            { "pronoun": "nosaltres anàrem", "translation": "nosotros fuimos" },
+            { "pronoun": "vosaltres anàreu", "translation": "vosotros fuisteis" },
+            { "pronoun": "ells/elles/vostès anaren", "translation": "ellos/ellas/ustedes fueron" }
+          ]
+        },
+        {
+          "tense": "passat_perifrastic",
+          "conjugation": [
+            { "pronoun": "jo vaig anar", "translation": "yo fui" },
+            { "pronoun": "tu vas anar", "translation": "tú fuiste" },
+            { "pronoun": "ell/ella/vostè va anar", "translation": "él/ella/usted fue" },
+            { "pronoun": "nosaltres vam anar", "translation": "nosotros fuimos" },
+            { "pronoun": "vosaltres vau anar", "translation": "vosotros fuisteis" },
+            { "pronoun": "ells/elles/vostès van anar", "translation": "ellos/ellas/ustedes fueron" }
+          ]
+        },
+        {
+          "tense": "passat_anterior",
+          "conjugation": [
+            { "pronoun": "jo haguí anat", "translation": "yo hube ido" },
+            { "pronoun": "tu hagueres anat", "translation": "tú hubiste ido" },
+            { "pronoun": "ell/ella/vostè hagué anat", "translation": "él/ella/usted hubo ido" },
+            { "pronoun": "nosaltres haguérem anat", "translation": "nosotros hubimos ido" },
+            { "pronoun": "vosaltres haguéreu anat", "translation": "vosotros hubisteis ido" },
+            { "pronoun": "ells/elles/vostès hagueren anat", "translation": "ellos/ellas/ustedes hubieron ido" }
+          ]
+        },
+        {
+          "tense": "passat_anterior_perifrastic",
+          "conjugation": [
+            { "pronoun": "jo vaig haver anat", "translation": "yo hube ido" },
+            { "pronoun": "tu vas haver anat", "translation": "tú hubiste ido" },
+            { "pronoun": "ell/ella/vostè va haver anat", "translation": "él/ella/usted hubo ido" },
+            { "pronoun": "nosaltres vam haver anat", "translation": "nosotros hubimos ido" },
+            { "pronoun": "vosaltres vau haver anat", "translation": "vosotros hubisteis ido" },
+            { "pronoun": "ells/elles/vostès van haver anat", "translation": "ellos/ellas/ustedes hubieron ido" }
+          ]
+        },
+        {
+          "tense": "futur",
+          "conjugation": [
+            { "pronoun": "jo aniré", "translation": "yo iré" },
+            { "pronoun": "tu aniràs", "translation": "tú irás" },
+            { "pronoun": "ell/ella/vostè anirà", "translation": "él/ella/usted irá" },
+            { "pronoun": "nosaltres anirem", "translation": "nosotros iremos" },
+            { "pronoun": "vosaltres anireu", "translation": "vosotros iréis" },
+            { "pronoun": "ells/elles/vostès aniran", "translation": "ellos/ellas/ustedes irán" }
+          ]
+        },
+        {
+          "tense": "futur_perfet",
+          "conjugation": [
+            { "pronoun": "jo hauré anat", "translation": "yo habré ido" },
+            { "pronoun": "tu hauràs anat", "translation": "tú habrás ido" },
+            { "pronoun": "ell/ella/vostè haurà anat", "translation": "él/ella/usted habrá ido" },
+            { "pronoun": "nosaltres haurem anat", "translation": "nosotros habremos ido" },
+            { "pronoun": "vosaltres haureu anat", "translation": "vosotros habréis ido" },
+            { "pronoun": "ells/elles/vostès hauran anat", "translation": "ellos/ellas/ustedes habrán ido" }
+          ]
+        },
+        {
+          "tense": "condicional",
+          "conjugation": [
+            { "pronoun": "jo aniria", "translation": "yo iría" },
+            { "pronoun": "tu aniries", "translation": "tú irías" },
+            { "pronoun": "ell/ella/vostè aniria", "translation": "él/ella/usted iría" },
+            { "pronoun": "nosaltres aniríem", "translation": "nosotros iríamos" },
+            { "pronoun": "vosaltres aniríeu", "translation": "vosotros iríais" },
+            { "pronoun": "ells/elles/vostès anirien", "translation": "ellos/ellas/ustedes irían" }
+          ]
+        },
+        {
+          "tense": "condicional_perfet",
+          "conjugation": [
+            { "pronoun": "jo hauria anat", "translation": "yo habría ido" },
+            { "pronoun": "tu hauries anat", "translation": "tú habrías ido" },
+            { "pronoun": "ell/ella/vostè hauria anat", "translation": "él/ella/usted habría ido" },
+            { "pronoun": "nosaltres hauríem anat", "translation": "nosotros habríamos ido" },
+            { "pronoun": "vosaltres hauríeu anat", "translation": "vosotros habríais ido" },
+            { "pronoun": "ells/elles/vostès haurien anat", "translation": "ellos/ellas/ustedes habrían ido" }
+          ]
+        }
+      ]
+    },
+    {
+      "mood": "Subjuntiu",
+      "tenses": [
+        {
+          "tense": "present",
+          "conjugation": [
+            { "pronoun": "jo vagi", "translation": "yo vaya" },
+            { "pronoun": "tu vagis", "translation": "tú vayas" },
+            { "pronoun": "ell/ella/vostè vagi", "translation": "él/ella/usted vaya" },
+            { "pronoun": "nosaltres anem", "translation": "nosotros vayamos" },
+            { "pronoun": "vosaltres aneu", "translation": "vosotros vayáis" },
+            { "pronoun": "ells/elles/vostès vagin", "translation": "ellos/ellas/ustedes vayan" }
+          ]
+        },
+        {
+          "tense": "perfet",
+          "conjugation": [
+            { "pronoun": "jo hagi anat", "translation": "yo haya ido" },
+            { "pronoun": "tu hagis anat", "translation": "tú hayas ido" },
+            { "pronoun": "ell/ella/vostè hagi anat", "translation": "él/ella/usted haya ido" },
+            { "pronoun": "nosaltres hagem anat", "translation": "nosotros hayamos ido" },
+            { "pronoun": "vosaltres hageu anat", "translation": "vosotros hayáis ido" },
+            { "pronoun": "ells/elles/vostès hagin anat", "translation": "ellos/ellas/ustedes hayan ido" }
+          ]
+        },
+        {
+          "tense": "imperfet",
+          "conjugation": [
+            { "pronoun": "jo anés", "translation": "yo fuera/fuese" },
+            { "pronoun": "tu anessis", "translation": "tú fueras/fueses" },
+            { "pronoun": "ell/ella/vostè anés", "translation": "él/ella/usted fuera/fuese" },
+            { "pronoun": "nosaltres anéssim", "translation": "nosotros fuéramos/fuésemos" },
+            { "pronoun": "vosaltres anéssiu", "translation": "vosotros fuerais/fueseis" },
+            { "pronoun": "ells/elles/vostès anessin", "translation": "ellos/ellas/ustedes fueran/fuesen" }
+          ]
+        },
+        {
+          "tense": "plusquamperfet",
+          "conjugation": [
+            { "pronoun": "jo hagués anat", "translation": "yo hubiera/hubiese ido" },
+            { "pronoun": "tu haguessis anat", "translation": "tú hubieras/hubieses ido" },
+            { "pronoun": "ell/ella/vostè hagués anat", "translation": "él/ella/usted hubiera/hubiese ido" },
+            { "pronoun": "nosaltres haguéssim anat", "translation": "nosotros hubiéramos/hubiésemos ido" },
+            { "pronoun": "vosaltres haguéssiu anat", "translation": "vosotros hubierais/hubieseis ido" },
+            { "pronoun": "ells/elles/vostès haguessin anat", "translation": "ellos/ellas/ustedes hubieran/hubiesen ido" }
+          ]
+        }
+      ]
+    },
+    {
+      "mood": "Imperatiu",
+      "tenses": [
+        {
+          "tense": "present",
+          "conjugation": [
+            { "pronoun": "tu vés", "translation": "ve tú" },
+            { "pronoun": "ell/ella/vostè vagi", "translation": "vaya él/ella/usted" },
+            { "pronoun": "nosaltres anem", "translation": "vayamos nosotros" },
+            { "pronoun": "vosaltres aneu", "translation": "id vosotros" },
+            { "pronoun": "ells/elles/vostès vagin", "translation": "vayan ellos/ellas/ustedes" }
+          ]
+        }
+      ]
+    },
+    {
+      "mood": "Formes no personals",
+      "tenses": [
+        {
+          "tense": "infinitiu",
+          "conjugation": [
+            { "pronoun": "anar", "translation": "ir" }
+          ]
+        },
+        {
+          "tense": "infinitiu_compost",
+          "conjugation": [
+            { "pronoun": "haver anat", "translation": "haber ido" }
+          ]
+        },
+        {
+          "tense": "gerundi",
+          "conjugation": [
+            { "pronoun": "anant", "translation": "yendo" }
+          ]
+        },
+        {
+          "tense": "gerundi_compost",
+          "conjugation": [
+            { "pronoun": "havent anat", "translation": "habiendo ido" }
+          ]
+        },
+        {
+          "tense": "participi",
+          "conjugation": [
+            { "pronoun": "anat (masculí singular)", "translation": "ido" },
+            { "pronoun": "anada (femení singular)", "translation": "ida" },
+            { "pronoun": "anats (masculí plural)", "translation": "idos" },
+            { "pronoun": "anades (femení plural)", "translation": "idas" }
+          ]
+        }
+      ]
+    }
+  ]
+}

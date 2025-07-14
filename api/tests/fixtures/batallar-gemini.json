@@ -1,0 +1,333 @@
+[
+  {
+    "infinitive": "batallar",
+    "moods": [
+      {
+        "mood": "Indicatiu",
+        "tenses": [
+          {
+            "conjugation": [
+              {
+                "forms": ["batallo"],
+                "pronoun": "jo",
+                "translation": "batallo"
+              },
+              {
+                "forms": ["batalles"],
+                "pronoun": "tu",
+                "translation": "batallas"
+              },
+              {
+                "forms": ["batalla"],
+                "pronoun": "ell/ella/vostè",
+                "translation": "batalla"
+              },
+              {
+                "forms": ["batallem"],
+                "pronoun": "nosaltres",
+                "translation": "batallamos"
+              },
+              {
+                "forms": ["batalleu"],
+                "pronoun": "vosaltres",
+                "translation": "batalláis"
+              },
+              {
+                "forms": ["batallen"],
+                "pronoun": "ells/elles/vostès",
+                "translation": "batallan"
+              }
+            ],
+            "tense": "Present"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["batallava"],
+                "pronoun": "jo",
+                "translation": "batallaba"
+              },
+              {
+                "forms": ["batallaves"],
+                "pronoun": "tu",
+                "translation": "batallabas"
+              },
+              {
+                "forms": ["batallava"],
+                "pronoun": "ell/ella/vostè",
+                "translation": "batallaba"
+              },
+              {
+                "forms": ["batallàvem"],
+                "pronoun": "nosaltres",
+                "translation": "batallábamos"
+              },
+              {
+                "forms": ["batallàveu"],
+                "pronoun": "vosaltres",
+                "translation": "batallabais"
+              },
+              {
+                "forms": ["batallaven"],
+                "pronoun": "ells/elles/vostès",
+                "translation": "batallaban"
+              }
+            ],
+            "tense": "Imperfet"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["batallí"],
+                "pronoun": "jo",
+                "translation": "batallé"
+              },
+              {
+                "forms": ["batallares"],
+                "pronoun": "tu",
+                "translation": "batallaste"
+              },
+              {
+                "forms": ["batallà"],
+                "pronoun": "ell/ella/vostè",
+                "translation": "batalló"
+              },
+              {
+                "forms": ["batallàrem"],
+                "pronoun": "nosaltres",
+                "translation": "batallamos"
+              },
+              {
+                "forms": ["batallàreu"],
+                "pronoun": "vosaltres",
+                "translation": "batallasteis"
+              },
+              {
+                "forms": ["batallaren"],
+                "pronoun": "ells/elles/vostès",
+                "translation": "batallaron"
+              }
+            ],
+            "tense": "Perfet simple"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["batallaré"],
+                "pronoun": "jo",
+                "translation": "batallaré"
+              },
+              {
+                "forms": ["batallaràs"],
+                "pronoun": "tu",
+                "translation": "batallarás"
+              },
+              {
+                "forms": ["batallarà"],
+                "pronoun": "ell/ella/vostè",
+                "translation": "batallará"
+              },
+              {
+                "forms": ["batallarem"],
+                "pronoun": "nosaltres",
+                "translation": "batallaremos"
+              },
+              {
+                "forms": ["batallareu"],
+                "pronoun": "vosaltres",
+                "translation": "batallaréis"
+              },
+              {
+                "forms": ["batallaran"],
+                "pronoun": "ells/elles/vostès",
+                "translation": "batallarán"
+              }
+            ],
+            "tense": "Futur simple"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["batallaria"],
+                "pronoun": "jo",
+                "translation": "batallaría"
+              },
+              {
+                "forms": ["batallaries"],
+                "pronoun": "tu",
+                "translation": "batallarías"
+              },
+              {
+                "forms": ["batallaria"],
+                "pronoun": "ell/ella/vostè",
+                "translation": "batallaría"
+              },
+              {
+                "forms": ["batallaríem"],
+                "pronoun": "nosaltres",
+                "translation": "batallaríamos"
+              },
+              {
+                "forms": ["batallaríeu"],
+                "pronoun": "vosaltres",
+                "translation": "batallaríais"
+              },
+              {
+                "forms": ["batallarien"],
+                "pronoun": "ells/elles/vostès",
+                "translation": "batallarían"
+              }
+            ],
+            "tense": "Condicional simple"
+          }
+        ]
+      },
+      {
+        "mood": "Subjuntiu",
+        "tenses": [
+          {
+            "conjugation": [
+              {
+                "forms": ["batalli"],
+                "pronoun": "jo",
+                "translation": "batallé"
+              },
+              {
+                "forms": ["batallis"],
+                "pronoun": "tu",
+                "translation": "batalles"
+              },
+              {
+                "forms": ["batalli"],
+                "pronoun": "ell/ella/vostè",
+                "translation": "batallé"
+              },
+              {
+                "forms": ["batallem"],
+                "pronoun": "nosaltres",
+                "translation": "batallemos"
+              },
+              {
+                "forms": ["batalleu"],
+                "pronoun": "vosaltres",
+                "translation": "batalléis"
+              },
+              {
+                "forms": ["batallin"],
+                "pronoun": "ells/elles/vostès",
+                "translation": "batallen"
+              }
+            ],
+            "tense": "Present"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["batallàs"],
+                "pronoun": "jo",
+                "translation": "batallara/batallase"
+              },
+              {
+                "forms": ["batallasses"],
+                "pronoun": "tu",
+                "translation": "batallaras/batallases"
+              },
+              {
+                "forms": ["batallàs"],
+                "pronoun": "ell/ella/vostè",
+                "translation": "batallara/batallase"
+              },
+              {
+                "forms": ["batallàssem"],
+                "pronoun": "nosaltres",
+                "translation": "batalláramos/batallásemos"
+              },
+              {
+                "forms": ["batallàsseu"],
+                "pronoun": "vosaltres",
+                "translation": "batallarais/batallaseis"
+              },
+              {
+                "forms": ["batallassen"],
+                "pronoun": "ells/elles/vostès",
+                "translation": "batallaran/batallasen"
+              }
+            ],
+            "tense": "Imperfet"
+          }
+        ]
+      },
+      {
+        "mood": "Imperatiu",
+        "tenses": [
+          {
+            "conjugation": [
+              {
+                "forms": ["batalla"],
+                "pronoun": "tu",
+                "translation": "batalla"
+              },
+              {
+                "forms": ["batalli"],
+                "pronoun": "ell/ella/vostè",
+                "translation": "batallé"
+              },
+              {
+                "forms": ["batallem"],
+                "pronoun": "nosaltres",
+                "translation": "batallemos"
+              },
+              {
+                "forms": ["batalleu"],
+                "pronoun": "vosaltres",
+                "translation": "batallad"
+              },
+              {
+                "forms": ["batallin"],
+                "pronoun": "ells/elles/vostès",
+                "translation": "batallen"
+              }
+            ],
+            "tense": "Present"
+          }
+        ]
+      },
+      {
+        "mood": "Formes no personals",
+        "tenses": [
+          {
+            "conjugation": [
+              {
+                "forms": ["batallar"],
+                "pronoun": "infinitiu",
+                "translation": "batallar"
+              }
+            ],
+            "tense": "Infinitiu"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["batallant"],
+                "pronoun": "gerundi",
+                "translation": "batallando"
+              }
+            ],
+            "tense": "Gerundi"
+          },
+          {
+            "conjugation": [
+              {
+                "forms": ["batallat", "batallada", "batallats", "batallades"],
+                "pronoun": "participi",
+                "translation": "batallado, batallada, batallados, batalladas"
+              }
+            ],
+            "tense": "Participi"
+          }
+        ]
+      }
+    ],
+    "translation": "batallar"
+  }
+]

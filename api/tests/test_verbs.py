@@ -2,7 +2,7 @@ import os
 
 import pytest
 
-from api.tests.setup import fixtures_path
+from api.tests.setup import FIXTURES_PATH
 from api.utils.fetch import Fetch
 from api.utils.verbs import parse_verb_conjugation_data
 
@@ -10,7 +10,7 @@ from api.utils.verbs import parse_verb_conjugation_data
 @pytest.fixture
 def sample_html():
     with open(
-        os.path.join(fixtures_path, "prettified_anar.html"), "r", encoding="utf-8"
+        os.path.join(FIXTURES_PATH, "prettified_anar.html"), "r", encoding="utf-8"
     ) as f:
         return f.read()
 

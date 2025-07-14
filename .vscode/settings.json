@@ -12,4 +12,9 @@
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
     "python.envFile": "${workspaceFolder}/api/.env",
+    "cSpell.words": [
+        "anar",
+        "OLLAMA",
+        "parlar"
+    ],
 }

@@ -13,7 +13,7 @@ class SeedResponseModel(BaseModel):
 
 @router.post("/seed", response_model=SeedResponseModel)
 async def seed_database():
-    from utils.seed import seed_data
+    from api.utils.seed import seed_data
 
     # Clear existing data
     dropped = verbs_queries.drop_verbs_collection()  # Doesn't drop

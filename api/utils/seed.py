@@ -2,6 +2,8 @@ from datetime import datetime, timezone
 import json
 import os
 
+from api.utils.queries.verbs import insert_many_verbs
+
 abs_file_path = os.path.dirname(os.path.abspath(__file__))
 data_path = os.path.join(abs_file_path, "data")
 files = os.listdir(data_path)
@@ -24,10 +26,15 @@ seed_data = [
     {
         "_id": verb,
         "infinitive": verb,
-        "conjugation": None,
+        "moods": None,
         "translation": translation,
         "source": None,
         "created_at": datetime.now(timezone.utc),
     }
     for verb, translation in infinitives
 ]
+
+
+if __name__ == "__main__":
+    print("Seed data generated:")
+    insert_many_verbs(seed_data)

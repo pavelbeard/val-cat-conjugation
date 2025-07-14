@@ -1,5 +1,5 @@
 import pytest
-from api.utils.ai import AIHandler
+from api.utils.ai.handlers import AIHandler
 
 
 class MockAIHandler(AIHandler):
