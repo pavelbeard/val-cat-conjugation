@@ -1,6 +1,6 @@
 from typing import List
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Response
 from fastapi.responses import JSONResponse
 
 from api.schemas.verbs import Database__VerbOutput
@@ -13,6 +13,7 @@ from api.utils.ai.clients import (
 router = APIRouter()
 
 
+# CREATE
 @router.post(
     "/verbs/{name}", response_model=Database__VerbOutput, response_class=JSONResponse
 )
@@ -27,6 +28,7 @@ async def create_verb(name: str, ai_client: AIHandler = Depends(gemini_client)):
     )
 
 
+# READ
 @router.get(
     "/verbs", response_model=List[Database__VerbOutput], response_class=JSONResponse
 )
@@ -55,3 +57,20 @@ def get_verb(infinitive: str):
         content=verb,
         status_code=200,
     )
+
+
+# UPDATE
+
+# DELETE
+
+
+@router.delete(
+    "/verbs/{infinitive}",
+    response_class=Response,
+)
+def delete_verb(infinitive: str):
+    """
+    Delete a verb by its infinitive form.
+    """
+    verbs_service.delete_verb(infinitive)
+    return Response(status_code=204)

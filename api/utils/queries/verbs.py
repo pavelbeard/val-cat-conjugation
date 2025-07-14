@@ -27,6 +27,12 @@ def find_one_and_update_verb(infinitive: str, update_data: dict):
     )
     
 # DELETE
+def delete_verb_by_infinitive(infinitive: str):
+    """
+    Delete a verb by its infinitive form.
+    """
+    return db.verbs.delete_one({"infinitive": infinitive})
+
 def drop_verbs_collection():
     """
     Drop the verbs collection from the database.

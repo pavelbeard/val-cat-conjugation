@@ -68,3 +68,15 @@ def get_verb(infinitive: str):
         mode="json"
     )
     return content
+
+
+def delete_verb(infinitive: str):
+    """
+    Delete a verb by its infinitive form.
+    """
+    result = verbs_queries.delete_verb_by_infinitive(infinitive)
+
+    if not result:
+        raise AppException(HttpStatus.NOT_FOUND, "Verb not found")
+
+    return "OK"

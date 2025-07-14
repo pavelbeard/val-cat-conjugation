@@ -112,7 +112,7 @@ async def gemini_client() -> Callable:
 
     model_settings: GeminiModelSettings = GeminiModelSettings(
         max_tokens=6144,
-        temperature=0.45,
+        temperature=0.5,
         top_p=0.95,
         gemini_thinking_config={"thinking_budget": 0},
     )

@@ -34,5 +34,6 @@ Para cada forma:
 	•	Incluye el pronombre correspondiente.
 	•	Da todas las variantes regionales si existen.
 	•	Traduce cada conjunto de formas a una sola forma española.
+	•	Traduce absolutamente TODAS las formas. Aunque la traducción parezca repetitiva, incluye una traducción explícita para cada una. No omitas ninguna.
 	•	No omitas ningún bloque.
 	•	No expliques nada, solo responde según la estructura del esquema.
