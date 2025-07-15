@@ -103,7 +103,7 @@ async def gpt4oclient() -> Callable:
     )
 
 
-async def gemini_client() -> Callable:
+async def gemini_client():
     client: PydanticGeminiHandler = ai_handler_factory(
         handler_type=AIHandlerEnum.GEMINI,
         api_key=settings.GEMINI_API_KEY,
@@ -122,3 +122,4 @@ async def gemini_client() -> Callable:
         output_type=AI__VerbOutput,
         **model_settings,
     )
+

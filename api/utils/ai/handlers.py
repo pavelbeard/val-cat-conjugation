@@ -9,9 +9,8 @@ from pydantic_ai.providers.openai import OpenAIProvider
 
 from api.core.config import settings
 from api.schemas.verbs import (
-    AIErrorOutput,
     TenseBlocksV2,
-    TranslationError,
+    AIErrorOutput,
     AI__VerbOutput,
 )
 from api.utils.ai.ai_handler import AIHandler
@@ -258,7 +257,7 @@ class PydanticOpenAIHandler(AIHandler):
             model=model,
             output_type=[
                 kwargs.get("response_format", TenseBlocksV2),
-                TranslationError,
+                AIErrorOutput,
             ],
             system_prompt=system_prompt,
         )
@@ -278,7 +277,7 @@ class PydanticOpenAIHandler(AIHandler):
             return response.output
 
         if response.output and hasattr(response.output, "error"):
-            if isinstance(response.output, TranslationError):
+            if isinstance(response.output, AIErrorOutput):
                 raise AppException(
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     response.output.error,
@@ -333,7 +332,7 @@ class PydanticOpenAIHandlerWithPromptId(AIHandler):
             model=model,
             output_type=[
                 kwargs.get("response_format", TenseBlocksV2),
-                TranslationError,
+                AIErrorOutput,
             ],
             system_prompt=system_prompt,
         )
@@ -353,7 +352,7 @@ class PydanticOpenAIHandlerWithPromptId(AIHandler):
             return response.output
 
         if response.output and hasattr(response.output, "error"):
-            if isinstance(response.output, TranslationError):
+            if isinstance(response.output, AIErrorOutput):
                 raise AppException(
                     HttpStatus.INTERNAL_SERVER_ERROR,
                     response.output.error,

@@ -10,6 +10,13 @@ from api.tests.setup import PROMPTS_VERBS_PATH
 from api.utils.ai.clients import gemini_client
 from api.utils.exceptions import AppException
 
+### PAY ATTENTION
+
+# PLEASE, USE ANOTHER MODELS FOR TESTING, DO NOT USE THE PRODUCTION MODELS
+# TRY TO USE THE PRODUCTION MODELS ONLY FOR PRODUCTION TESTS
+# IF YOU NEED TO TEST THE LOCAL MODELS, USE THE TESTING ENVIRONMENT
+
+### Initialize the test client
 
 client = TestClient(app=app)
 
@@ -103,10 +110,41 @@ class TestGeminiIntegration:
 
         print("Expected exception:", exc_info)
 
+
 class TestCreateVerbIntegration:
     def test_create_verb_integration(self):
-        # Example test for create_verb_v2 function
-        
-        response = client.post("/api/v1/verbs/anar")
-        
-        print("Create Verb Response:", response.json())
+        response = client.post("/api/v1/verbs", json={"name": "tancar"})
+
+        assert response.status_code == 201, (
+            "Verb creation should return status code 201"
+        )
+        assert "infinitive" in response.json(), (
+            "Response should contain 'infinitive' field"
+        )
+        assert response.json()["infinitive"] == "tancar", (
+            "Infinitive should match the input verb"
+        )
+
+class TestOthersEndpointsIntegration:
+    def test_create_get_and_delete_verb_integration(self):
+        # Create a verb
+        create_response = client.post("/api/v1/verbs", json={"name": "tancar"})
+        assert create_response.status_code == 201, (
+            "Verb creation should return status code 201"
+        )
+        verb_infinitive = create_response.json()["infinitive"]
+
+        # Get the created verb
+        get_response = client.get(f"/api/v1/verbs/{verb_infinitive}")
+        assert get_response.status_code == 200, (
+            "Verb retrieval should return status code 200"
+        )
+        assert get_response.json()["infinitive"] == verb_infinitive, (
+            "Retrieved verb should match the created verb"
+        )
+
+        # Delete the created verb
+        delete_response = client.delete(f"/api/v1/verbs/{verb_infinitive}")
+        assert delete_response.status_code == 204, (
+            "Verb deletion should return status code 204"
+        )
