@@ -3,9 +3,12 @@ from typing import Any, Awaitable, Callable, List
 from fastapi import APIRouter, Depends, Response
 from fastapi.responses import JSONResponse
 
-from api.schemas.verbs import Create__Verb, Database__VerbOutput
+from api.schemas.verbs import (
+    Create__Verb,
+    Database__VerbOutput,
+)
 from api.services import verbs as verbs_service
-from api.utils.ai.clients import gemini_client
+from api.utils.ai.clients import detection_client_gemini, translation_client_gemini
 
 router = APIRouter()
 
@@ -14,12 +17,20 @@ router = APIRouter()
 @router.post("/verbs", response_model=Database__VerbOutput, response_class=JSONResponse)
 async def create_verb(
     verb: Create__Verb,
-    ai_client: Callable[..., Awaitable[Any]] = Depends(gemini_client),
+    translation_client: Callable[..., Awaitable[Any]] = Depends(
+        translation_client_gemini
+    ),
+    detection_client: Callable[..., Awaitable[Any]] = Depends(detection_client_gemini),
 ):
     """
     Create a new verb.
     """
-    verb = await verbs_service.create_verb_v2(verb.name, ai_client=ai_client)
+
+    verb = await verbs_service.create_verb_v2(
+        verb.infinitive,
+        translation_client=translation_client,
+        detection_client=detection_client,
+    )
     return JSONResponse(
         content=verb,
         status_code=201,
@@ -42,17 +53,19 @@ def get_verbs():
 
 
 @router.get(
-    "/verbs/{infinitive}",
+    "/verbs/{form}",
     response_model=Database__VerbOutput,
     response_class=JSONResponse,
 )
-def get_verb(infinitive: str):
+async def get_verb(
+    form: str,
+):
     """
-    Retrieve a single verb by its infinitive form.
+    Retrieve a single verb by its form.
     """
-    verb = verbs_service.get_verb(infinitive)
+    data = await verbs_service.get_verb(form=form)
     return JSONResponse(
-        content=verb,
+        content=data,
         status_code=200,
     )
 
@@ -60,6 +73,7 @@ def get_verb(infinitive: str):
 # UPDATE
 
 # DELETE
+
 
 @router.delete(
     "/verbs/{infinitive}",

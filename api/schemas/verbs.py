@@ -166,6 +166,14 @@ class Database__VerbOutput(Database__VerbMain):
 
 
 # AI SCHEMAS
+class AI__ResponseIdentifiedVerb(BaseModel):
+    """
+    Response model for identified a verb in infinitive form.
+    """
+
+    verb: str
+
+
 class AI__ConjugatedForm(BaseModel):
     pronoun: str
     translation: Optional[str] = None
@@ -212,4 +220,4 @@ class Create__Verb(BaseModel):
     Schema for creating a new verb.
     """
 
-    name: str
+    infinitive: str

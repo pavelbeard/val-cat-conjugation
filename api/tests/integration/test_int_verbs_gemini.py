@@ -5,9 +5,9 @@ import pytest
 from fastapi.testclient import TestClient
 
 from api.index import app
-from api.schemas.verbs import AI__VerbOutput
+from api.schemas.verbs import AI__ResponseIdentifiedVerb, AI__VerbOutput
 from api.tests.setup import PROMPTS_VERBS_PATH
-from api.utils.ai.clients import gemini_client
+from api.utils.ai.clients import translation_client_gemini
 from api.utils.exceptions import AppException
 
 ### PAY ATTENTION
@@ -24,7 +24,7 @@ client = TestClient(app=app)
 class TestGeminiIntegration:
     @pytest.fixture
     def ai_client(self):
-        yield gemini_client
+        yield translation_client_gemini
 
     @pytest.fixture
     def initialize_prompts(self):
@@ -125,6 +125,7 @@ class TestCreateVerbIntegration:
             "Infinitive should match the input verb"
         )
 
+
 class TestOthersEndpointsIntegration:
     def test_create_get_and_delete_verb_integration(self):
         # Create a verb
@@ -148,3 +149,82 @@ class TestOthersEndpointsIntegration:
         assert delete_response.status_code == 204, (
             "Verb deletion should return status code 204"
         )
+
+    def test_get_verb_integration_with_existing_form(self):
+        form = "eixir"
+        response = client.get(f"/api/v1/verbs/{form}")
+
+        assert response.status_code == 200, (
+            "Verb retrieval by form should return status code 200"
+        )
+        assert response.json()["infinitive"] == "eixir", (
+            "Retrieved verb should match the infinitive 'eixir'"
+        )
+        
+    def test_get_verb_integration_with_non_existing_form(self):
+        form = "nonexistentform"
+        response = client.get(f"/api/v1/verbs/{form}")
+
+        assert response.status_code == 404, (
+            "Verb retrieval by non-existing form should return status code 404"
+        )
+        assert response.json() == {"detail": "Verb not found", "error_type": "NOT_FOUND"}, (
+            "Response should indicate that the verb was not found"
+        )
+
+class TestMatchVerbLanguage:
+    @pytest.fixture
+    def dummy_verb(self):
+        return "dorm"
+
+    @pytest.fixture
+    def detection_client(self):
+        from api.utils.ai.clients import detection_client_gemini
+
+        yield detection_client_gemini
+
+    @pytest.mark.asyncio
+    async def test_match_verb_language(self, dummy_verb, detection_client):
+        from api.utils.verbs import find_verb_with_ai
+
+        awaited_client = await detection_client()
+
+        result1: AI__ResponseIdentifiedVerb = await find_verb_with_ai(
+            dummy_verb, awaited_client
+        )
+
+        assert result1 is not None, "AI response should not be None"
+        assert isinstance(result1, AI__ResponseIdentifiedVerb), (
+            "Response should be of type AI__ResponseIdentifiedVerb"
+        )
+        assert result1.verb == "dormir", "The verb should be in infinitive form"
+
+        result2: AI__ResponseIdentifiedVerb = await find_verb_with_ai(
+            "tancado", awaited_client
+        )
+        assert result2 is not None, "AI response should not be None"
+        assert isinstance(result2, AI__ResponseIdentifiedVerb), (
+            "Response should be of type AI__ResponseIdentifiedVerb"
+        )
+        assert result2.verb == "tancar", "The verb should be in infinitive form"
+
+        result3: AI__ResponseIdentifiedVerb = await find_verb_with_ai(
+            "deixat", awaited_client
+        )
+        assert result3 is not None, "AI response should not be None"
+        assert isinstance(result3, AI__ResponseIdentifiedVerb), (
+            "Response should be of type AI__ResponseIdentifiedVerb"
+        )
+        assert result3.verb == "deixar", "The verb should be in infinitive form"
+
+    @pytest.mark.asyncio
+    async def test_match_verb_language_invalid_input(self, detection_client):
+        from api.utils.verbs import find_verb_with_ai
+
+        awaited_client = await detection_client()
+
+        with pytest.raises(
+            AppException,
+            match="El verbo proporcionado no es válido o no pertenece a ninguno de los idiomas admitidos.",
+        ):
+            await find_verb_with_ai("nonexistentverb", awaited_client)

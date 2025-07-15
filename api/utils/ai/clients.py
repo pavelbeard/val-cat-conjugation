@@ -1,10 +1,10 @@
 from functools import partial
-from typing import Callable, Dict, Type
+from typing import Any, Awaitable, Callable, Dict, List, Type
 
 from pydantic_ai.models.gemini import GeminiModelSettings
 
 from api.core.config import settings
-from api.schemas.verbs import AI__VerbOutput, TenseBlocksV2
+from api.schemas.verbs import AI__ResponseIdentifiedVerb, AI__VerbOutput, TenseBlocksV2
 from api.utils.ai.ai_handler import AIHandler, AIHandlerEnum
 from api.utils.ai.handlers import (
     AsyncChatGPTHandler,
@@ -103,7 +103,7 @@ async def gpt4oclient() -> Callable:
     )
 
 
-async def gemini_client():
+async def translation_client_gemini():
     client: PydanticGeminiHandler = ai_handler_factory(
         handler_type=AIHandlerEnum.GEMINI,
         api_key=settings.GEMINI_API_KEY,
@@ -119,7 +119,33 @@ async def gemini_client():
 
     return partial(
         client.query_api,
-        output_type=AI__VerbOutput,
+        response_type=AI__VerbOutput,
+        **model_settings,
+    )
+    
+async def detection_client_gemini():
+    client: PydanticGeminiHandler = ai_handler_factory(
+        handler_type=AIHandlerEnum.GEMINI,
+        api_key=settings.GEMINI_API_KEY,
+        model="gemini-2.5-flash-lite-preview-06-17",
+    )
+
+    model_settings: GeminiModelSettings = GeminiModelSettings(
+        max_tokens=200,
+        temperature=0.4,
+        top_p=0.95,
+        gemini_thinking_config={"thinking_budget": 0},
+    )
+
+    return partial(
+        client.query_api,
+        response_type=AI__ResponseIdentifiedVerb,
         **model_settings,
     )
 
+
+def gemini_clients() -> List[Callable[..., Awaitable[Any]]]:
+    """
+    Returns a list of Gemini AI clients for translation and detection.
+    """
+    return [translation_client_gemini, detection_client_gemini]

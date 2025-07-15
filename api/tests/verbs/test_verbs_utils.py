@@ -3,7 +3,12 @@ import os
 from pytest import fixture
 import pytest
 
-from api.schemas.verbs import Database__MoodBlock, AI__VerbOutput, Database__VerbOutput
+from api.schemas.verbs import (
+    Database__MoodBlock,
+    AI__VerbOutput,
+    Database__VerbOutput,
+    Fetch__VerbCreated,
+)
 from api.tests.setup import FIXTURES_PATH
 from api.utils.exceptions import AppException
 
@@ -50,7 +55,7 @@ class TestPerformAiTranslation:
         with open(os.path.join(FIXTURES_PATH, "anar-se-gemini.json"), "r") as file:
             json_data = json.load(file)
 
-            return AI__VerbOutput.model_validate(
+            return Database__VerbOutput.model_validate(
                 obj={
                     **json_data[0],
                     "created_at": "2023-10-01T12:00:00Z",
@@ -107,7 +112,9 @@ class TestPerformAiTranslation:
             "The infinitive should match the mocked data"
         )
 
-        assert result == anar_se_gemini, "The result should match the mocked data"
+        assert result.moods == anar_se_gemini.moods, (
+            "The moods should match the mocked data"
+        )
 
     @pytest.mark.asyncio
     async def test_perform_ai_translation_v3_with_no_data(self, mocker):
@@ -136,10 +143,10 @@ class TestPerformAiTranslation:
         mock_ai_client.return_value = None
 
         # Simulate invalid data
-        fake_data = AI__VerbOutput(
+        fake_data = Fetch__VerbCreated(
             infinitive="None",
             translation=None,
-            conjugation=[],
+            moods=[],
             created_at="2023-10-01T12:00:00Z",
             updated_at="2023-10-01T12:00:00Z",
         )
@@ -167,10 +174,12 @@ class TestUpdateTranslationsV3:
                     "updated_at": "2023-10-01T12:00:00Z",
                 }
             )
-            
+
     @fixture
     def dummy_translated_anar(self):
-        with open(os.path.join(FIXTURES_PATH, "dummy-translated-anar.json"), "r") as file:
+        with open(
+            os.path.join(FIXTURES_PATH, "dummy-translated-anar.json"), "r"
+        ) as file:
             json_data = json.load(file)
 
             return AI__VerbOutput.model_validate(

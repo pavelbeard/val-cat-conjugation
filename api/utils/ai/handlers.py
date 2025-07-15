@@ -377,13 +377,13 @@ class PydanticGeminiHandler(AIHandler):
         super().__init__(api_key, model)
 
     async def query_api(
-        self, messages: list, output_type: AI__VerbOutput, **kwargs: GeminiModelSettings
+        self, messages: list, response_type: AI__VerbOutput, **kwargs: GeminiModelSettings
     ):
         """
         Query the Gemini API with the provided messages.
         """
 
-        if output_type is None:
+        if response_type is None:
             raise AppException(
                 HttpStatus.BAD_REQUEST,
                 "Output type must be provided for Gemini API call.",
@@ -433,7 +433,7 @@ class PydanticGeminiHandler(AIHandler):
 
         agent = Agent(
             model=model_instance,
-            output_type=Union[AI__VerbOutput, AIErrorOutput],
+            output_type=Union[response_type, AIErrorOutput],
             system_prompt=system_prompt,
         )
 
@@ -443,7 +443,7 @@ class PydanticGeminiHandler(AIHandler):
                 model_settings=model_settings,
             )
 
-            if hasattr(response, "output") and isinstance(response.output, AI__VerbOutput):
+            if hasattr(response, "output") and isinstance(response.output, response_type):
                 return response.output
 
             if hasattr(response, "output") and isinstance(response.output, AIErrorOutput):

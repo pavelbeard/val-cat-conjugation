@@ -9,6 +9,7 @@ from bs4.filter import _AtMostOneElement
 
 from api.core.constants import CONSTANTS
 from api.schemas.verbs import (
+    AI__ResponseIdentifiedVerb,
     Database__ConjugatedForm,
     Database__MoodBlock,
     Database__TenseBlock,
@@ -22,6 +23,18 @@ from api.utils.logger import create_logger
 logger = create_logger(__name__)
 
 prompts_path = os.path.join(os.path.dirname(__file__), "prompts", "verbs")
+
+
+async def find_verb_with_ai(verb: str, ai_client: Callable = None) -> AI__ResponseIdentifiedVerb:
+    if not verb:
+        raise AppException(HttpStatus.BAD_REQUEST, "Verb cannot be empty")
+
+    if not ai_client:
+        raise AppException(HttpStatus.BAD_REQUEST, "AI client must be provided")
+
+    messages = create_detection_prompt(verb)
+
+    return await ai_client(messages=messages)
 
 
 def create_translation_prompt_v3(data: Fetch__VerbCreated) -> List[Dict[str, str]]:
@@ -39,6 +52,26 @@ def create_translation_prompt_v3(data: Fetch__VerbCreated) -> List[Dict[str, str
     user_prompt = {
         "role": "user",
         "content": f"Tradúceme el verbo catalán/valenciano '{data.infinitive}' al español en todos modos, tiempos verbales y formas no personal con gerundios y compuestos masculinos/femeninos/plurales.",
+    }
+
+    return [system_prompt, user_prompt]
+
+
+def create_detection_prompt(verb: str) -> List[Dict[str, str]]:
+    with open(
+        os.path.join(
+            CONSTANTS["PROMPTS_VERBS_PATH"], "gemini-2.5-preview-06-17-detector.txt"
+        ),
+        "r",
+    ) as file:
+        system_prompt = {
+            "role": "system",
+            "content": dedent(file.read()),
+        }
+
+    user_prompt = {
+        "role": "user",
+        "content": f"detecta de que idioma este verbo y tradúcelo, si es nesecario: {verb}",
     }
 
     return [system_prompt, user_prompt]
@@ -94,22 +127,27 @@ def update_translations_v3(
             # If the verb has no translation, split the forms into separate blocks
             copy_data.moods[idx] = split_forms_non_personals_untranslated(m)
             break
-        
+
     for i, mood in enumerate(copy_data.moods):
         for j, entry in enumerate(mood.tenses):
             for k, conjugation in enumerate(entry.conjugation):
                 conjugation.translation = (
                     translated_data.moods[i].tenses[j].conjugation[k].translation
                 )
-                
 
-    return copy_data
+    return Database__VerbOutput(
+        infinitive=copy_data.infinitive,
+        translation=copy_data.translation,
+        moods=copy_data.moods,
+        created_at=copy_data.created_at,
+        updated_at=translated_data.updated_at,
+    )
 
 
 async def perform_ai_translation_v3(
     data: Fetch__VerbCreated,
     ai_client: Callable = None,
-) -> AI__VerbOutput:
+) -> Database__VerbOutput:
     """
     Perform AI translation on the provided verb.
     This function is similar to perform_ai_translation but uses a different approach.
