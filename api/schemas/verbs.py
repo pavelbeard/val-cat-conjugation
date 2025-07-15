@@ -155,14 +155,13 @@ class Database__VerbOutput(Database__VerbMain):
         """
         Validate and convert a list of dictionaries to a list of Database__VerbOutput instances.
         """
-        return list(
-            map(
-                lambda x: {**x, "created_at": x["created_at"].isoformat()}
-                if "created_at" in x
-                else x,
-                data,
-            )
-        )
+
+        for item in data:
+            if item.get("created_at"):
+                item["created_at"] = item["created_at"].isoformat()
+            if item.get("updated_at"):
+                item["updated_at"] = item["updated_at"].isoformat()
+        return data
 
 
 # AI SCHEMAS
