@@ -4,7 +4,7 @@ import getVerb from "@/actions/get-verb";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollBar } from "@/components/ui/scroll-area";
-import { Conjugation, VerbOut, Modes } from "@/lib/types/verbs";
+import { Conjugation, Database__VerbOutput, Modes } from "@/lib/types/verbs";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { useQuery } from "@tanstack/react-query";
 import { ChevronLeft, PlusIcon } from "lucide-react";
@@ -90,7 +90,7 @@ export default function VerbPage({ params }: { params: Params }) {
   const { _id } = use(params);
   const { data: verb } = useQuery({
     queryKey: ["verb", _id],
-    queryFn: () => getVerb({ _id }) as Promise<VerbOut>,
+    queryFn: () => getVerb({ _id }) as Promise<Database__VerbOutput>,
     staleTime: 1000 * 60 * 60 * 24, // 1 day
     refetchOnWindowFocus: false,
   });

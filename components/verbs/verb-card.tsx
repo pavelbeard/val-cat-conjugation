@@ -1,12 +1,12 @@
 import React from "react";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { VerbOut } from "@/lib/types/verbs";
+import { Database__VerbOutput } from "@/lib/types/verbs";
 
 export default function VerbCard({
   verb,
 }: {
-  verb: VerbOut;
+  verb: Database__VerbOutput;
   handleClose: () => void;
 }) {
   return (

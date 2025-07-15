@@ -1,10 +1,34 @@
-export interface VerbOut {
+export interface Database__ConjugationForm {
+  pronoun:
+    | "jo"
+    | "tu"
+    | "ell/(-a)/vostè"
+    | "nosaltres"
+    | "vosaltres"
+    | "ells/(-es)/vostès";
+  forms: string[];
+  variation_types?: (string | null)[];
+  translation?: string;
+}
+
+export interface Database__TenseBlock {
+  tense: string;
+  conjugation: Conjugation[];
+}
+
+export interface Database__MoodBlock {
+  mood: string;
+  tenses: Database__TenseBlock[];
+}
+
+export interface Database__VerbOutput {
   _id: string;
   infinitive: string;
-  conjugation?: {};
+  moods?: Database__MoodBlock[];
   translation: string;
   source?: string;
   created_at: string;
+  updated_at: string;
 }
 
 export type Conjugation = {

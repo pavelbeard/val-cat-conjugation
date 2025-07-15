@@ -1,6 +1,6 @@
 import { AppError } from "@/lib/app-error";
 import { API_V1_ENDPOINT, BACKEND_URL } from "@/lib/constants";
-import { VerbOut } from "@/lib/types/verbs";
+import { Database__VerbOutput } from "@/lib/types/verbs";
 import { withErrorHandler } from "@/lib/with-error-handler";
 
 const getVerbs = async () => {
@@ -15,7 +15,7 @@ const getVerbs = async () => {
     throw new AppError("BAD_REQUEST", "Failed to fetch verbs");
   }
 
-  return response.json() as Promise<VerbOut[]>; // Ensure the response is typed correctly
+  return response.json() as Promise<Database__VerbOutput[]>; // Ensure the response is typed correctly
 };
 
 export default withErrorHandler(getVerbs);
