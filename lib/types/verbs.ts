@@ -5,9 +5,15 @@ export interface Database__ConjugationForm {
     | "ell/(-a)/vostè"
     | "nosaltres"
     | "vosaltres"
-    | "ells/(-es)/vostès";
+    | "ells/(-es)/vostès"
+    // Forms non personal
+    | "infinitiu"
+    | "infinitiu_compost"
+    | "gerundi"
+    | "gerundi_compost"
+    | "participi";
   forms: string[];
-  variation_types?: (string | null)[];
+  variation_types?: (string | null)[] | null;
   translation?: string;
 }
 
@@ -39,7 +45,9 @@ export type Conjugation = {
     | "nosaltres"
     | "vosaltres"
     | "ells/(-es)/vostès";
-  variation: { word: string; dialect?: "cent." | "val." | "bal." }[] | string;
+  variation_types:
+    | { word: string; dialect?: "cent." | "val." | "bal." }[]
+    | string;
   translation?: string;
 };
 
@@ -66,6 +74,10 @@ export type Modes = {
   condicional_simple: Mode;
   condicional_perfet: Mode;
   imperatiu: Imperatiu;
+};
+
+export type TenseNames = {
+  [key in keyof Modes]: string;
 };
 
 export type Imperatiu = Omit<Conjugation["pronoun"], "jo"> & {

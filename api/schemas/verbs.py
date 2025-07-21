@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List, Literal, Optional
+from typing import List, Optional
 
 from pydantic import BaseModel
 
@@ -43,9 +43,9 @@ class TranslationError(BaseModel):
 
 # DATABASE SCHEMAS
 class Database__ConjugatedForm(BaseModel):
-    pronoun: Literal[
-        "jo", "tu", "ell/(-a)/vostè", "nosaltres", "vosaltres", "ells/(-es)/vostès"
-    ]
+    # "jo", "tu", "ell, ella, vostè", "nosaltres", "vosaltres, vòs", "ells, elles, vostès",
+    # "infinitiu", "infinitiu_compost", "gerundi", "gerundi_compost", "participi"
+    pronoun: str
     forms: List[str]
     variation_types: Optional[List[str | None]] = None
     translation: Optional[str] = None

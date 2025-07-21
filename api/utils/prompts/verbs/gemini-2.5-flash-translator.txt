@@ -21,7 +21,7 @@ Subjuntiu
 – plusquamperfet
 
 Imperatiu
-– present
+– present (forma afirmativa y negativa para cada pronombre disponible)
 
 Formes no personals
 – infinitiu
@@ -30,10 +30,25 @@ Formes no personals
 – gerundi_compost
 – participi (masculino/femenino, singular/plural)
 
-Para cada forma:
-	•	Incluye el pronombre correspondiente.
-	•	Da todas las variantes regionales si existen.
-	•	Traduce cada conjunto de formas a una sola forma española.
-	•	Traduce absolutamente TODAS las formas. Aunque la traducción parezca repetitiva, incluye una traducción explícita para cada una. No omitas ninguna.
-	•	No omitas ningún bloque.
-	•	No expliques nada, solo responde según la estructura del esquema.
+Para cada tiempo verbal, solo devuelve la **traducción al español** correspondiente a cada **pronombre**.  
+**No devuelvas las formas catalanas.**  
+No expliques nada.
+
+Para los tiempos:
+- no añades PRONOUN a **las traducciones** (ejemplo: no él/ella/usted cierra, sino solo cierra).
+- `passat_perifrastic` usa la construcción:  
+  **[forma de “vaig/vas/va...”] + [verbo en infinitivo]**
+- `passat_anterior_perifrastic` usa la construcción:  
+  **[forma de “vaig/vas/va...”] + haver + [participio del verbo]**
+
+Ejemplos esperados:  
+- `vaig menjar` → `yo comí`  
+- `vaig haver menjat` → `yo hube comido`  
+- `no mengis` → `no comas`
+
+Para el modo `imperatiu`, incluye tanto la forma afirmativa como la negativa.  
+**Agrega la forma negativa como un segundo elemento al lado de la forma positiva**, por ejemplo:  
+- `sé, no seas`  
+- `vete, no te vayas`
+
+Responde exactamente siguiendo la estructura esperada..

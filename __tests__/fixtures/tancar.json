@@ -1,0 +1,573 @@
+{
+    "infinitive": "tancar",
+    "translation": "cerrar",
+    "moods": [
+        {
+            "mood": "Indicatiu",
+            "tenses": [
+                {
+                    "tense": "present",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "cierro"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "cierras"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "cierra"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "cerramos"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "cerráis"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "cierran"
+                        }
+                    ]
+                },
+                {
+                    "tense": "perfet",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "he cerrado"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "has cerrado"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "ha cerrado"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "hemos cerrado"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "habéis cerrado"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "han cerrado"
+                        }
+                    ]
+                },
+                {
+                    "tense": "imperfet",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "cerraba"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "cerrabas"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "cerraba"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "cerrábamos"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "cerrabais"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "cerraban"
+                        }
+                    ]
+                },
+                {
+                    "tense": "plusquamperfet",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "había cerrado"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "habías cerrado"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "había cerrado"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "habíamos cerrado"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "habíais cerrado"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "habían cerrado"
+                        }
+                    ]
+                },
+                {
+                    "tense": "passat_simple",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "cerré"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "cerraste"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "cerró"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "cerramos"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "cerrasteis"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "cerraron"
+                        }
+                    ]
+                },
+                {
+                    "tense": "passat_perifrastic",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "yo cerré"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "tú cerraste"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "cerró"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "nosotros cerramos"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "vosotros cerrasteis"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "cerraron"
+                        }
+                    ]
+                },
+                {
+                    "tense": "passat_anterior",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "hube cerrado"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "hubiste cerrado"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "hubo cerrado"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "hubimos cerrado"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "hubisteis cerrado"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "hubieron cerrado"
+                        }
+                    ]
+                },
+                {
+                    "tense": "passat_anterior_perifrastic",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "yo hube cerrado"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "tú hubiste cerrado"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "hubo cerrado"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "nosotros hubimos cerrado"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "vosotros hubisteis cerrado"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "hubieron cerrado"
+                        }
+                    ]
+                },
+                {
+                    "tense": "futur",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "cerraré"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "cerrarás"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "cerrará"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "cerraremos"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "cerraréis"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "cerrarán"
+                        }
+                    ]
+                },
+                {
+                    "tense": "futur_perfet",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "habré cerrado"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "habrás cerrado"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "habrá cerrado"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "habremos cerrado"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "habréis cerrado"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "habrán cerrado"
+                        }
+                    ]
+                },
+                {
+                    "tense": "condicional",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "cerraría"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "cerrarías"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "cerraría"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "cerraríamos"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "cerraríais"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "cerrarían"
+                        }
+                    ]
+                },
+                {
+                    "tense": "condicional_perfet",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "habría cerrado"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "habrías cerrado"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "habría cerrado"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "habríamos cerrado"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "habríais cerrado"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "habrían cerrado"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "mood": "Subjuntiu",
+            "tenses": [
+                {
+                    "tense": "present",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "cierre"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "cierres"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "cierre"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "cerremos"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "cerréis"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "cierren"
+                        }
+                    ]
+                },
+                {
+                    "tense": "perfet",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "haya cerrado"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "hayas cerrado"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "haya cerrado"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "hayamos cerrado"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "hayáis cerrado"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "hayan cerrado"
+                        }
+                    ]
+                },
+                {
+                    "tense": "imperfet",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "cerrara"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "cerraras"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "cerrara"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "cerráramos"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "cerrarais"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "cerraran"
+                        }
+                    ]
+                },
+                {
+                    "tense": "plusquamperfet",
+                    "conjugation": [
+                        {
+                            "pronoun": "jo",
+                            "translation": "hubiera cerrado"
+                        },
+                        {
+                            "pronoun": "tu",
+                            "translation": "hubieras cerrado"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "hubiera cerrado"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "hubiéramos cerrado"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "hubierais cerrado"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "hubieran cerrado"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "mood": "Imperatiu",
+            "tenses": [
+                {
+                    "tense": "present",
+                    "conjugation": [
+                        {
+                            "pronoun": "tu",
+                            "translation": "cierra, no cierres"
+                        },
+                        {
+                            "pronoun": "ell/ella/vostè",
+                            "translation": "cierre, no cierre"
+                        },
+                        {
+                            "pronoun": "nosaltres",
+                            "translation": "cerremos, no cerremos"
+                        },
+                        {
+                            "pronoun": "vosaltres",
+                            "translation": "cerrad, no cerréis"
+                        },
+                        {
+                            "pronoun": "ells/elles/vostès",
+                            "translation": "cierren, no cierren"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "mood": "Formes no personals",
+            "tenses": [
+                {
+                    "tense": "infinitiu",
+                    "conjugation": [
+                        {
+                            "pronoun": "infinitiu",
+                            "translation": "cerrar"
+                        }
+                    ]
+                },
+                {
+                    "tense": "infinitiu_compost",
+                    "conjugation": [
+                        {
+                            "pronoun": "infinitiu_compost",
+                            "translation": "haber cerrado"
+                        }
+                    ]
+                },
+                {
+                    "tense": "gerundi",
+                    "conjugation": [
+                        {
+                            "pronoun": "gerundi",
+                            "translation": "cerrando"
+                        }
+                    ]
+                },
+                {
+                    "tense": "gerundi_compost",
+                    "conjugation": [
+                        {
+                            "pronoun": "gerundi_compost",
+                            "translation": "habiendo cerrado"
+                        }
+                    ]
+                },
+                {
+                    "tense": "participi",
+                    "conjugation": [
+                        {
+                            "pronoun": "masculí_singular",
+                            "translation": "cerrado"
+                        },
+                        {
+                            "pronoun": "femení_singular",
+                            "translation": "cerrada"
+                        },
+                        {
+                            "pronoun": "masculí_plural",
+                            "translation": "cerrados"
+                        },
+                        {
+                            "pronoun": "femení_plural",
+                            "translation": "cerradas"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "updated_at": "2024-05-23T12:00:00Z"
+}

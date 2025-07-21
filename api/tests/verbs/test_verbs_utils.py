@@ -197,3 +197,38 @@ class TestUpdateTranslationsV3:
         result = update_translations_v3(dummy_anar, dummy_translated_anar)
 
         print("Updated Translations:", result)
+
+
+    def test_delete_pronoun_if_exists(self):
+        pronouns = [
+            "yo",
+            "tú",
+            "él/ella/usted",
+            "nosotros","nosotras",
+            "vosotros","vosotras",
+            "ellos/ellas/ustedes"
+        ]
+        
+        translation = "yo cierro"
+
+        def delete_pronoun_if_exists(translation: str):
+            pronoun, word = translation.split(" ", 1) if " " in translation else (translation, "")
+            if pronoun in pronouns:
+                return word.strip()
+            return translation
+
+        result = delete_pronoun_if_exists(translation)
+        
+        assert result == "cierro", "Pronoun should be removed from the translation"
+        
+        translation = "cierro"
+        
+        result = delete_pronoun_if_exists(translation)
+        
+        assert result == "cierro", "Translation without pronoun should remain unchanged"
+        
+        translation = "vosotros habeís cerrado"
+        
+        result = delete_pronoun_if_exists(translation)
+        
+        assert result == "habeís cerrado", "Pronoun should be removed from the translation"

@@ -47,11 +47,13 @@ class TestGeminiIntegration:
     async def test_gemini_integration(self, ai_client, initialize_prompts):
         # Example test using the AI client
         client = await ai_client()
-        response = await client(
+        response: AI__VerbOutput = await client(
             messages=initialize_prompts,
         )
 
         print("Gemini AI Client Response:", response)
+
+        print(response.model_dump_json())
 
         assert response is not None, "AI client should return a response"
 
@@ -160,7 +162,7 @@ class TestOthersEndpointsIntegration:
         assert response.json()["infinitive"] == "eixir", (
             "Retrieved verb should match the infinitive 'eixir'"
         )
-        
+
     def test_get_verb_integration_with_non_existing_form(self):
         form = "nonexistentform"
         response = client.get(f"/api/v1/verbs/{form}")
@@ -168,9 +170,11 @@ class TestOthersEndpointsIntegration:
         assert response.status_code == 404, (
             "Verb retrieval by non-existing form should return status code 404"
         )
-        assert response.json() == {"detail": "Verb not found", "error_type": "NOT_FOUND"}, (
-            "Response should indicate that the verb was not found"
-        )
+        assert response.json() == {
+            "detail": "Verb not found",
+            "error_type": "NOT_FOUND",
+        }, "Response should indicate that the verb was not found"
+
 
 class TestMatchVerbLanguage:
     @pytest.fixture

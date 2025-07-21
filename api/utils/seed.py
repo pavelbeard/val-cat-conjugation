@@ -28,7 +28,6 @@ seed_data = [
         "infinitive": verb,
         "moods": None,
         "translation": translation,
-        "source": None,
         "created_at": datetime.now(timezone.utc),
     }
     for verb, translation in infinitives

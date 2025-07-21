@@ -25,7 +25,9 @@ logger = create_logger(__name__)
 prompts_path = os.path.join(os.path.dirname(__file__), "prompts", "verbs")
 
 
-async def find_verb_with_ai(verb: str, ai_client: Callable = None) -> AI__ResponseIdentifiedVerb:
+async def find_verb_with_ai(
+    verb: str, ai_client: Callable = None
+) -> AI__ResponseIdentifiedVerb:
     if not verb:
         raise AppException(HttpStatus.BAD_REQUEST, "Verb cannot be empty")
 
@@ -128,10 +130,40 @@ def update_translations_v3(
             copy_data.moods[idx] = split_forms_non_personals_untranslated(m)
             break
 
+    pronouns = [
+        "yo",
+        "tú",
+        "él/ella/usted",
+        "nosotros",
+        "nosotras",
+        "vosotros",
+        "vosotras",
+        "ellos/ellas/ustedes",
+    ]
+
+    pronouns = [
+        "yo",
+        "tú",
+        "él/ella/usted",
+        "nosotros",
+        "nosotras",
+        "vosotros",
+        "vosotras",
+        "ellos/ellas/ustedes",
+    ]
+
+    def delete_pronoun_if_exists(translation: str):
+        pronoun, word = (
+            translation.split(" ", 1) if " " in translation else (translation, "")
+        )
+        if pronoun in pronouns:
+            return word.strip()
+        return translation
+
     for i, mood in enumerate(copy_data.moods):
         for j, entry in enumerate(mood.tenses):
             for k, conjugation in enumerate(entry.conjugation):
-                conjugation.translation = (
+                conjugation.translation = delete_pronoun_if_exists(
                     translated_data.moods[i].tenses[j].conjugation[k].translation
                 )
 

@@ -4,7 +4,12 @@ import getVerb from "@/actions/get-verb";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollBar } from "@/components/ui/scroll-area";
-import { Conjugation, Database__VerbOutput, Modes } from "@/lib/types/verbs";
+import VerbCard from "@/components/verbs/verb-card";
+import {
+  Database__ConjugationForm,
+  Database__VerbOutput,
+  Modes,
+} from "@/lib/types/verbs";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { useQuery } from "@tanstack/react-query";
 import { ChevronLeft, PlusIcon } from "lucide-react";
@@ -13,69 +18,77 @@ import { use } from "react";
 
 type Params = Promise<{ _id: string }>;
 
-
-const temp: Conjugation[] = [
+const temp: Database__ConjugationForm[] = [
   {
     pronoun: "jo",
-    variation: [
-      { word: "parlo", dialect: "cent." },
-      { word: "parle", dialect: "val." },
-      { word: "parl", dialect: "bal." },
-    ],
+    forms: ["parlo", "parle", "parl"],
+    variation_types: ["cent.", "val.", "bal."],
     translation: "hablo",
   },
   {
     pronoun: "tu",
-    variation: "parles",
+    forms: ["parles"],
+    variation_types: null,
     translation: "hablas",
   },
   {
     pronoun: "ell/(-a)/vostè",
-    variation: "parla",
+    forms: ["parla"],
+    variation_types: null,
     translation: "habla",
   },
   {
     pronoun: "nosaltres",
-    variation: [
-      { word: "parlem", dialect: "cent." },
-      { word: "parlam", dialect: "bal." },
-    ],
+    forms: ["parlem", "parlam"],
+    variation_types: ["cent.", "bal."],
     translation: "hablamos",
   },
   {
     pronoun: "vosaltres",
-    variation: "parleu",
+    forms: ["parleu"],
+    variation_types: null,
     translation: "habláis",
   },
   {
     pronoun: "ells/(-es)/vostès",
-    variation: "parlen",
+    forms: ["parlen"],
+    variation_types: null,
     translation: "hablan",
   },
 ];
 
-const Mode = ({ pronoun, variation, translation }: Conjugation) => {
+const Mode = ({
+  pronoun,
+  forms,
+  variation_types,
+  translation,
+}: Database__ConjugationForm) => {
   return (
     <li className="flex items-start gap-2">
       <div className="flex-none flex flex-col w-32">
-        {typeof variation === "string" ? (
-          <span className="font-semibold">{variation}</span>
+        {typeof variation_types === "string" ? (
+          <span className="font-semibold">{variation_types}</span>
         ) : (
           <div className="flex-nowrap flex items-center gap-1">
-            {variation.map((v, i) => (
-              <div
-                className="inline-flex flex-col items-start gap-1"
-                key={v.word}
-              >
-                <span className="font-semibold">
-                  {v.word}
-                  {i < variation.length - 1 ? ", " : ""}
-                </span>
-                <span className="text-gray-500 text-xs">
-                  {v.dialect ? `(${v.dialect})` : ""}
-                </span>
+            <div className="inline-flex flex-col items-start gap-1">
+              <div className="flex items-center gap-1">
+                {forms &&
+                  forms.map((f, i) => (
+                    <span key={i} className="font-semibold">
+                      {f}
+                    </span>
+                  ))}
               </div>
-            ))}
+              <div className="flex items-center gap-1">
+                {variation_types &&
+                  variation_types.map((v, i) => (
+                    <span className="text-sm" key={i}>
+                      {v}
+                      {i < variation_types.length - 1 ? ", " : ""}
+                    </span>
+                  ))}
+              </div>
+            </div>
           </div>
         )}
         <span className="text-gray-500 text-xs">{translation}</span>
@@ -130,20 +143,32 @@ export default function VerbPage({ params }: { params: Params }) {
         <div className="flex w-max space-x-4">
           <Card className="w-84 shrink-0">
             <CardHeader>
-              <CardTitle>Indicatiu</CardTitle>
+              <CardTitle>
+                {verb.moods?.at(0)?.mood.toLocaleUpperCase()}
+              </CardTitle>
             </CardHeader>
             <CardContent>
+              <Card className="w-full">
+                <CardHeader>
+                  <CardTitle>Present</CardTitle>
+                </CardHeader>
+                <CardContent className="px-1!">
+                  <VerbCard verb={verb} />
+                </CardContent>
+              </Card>
               <ul className="flex flex-col gap-2">
-                {temp.map((mode) => (
+                {/* {temp.map((mode) => (
                   <Mode key={mode.pronoun} {...mode} />
-                ))}
+                ))} */}
               </ul>
             </CardContent>
             {/* Add more verb details here */}
           </Card>
           <Card className="w-84 shrink-0">
             <CardHeader>
-              <CardTitle>Subjuntiu</CardTitle>
+              <CardTitle>
+                {verb.moods?.at(1)?.mood.toLocaleUpperCase()}
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <p>{verb.infinitive}</p>
