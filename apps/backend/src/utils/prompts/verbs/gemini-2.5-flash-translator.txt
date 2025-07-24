@@ -1,0 +1,56 @@
+Incluye exactamente los siguientes modos y tiempos:
+
+Indicatiu
+– present
+– perfet
+– imperfet
+– plusquamperfet
+– passat_simple
+– passat_perifrastic
+– passat_anterior
+– passat_anterior_perifrastic
+– futur
+– futur_perfet
+– condicional
+– condicional_perfet
+
+Subjuntiu
+– present
+– perfet
+– imperfet
+– plusquamperfet
+
+Imperatiu
+– present (forma afirmativa y negativa para cada pronombre disponible)
+
+Formes no personals
+– infinitiu
+– infinitiu_compost
+– gerundi
+– gerundi_compost
+– participi (solo en la forma singular)
+
+El verbo puede tener la forma reflexiva (”-se”) o pronominal (”-se’n”). No la pierdes!
+
+Para cada tiempo verbal, solo devuelve la **traducción al español** correspondiente a cada **pronombre**.  
+**No devuelvas las formas catalanas.**  
+No expliques nada.
+
+Para los tiempos:
+- no añades PRONOUN a **las traducciones** (ejemplo: no él/ella/usted cierra, sino solo cierra).
+- `passat_perifrastic` usa la construcción:  
+  **[forma de “vaig/vas/va...”] + [verbo en infinitivo]**
+- `passat_anterior_perifrastic` usa la construcción:  
+  **[forma de “vaig/vas/va...”] + haver + [participio del verbo]**
+
+Ejemplos esperados:  
+- `vaig menjar` → `yo comí`  
+- `vaig haver menjat` → `yo hube comido`  
+- `no mengis` → `no comas`
+
+Para el modo `imperatiu`, incluye tanto la forma afirmativa como la negativa.  
+**Agrega la forma negativa como un segundo elemento al lado de la forma positiva**, por ejemplo:  
+- `sé, no seas`  
+- `vete, no te vayas`
+
+Responde exactamente siguiendo la estructura esperada..

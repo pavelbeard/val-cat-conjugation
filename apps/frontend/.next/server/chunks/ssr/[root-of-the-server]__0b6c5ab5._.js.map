@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 29, "column": 0}, "map": {"version":3,"sources":["file:///Users/pavelbeard/Documents/VSProjects/val-cat-conjugation/apps/frontend/components/header.tsx"],"sourcesContent":["\"use client\";\n\nimport { usePathname } from \"next/navigation\";\n\nexport default function Header() {\n  const pathname = usePathname();\n\n  const verbName = new RegExp(\"/verbs/([^/]+)\");\n  const pageName = new RegExp(\"/(\\\\w+)(?:/|$)\");\n  const verbMatch = pathname.match(verbName);\n  const pageMatch = pathname.match(pageName);\n\n  if (verbMatch) return null;\n\n  return (\n    <header className=\"flex-none flex items-center justify-center p-4 gap-4\">\n      <h1 className=\"text-lg font-semibold\">\n        {pageMatch && pageMatch[1].toLocaleUpperCase()}\n      </h1>\n    </header>\n  );\n}\n"],"names":[],"mappings":";;;;AAEA;AAFA;;;AAIe,SAAS;IACtB,MAAM,WAAW,CAAA,GAAA,iQAAA,CAAA,cAAW,AAAD;IAE3B,MAAM,WAAW,IAAI,OAAO;IAC5B,MAAM,WAAW,IAAI,OAAO;IAC5B,MAAM,YAAY,SAAS,KAAK,CAAC;IACjC,MAAM,YAAY,SAAS,KAAK,CAAC;IAEjC,IAAI,WAAW,OAAO;IAEtB,qBACE,6WAAC;QAAO,WAAU;kBAChB,cAAA,6WAAC;YAAG,WAAU;sBACX,aAAa,SAAS,CAAC,EAAE,CAAC,iBAAiB;;;;;;;;;;;AAIpD","debugId":null}}]
+}
