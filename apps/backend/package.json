@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "add_pkg:pip": "pip install -r requirements.txt",
+    "add_pkg:pip": "pip3.12 install -r requirements.txt",
     "add_pkg": "pdm add --",
     "dev": "fastapi dev ./src/main.py --port 8000",
     "check-types": "exit 1"

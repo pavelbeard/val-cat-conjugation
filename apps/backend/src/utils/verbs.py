@@ -1,20 +1,19 @@
-from copy import deepcopy
-from enum import Enum
 import os
 import re
+from copy import deepcopy
+from enum import Enum
 from textwrap import dedent
-from typing import Any, Callable, Dict, Generator, List, Literal
+from typing import Any, Callable, Dict, Generator, List, Literal, TypedDict
 
 from bs4 import BeautifulSoup, NavigableString
 from bs4.filter import _AtMostOneElement
-
 from src.core.constants import CONSTANTS
 from src.schemas.verbs import (
     AI__ResponseIdentifiedVerb,
+    AI__VerbOutput,
     Database__ConjugatedForm,
     Database__MoodBlock,
     Database__TenseBlock,
-    AI__VerbOutput,
     Database__VerbOutput,
     Fetch__VerbCreated,
 )
@@ -248,8 +247,7 @@ class SeApostropheNSuffix(Enum):
     ENS_N_APOSTROPHE = "ens n'"
     US_N_APOSTROPHE = "us n'"
     ES_PL_N_APOSTROPHE = "se n'"
-    
-class Pronoun(Enum):
+
     """Class to handle pronouns in verb conjugation."""
 
     JO = "jo"
@@ -260,19 +258,68 @@ class Pronoun(Enum):
     ELLS_ELLES_VOSTES = "ells/elles/vostès"
 
 
+# Dict to handle the mapping of pronouns to reflexive prefixes
+se__pronoun_prefix_mapping: Dict[str, SePrefix] = {
+    "jo": SePrefix.EM.value,
+    "tu": SePrefix.ET.value,
+    "ell, ella, vosté": SePrefix.ES_SG.value,
+    "nosaltres": SePrefix.ENS.value,
+    "vosaltres": SePrefix.US.value,
+    "ells, elles, vostès": SePrefix.ES_PL.value,
+}
 
-def add_reflexive_suffix(
-    pronoun: str, forms: List[str], reflexive_suffix: Literal["-se", "-se'n"]
+# Dict to handle the mapping of pronouns to reflexive suffixes if first letter has AOIUEH
+se__pronoun_aoiueh_mapping: Dict[str, str] = {
+    "jo": SePrefix.EM_APOSTROPHE.value,
+    "tu": SePrefix.ET_APOSTROPHE.value,
+    "ell, ella, vosté": SePrefix.ES_SG_APOSTROPHE.value,
+    "nosaltres": SePrefix.ENS_APOSTROPHE.value,
+    "vosaltres": SePrefix.US_APOSTROPHE.value,
+    "ells, elles, vostès": SePrefix.ES_PL_APOSTROPHE.value,
+}
+
+
+se__pronoun_apostrophe_n_suffix_mapping: Dict[str, SeApostropheNSuffix] = {
+    "jo": SeApostropheNSuffix.ME_N.value,
+    "tu": SeApostropheNSuffix.TE_N.value,
+    "ell, ella, vosté": SeApostropheNSuffix.ES_N_SG.value,
+    "nosaltres": SeApostropheNSuffix.ENS.value,
+    "vosaltres": SeApostropheNSuffix.US.value,
+    "ells, elles, vostès": SeApostropheNSuffix.ES_PL.value,
+}
+
+se__pronoun_aoiueh_apostrophe_n_suffix_mapping: Dict[str, SeApostropheNSuffix] = {
+    "jo": SeApostropheNSuffix.ME_N_APOSTROPHE.value,
+    "tu": SeApostropheNSuffix.TE_N_APOSTROPHE.value,
+    "ell, ella, vosté": SeApostropheNSuffix.ES_N_SG_APOSTROPHE.value,
+    "nosaltres": SeApostropheNSuffix.ENS_N_APOSTROPHE.value,
+    "vosaltres": SeApostropheNSuffix.US_N_APOSTROPHE.value,
+    "ells, elles, vostès": SeApostropheNSuffix.ES_PL_N_APOSTROPHE.value,
+}
+
+
+def add_reflexive_prefix(
+    pronoun: str, form: str, reflexive_suffix: Literal["-se", "-se'n"]
 ) -> List[str]:
     """
-    Add the reflexive suffix to the forms of the verb.
+    Replace pronoun with the reflexive prefix of the verb.
     """
     if reflexive_suffix == "-se":
-        return [f"{form}{SePrefix.ES_SG.value}" for form in forms]
+        if se__pronoun_prefix_mapping.get(pronoun):
+            if form.startswith(("A", "E", "I", "O", "U", "H")):
+                return f"{se__pronoun_aoiueh_mapping[pronoun]}"
+            else:
+                return f"{se__pronoun_prefix_mapping[pronoun]}"
+
     elif reflexive_suffix == "-se'n":
-        return [f"{form}{SeApostropheNSuffix.ES_N_SG.value}" for form in forms]
+        if se__pronoun_apostrophe_n_suffix_mapping.get(pronoun):
+            if form.startswith(("A", "E", "I", "O", "U", "H")):
+                return f"{se__pronoun_aoiueh_apostrophe_n_suffix_mapping[pronoun]}"
+            else:
+                return f"{se__pronoun_apostrophe_n_suffix_mapping[pronoun]}"
+
     else:
-        return forms
+        return pronoun
 
 
 class VerbUntranslatedTable:
@@ -288,7 +335,7 @@ class VerbUntranslatedTable:
     ):
         self.html = html
         self.reflexive = reflexive
-        self.reflexive_suffix = reflexive_suffix
+        self.__reflexive_suffix = reflexive_suffix
 
     def to_html(self) -> str:
         return self.html
@@ -323,8 +370,8 @@ class VerbUntranslatedTable:
                 variation_types = None
 
             # add reflexive suffix if needed
-            forms = add_reflexive_suffix(
-                pronoun=pronoun, forms=forms, reflexive_suffix=self.reflexive_suffix
+            pronoun = add_reflexive_prefix(
+                pronoun=pronoun, form=forms[0], reflexive_suffix=self.__reflexive_suffix
             )
 
             conjugation.append(

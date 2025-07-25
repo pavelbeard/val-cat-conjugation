@@ -60,11 +60,11 @@ def find_one_and_update_verb(infinitive: str, update_data: dict):
 
 
 # DELETE
-def delete_verb_by_infinitive(infinitive: str):
+def delete_verb_by_form(form: str):
     """
-    Delete a verb by its infinitive form.
+    Delete a verb by its form.
     """
-    return db.verbs.delete_one({"infinitive": infinitive})
+    return db.verbs.delete_one({"moods.tenses.conjugation.forms": form})
 
 
 def drop_verbs_collection():

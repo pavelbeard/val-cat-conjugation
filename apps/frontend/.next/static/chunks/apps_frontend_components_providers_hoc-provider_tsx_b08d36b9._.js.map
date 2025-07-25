@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/pavelbeard/Documents/VSProjects/val-cat-conjugation/apps/frontend/components/providers/hoc-provider.tsx"],"sourcesContent":["\"use client\";\nimport {\n  QueryClient,\n  QueryClientProvider as Query,\n} from \"@tanstack/react-query\";\n\nconst queryClient = new QueryClient();\n\nexport default function HocProvider({\n  children,\n}: {\n  children: Readonly<React.ReactNode>;\n}) {\n  return <Query client={queryClient}>{children}</Query>;\n}\n"],"names":[],"mappings":";;;;AACA;AAAA;AADA;;;AAMA,MAAM,cAAc,IAAI,yPAAA,CAAA,cAAW;AAEpB,SAAS,YAAY,KAInC;QAJmC,EAClC,QAAQ,EAGT,GAJmC;IAKlC,qBAAO,4TAAC,yRAAA,CAAA,sBAAK;QAAC,QAAQ;kBAAc;;;;;;AACtC;KANwB","debugId":null}}]
-}

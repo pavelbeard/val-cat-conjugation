@@ -6,7 +6,7 @@
         }
     ],
     "python.testing.pytestArgs": [
-        "${workspaceFolder}/api/tests",
+        "${workspaceFolder}/apps/backend/src/tests",
         "-s"
     ],
     "python.testing.unittestEnabled": false,

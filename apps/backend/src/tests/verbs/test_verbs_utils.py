@@ -198,37 +198,98 @@ class TestUpdateTranslationsV3:
 
         print("Updated Translations:", result)
 
-
     def test_delete_pronoun_if_exists(self):
         pronouns = [
             "yo",
             "tú",
             "él/ella/usted",
-            "nosotros","nosotras",
-            "vosotros","vosotras",
-            "ellos/ellas/ustedes"
+            "nosotros",
+            "nosotras",
+            "vosotros",
+            "vosotras",
+            "ellos/ellas/ustedes",
         ]
-        
+
         translation = "yo cierro"
 
         def delete_pronoun_if_exists(translation: str):
-            pronoun, word = translation.split(" ", 1) if " " in translation else (translation, "")
+            pronoun, word = (
+                translation.split(" ", 1) if " " in translation else (translation, "")
+            )
             if pronoun in pronouns:
                 return word.strip()
             return translation
 
         result = delete_pronoun_if_exists(translation)
-        
+
         assert result == "cierro", "Pronoun should be removed from the translation"
-        
+
         translation = "cierro"
-        
+
         result = delete_pronoun_if_exists(translation)
-        
+
         assert result == "cierro", "Translation without pronoun should remain unchanged"
-        
+
         translation = "vosotros habeís cerrado"
-        
+
         result = delete_pronoun_if_exists(translation)
-        
-        assert result == "habeís cerrado", "Pronoun should be removed from the translation"
+
+        assert result == "habeís cerrado", (
+            "Pronoun should be removed from the translation"
+        )
+
+
+class TestPrefixes:
+    def test_add_reflexive_prefix(self):
+        from src.utils.verbs import add_reflexive_prefix
+
+        conjugation = [
+            {"pronoun": "jo", "forms": ["vaig"], "translation": None},
+            {
+                "pronoun": "tu",
+                "forms": ["vas"],
+                "translation": None,
+            },
+            {
+                "pronoun": "ell, ella, vosté",
+                "forms": ["va"],
+                "translation": None,
+            },
+            {
+                "pronoun": "nosaltres",
+                "forms": ["anem"],
+                "translation": None,
+            },
+            {
+                "pronoun": "vosaltres",
+                "forms": ["aneu"],
+                "translation": None,
+            },
+            {
+                "pronoun": "ells, elles, vostès",
+                "forms": ["van"],
+                "translation": None,
+            },
+        ]
+
+        for item in conjugation:
+            item["pronoun"] = add_reflexive_prefix(
+                item["pronoun"], item["forms"][0], reflexive_suffix="-se'n"
+            )
+
+        expected_conjugation = [
+            {"pronoun": "me'n", "forms": ["vaig"], "translation": None},
+            {"pronoun": "te'n", "forms": ["vas"], "translation": None},
+            {"pronoun": "se'n", "forms": ["va"], "translation": None},
+            {"pronoun": "ens n'", "forms": ["anem"], "translation": None},
+            {"pronoun": "us n'", "forms": ["aneu"], "translation": None},
+            {
+                "pronoun": "se'n",
+                "forms": ["van"],
+                "translation": None,
+            },
+        ]
+
+        assert expected_conjugation[0]["pronoun"] == conjugation[0]["pronoun"], (
+            "The first conjugation pronoun should be <me'n>"
+        )

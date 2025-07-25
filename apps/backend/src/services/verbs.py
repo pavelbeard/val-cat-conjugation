@@ -50,11 +50,11 @@ async def create_verb_v2(
     verb_table = verbs_utils.VerbUntranslatedTable(
         html=response.text,
         reflexive=checked_verb.endswith(("-se", "-se'n")),
-        reflexive_suffix= "-se" if checked_verb.endswith("-se") else "-se'n",
+        reflexive_suffix="-se" if checked_verb.endswith("-se") else "-se'n",
     )
 
     mood_blocks = verb_table.create_tense_blocks()
-    
+
     verb_model = Fetch__VerbCreated(
         infinitive=checked_verb,
         translation=None,
@@ -102,11 +102,11 @@ async def get_verb(form: str) -> Database__VerbOutput | None:
     return content
 
 
-def delete_verb(infinitive: str):
+def delete_verb(form: str):
     """
-    Delete a verb by its infinitive form.
+    Delete a verb by its form.
     """
-    result = verbs_queries.delete_verb_by_infinitive(infinitive)
+    result = verbs_queries.delete_verb_by_form(form)
 
     if not result:
         raise AppException(HttpStatus.NOT_FOUND, "Verb not found")

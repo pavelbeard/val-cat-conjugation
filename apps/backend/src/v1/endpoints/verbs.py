@@ -76,12 +76,12 @@ async def get_verb(
 
 
 @router.delete(
-    "/verbs/{infinitive}",
+    "/verbs/{form}",
     response_class=Response,
 )
-def delete_verb(infinitive: str):
+def delete_verb(form: str):
     """
-    Delete a verb by its infinitive form.
+    Delete a verb by its form.
     """
-    verbs_service.delete_verb(infinitive)
+    verbs_service.delete_verb(form)
     return Response(status_code=204)
