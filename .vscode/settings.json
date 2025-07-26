@@ -1,26 +1,19 @@
 {
-    "mdb.presetConnections": [
-        {
-            "name": "localhost:27017",
-            "connectionString": "mongodb://localhost:27017"
-        }
-    ],
-    "python.testing.pytestArgs": [
-        "${workspaceFolder}/apps/backend/src/tests",
-        "-s"
-    ],
-    "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true,
-    "python.envFile": "${workspaceFolder}/apps/backend/api/.env",
-    "cSpell.words": [
-        "anar",
-        "OLLAMA",
-        "parlar"
-    ],
-    "vitest.rootConfig": "${workspaceFolder}/apps/frontend/vitest.config.ts",
-    "vitest.nodeExecutable": "/Users/pavelbeard/.nvm/versions/node/v22.14.0/bin/node",
-    "python.analysis.extraPaths": [
-        "./apps",
-        "./apps/backend"
-    ],
+  "mdb.presetConnections": [
+    {
+      "name": "localhost:27017",
+      "connectionString": "mongodb://localhost:27017"
+    }
+  ],
+  "python.testing.pytestArgs": [
+    "${workspaceFolder}/apps/backend/src/tests",
+    "-s"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "python.envFile": "${workspaceFolder}/apps/backend/api/.env",
+  "cSpell.words": ["anar", "OLLAMA", "parlar"],
+  "vitest.rootConfig": "${workspaceFolder}/apps/frontend/vitest.config.ts",
+  "vitest.nodeExecutable": "/Users/pavelbeard/.nvm/versions/node/v22.14.0/bin/node",
+  "python.analysis.extraPaths": ["./apps", "./apps/backend"]
 }

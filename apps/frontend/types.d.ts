@@ -1,7 +1,7 @@
 declare global {
   interface String {
-    capitalize(): string
+    capitalize(): string;
   }
 }
 
-export {}
+export {};

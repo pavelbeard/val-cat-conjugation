@@ -1,5 +1,5 @@
-import React from 'react'
-import { Card } from '../ui/card'
+import React from "react";
+import { Card } from "../ui/card";
 
 export default function VerbTableLoading() {
   return (
@@ -18,5 +18,5 @@ export default function VerbTableLoading() {
         <Card className="w-[598px] h-[374px] bg-blue-300 animate-pulse"></Card>
       </div>
     </div>
-  )
+  );
 }

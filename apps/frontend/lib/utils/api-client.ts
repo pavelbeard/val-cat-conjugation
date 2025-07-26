@@ -1,18 +1,18 @@
 export class ApiClient {
   static async get<T>(url: string, options?: RequestInit): Promise<T> {
     const response = await fetch(url, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       ...options,
-    })
+    });
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch from ${url}: ${response.statusText}`)
+      throw new Error(`Failed to fetch from ${url}: ${response.statusText}`);
     }
 
-    return response.json() as Promise<T>
+    return response.json() as Promise<T>;
   }
 
   static async post<T>(
@@ -21,20 +21,20 @@ export class ApiClient {
     options?: RequestInit
   ): Promise<T> {
     const response = await fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify(data),
       ...options,
-    })
+    });
 
     if (!response.ok) {
-      throw new Error(`Failed to post to ${url}: ${response.statusText}`)
+      throw new Error(`Failed to post to ${url}: ${response.statusText}`);
     }
 
-    return response.json() as Promise<T>
+    return response.json() as Promise<T>;
   }
 
   static async put<T>(
@@ -43,33 +43,33 @@ export class ApiClient {
     options?: RequestInit
   ): Promise<T> {
     const response = await fetch(url, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
       ...options,
-    })
+    });
 
     if (!response.ok) {
-      throw new Error(`Failed to put to ${url}: ${response.statusText}`)
+      throw new Error(`Failed to put to ${url}: ${response.statusText}`);
     }
 
-    return response.json() as Promise<T>
+    return response.json() as Promise<T>;
   }
 
   static async delete(url: string): Promise<boolean> {
     const response = await fetch(url, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-    })
+    });
 
     if (!response.ok) {
-      throw new Error(`Failed to delete from ${url}: ${response.statusText}`)
+      throw new Error(`Failed to delete from ${url}: ${response.statusText}`);
     }
 
-    return true
+    return true;
   }
 }

@@ -11,63 +11,37 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "adono",
-                  "adone",
-                  "adon"
-                ],
-                "variation_types": [
-                  "(cent.)",
-                  "(val.)",
-                  "(bal.)"
-                ],
+                "forms": ["adono", "adone", "adon"],
+                "variation_types": ["(cent.)", "(val.)", "(bal.)"],
                 "translation": "me doy cuenta"
               },
               {
                 "pronoun": "t'",
-                "forms": [
-                  "adones"
-                ],
+                "forms": ["adones"],
                 "variation_types": null,
                 "translation": "te das cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adona"
-                ],
+                "forms": ["adona"],
                 "variation_types": null,
                 "translation": "se da cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "adonem",
-                  "adonam"
-                ],
-                "variation_types": [
-                  null,
-                  "(bal.)"
-                ],
+                "forms": ["adonem", "adonam"],
+                "variation_types": [null, "(bal.)"],
                 "translation": "nos damos cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "adoneu",
-                  "adonau"
-                ],
-                "variation_types": [
-                  null,
-                  "(bal.)"
-                ],
+                "forms": ["adoneu", "adonau"],
+                "variation_types": [null, "(bal.)"],
                 "translation": "os dais cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adonen"
-                ],
+                "forms": ["adonen"],
                 "variation_types": null,
                 "translation": "se dan cuenta"
               }
@@ -78,49 +52,37 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "he adonat"
-                ],
+                "forms": ["he adonat"],
                 "variation_types": null,
                 "translation": "me he dado cuenta"
               },
               {
                 "pronoun": "t'",
-                "forms": [
-                  "has adonat"
-                ],
+                "forms": ["has adonat"],
                 "variation_types": null,
                 "translation": "te has dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "ha adonat"
-                ],
+                "forms": ["ha adonat"],
                 "variation_types": null,
                 "translation": "se ha dado cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "hem adonat"
-                ],
+                "forms": ["hem adonat"],
                 "variation_types": null,
                 "translation": "nos hemos dado cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "heu adonat"
-                ],
+                "forms": ["heu adonat"],
                 "variation_types": null,
                 "translation": "os habéis dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "han adonat"
-                ],
+                "forms": ["han adonat"],
                 "variation_types": null,
                 "translation": "se han dado cuenta"
               }
@@ -131,49 +93,37 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "adonava"
-                ],
+                "forms": ["adonava"],
                 "variation_types": null,
                 "translation": "me daba cuenta"
               },
               {
                 "pronoun": "t'",
-                "forms": [
-                  "adonaves"
-                ],
+                "forms": ["adonaves"],
                 "variation_types": null,
                 "translation": "te dabas cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adonava"
-                ],
+                "forms": ["adonava"],
                 "variation_types": null,
                 "translation": "se daba cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "adonàvem"
-                ],
+                "forms": ["adonàvem"],
                 "variation_types": null,
                 "translation": "nos dábamos cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "adonàveu"
-                ],
+                "forms": ["adonàveu"],
                 "variation_types": null,
                 "translation": "os dabais cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adonaven"
-                ],
+                "forms": ["adonaven"],
                 "variation_types": null,
                 "translation": "se daban cuenta"
               }
@@ -184,49 +134,37 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "havia adonat"
-                ],
+                "forms": ["havia adonat"],
                 "variation_types": null,
                 "translation": "me había dado cuenta"
               },
               {
                 "pronoun": "t'",
-                "forms": [
-                  "havies adonat"
-                ],
+                "forms": ["havies adonat"],
                 "variation_types": null,
                 "translation": "te habías dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "havia adonat"
-                ],
+                "forms": ["havia adonat"],
                 "variation_types": null,
                 "translation": "se había dado cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "havíem adonat"
-                ],
+                "forms": ["havíem adonat"],
                 "variation_types": null,
                 "translation": "nos habíamos dado cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "havíeu adonat"
-                ],
+                "forms": ["havíeu adonat"],
                 "variation_types": null,
                 "translation": "os habíais dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "havien adonat"
-                ],
+                "forms": ["havien adonat"],
                 "variation_types": null,
                 "translation": "se habían dado cuenta"
               }
@@ -237,49 +175,37 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "adoní"
-                ],
+                "forms": ["adoní"],
                 "variation_types": null,
                 "translation": "me di cuenta"
               },
               {
                 "pronoun": "t'",
-                "forms": [
-                  "adonares"
-                ],
+                "forms": ["adonares"],
                 "variation_types": null,
                 "translation": "te diste cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adonà"
-                ],
+                "forms": ["adonà"],
                 "variation_types": null,
                 "translation": "se dio cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "adonàrem"
-                ],
+                "forms": ["adonàrem"],
                 "variation_types": null,
                 "translation": "nos dimos cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "adonàreu"
-                ],
+                "forms": ["adonàreu"],
                 "variation_types": null,
                 "translation": "os disteis cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adonaren"
-                ],
+                "forms": ["adonaren"],
                 "variation_types": null,
                 "translation": "se dieron cuenta"
               }
@@ -290,49 +216,37 @@
             "conjugation": [
               {
                 "pronoun": "em",
-                "forms": [
-                  "vaig adonar"
-                ],
+                "forms": ["vaig adonar"],
                 "variation_types": null,
                 "translation": "me di cuenta"
               },
               {
                 "pronoun": "et",
-                "forms": [
-                  "vas (vares) adonar"
-                ],
+                "forms": ["vas (vares) adonar"],
                 "variation_types": null,
                 "translation": "te diste cuenta"
               },
               {
                 "pronoun": "es",
-                "forms": [
-                  "va adonar"
-                ],
+                "forms": ["va adonar"],
                 "variation_types": null,
                 "translation": "se dio cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "vam (vàrem) adonar"
-                ],
+                "forms": ["vam (vàrem) adonar"],
                 "variation_types": null,
                 "translation": "nos dimos cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "vau (vàreu) adonar"
-                ],
+                "forms": ["vau (vàreu) adonar"],
                 "variation_types": null,
                 "translation": "os disteis cuenta"
               },
               {
                 "pronoun": "es",
-                "forms": [
-                  "van (varen) adonar"
-                ],
+                "forms": ["van (varen) adonar"],
                 "variation_types": null,
                 "translation": "se dieron cuenta"
               }
@@ -343,49 +257,37 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "haguí adonat"
-                ],
+                "forms": ["haguí adonat"],
                 "variation_types": null,
                 "translation": "me hube dado cuenta"
               },
               {
                 "pronoun": "t'",
-                "forms": [
-                  "hagueres adonat"
-                ],
+                "forms": ["hagueres adonat"],
                 "variation_types": null,
                 "translation": "te hubiste dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "hagué adonat"
-                ],
+                "forms": ["hagué adonat"],
                 "variation_types": null,
                 "translation": "se hubo dado cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "haguérem adonat"
-                ],
+                "forms": ["haguérem adonat"],
                 "variation_types": null,
                 "translation": "nos hubimos dado cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "haguéreu adonat"
-                ],
+                "forms": ["haguéreu adonat"],
                 "variation_types": null,
                 "translation": "os hubisteis dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "hagueren adonat"
-                ],
+                "forms": ["hagueren adonat"],
                 "variation_types": null,
                 "translation": "se hubieron dado cuenta"
               }
@@ -396,49 +298,37 @@
             "conjugation": [
               {
                 "pronoun": "em",
-                "forms": [
-                  "vaig haver adonat"
-                ],
+                "forms": ["vaig haver adonat"],
                 "variation_types": null,
                 "translation": "me hube dado cuenta"
               },
               {
                 "pronoun": "et",
-                "forms": [
-                  "vas haver adonat"
-                ],
+                "forms": ["vas haver adonat"],
                 "variation_types": null,
                 "translation": "te hubiste dado cuenta"
               },
               {
                 "pronoun": "es",
-                "forms": [
-                  "va haver adonat"
-                ],
+                "forms": ["va haver adonat"],
                 "variation_types": null,
                 "translation": "se hubo dado cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "vam haver adonat"
-                ],
+                "forms": ["vam haver adonat"],
                 "variation_types": null,
                 "translation": "nos hubimos dado cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "vau haver adonat"
-                ],
+                "forms": ["vau haver adonat"],
                 "variation_types": null,
                 "translation": "os hubisteis dado cuenta"
               },
               {
                 "pronoun": "es",
-                "forms": [
-                  "van haver adonat"
-                ],
+                "forms": ["van haver adonat"],
                 "variation_types": null,
                 "translation": "se hubieron dado cuenta"
               }
@@ -449,49 +339,37 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "adonaré"
-                ],
+                "forms": ["adonaré"],
                 "variation_types": null,
                 "translation": "me daré cuenta"
               },
               {
                 "pronoun": "t'",
-                "forms": [
-                  "adonaràs"
-                ],
+                "forms": ["adonaràs"],
                 "variation_types": null,
                 "translation": "te darás cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adonarà"
-                ],
+                "forms": ["adonarà"],
                 "variation_types": null,
                 "translation": "se dará cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "adonarem"
-                ],
+                "forms": ["adonarem"],
                 "variation_types": null,
                 "translation": "nos daremos cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "adonareu"
-                ],
+                "forms": ["adonareu"],
                 "variation_types": null,
                 "translation": "os daréis cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adonaran"
-                ],
+                "forms": ["adonaran"],
                 "variation_types": null,
                 "translation": "se darán cuenta"
               }
@@ -502,49 +380,37 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "hauré adonat"
-                ],
+                "forms": ["hauré adonat"],
                 "variation_types": null,
                 "translation": "me habré dado cuenta"
               },
               {
                 "pronoun": "t'",
-                "forms": [
-                  "hauràs adonat"
-                ],
+                "forms": ["hauràs adonat"],
                 "variation_types": null,
                 "translation": "te habrás dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "haurà adonat"
-                ],
+                "forms": ["haurà adonat"],
                 "variation_types": null,
                 "translation": "se habrá dado cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "haurem adonat"
-                ],
+                "forms": ["haurem adonat"],
                 "variation_types": null,
                 "translation": "nos habremos dado cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "haureu adonat"
-                ],
+                "forms": ["haureu adonat"],
                 "variation_types": null,
                 "translation": "os habréis dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "hauran adonat"
-                ],
+                "forms": ["hauran adonat"],
                 "variation_types": null,
                 "translation": "se habrán dado cuenta"
               }
@@ -555,49 +421,37 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "adonaria"
-                ],
+                "forms": ["adonaria"],
                 "variation_types": null,
                 "translation": "me daría cuenta"
               },
               {
                 "pronoun": "t'",
-                "forms": [
-                  "adonaries"
-                ],
+                "forms": ["adonaries"],
                 "variation_types": null,
                 "translation": "te darías cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adonaria"
-                ],
+                "forms": ["adonaria"],
                 "variation_types": null,
                 "translation": "se daría cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "adonaríem"
-                ],
+                "forms": ["adonaríem"],
                 "variation_types": null,
                 "translation": "nos daríamos cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "adonaríeu"
-                ],
+                "forms": ["adonaríeu"],
                 "variation_types": null,
                 "translation": "os daríais cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adonarien"
-                ],
+                "forms": ["adonarien"],
                 "variation_types": null,
                 "translation": "se darían cuenta"
               }
@@ -608,49 +462,37 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "hauria (haguera) adonat"
-                ],
+                "forms": ["hauria (haguera) adonat"],
                 "variation_types": null,
                 "translation": "me habría dado cuenta"
               },
               {
                 "pronoun": "t'",
-                "forms": [
-                  "hauries (hagueres) adonat"
-                ],
+                "forms": ["hauries (hagueres) adonat"],
                 "variation_types": null,
                 "translation": "te habrías dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "hauria (haguera) adonat"
-                ],
+                "forms": ["hauria (haguera) adonat"],
                 "variation_types": null,
                 "translation": "se habría dado cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "hauríem (haguérem) adonat"
-                ],
+                "forms": ["hauríem (haguérem) adonat"],
                 "variation_types": null,
                 "translation": "nos habríamos dado cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "hauríeu (haguéreu) adonat"
-                ],
+                "forms": ["hauríeu (haguéreu) adonat"],
                 "variation_types": null,
                 "translation": "os habríais dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "haurien (hagueren) adonat"
-                ],
+                "forms": ["haurien (hagueren) adonat"],
                 "variation_types": null,
                 "translation": "se habrían dado cuenta"
               }
@@ -666,66 +508,38 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "adoni",
-                  "adone"
-                ],
-                "variation_types": [
-                  null,
-                  "(val.)"
-                ],
+                "forms": ["adoni", "adone"],
+                "variation_types": [null, "(val.)"],
                 "translation": "me dé cuenta"
               },
               {
                 "pronoun": "t'",
-                "forms": [
-                  "adonis",
-                  "adones"
-                ],
-                "variation_types": [
-                  null,
-                  "(val.)"
-                ],
+                "forms": ["adonis", "adones"],
+                "variation_types": [null, "(val.)"],
                 "translation": "te des cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adoni",
-                  "adone"
-                ],
-                "variation_types": [
-                  null,
-                  "(val.)"
-                ],
+                "forms": ["adoni", "adone"],
+                "variation_types": [null, "(val.)"],
                 "translation": "se dé cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "adonem"
-                ],
+                "forms": ["adonem"],
                 "variation_types": null,
                 "translation": "nos demos cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "adoneu"
-                ],
+                "forms": ["adoneu"],
                 "variation_types": null,
                 "translation": "os deis cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adonin",
-                  "adonen"
-                ],
-                "variation_types": [
-                  null,
-                  "(val.)"
-                ],
+                "forms": ["adonin", "adonen"],
+                "variation_types": [null, "(val.)"],
                 "translation": "se den cuenta"
               }
             ]
@@ -735,49 +549,37 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "hagi (haja) adonat"
-                ],
+                "forms": ["hagi (haja) adonat"],
                 "variation_types": null,
                 "translation": "me haya dado cuenta"
               },
               {
                 "pronoun": "t'",
-                "forms": [
-                  "hagis (hages) adonat"
-                ],
+                "forms": ["hagis (hages) adonat"],
                 "variation_types": null,
                 "translation": "te hayas dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "hagi (haja) adonat"
-                ],
+                "forms": ["hagi (haja) adonat"],
                 "variation_types": null,
                 "translation": "se haya dado cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "hàgim (hàgem) adonat"
-                ],
+                "forms": ["hàgim (hàgem) adonat"],
                 "variation_types": null,
                 "translation": "nos hayamos dado cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "hàgiu (hàgeu) adonat"
-                ],
+                "forms": ["hàgiu (hàgeu) adonat"],
                 "variation_types": null,
                 "translation": "os hayáis dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "hagin (hagen) adonat"
-                ],
+                "forms": ["hagin (hagen) adonat"],
                 "variation_types": null,
                 "translation": "se hayan dado cuenta"
               }
@@ -788,16 +590,8 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "adonés",
-                  "adonara",
-                  "adonàs"
-                ],
-                "variation_types": [
-                  null,
-                  "(val.)",
-                  "(val., bal.)"
-                ],
+                "forms": ["adonés", "adonara", "adonàs"],
+                "variation_types": [null, "(val.)", "(val., bal.)"],
                 "translation": "me diera cuenta, me diese cuenta"
               },
               {
@@ -820,16 +614,8 @@
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adonés",
-                  "adonara",
-                  "adonàs"
-                ],
-                "variation_types": [
-                  null,
-                  "(val.)",
-                  "(val., bal.)"
-                ],
+                "forms": ["adonés", "adonara", "adonàs"],
+                "variation_types": [null, "(val.)", "(val., bal.)"],
                 "translation": "se diera cuenta, se diese cuenta"
               },
               {
@@ -893,49 +679,37 @@
             "conjugation": [
               {
                 "pronoun": "m'",
-                "forms": [
-                  "hagués (haguera) adonat"
-                ],
+                "forms": ["hagués (haguera) adonat"],
                 "variation_types": null,
                 "translation": "me hubiera dado cuenta, me hubiese dado cuenta"
               },
               {
                 "pronoun": "t'",
-                "forms": [
-                  "haguessis (hagueres) adonat"
-                ],
+                "forms": ["haguessis (hagueres) adonat"],
                 "variation_types": null,
                 "translation": "te hubieras dado cuenta, te hubieses dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "hagués (haguera) adonat"
-                ],
+                "forms": ["hagués (haguera) adonat"],
                 "variation_types": null,
                 "translation": "se hubiera dado cuenta, se hubiese dado cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "haguéssim (haguérem) adonat"
-                ],
+                "forms": ["haguéssim (haguérem) adonat"],
                 "variation_types": null,
                 "translation": "nos hubiéramos dado cuenta, nos hubiésemos dado cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "haguéssiu (haguéreu) adonat"
-                ],
+                "forms": ["haguéssiu (haguéreu) adonat"],
                 "variation_types": null,
                 "translation": "os hubierais dado cuenta, os hubieseis dado cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "haguessin (hagueren) adonat"
-                ],
+                "forms": ["haguessin (hagueren) adonat"],
                 "variation_types": null,
                 "translation": "se hubieran dado cuenta, se hubiesen dado cuenta"
               }
@@ -951,54 +725,32 @@
             "conjugation": [
               {
                 "pronoun": "t'",
-                "forms": [
-                  "adona"
-                ],
+                "forms": ["adona"],
                 "variation_types": null,
                 "translation": "date cuenta, no te des cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adoni",
-                  "adone"
-                ],
-                "variation_types": [
-                  null,
-                  "(val.)"
-                ],
+                "forms": ["adoni", "adone"],
+                "variation_types": [null, "(val.)"],
                 "translation": "dese cuenta, no se dé cuenta"
               },
               {
                 "pronoun": "ens",
-                "forms": [
-                  "adonem"
-                ],
+                "forms": ["adonem"],
                 "variation_types": null,
                 "translation": "démonos cuenta, no nos demos cuenta"
               },
               {
                 "pronoun": "us",
-                "forms": [
-                  "adoneu",
-                  "adonau"
-                ],
-                "variation_types": [
-                  null,
-                  "(bal.)"
-                ],
+                "forms": ["adoneu", "adonau"],
+                "variation_types": [null, "(bal.)"],
                 "translation": "daos cuenta, no os deis cuenta"
               },
               {
                 "pronoun": "s'",
-                "forms": [
-                  "adonin",
-                  "adonen"
-                ],
-                "variation_types": [
-                  null,
-                  "(val.)"
-                ],
+                "forms": ["adonin", "adonen"],
+                "variation_types": [null, "(val.)"],
                 "translation": "dense cuenta, no se den cuenta"
               }
             ]
@@ -1013,9 +765,7 @@
             "conjugation": [
               {
                 "pronoun": "infinitiu",
-                "forms": [
-                  "adonar-se"
-                ],
+                "forms": ["adonar-se"],
                 "variation_types": null,
                 "translation": "darse cuenta, percatarse, notar"
               }
@@ -1026,9 +776,7 @@
             "conjugation": [
               {
                 "pronoun": "infinitiu_compost",
-                "forms": [
-                  "haver adonat"
-                ],
+                "forms": ["haver adonat"],
                 "variation_types": null,
                 "translation": "haberse dado cuenta"
               }
@@ -1039,9 +787,7 @@
             "conjugation": [
               {
                 "pronoun": "gerundi",
-                "forms": [
-                  "adonant"
-                ],
+                "forms": ["adonant"],
                 "variation_types": null,
                 "translation": "dándose cuenta"
               }
@@ -1052,9 +798,7 @@
             "conjugation": [
               {
                 "pronoun": "gerundi_compost",
-                "forms": [
-                  "havent adonat"
-                ],
+                "forms": ["havent adonat"],
                 "variation_types": null,
                 "translation": "habiéndose dado cuenta"
               }
@@ -1065,33 +809,25 @@
             "conjugation": [
               {
                 "pronoun": "participi",
-                "forms": [
-                  "adonat"
-                ],
+                "forms": ["adonat"],
                 "variation_types": null,
                 "translation": "dado cuenta"
               },
               {
                 "pronoun": "participi",
-                "forms": [
-                  "adonada"
-                ],
+                "forms": ["adonada"],
                 "variation_types": null,
                 "translation": "adonat"
               },
               {
                 "pronoun": "participi",
-                "forms": [
-                  "adonats"
-                ],
+                "forms": ["adonats"],
                 "variation_types": null,
                 "translation": "adonat"
               },
               {
                 "pronoun": "participi",
-                "forms": [
-                  "adonades"
-                ],
+                "forms": ["adonades"],
                 "variation_types": null,
                 "translation": "adonat"
               }

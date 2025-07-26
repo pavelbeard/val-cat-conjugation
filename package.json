@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "backend-install": "turbo run add_pkg", 
-    "dev": "turbo run dev"
+    "backend-install": "turbo run add_pkg",
+    "dev": "turbo run dev",
+    "prettier": "prettier --write \"**/*.{ts,tsx,json}\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.4.1",
   "dependencies": {
+    "prettier": "^3.6.2",
     "turbo": "^2.5.5"
   }
 }

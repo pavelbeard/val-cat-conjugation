@@ -1,10 +1,10 @@
-import viteTsconfigPaths from 'vite-tsconfig-paths'
-import { defineConfig } from 'vitest/config'
+import viteTsconfigPaths from "vite-tsconfig-paths";
+import { defineConfig } from "vitest/config";
 
 const folders = {
-  unit: ['./app/**/*.test.ts'],
-  staff: ['node_modules'],
-}
+  unit: ["./app/**/*.test.ts"],
+  staff: ["node_modules"],
+};
 
 export default defineConfig({
   plugins: [viteTsconfigPaths()],
@@ -13,11 +13,11 @@ export default defineConfig({
       {
         extends: true,
         test: {
-          name: 'unit',
+          name: "unit",
           include: folders.unit,
           exclude: folders.staff,
         },
       },
     ],
   },
-})
+});

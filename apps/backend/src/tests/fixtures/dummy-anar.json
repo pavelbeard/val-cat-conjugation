@@ -50,122 +50,452 @@
         {
           "tense": "perfet",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["he anat"], "variation_types": null, "translation": "he anat" },
-            { "pronoun": "tu", "forms": ["has anat"], "variation_types": null, "translation": "has anat" },
-            { "pronoun": "ell, ella, vostè", "forms": ["ha anat"], "variation_types": null, "translation": "ha anat" },
-            { "pronoun": "nosaltres", "forms": ["hem anat"], "variation_types": null, "translation": "hem anat" },
-            { "pronoun": "vosaltres, vós", "forms": ["heu anat"], "variation_types": null, "translation": "heu anat" },
-            { "pronoun": "ells, elles, vostès", "forms": ["han anat"], "variation_types": null, "translation": "han anat" }
+            {
+              "pronoun": "jo",
+              "forms": ["he anat"],
+              "variation_types": null,
+              "translation": "he anat"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["has anat"],
+              "variation_types": null,
+              "translation": "has anat"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["ha anat"],
+              "variation_types": null,
+              "translation": "ha anat"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["hem anat"],
+              "variation_types": null,
+              "translation": "hem anat"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["heu anat"],
+              "variation_types": null,
+              "translation": "heu anat"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["han anat"],
+              "variation_types": null,
+              "translation": "han anat"
+            }
           ]
         },
         {
           "tense": "imperfet",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["anava"], "variation_types": null, "translation": "anava" },
-            { "pronoun": "tu", "forms": ["anaves"], "variation_types": null, "translation": "anaves" },
-            { "pronoun": "ell, ella, vostè", "forms": ["anava"], "variation_types": null, "translation": "anava" },
-            { "pronoun": "nosaltres", "forms": ["anàvem"], "variation_types": null, "translation": "anàvem" },
-            { "pronoun": "vosaltres, vós", "forms": ["anàveu"], "variation_types": null, "translation": "anàveu" },
-            { "pronoun": "ells, elles, vostès", "forms": ["anaven"], "variation_types": null, "translation": "anaven" }
+            {
+              "pronoun": "jo",
+              "forms": ["anava"],
+              "variation_types": null,
+              "translation": "anava"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["anaves"],
+              "variation_types": null,
+              "translation": "anaves"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["anava"],
+              "variation_types": null,
+              "translation": "anava"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["anàvem"],
+              "variation_types": null,
+              "translation": "anàvem"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["anàveu"],
+              "variation_types": null,
+              "translation": "anàveu"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["anaven"],
+              "variation_types": null,
+              "translation": "anaven"
+            }
           ]
         },
         {
           "tense": "plusquamperfet",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["havia anat"], "variation_types": null, "translation": "havia anat" },
-            { "pronoun": "tu", "forms": ["havies anat"], "variation_types": null, "translation": "havies anat" },
-            { "pronoun": "ell, ella, vostè", "forms": ["havia anat"], "variation_types": null, "translation": "havia anat" },
-            { "pronoun": "nosaltres", "forms": ["havíem anat"], "variation_types": null, "translation": "havíem anat" },
-            { "pronoun": "vosaltres, vós", "forms": ["havíeu anat"], "variation_types": null, "translation": "havíeu anat" },
-            { "pronoun": "ells, elles, vostès", "forms": ["havien anat"], "variation_types": null, "translation": "havien anat" }
+            {
+              "pronoun": "jo",
+              "forms": ["havia anat"],
+              "variation_types": null,
+              "translation": "havia anat"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["havies anat"],
+              "variation_types": null,
+              "translation": "havies anat"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["havia anat"],
+              "variation_types": null,
+              "translation": "havia anat"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["havíem anat"],
+              "variation_types": null,
+              "translation": "havíem anat"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["havíeu anat"],
+              "variation_types": null,
+              "translation": "havíeu anat"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["havien anat"],
+              "variation_types": null,
+              "translation": "havien anat"
+            }
           ]
         },
         {
           "tense": "passat_simple",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["aní"], "variation_types": null, "translation": "aní" },
-            { "pronoun": "tu", "forms": ["anares"], "variation_types": null, "translation": "anares" },
-            { "pronoun": "ell, ella, vostè", "forms": ["anà"], "variation_types": null, "translation": "anà" },
-            { "pronoun": "nosaltres", "forms": ["anàrem"], "variation_types": null, "translation": "anàrem" },
-            { "pronoun": "vosaltres, vós", "forms": ["anàreu"], "variation_types": null, "translation": "anàreu" },
-            { "pronoun": "ells, elles, vostès", "forms": ["anaren"], "variation_types": null, "translation": "anaren" }
+            {
+              "pronoun": "jo",
+              "forms": ["aní"],
+              "variation_types": null,
+              "translation": "aní"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["anares"],
+              "variation_types": null,
+              "translation": "anares"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["anà"],
+              "variation_types": null,
+              "translation": "anà"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["anàrem"],
+              "variation_types": null,
+              "translation": "anàrem"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["anàreu"],
+              "variation_types": null,
+              "translation": "anàreu"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["anaren"],
+              "variation_types": null,
+              "translation": "anaren"
+            }
           ]
         },
         {
           "tense": "passat_perifràstic",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["vaig anar"], "variation_types": null, "translation": "vaig anar" },
-            { "pronoun": "tu", "forms": ["vas (vares) anar"], "variation_types": null, "translation": "vas (vares) anar" },
-            { "pronoun": "ell, ella, vostè", "forms": ["va anar"], "variation_types": null, "translation": "va anar" },
-            { "pronoun": "nosaltres", "forms": ["vam (vàrem) anar"], "variation_types": null, "translation": "vam (vàrem) anar" },
-            { "pronoun": "vosaltres, vós", "forms": ["vau (vàreu) anar"], "variation_types": null, "translation": "vau (vàreu) anar" },
-            { "pronoun": "ells, elles, vostès", "forms": ["van (varen) anar"], "variation_types": null, "translation": "van (varen) anar" }
+            {
+              "pronoun": "jo",
+              "forms": ["vaig anar"],
+              "variation_types": null,
+              "translation": "vaig anar"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["vas (vares) anar"],
+              "variation_types": null,
+              "translation": "vas (vares) anar"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["va anar"],
+              "variation_types": null,
+              "translation": "va anar"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["vam (vàrem) anar"],
+              "variation_types": null,
+              "translation": "vam (vàrem) anar"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["vau (vàreu) anar"],
+              "variation_types": null,
+              "translation": "vau (vàreu) anar"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["van (varen) anar"],
+              "variation_types": null,
+              "translation": "van (varen) anar"
+            }
           ]
         },
         {
           "tense": "passat_anterior",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["haguí anat"], "variation_types": null, "translation": "haguí anat" },
-            { "pronoun": "tu", "forms": ["hagueres anat"], "variation_types": null, "translation": "hagueres anat" },
-            { "pronoun": "ell, ella, vostè", "forms": ["hagué anat"], "variation_types": null, "translation": "hagué anat" },
-            { "pronoun": "nosaltres", "forms": ["haguérem anat"], "variation_types": null, "translation": "haguérem anat" },
-            { "pronoun": "vosaltres, vós", "forms": ["haguéreu anat"], "variation_types": null, "translation": "haguéreu anat" },
-            { "pronoun": "ells, elles, vostès", "forms": ["hagueren anat"], "variation_types": null, "translation": "hagueren anat" }
+            {
+              "pronoun": "jo",
+              "forms": ["haguí anat"],
+              "variation_types": null,
+              "translation": "haguí anat"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["hagueres anat"],
+              "variation_types": null,
+              "translation": "hagueres anat"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["hagué anat"],
+              "variation_types": null,
+              "translation": "hagué anat"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["haguérem anat"],
+              "variation_types": null,
+              "translation": "haguérem anat"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["haguéreu anat"],
+              "variation_types": null,
+              "translation": "haguéreu anat"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["hagueren anat"],
+              "variation_types": null,
+              "translation": "hagueren anat"
+            }
           ]
         },
         {
           "tense": "passat_anterior_perifràstic",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["vaig haver anat"], "variation_types": null, "translation": "vaig haver anat" },
-            { "pronoun": "tu", "forms": ["vas haver anat"], "variation_types": null, "translation": "vas haver anat" },
-            { "pronoun": "ell, ella, vostè", "forms": ["va haver anat"], "variation_types": null, "translation": "va haver anat" },
-            { "pronoun": "nosaltres", "forms": ["vam haver anat"], "variation_types": null, "translation": "vam haver anat" },
-            { "pronoun": "vosaltres, vós", "forms": ["vau haver anat"], "variation_types": null, "translation": "vau haver anat" },
-            { "pronoun": "ells, elles, vostès", "forms": ["van haver anat"], "variation_types": null, "translation": "van haver anat" }
+            {
+              "pronoun": "jo",
+              "forms": ["vaig haver anat"],
+              "variation_types": null,
+              "translation": "vaig haver anat"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["vas haver anat"],
+              "variation_types": null,
+              "translation": "vas haver anat"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["va haver anat"],
+              "variation_types": null,
+              "translation": "va haver anat"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["vam haver anat"],
+              "variation_types": null,
+              "translation": "vam haver anat"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["vau haver anat"],
+              "variation_types": null,
+              "translation": "vau haver anat"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["van haver anat"],
+              "variation_types": null,
+              "translation": "van haver anat"
+            }
           ]
         },
         {
           "tense": "futur",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["aniré / iré"], "variation_types": null, "translation": "aniré / iré" },
-            { "pronoun": "tu", "forms": ["aniràs / iràs"], "variation_types": null, "translation": "aniràs / iràs" },
-            { "pronoun": "ell, ella, vostè", "forms": ["anirà / irà"], "variation_types": null, "translation": "anirà / irà" },
-            { "pronoun": "nosaltres", "forms": ["anirem / irem"], "variation_types": null, "translation": "anirem / irem" },
-            { "pronoun": "vosaltres, vós", "forms": ["anireu / ireu"], "variation_types": null, "translation": "anireu / ireu" },
-            { "pronoun": "ells, elles, vostès", "forms": ["aniran / iran"], "variation_types": null, "translation": "aniran / iran" }
+            {
+              "pronoun": "jo",
+              "forms": ["aniré / iré"],
+              "variation_types": null,
+              "translation": "aniré / iré"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["aniràs / iràs"],
+              "variation_types": null,
+              "translation": "aniràs / iràs"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["anirà / irà"],
+              "variation_types": null,
+              "translation": "anirà / irà"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["anirem / irem"],
+              "variation_types": null,
+              "translation": "anirem / irem"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["anireu / ireu"],
+              "variation_types": null,
+              "translation": "anireu / ireu"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["aniran / iran"],
+              "variation_types": null,
+              "translation": "aniran / iran"
+            }
           ]
         },
         {
           "tense": "futur_perfet",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["hauré anat"], "variation_types": null, "translation": "hauré anat" },
-            { "pronoun": "tu", "forms": ["hauràs anat"], "variation_types": null, "translation": "hauràs anat" },
-            { "pronoun": "ell, ella, vostè", "forms": ["haurà anat"], "variation_types": null, "translation": "haurà anat" },
-            { "pronoun": "nosaltres", "forms": ["haurem anat"], "variation_types": null, "translation": "haurem anat" },
-            { "pronoun": "vosaltres, vós", "forms": ["haureu anat"], "variation_types": null, "translation": "haureu anat" },
-            { "pronoun": "ells, elles, vostès", "forms": ["hauran anat"], "variation_types": null, "translation": "hauran anat" }
+            {
+              "pronoun": "jo",
+              "forms": ["hauré anat"],
+              "variation_types": null,
+              "translation": "hauré anat"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["hauràs anat"],
+              "variation_types": null,
+              "translation": "hauràs anat"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["haurà anat"],
+              "variation_types": null,
+              "translation": "haurà anat"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["haurem anat"],
+              "variation_types": null,
+              "translation": "haurem anat"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["haureu anat"],
+              "variation_types": null,
+              "translation": "haureu anat"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["hauran anat"],
+              "variation_types": null,
+              "translation": "hauran anat"
+            }
           ]
         },
         {
           "tense": "condicional",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["aniria / iria"], "variation_types": null, "translation": "aniria / iria" },
-            { "pronoun": "tu", "forms": ["aniries / iries"], "variation_types": null, "translation": "aniries / iries" },
-            { "pronoun": "ell, ella, vostè", "forms": ["aniria / iria"], "variation_types": null, "translation": "aniria / iria" },
-            { "pronoun": "nosaltres", "forms": ["aniríem / iríem"], "variation_types": null, "translation": "aniríem / iríem" },
-            { "pronoun": "vosaltres, vós", "forms": ["aniríeu / iríeu"], "variation_types": null, "translation": "aniríeu / iríeu" },
-            { "pronoun": "ells, elles, vostès", "forms": ["anirien / irien"], "variation_types": null, "translation": "anirien / irien" }
+            {
+              "pronoun": "jo",
+              "forms": ["aniria / iria"],
+              "variation_types": null,
+              "translation": "aniria / iria"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["aniries / iries"],
+              "variation_types": null,
+              "translation": "aniries / iries"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["aniria / iria"],
+              "variation_types": null,
+              "translation": "aniria / iria"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["aniríem / iríem"],
+              "variation_types": null,
+              "translation": "aniríem / iríem"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["aniríeu / iríeu"],
+              "variation_types": null,
+              "translation": "aniríeu / iríeu"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["anirien / irien"],
+              "variation_types": null,
+              "translation": "anirien / irien"
+            }
           ]
         },
         {
           "tense": "condicional_perfet",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["hauria (haguera) anat"], "variation_types": null, "translation": "hauria (haguera) anat" },
-            { "pronoun": "tu", "forms": ["hauries (hagueres) anat"], "variation_types": null, "translation": "hauries (hagueres) anat" },
-            { "pronoun": "ell, ella, vostè", "forms": ["hauria (haguera) anat"], "variation_types": null, "translation": "hauria (haguera) anat" },
-            { "pronoun": "nosaltres", "forms": ["hauríem (haguérem) anat"], "variation_types": null, "translation": "hauríem (haguérem) anat" },
-            { "pronoun": "vosaltres, vós", "forms": ["hauríeu (haguéreu) anat"], "variation_types": null, "translation": "hauríeu (haguéreu) anat" },
-            { "pronoun": "ells, elles, vostès", "forms": ["haurien (hagueren) anat"], "variation_types": null, "translation": "haurien (hagueren) anat" }
+            {
+              "pronoun": "jo",
+              "forms": ["hauria (haguera) anat"],
+              "variation_types": null,
+              "translation": "hauria (haguera) anat"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["hauries (hagueres) anat"],
+              "variation_types": null,
+              "translation": "hauries (hagueres) anat"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["hauria (haguera) anat"],
+              "variation_types": null,
+              "translation": "hauria (haguera) anat"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["hauríem (haguérem) anat"],
+              "variation_types": null,
+              "translation": "hauríem (haguérem) anat"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["hauríeu (haguéreu) anat"],
+              "variation_types": null,
+              "translation": "hauríeu (haguéreu) anat"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["haurien (hagueren) anat"],
+              "variation_types": null,
+              "translation": "haurien (hagueren) anat"
+            }
           ]
         }
       ]
@@ -217,34 +547,148 @@
         {
           "tense": "perfet",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["hagi (haja) anat"], "variation_types": null, "translation": "hagi (haja) anat" },
-            { "pronoun": "tu", "forms": ["hagis (hages) anat"], "variation_types": null, "translation": "hagis (hages) anat" },
-            { "pronoun": "ell, ella, vostè", "forms": ["hagi (haja) anat"], "variation_types": null, "translation": "hagi (haja) anat" },
-            { "pronoun": "nosaltres", "forms": ["hàgim (hàgem) anat"], "variation_types": null, "translation": "hàgim (hàgem) anat" },
-            { "pronoun": "vosaltres, vós", "forms": ["hàgiu (hàgeu) anat"], "variation_types": null, "translation": "hàgiu (hàgeu) anat" },
-            { "pronoun": "ells, elles, vostès", "forms": ["hagin (hagen) anat"], "variation_types": null, "translation": "hagin (hagen) anat" }
+            {
+              "pronoun": "jo",
+              "forms": ["hagi (haja) anat"],
+              "variation_types": null,
+              "translation": "hagi (haja) anat"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["hagis (hages) anat"],
+              "variation_types": null,
+              "translation": "hagis (hages) anat"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["hagi (haja) anat"],
+              "variation_types": null,
+              "translation": "hagi (haja) anat"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["hàgim (hàgem) anat"],
+              "variation_types": null,
+              "translation": "hàgim (hàgem) anat"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["hàgiu (hàgeu) anat"],
+              "variation_types": null,
+              "translation": "hàgiu (hàgeu) anat"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["hagin (hagen) anat"],
+              "variation_types": null,
+              "translation": "hagin (hagen) anat"
+            }
           ]
         },
         {
           "tense": "imperfet",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["anés", "anara", "anàs"], "variation_types": [null, "(val.)", "(val., bal.)"], "translation": "anés" },
-            { "pronoun": "tu", "forms": ["anessis", "anares", "anassis", "anesses", "anasses"], "variation_types": [null, "(val.)", "(bal.)", null, "(val., bal.)"], "translation": "anessis" },
-            { "pronoun": "ell, ella, vostè", "forms": ["anés", "anara", "anàs"], "variation_types": [null, "(val.)", "(val., bal.)"], "translation": "anés" },
-            { "pronoun": "nosaltres", "forms": ["anéssim", "anàrem", "anàssim", "anéssem", "anàssem"], "variation_types": [null, "(val.)", "(bal.)", null, "(val., bal.)"], "translation": "anéssim" },
-            { "pronoun": "vosaltres, vós", "forms": ["anéssiu", "anàreu", "anàssiu", "anésseu", "anàsseu"], "variation_types": [null, "(val.)", "(bal.)", null, "(val., bal.)"], "translation": "anéssiu" },
-            { "pronoun": "ells, elles, vostès", "forms": ["anessin", "anaren", "anassin", "anessen", "anassen"], "variation_types": [null, "(val.)", "(bal.)", null, "(val., bal.)"], "translation": "anessin" }
+            {
+              "pronoun": "jo",
+              "forms": ["anés", "anara", "anàs"],
+              "variation_types": [null, "(val.)", "(val., bal.)"],
+              "translation": "anés"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["anessis", "anares", "anassis", "anesses", "anasses"],
+              "variation_types": [
+                null,
+                "(val.)",
+                "(bal.)",
+                null,
+                "(val., bal.)"
+              ],
+              "translation": "anessis"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["anés", "anara", "anàs"],
+              "variation_types": [null, "(val.)", "(val., bal.)"],
+              "translation": "anés"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["anéssim", "anàrem", "anàssim", "anéssem", "anàssem"],
+              "variation_types": [
+                null,
+                "(val.)",
+                "(bal.)",
+                null,
+                "(val., bal.)"
+              ],
+              "translation": "anéssim"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["anéssiu", "anàreu", "anàssiu", "anésseu", "anàsseu"],
+              "variation_types": [
+                null,
+                "(val.)",
+                "(bal.)",
+                null,
+                "(val., bal.)"
+              ],
+              "translation": "anéssiu"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["anessin", "anaren", "anassin", "anessen", "anassen"],
+              "variation_types": [
+                null,
+                "(val.)",
+                "(bal.)",
+                null,
+                "(val., bal.)"
+              ],
+              "translation": "anessin"
+            }
           ]
         },
         {
           "tense": "plusquamperfet",
           "conjugation": [
-            { "pronoun": "jo", "forms": ["hagués (haguera) anat"], "variation_types": null, "translation": "hagués (haguera) anat" },
-            { "pronoun": "tu", "forms": ["haguessis (hagueres) anat"], "variation_types": null, "translation": "haguessis (hagueres) anat" },
-            { "pronoun": "ell, ella, vostè", "forms": ["hagués (haguera) anat"], "variation_types": null, "translation": "hagués (haguera) anat" },
-            { "pronoun": "nosaltres", "forms": ["haguéssim (haguérem) anat"], "variation_types": null, "translation": "haguéssim (haguérem) anat" },
-            { "pronoun": "vosaltres, vós", "forms": ["haguéssiu (haguéreu) anat"], "variation_types": null, "translation": "haguéssiu (haguéreu) anat" },
-            { "pronoun": "ells, elles, vostès", "forms": ["haguessin (hagueren) anat"], "variation_types": null, "translation": "haguessin (hagueren) anat" }
+            {
+              "pronoun": "jo",
+              "forms": ["hagués (haguera) anat"],
+              "variation_types": null,
+              "translation": "hagués (haguera) anat"
+            },
+            {
+              "pronoun": "tu",
+              "forms": ["haguessis (hagueres) anat"],
+              "variation_types": null,
+              "translation": "haguessis (hagueres) anat"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["hagués (haguera) anat"],
+              "variation_types": null,
+              "translation": "hagués (haguera) anat"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["haguéssim (haguérem) anat"],
+              "variation_types": null,
+              "translation": "haguéssim (haguérem) anat"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["haguéssiu (haguéreu) anat"],
+              "variation_types": null,
+              "translation": "haguéssiu (haguéreu) anat"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["haguessin (hagueren) anat"],
+              "variation_types": null,
+              "translation": "haguessin (hagueren) anat"
+            }
           ]
         }
       ]
@@ -255,11 +699,36 @@
         {
           "tense": "present",
           "conjugation": [
-            { "pronoun": "tu", "forms": ["ves", "vés"], "variation_types": [null, "(ort. pre-2017)"], "translation": "ves" },
-            { "pronoun": "ell, ella, vostè", "forms": ["vagi", "vaja"], "variation_types": [null, "(val.)"], "translation": "vagi" },
-            { "pronoun": "nosaltres", "forms": ["anem"], "variation_types": null, "translation": "anem" },
-            { "pronoun": "vosaltres, vós", "forms": ["aneu", "anau"], "variation_types": [null, "(bal.)"], "translation": "aneu" },
-            { "pronoun": "ells, elles, vostès", "forms": ["vagin", "vagen"], "variation_types": [null, "(val.)"], "translation": "vagin" }
+            {
+              "pronoun": "tu",
+              "forms": ["ves", "vés"],
+              "variation_types": [null, "(ort. pre-2017)"],
+              "translation": "ves"
+            },
+            {
+              "pronoun": "ell, ella, vostè",
+              "forms": ["vagi", "vaja"],
+              "variation_types": [null, "(val.)"],
+              "translation": "vagi"
+            },
+            {
+              "pronoun": "nosaltres",
+              "forms": ["anem"],
+              "variation_types": null,
+              "translation": "anem"
+            },
+            {
+              "pronoun": "vosaltres, vós",
+              "forms": ["aneu", "anau"],
+              "variation_types": [null, "(bal.)"],
+              "translation": "aneu"
+            },
+            {
+              "pronoun": "ells, elles, vostès",
+              "forms": ["vagin", "vagen"],
+              "variation_types": [null, "(val.)"],
+              "translation": "vagin"
+            }
           ]
         }
       ]
@@ -270,11 +739,36 @@
         {
           "tense": "formes_no_personals",
           "conjugation": [
-            { "pronoun": "Infinitiu", "forms": ["anar"], "variation_types": null, "translation": "anar" },
-            { "pronoun": "Infinitiu compost", "forms": ["haver anat"], "variation_types": null, "translation": "haver anat" },
-            { "pronoun": "Gerundi", "forms": ["anant"], "variation_types": null, "translation": "anant" },
-            { "pronoun": "Gerundi compost", "forms": ["havent anat"], "variation_types": null, "translation": "havent anat" },
-            { "pronoun": "Participi", "forms": ["anat", "anada", "anats", "anades"], "variation_types": null, "translation": "anat" }
+            {
+              "pronoun": "Infinitiu",
+              "forms": ["anar"],
+              "variation_types": null,
+              "translation": "anar"
+            },
+            {
+              "pronoun": "Infinitiu compost",
+              "forms": ["haver anat"],
+              "variation_types": null,
+              "translation": "haver anat"
+            },
+            {
+              "pronoun": "Gerundi",
+              "forms": ["anant"],
+              "variation_types": null,
+              "translation": "anant"
+            },
+            {
+              "pronoun": "Gerundi compost",
+              "forms": ["havent anat"],
+              "variation_types": null,
+              "translation": "havent anat"
+            },
+            {
+              "pronoun": "Participi",
+              "forms": ["anat", "anada", "anats", "anades"],
+              "variation_types": null,
+              "translation": "anat"
+            }
           ]
         }
       ]

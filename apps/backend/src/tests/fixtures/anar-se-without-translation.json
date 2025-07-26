@@ -198,17 +198,26 @@
                 "translation": null
               },
               {
-                "forms": ["nosaltres ens en vam anar", "nosaltres ens en vàrem anar"],
+                "forms": [
+                  "nosaltres ens en vam anar",
+                  "nosaltres ens en vàrem anar"
+                ],
                 "pronoun": "nosaltres",
                 "translation": null
               },
               {
-                "forms": ["vosaltres us en vau anar", "vosaltres us en vàreu anar"],
+                "forms": [
+                  "vosaltres us en vau anar",
+                  "vosaltres us en vàreu anar"
+                ],
                 "pronoun": "vosaltres",
                 "translation": null
               },
               {
-                "forms": ["ells/elles se'n van anar", "ells/elles se'n vàren anar"],
+                "forms": [
+                  "ells/elles se'n van anar",
+                  "ells/elles se'n vàren anar"
+                ],
                 "pronoun": "ells/elles",
                 "translation": null
               }
@@ -268,17 +277,26 @@
                 "translation": null
               },
               {
-                "forms": ["nosaltres ens en vam haver anat", "nosaltres ens en vàrem haver anat"],
+                "forms": [
+                  "nosaltres ens en vam haver anat",
+                  "nosaltres ens en vàrem haver anat"
+                ],
                 "pronoun": "nosaltres",
                 "translation": null
               },
               {
-                "forms": ["vosaltres us en vau haver anat", "vosaltres us en vàreu haver anat"],
+                "forms": [
+                  "vosaltres us en vau haver anat",
+                  "vosaltres us en vàreu haver anat"
+                ],
                 "pronoun": "vosaltres",
                 "translation": null
               },
               {
-                "forms": ["ells/elles se'n van haver anat", "ells/elles se'n vàren haver anat"],
+                "forms": [
+                  "ells/elles se'n van haver anat",
+                  "ells/elles se'n vàren haver anat"
+                ],
                 "pronoun": "ells/elles",
                 "translation": null
               }
@@ -448,17 +466,26 @@
                 "translation": null
               },
               {
-                "forms": ["que nosaltres ens en vàgem", "que nosaltres ens en vàgim"],
+                "forms": [
+                  "que nosaltres ens en vàgem",
+                  "que nosaltres ens en vàgim"
+                ],
                 "pronoun": "nosaltres",
                 "translation": null
               },
               {
-                "forms": ["que vosaltres us en vàgeu", "que vosaltres us en vàgiu"],
+                "forms": [
+                  "que vosaltres us en vàgeu",
+                  "que vosaltres us en vàgiu"
+                ],
                 "pronoun": "vosaltres",
                 "translation": null
               },
               {
-                "forms": ["que ells/elles se'n vagen", "que ells/elles se'n vagin"],
+                "forms": [
+                  "que ells/elles se'n vagen",
+                  "que ells/elles se'n vagin"
+                ],
                 "pronoun": "ells/elles",
                 "translation": null
               }
@@ -478,22 +505,34 @@
                 "translation": null
               },
               {
-                "forms": ["que ell/ella se n'haja anat", "que ell/ella se n'hagi anat"],
+                "forms": [
+                  "que ell/ella se n'haja anat",
+                  "que ell/ella se n'hagi anat"
+                ],
                 "pronoun": "ell/ella",
                 "translation": null
               },
               {
-                "forms": ["que nosaltres ens en hàgem anat", "que nosaltres ens en hàgim anat"],
+                "forms": [
+                  "que nosaltres ens en hàgem anat",
+                  "que nosaltres ens en hàgim anat"
+                ],
                 "pronoun": "nosaltres",
                 "translation": null
               },
               {
-                "forms": ["que vosaltres us en hàgeu anat", "que vosaltres us en hàgiu anat"],
+                "forms": [
+                  "que vosaltres us en hàgeu anat",
+                  "que vosaltres us en hàgiu anat"
+                ],
                 "pronoun": "vosaltres",
                 "translation": null
               },
               {
-                "forms": ["que ells/elles se n'hagen anat", "que ells/elles se n'hagin anat"],
+                "forms": [
+                  "que ells/elles se n'hagen anat",
+                  "que ells/elles se n'hagin anat"
+                ],
                 "pronoun": "ells/elles",
                 "translation": null
               }
@@ -518,17 +557,26 @@
                 "translation": null
               },
               {
-                "forms": ["que nosaltres ens en anàrem", "que nosaltres ens en anàssem"],
+                "forms": [
+                  "que nosaltres ens en anàrem",
+                  "que nosaltres ens en anàssem"
+                ],
                 "pronoun": "nosaltres",
                 "translation": null
               },
               {
-                "forms": ["que vosaltres us en anàreu", "que vosaltres us en anàsseu"],
+                "forms": [
+                  "que vosaltres us en anàreu",
+                  "que vosaltres us en anàsseu"
+                ],
                 "pronoun": "vosaltres",
                 "translation": null
               },
               {
-                "forms": ["que ells/elles se'n anaren", "que ells/elles se'n anassen"],
+                "forms": [
+                  "que ells/elles se'n anaren",
+                  "que ells/elles se'n anassen"
+                ],
                 "pronoun": "ells/elles",
                 "translation": null
               }
@@ -538,32 +586,50 @@
           {
             "conjugation": [
               {
-                "forms": ["que jo me n'haguera anat", "que jo me n'hagués anat"],
+                "forms": [
+                  "que jo me n'haguera anat",
+                  "que jo me n'hagués anat"
+                ],
                 "pronoun": "jo",
                 "translation": null
               },
               {
-                "forms": ["que tu te n'hagueres anat", "que tu te n'haguessis anat"],
+                "forms": [
+                  "que tu te n'hagueres anat",
+                  "que tu te n'haguessis anat"
+                ],
                 "pronoun": "tu",
                 "translation": null
               },
               {
-                "forms": ["que ell/ella se n'haguera anat", "que ell/ella se n'hagués anat"],
+                "forms": [
+                  "que ell/ella se n'haguera anat",
+                  "que ell/ella se n'hagués anat"
+                ],
                 "pronoun": "ell/ella",
                 "translation": null
               },
               {
-                "forms": ["que nosaltres ens en haguérem anat", "que nosaltres ens en haguéssim anat"],
+                "forms": [
+                  "que nosaltres ens en haguérem anat",
+                  "que nosaltres ens en haguéssim anat"
+                ],
                 "pronoun": "nosaltres",
                 "translation": null
               },
               {
-                "forms": ["que vosaltres us en haguéreu anat", "que vosaltres us en haguéssiu anat"],
+                "forms": [
+                  "que vosaltres us en haguéreu anat",
+                  "que vosaltres us en haguéssiu anat"
+                ],
                 "pronoun": "vosaltres",
                 "translation": null
               },
               {
-                "forms": ["que ells/elles se n'hagueren anat", "que ells/elles se n'haguessin anat"],
+                "forms": [
+                  "que ells/elles se n'hagueren anat",
+                  "que ells/elles se n'haguessin anat"
+                ],
                 "pronoun": "ells/elles",
                 "translation": null
               }

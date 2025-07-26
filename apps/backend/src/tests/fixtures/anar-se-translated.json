@@ -10,49 +10,37 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "vaig"
-              ],
+              "forms": ["vaig"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "vas"
-              ],
+              "forms": ["vas"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "va"
-              ],
+              "forms": ["va"],
               "variation_types": null,
               "translation": "se va"
             },
             {
               "pronoun": "ens n'",
-              "forms": [
-                "anem"
-              ],
+              "forms": ["anem"],
               "variation_types": null,
               "translation": "nos vamos"
             },
             {
               "pronoun": "us n'",
-              "forms": [
-                "aneu"
-              ],
+              "forms": ["aneu"],
               "variation_types": null,
               "translation": "os vais"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "van"
-              ],
+              "forms": ["van"],
               "variation_types": null,
               "translation": "se van"
             }
@@ -63,49 +51,37 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "he anat"
-              ],
+              "forms": ["he anat"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "has anat"
-              ],
+              "forms": ["has anat"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ha anat"
-              ],
+              "forms": ["ha anat"],
               "variation_types": null,
               "translation": "se va"
             },
             {
               "pronoun": "ens n'",
-              "forms": [
-                "hem anat"
-              ],
+              "forms": ["hem anat"],
               "variation_types": null,
               "translation": "nos vamos"
             },
             {
               "pronoun": "us n'",
-              "forms": [
-                "heu anat"
-              ],
+              "forms": ["heu anat"],
               "variation_types": null,
               "translation": "os vais"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "han anat"
-              ],
+              "forms": ["han anat"],
               "variation_types": null,
               "translation": "se van"
             }
@@ -116,49 +92,37 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "jo me'n anava"
-              ],
+              "forms": ["jo me'n anava"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "tu te'n anaves"
-              ],
+              "forms": ["tu te'n anaves"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ell/ella se'n anava"
-              ],
+              "forms": ["ell/ella se'n anava"],
               "variation_types": null,
               "translation": "se va"
             },
             {
               "pronoun": "ens n'",
-              "forms": [
-                "nosaltres ens en anàvem"
-              ],
+              "forms": ["nosaltres ens en anàvem"],
               "variation_types": null,
               "translation": "nos vamos"
             },
             {
               "pronoun": "us n'",
-              "forms": [
-                "vosaltres us en anàveu"
-              ],
+              "forms": ["vosaltres us en anàveu"],
               "variation_types": null,
               "translation": "os vais"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ells/elles se'n anaven"
-              ],
+              "forms": ["ells/elles se'n anaven"],
               "variation_types": null,
               "translation": "se van"
             }
@@ -169,49 +133,37 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "jo me n'havia anat"
-              ],
+              "forms": ["jo me n'havia anat"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "tu te n'havies anat"
-              ],
+              "forms": ["tu te n'havies anat"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ell/ella se n'havia anat"
-              ],
+              "forms": ["ell/ella se n'havia anat"],
               "variation_types": null,
               "translation": "se va"
             },
             {
               "pronoun": "ens n'",
-              "forms": [
-                "nosaltres ens en havíem anat"
-              ],
+              "forms": ["nosaltres ens en havíem anat"],
               "variation_types": null,
               "translation": "nos vamos"
             },
             {
               "pronoun": "us n'",
-              "forms": [
-                "vosaltres us en havíeu anat"
-              ],
+              "forms": ["vosaltres us en havíeu anat"],
               "variation_types": null,
               "translation": "os vais"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ells/elles se n'havien anat"
-              ],
+              "forms": ["ells/elles se n'havien anat"],
               "variation_types": null,
               "translation": "se van"
             }
@@ -222,49 +174,37 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "jo me'n aní"
-              ],
+              "forms": ["jo me'n aní"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "tu te'nanares"
-              ],
+              "forms": ["tu te'nanares"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ell/ella se'n anà"
-              ],
+              "forms": ["ell/ella se'n anà"],
               "variation_types": null,
               "translation": "se va"
             },
             {
               "pronoun": "ens n'",
-              "forms": [
-                "nosaltres ens en anàrem"
-              ],
+              "forms": ["nosaltres ens en anàrem"],
               "variation_types": null,
               "translation": "nos vamos"
             },
             {
               "pronoun": "us n'",
-              "forms": [
-                "vosaltres us en anàreu"
-              ],
+              "forms": ["vosaltres us en anàreu"],
               "variation_types": null,
               "translation": "os vais"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ells/elles se'n anaren"
-              ],
+              "forms": ["ells/elles se'n anaren"],
               "variation_types": null,
               "translation": "se van"
             }
@@ -275,25 +215,19 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "jo me'n vaig anar"
-              ],
+              "forms": ["jo me'n vaig anar"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "tu te'n vas anar"
-              ],
+              "forms": ["tu te'n vas anar"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ell/ella se'n va anar"
-              ],
+              "forms": ["ell/ella se'n va anar"],
               "variation_types": null,
               "translation": "se va"
             },
@@ -331,49 +265,37 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "jo me n'haguí anat"
-              ],
+              "forms": ["jo me n'haguí anat"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "tu te n'hagueres anat"
-              ],
+              "forms": ["tu te n'hagueres anat"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ell/ella se n'hagué anat"
-              ],
+              "forms": ["ell/ella se n'hagué anat"],
               "variation_types": null,
               "translation": "se va"
             },
             {
               "pronoun": "ens n'",
-              "forms": [
-                "nosaltres ens en haguérem anat"
-              ],
+              "forms": ["nosaltres ens en haguérem anat"],
               "variation_types": null,
               "translation": "nos vamos"
             },
             {
               "pronoun": "us n'",
-              "forms": [
-                "vosaltres us en haguéreu anat"
-              ],
+              "forms": ["vosaltres us en haguéreu anat"],
               "variation_types": null,
               "translation": "os vais"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ells/elles se n'hagueren anat"
-              ],
+              "forms": ["ells/elles se n'hagueren anat"],
               "variation_types": null,
               "translation": "se van"
             }
@@ -384,25 +306,19 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "jo me'n vaig haver anat"
-              ],
+              "forms": ["jo me'n vaig haver anat"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "tu te'n vas haver anat"
-              ],
+              "forms": ["tu te'n vas haver anat"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ell/ella se'n va haver anat"
-              ],
+              "forms": ["ell/ella se'n va haver anat"],
               "variation_types": null,
               "translation": "se va"
             },
@@ -440,49 +356,37 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "jo me'n aniré"
-              ],
+              "forms": ["jo me'n aniré"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "tu te'n aniràs"
-              ],
+              "forms": ["tu te'n aniràs"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ell/ella se'n anirà"
-              ],
+              "forms": ["ell/ella se'n anirà"],
               "variation_types": null,
               "translation": "se va"
             },
             {
               "pronoun": "ens n'",
-              "forms": [
-                "nosaltres ens en anirem"
-              ],
+              "forms": ["nosaltres ens en anirem"],
               "variation_types": null,
               "translation": "nos vamos"
             },
             {
               "pronoun": "us n'",
-              "forms": [
-                "vosaltres us en anireu"
-              ],
+              "forms": ["vosaltres us en anireu"],
               "variation_types": null,
               "translation": "os vais"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ells/elles se'n aniran"
-              ],
+              "forms": ["ells/elles se'n aniran"],
               "variation_types": null,
               "translation": "se van"
             }
@@ -493,49 +397,37 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "jo me n'hauré anat"
-              ],
+              "forms": ["jo me n'hauré anat"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "tu te n'hauràs anat"
-              ],
+              "forms": ["tu te n'hauràs anat"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ell/ella se n'haurà anat"
-              ],
+              "forms": ["ell/ella se n'haurà anat"],
               "variation_types": null,
               "translation": "se va"
             },
             {
               "pronoun": "ens n'",
-              "forms": [
-                "nosaltres ens en haurem anat"
-              ],
+              "forms": ["nosaltres ens en haurem anat"],
               "variation_types": null,
               "translation": "nos vamos"
             },
             {
               "pronoun": "us n'",
-              "forms": [
-                "vosaltres us en haureu anat"
-              ],
+              "forms": ["vosaltres us en haureu anat"],
               "variation_types": null,
               "translation": "os vais"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ells/elles se n'hauran anat"
-              ],
+              "forms": ["ells/elles se n'hauran anat"],
               "variation_types": null,
               "translation": "se van"
             }
@@ -546,49 +438,37 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "jo me'n aniria"
-              ],
+              "forms": ["jo me'n aniria"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "tu te'n aniries"
-              ],
+              "forms": ["tu te'n aniries"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ell/ella se'n aniria"
-              ],
+              "forms": ["ell/ella se'n aniria"],
               "variation_types": null,
               "translation": "se va"
             },
             {
               "pronoun": "ens n'",
-              "forms": [
-                "nosaltres ens en aniríem"
-              ],
+              "forms": ["nosaltres ens en aniríem"],
               "variation_types": null,
               "translation": "nos vamos"
             },
             {
               "pronoun": "us n'",
-              "forms": [
-                "vosaltres us en aniríeu"
-              ],
+              "forms": ["vosaltres us en aniríeu"],
               "variation_types": null,
               "translation": "os vais"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ells/elles se'n anirien"
-              ],
+              "forms": ["ells/elles se'n anirien"],
               "variation_types": null,
               "translation": "se van"
             }
@@ -599,49 +479,37 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "jo me n'hauria anat"
-              ],
+              "forms": ["jo me n'hauria anat"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "tu te n'hauries anat"
-              ],
+              "forms": ["tu te n'hauries anat"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ell/ella se n'hauria anat"
-              ],
+              "forms": ["ell/ella se n'hauria anat"],
               "variation_types": null,
               "translation": "se va"
             },
             {
               "pronoun": "ens n'",
-              "forms": [
-                "nosaltres ens en hauríem anat"
-              ],
+              "forms": ["nosaltres ens en hauríem anat"],
               "variation_types": null,
               "translation": "nos vamos"
             },
             {
               "pronoun": "us n'",
-              "forms": [
-                "vosaltres us en hauríeu anat"
-              ],
+              "forms": ["vosaltres us en hauríeu anat"],
               "variation_types": null,
               "translation": "os vais"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "ells/elles se n'haurien anat"
-              ],
+              "forms": ["ells/elles se n'haurien anat"],
               "variation_types": null,
               "translation": "se van"
             }
@@ -657,28 +525,19 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "que jo me'n vaja",
-                "que jo me'n vagi"
-              ],
+              "forms": ["que jo me'n vaja", "que jo me'n vagi"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "que tu te'n vages",
-                "que tu te'n vagis"
-              ],
+              "forms": ["que tu te'n vages", "que tu te'n vagis"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "que ell/ella se'n vaja",
-                "que ell/ella se'n vagi"
-              ],
+              "forms": ["que ell/ella se'n vaja", "que ell/ella se'n vagi"],
               "variation_types": null,
               "translation": "se va"
             },
@@ -716,19 +575,13 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "que jo me n'haja anat",
-                "que jo me n'hagi anat"
-              ],
+              "forms": ["que jo me n'haja anat", "que jo me n'hagi anat"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "que tu te n'hages anat",
-                "que tu te n'hagis anat"
-              ],
+              "forms": ["que tu te n'hages anat", "que tu te n'hagis anat"],
               "variation_types": null,
               "translation": "te vas"
             },
@@ -775,28 +628,19 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "que jo me'n anara",
-                "que jo me'n anàs"
-              ],
+              "forms": ["que jo me'n anara", "que jo me'n anàs"],
               "variation_types": null,
               "translation": "me voy"
             },
             {
               "pronoun": "te'n",
-              "forms": [
-                "que tu te'n anares",
-                "que tu te'n anasses"
-              ],
+              "forms": ["que tu te'n anares", "que tu te'n anasses"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "que ell/ella se'n anara",
-                "que ell/ella se'n anàs"
-              ],
+              "forms": ["que ell/ella se'n anara", "que ell/ella se'n anàs"],
               "variation_types": null,
               "translation": "se va"
             },
@@ -834,10 +678,7 @@
           "conjugation": [
             {
               "pronoun": "me'n",
-              "forms": [
-                "que jo me n'haguera anat",
-                "que jo me n'hagués anat"
-              ],
+              "forms": ["que jo me n'haguera anat", "que jo me n'hagués anat"],
               "variation_types": null,
               "translation": "me voy"
             },
@@ -898,43 +739,31 @@
           "conjugation": [
             {
               "pronoun": "te'n",
-              "forms": [
-                "vés-te'n"
-              ],
+              "forms": ["vés-te'n"],
               "variation_types": null,
               "translation": "te vas"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "vagi's ell/ella",
-                "vaja's ell/ella"
-              ],
+              "forms": ["vagi's ell/ella", "vaja's ell/ella"],
               "variation_types": null,
               "translation": "se va"
             },
             {
               "pronoun": "ens n'",
-              "forms": [
-                "anem-nos-en"
-              ],
+              "forms": ["anem-nos-en"],
               "variation_types": null,
               "translation": "nos vamos"
             },
             {
               "pronoun": "us n'",
-              "forms": [
-                "aneu-vos-en"
-              ],
+              "forms": ["aneu-vos-en"],
               "variation_types": null,
               "translation": "os vais"
             },
             {
               "pronoun": "se'n",
-              "forms": [
-                "vagin-se'n ells/elles",
-                "vagen-se'n ells/elles"
-              ],
+              "forms": ["vagin-se'n ells/elles", "vagen-se'n ells/elles"],
               "variation_types": null,
               "translation": "se van"
             }

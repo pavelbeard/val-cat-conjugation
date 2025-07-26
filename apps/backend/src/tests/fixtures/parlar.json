@@ -1,1044 +1,759 @@
 {
-    "_id": "parlar",
-    "infinitive": "parlar",
-    "conjugation": [
+  "_id": "parlar",
+  "infinitive": "parlar",
+  "conjugation": [
+    {
+      "tense": "indicatiu_present",
+      "conjugation": [
         {
-            "tense": "indicatiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "parlo",
-                        "parle",
-                        "parl"
-                    ],
-                    "variation_types": [
-                        "(cent.)",
-                        "(val.)",
-                        "(bal.)"
-                    ],
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "parles"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "parla"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "parlem",
-                        "parlam"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(bal.)"
-                    ],
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "parleu",
-                        "parlau"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(bal.)"
-                    ],
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "parlen"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
+          "pronoun": "jo",
+          "forms": ["parlo", "parle", "parl"],
+          "variation_types": ["(cent.)", "(val.)", "(bal.)"],
+          "translation": null
         },
         {
-            "tense": "indicatiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "he parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "has parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "ha parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "hem parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "heu parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "han parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
+          "pronoun": "tu",
+          "forms": ["parles"],
+          "variation_types": null,
+          "translation": null
         },
         {
-            "tense": "indicatiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "parlava"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "parlaves"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "parlava"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "parlàvem"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "parlàveu"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "parlaven"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
+          "pronoun": "ell, ella, vostè",
+          "forms": ["parla"],
+          "variation_types": null,
+          "translation": null
         },
         {
-            "tense": "indicatiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "havia parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "havies parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "havia parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "havíem parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "havíeu parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "havien parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
+          "pronoun": "nosaltres",
+          "forms": ["parlem", "parlam"],
+          "variation_types": [null, "(bal.)"],
+          "translation": null
         },
         {
-            "tense": "indicatiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "parlí"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "parlares"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "parlà"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "parlàrem"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "parlàreu"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "parlaren"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
+          "pronoun": "vosaltres, vós",
+          "forms": ["parleu", "parlau"],
+          "variation_types": [null, "(bal.)"],
+          "translation": null
         },
         {
-            "tense": "indicatiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "vaig parlar"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "vas (vares) parlar"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "va parlar"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "vam (vàrem) parlar"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "vau (vàreu) parlar"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "van (varen) parlar"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
-        },
-        {
-            "tense": "indicatiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "haguí parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "hagueres parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "hagué parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "haguérem parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "haguéreu parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "hagueren parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
-        },
-        {
-            "tense": "indicatiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "vaig haver parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "vas haver parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "va haver parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "vam haver parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "vau haver parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "van haver parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
-        },
-        {
-            "tense": "indicatiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "parlaré"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "parlaràs"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "parlarà"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "parlarem"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "parlareu"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "parlaran"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
-        },
-        {
-            "tense": "indicatiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "hauré parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "hauràs parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "haurà parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "haurem parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "haureu parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "hauran parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
-        },
-        {
-            "tense": "indicatiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "parlaria"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "parlaries"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "parlaria"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "parlaríem"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "parlaríeu"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "parlarien"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
-        },
-        {
-            "tense": "indicatiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "hauria (haguera) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "hauries (hagueres) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "hauria (haguera) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "hauríem (haguérem) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "hauríeu (haguéreu) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "haurien (hagueren) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
-        },
-        {
-            "tense": "subjuntiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "parli",
-                        "parle"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(val.)"
-                    ],
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "parlis",
-                        "parles"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(val.)"
-                    ],
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "parli",
-                        "parle"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(val.)"
-                    ],
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "parlem"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "parleu"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "parlin",
-                        "parlen"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(val.)"
-                    ],
-                    "translation": null
-                }
-            ]
-        },
-        {
-            "tense": "subjuntiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "hagi (haja) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "hagis (hages) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "hagi (haja) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "hàgim (hàgem) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "hàgiu (hàgeu) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "hagin (hagen) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
-        },
-        {
-            "tense": "subjuntiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "parlés",
-                        "parlara",
-                        "parlàs"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(val.)",
-                        "(val., bal.)"
-                    ],
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "parlessis",
-                        "parlares",
-                        "parlassis",
-                        "parlesses",
-                        "parlasses"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(val.)",
-                        "(bal.)",
-                        null,
-                        "(val., bal.)"
-                    ],
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "parlés",
-                        "parlara",
-                        "parlàs"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(val.)",
-                        "(val., bal.)"
-                    ],
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "parléssim",
-                        "parlàrem",
-                        "parlàssim",
-                        "parléssem",
-                        "parlàssem"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(val.)",
-                        "(bal.)",
-                        null,
-                        "(val., bal.)"
-                    ],
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "parléssiu",
-                        "parlàreu",
-                        "parlàssiu",
-                        "parlésseu",
-                        "parlàsseu"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(val.)",
-                        "(bal.)",
-                        null,
-                        "(val., bal.)"
-                    ],
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "parlessin",
-                        "parlaren",
-                        "parlassin",
-                        "parlessen",
-                        "parlassen"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(val.)",
-                        "(bal.)",
-                        null,
-                        "(val., bal.)"
-                    ],
-                    "translation": null
-                }
-            ]
-        },
-        {
-            "tense": "subjuntiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "jo",
-                    "forms": [
-                        "hagués (haguera) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "haguessis (hagueres) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "hagués (haguera) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "haguéssim (haguérem) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "haguéssiu (haguéreu) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "haguessin (hagueren) parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
-        },
-        {
-            "tense": "imperatiu_present",
-            "conjugation": [
-                {
-                    "pronoun": "tu",
-                    "forms": [
-                        "parla"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "ell, ella, vostè",
-                    "forms": [
-                        "parli",
-                        "parle"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(val.)"
-                    ],
-                    "translation": null
-                },
-                {
-                    "pronoun": "nosaltres",
-                    "forms": [
-                        "parlem"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "vosaltres, vós",
-                    "forms": [
-                        "parleu",
-                        "parlau"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(bal.)"
-                    ],
-                    "translation": null
-                },
-                {
-                    "pronoun": "ells, elles, vostès",
-                    "forms": [
-                        "parlin",
-                        "parlen"
-                    ],
-                    "variation_types": [
-                        null,
-                        "(val.)"
-                    ],
-                    "translation": null
-                }
-            ]
-        },
-        {
-            "tense": "personals_formes no personals",
-            "conjugation": [
-                {
-                    "pronoun": "Infinitiu",
-                    "forms": [
-                        "parlar"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "Infinitiu compost",
-                    "forms": [
-                        "haver parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "Gerundi",
-                    "forms": [
-                        "parlant"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "Gerundi compost",
-                    "forms": [
-                        "havent parlat"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                },
-                {
-                    "pronoun": "Participi",
-                    "forms": [
-                        "parlat",
-                        "parlada",
-                        "parlats",
-                        "parlades"
-                    ],
-                    "variation_types": null,
-                    "translation": null
-                }
-            ]
+          "pronoun": "ells, elles, vostès",
+          "forms": ["parlen"],
+          "variation_types": null,
+          "translation": null
         }
-    ],
-    "translation": "TODO: Add translation",
-    "source": null,
-    "created_at": "2025-07-04T23:57:56.141000"
+      ]
+    },
+    {
+      "tense": "indicatiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["he parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["has parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["ha parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["hem parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["heu parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["han parlat"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "indicatiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["parlava"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["parlaves"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["parlava"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["parlàvem"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["parlàveu"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["parlaven"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "indicatiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["havia parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["havies parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["havia parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["havíem parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["havíeu parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["havien parlat"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "indicatiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["parlí"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["parlares"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["parlà"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["parlàrem"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["parlàreu"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["parlaren"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "indicatiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["vaig parlar"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["vas (vares) parlar"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["va parlar"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["vam (vàrem) parlar"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["vau (vàreu) parlar"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["van (varen) parlar"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "indicatiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["haguí parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["hagueres parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["hagué parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["haguérem parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["haguéreu parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["hagueren parlat"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "indicatiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["vaig haver parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["vas haver parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["va haver parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["vam haver parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["vau haver parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["van haver parlat"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "indicatiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["parlaré"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["parlaràs"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["parlarà"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["parlarem"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["parlareu"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["parlaran"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "indicatiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["hauré parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["hauràs parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["haurà parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["haurem parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["haureu parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["hauran parlat"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "indicatiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["parlaria"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["parlaries"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["parlaria"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["parlaríem"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["parlaríeu"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["parlarien"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "indicatiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["hauria (haguera) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["hauries (hagueres) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["hauria (haguera) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["hauríem (haguérem) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["hauríeu (haguéreu) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["haurien (hagueren) parlat"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "subjuntiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["parli", "parle"],
+          "variation_types": [null, "(val.)"],
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["parlis", "parles"],
+          "variation_types": [null, "(val.)"],
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["parli", "parle"],
+          "variation_types": [null, "(val.)"],
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["parlem"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["parleu"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["parlin", "parlen"],
+          "variation_types": [null, "(val.)"],
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "subjuntiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["hagi (haja) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["hagis (hages) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["hagi (haja) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["hàgim (hàgem) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["hàgiu (hàgeu) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["hagin (hagen) parlat"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "subjuntiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["parlés", "parlara", "parlàs"],
+          "variation_types": [null, "(val.)", "(val., bal.)"],
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": [
+            "parlessis",
+            "parlares",
+            "parlassis",
+            "parlesses",
+            "parlasses"
+          ],
+          "variation_types": [null, "(val.)", "(bal.)", null, "(val., bal.)"],
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["parlés", "parlara", "parlàs"],
+          "variation_types": [null, "(val.)", "(val., bal.)"],
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": [
+            "parléssim",
+            "parlàrem",
+            "parlàssim",
+            "parléssem",
+            "parlàssem"
+          ],
+          "variation_types": [null, "(val.)", "(bal.)", null, "(val., bal.)"],
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": [
+            "parléssiu",
+            "parlàreu",
+            "parlàssiu",
+            "parlésseu",
+            "parlàsseu"
+          ],
+          "variation_types": [null, "(val.)", "(bal.)", null, "(val., bal.)"],
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": [
+            "parlessin",
+            "parlaren",
+            "parlassin",
+            "parlessen",
+            "parlassen"
+          ],
+          "variation_types": [null, "(val.)", "(bal.)", null, "(val., bal.)"],
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "subjuntiu_present",
+      "conjugation": [
+        {
+          "pronoun": "jo",
+          "forms": ["hagués (haguera) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "tu",
+          "forms": ["haguessis (hagueres) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["hagués (haguera) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["haguéssim (haguérem) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["haguéssiu (haguéreu) parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["haguessin (hagueren) parlat"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "imperatiu_present",
+      "conjugation": [
+        {
+          "pronoun": "tu",
+          "forms": ["parla"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "ell, ella, vostè",
+          "forms": ["parli", "parle"],
+          "variation_types": [null, "(val.)"],
+          "translation": null
+        },
+        {
+          "pronoun": "nosaltres",
+          "forms": ["parlem"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "vosaltres, vós",
+          "forms": ["parleu", "parlau"],
+          "variation_types": [null, "(bal.)"],
+          "translation": null
+        },
+        {
+          "pronoun": "ells, elles, vostès",
+          "forms": ["parlin", "parlen"],
+          "variation_types": [null, "(val.)"],
+          "translation": null
+        }
+      ]
+    },
+    {
+      "tense": "personals_formes no personals",
+      "conjugation": [
+        {
+          "pronoun": "Infinitiu",
+          "forms": ["parlar"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "Infinitiu compost",
+          "forms": ["haver parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "Gerundi",
+          "forms": ["parlant"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "Gerundi compost",
+          "forms": ["havent parlat"],
+          "variation_types": null,
+          "translation": null
+        },
+        {
+          "pronoun": "Participi",
+          "forms": ["parlat", "parlada", "parlats", "parlades"],
+          "variation_types": null,
+          "translation": null
+        }
+      ]
+    }
+  ],
+  "translation": "TODO: Add translation",
+  "source": null,
+  "created_at": "2025-07-04T23:57:56.141000"
 }
