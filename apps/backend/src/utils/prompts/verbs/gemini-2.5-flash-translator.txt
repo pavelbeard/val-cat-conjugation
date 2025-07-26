@@ -30,8 +30,6 @@ Formes no personals
 – gerundi_compost
 – participi (solo en la forma singular)
 
-El verbo puede tener la forma reflexiva (”-se”) o pronominal (”-se’n”). No la pierdes!
-
 Para cada tiempo verbal, solo devuelve la **traducción al español** correspondiente a cada **pronombre**.  
 **No devuelvas las formas catalanas.**  
 No expliques nada.

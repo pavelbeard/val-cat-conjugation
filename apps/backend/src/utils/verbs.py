@@ -3,7 +3,7 @@ import re
 from copy import deepcopy
 from enum import Enum
 from textwrap import dedent
-from typing import Any, Callable, Dict, Generator, List, Literal, TypedDict
+from typing import Any, Callable, Dict, Generator, List, Literal
 
 from bs4 import BeautifulSoup, NavigableString
 from bs4.filter import _AtMostOneElement
@@ -51,10 +51,13 @@ def create_translation_prompt_v3(data: Fetch__VerbCreated) -> List[Dict[str, str
             "content": dedent(file.read()),
         }
 
-    user_prompt = {
-        "role": "user",
-        "content": f"Tradúceme el verbo catalán/valenciano '{data.infinitive}' al español en todos modos, tiempos verbales y formas no personal con gerundios y compuestos masculinos/femeninos/plurales.",
-    }
+        # If the verb is reflexive, we need to remove the reflexive suffix for translation
+        derived_infinitive = data.infinitive.replace("-se", "").replace("-se'n", "")
+
+        user_prompt = {
+            "role": "user",
+            "content": f"Tradúceme el verbo catalán/valenciano '{derived_infinitive}' al español en todos modos, tiempos verbales y formas no personal con gerundios y compuestos masculinos/femeninos/plurales.",
+        }
 
     return [system_prompt, user_prompt]
 
@@ -169,8 +172,6 @@ def update_translations_v3(
                     )
     except Exception as e:
         print("Error occurred while updating translations:", e)
-
-    logger.info("Updated translations:", copy_data.moods)
 
     return Database__VerbOutput(
         infinitive=copy_data.infinitive,
@@ -336,9 +337,6 @@ class VerbUntranslatedTable:
         self.html = html
         self.reflexive = reflexive
         self.__reflexive_suffix = reflexive_suffix
-
-    def to_html(self) -> str:
-        return self.html
 
     def create_tense_block_from_table(
         self, tense: str, table: _AtMostOneElement | int | Any

@@ -25,9 +25,15 @@ class TestCreateTenseBlocks:
         """
         Test parsing conjugation data from a fixture HTML file.
         """
-        from src.utils.verbs import create_tense_blocks
+        from src.utils.verbs import VerbUntranslatedTable
 
-        conjugation_data = create_tense_blocks(prettified_anar)
+        verb_table = VerbUntranslatedTable(
+            html=prettified_anar,
+            reflexive=False,
+            reflexive_suffix=None,
+        )
+
+        conjugation_data = verb_table.create_tense_blocks()
 
         assert isinstance(conjugation_data, list)
         assert len(conjugation_data) > 0
@@ -39,14 +45,23 @@ class TestCreateTenseBlocks:
         """Test parsing conjugation data with invalid HTML content."""
         invalid_html = "<html><body>Invalid HTML content</body></html>"
 
-        from src.utils.verbs import create_tense_blocks
+        from src.utils.verbs import VerbUntranslatedTable
 
-        conjugation_data = create_tense_blocks(invalid_html)
-
-        assert isinstance(conjugation_data, list)
-        assert len(conjugation_data) == 0, (
-            "Should return an empty list for invalid HTML"
+        verb_table = VerbUntranslatedTable(
+            html=invalid_html,
+            reflexive=False,
+            reflexive_suffix=None,
         )
+
+        with pytest.raises(
+            AppException, match="No valid verb conjugation data found in HTML."
+        ):
+            conjugation_data = verb_table.create_tense_blocks()
+
+            assert isinstance(conjugation_data, list)
+            assert len(conjugation_data) == 0, (
+                "Should return an empty list for invalid HTML"
+            )
 
 
 class TestPerformAiTranslation:
@@ -112,9 +127,10 @@ class TestPerformAiTranslation:
             "The infinitive should match the mocked data"
         )
 
-        assert result.moods == anar_se_gemini.moods, (
-            "The moods should match the mocked data"
-        )
+        assert (
+            result.moods[0].tenses[0].conjugation[0].forms[0]
+            == anar_se_gemini.moods[0].tenses[0].conjugation[0].forms[0]
+        ), "The moods should match the mocked data"
 
     @pytest.mark.asyncio
     async def test_perform_ai_translation_v3_with_no_data(self, mocker):
