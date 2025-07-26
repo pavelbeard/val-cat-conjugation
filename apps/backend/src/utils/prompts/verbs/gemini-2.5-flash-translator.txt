@@ -51,4 +51,8 @@ Para el modo `imperatiu`, incluye tanto la forma afirmativa como la negativa.
 - `sé, no seas`  
 - `vete, no te vayas`
 
+A la traducción de infinitivo PUEDES añadir unas dos más traducciones, sí es necesario.
+
+!! Y no pierdes formas no personales !!
+
 Responde exactamente siguiendo la estructura esperada..

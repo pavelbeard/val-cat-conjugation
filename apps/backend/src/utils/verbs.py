@@ -263,20 +263,20 @@ class SeApostropheNSuffix(Enum):
 se__pronoun_prefix_mapping: Dict[str, SePrefix] = {
     "jo": SePrefix.EM.value,
     "tu": SePrefix.ET.value,
-    "ell, ella, vosté": SePrefix.ES_SG.value,
+    "ell/ella/vosté": SePrefix.ES_SG.value,
     "nosaltres": SePrefix.ENS.value,
     "vosaltres": SePrefix.US.value,
-    "ells, elles, vostès": SePrefix.ES_PL.value,
+    "ells/elles/vostès": SePrefix.ES_PL.value,
 }
 
 # Dict to handle the mapping of pronouns to reflexive suffixes if first letter has AOIUEH
 se__pronoun_aoiueh_mapping: Dict[str, str] = {
     "jo": SePrefix.EM_APOSTROPHE.value,
     "tu": SePrefix.ET_APOSTROPHE.value,
-    "ell, ella, vosté": SePrefix.ES_SG_APOSTROPHE.value,
+    "ell/ella/vosté": SePrefix.ES_SG_APOSTROPHE.value,
     "nosaltres": SePrefix.ENS_APOSTROPHE.value,
     "vosaltres": SePrefix.US_APOSTROPHE.value,
-    "ells, elles, vostès": SePrefix.ES_PL_APOSTROPHE.value,
+    "ells/elles/vostès": SePrefix.ES_PL_APOSTROPHE.value,
 }
 
 
@@ -468,3 +468,6 @@ class VerbUntranslatedTable:
             )
 
         return tenses
+
+def get_verb_list_by_alphabet():
+    pass
