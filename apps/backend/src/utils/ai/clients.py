@@ -111,7 +111,7 @@ async def translation_client_gemini():
     )
 
     model_settings: GeminiModelSettings = GeminiModelSettings(
-        max_tokens=6144,
+        max_tokens=8192,
         temperature=0.5,
         top_p=0.95,
         gemini_thinking_config={"thinking_budget": 0},

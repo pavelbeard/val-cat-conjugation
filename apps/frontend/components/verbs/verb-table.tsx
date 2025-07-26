@@ -54,12 +54,12 @@ function ConjugationCard({
 }) {
   return (
     <li className="flex items-start gap-2">
-      <div className={cn('flex flex-col gap-0.5', 'w-32')}>
+      <div className="flex flex-col gap-0.5 w-26">
         <p className="text-xs font-semibold" style={{ marginBlock: '0.25lh' }}>
           {conjugation.pronoun.replaceAll('_', ' ')}:
         </p>
         <div
-          className="flex flex-col gap-0.5 text-[10px] text-gray-700"
+          className="flex gap-0.5 text-[10px] text-gray-700"
           style={{ marginBlock: '0.25lh' }}
         >
           {conjugation?.translation &&
@@ -74,7 +74,7 @@ function ConjugationCard({
             ))}
         </div>
       </div>
-      <div className="flex flex-col flex-1 gap-0.5">
+      <div className="flex flex-1 gap-0.5">
         {conjugation?.variation_types
           ? (
               zip(
@@ -101,16 +101,22 @@ function ConjugationCard({
 function BigTenseCard({
   mood,
   tenseBlock,
+  tenseBlockIndex,
 }: {
   mood: string
   tenseBlock: Database__TenseBlock
+  tenseBlockIndex?: number
 }) {
   return (
     <Card
       className={cn(
         'flex-shrink-0',
         colors[mood]?.[tenseBlock?.tense],
-        mood === 'indicatiu' ? 'w-84' : 'w-[600px] mr-4'
+        mood === 'indicatiu'
+          ? (tenseBlockIndex as number) > 3
+            ? 'w-148'
+            : 'w-94'
+          : 'w-[600px] mr-4'
       )}
     >
       <CardHeader>
@@ -139,7 +145,7 @@ function SmallTenseCard({
   return (
     <Card
       className={cn(
-        'w-84',
+        'w-148',
         colors[mood.toLowerCase().replaceAll(' ', '_')]?.[tenseBlock?.tense],
         tenseBlock.tense === 'participi' && 'mb-8'
       )}
@@ -151,9 +157,15 @@ function SmallTenseCard({
         </CardTitle>
       </CardHeader>
       <CardContent>
-        {tenseBlock?.conjugation?.slice(0, 1).map((conjugation, index) => (
-          <ConjugationCard key={index} conjugation={conjugation} />
-        ))}
+        {mood.toLowerCase() === 'imperatiu'
+          ? tenseBlock?.conjugation?.map((conjugation, index) => (
+              <ConjugationCard key={index} conjugation={conjugation} />
+            ))
+          : tenseBlock?.conjugation
+              ?.slice(0, 1)
+              .map((conjugation, index) => (
+                <ConjugationCard key={index} conjugation={conjugation} />
+              ))}
       </CardContent>
     </Card>
   )
@@ -176,7 +188,7 @@ export default function VerbTable({ data }: { data: Database__VerbOutput }) {
         ).map(([indicatiu, subjuntiu], i) => (
           <ScrollArea className="w-full overflow-x-auto" key={i}>
             <section className="flex gap-4 w-max">
-              <BigTenseCard mood="indicatiu" tenseBlock={indicatiu} />
+              <BigTenseCard mood="indicatiu" tenseBlock={indicatiu} tenseBlockIndex={i} />
               {subjuntiu?.tense && (
                 <BigTenseCard mood="subjuntiu" tenseBlock={subjuntiu} />
               )}

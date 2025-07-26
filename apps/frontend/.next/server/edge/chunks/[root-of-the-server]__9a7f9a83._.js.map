@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 21, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/apps/frontend/middleware.ts"],"sourcesContent":["import { NextRequest, NextResponse } from \"next/server\";\n\nexport default function middleware(request: NextRequest) {\n  const pathname = request.nextUrl.pathname;\n\n  const response = NextResponse.next();\n  response.headers.set(\"x-curr-path\", pathname);\n\n  if (pathname === \"/\") {\n    return NextResponse.redirect(new URL(\"/verbs\", request.url));\n  }\n\n  return response;\n}\nexport const config = {\n  matcher: [\"/((?!api|_next/static|_next/image|favicon.ico).*)\"],\n};\n"],"names":[],"mappings":";;;;AAAA;AAAA;;AAEe,SAAS,WAAW,OAAoB;IACrD,MAAM,WAAW,QAAQ,OAAO,CAAC,QAAQ;IAEzC,MAAM,WAAW,4TAAA,CAAA,eAAY,CAAC,IAAI;IAClC,SAAS,OAAO,CAAC,GAAG,CAAC,eAAe;IAEpC,IAAI,aAAa,KAAK;QACpB,OAAO,4TAAA,CAAA,eAAY,CAAC,QAAQ,CAAC,IAAI,IAAI,UAAU,QAAQ,GAAG;IAC5D;IAEA,OAAO;AACT;AACO,MAAM,SAAS;IACpB,SAAS;QAAC;KAAoD;AAChE"}}]
-}

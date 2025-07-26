@@ -1,6 +1,6 @@
 import re
 from typing import List
-from src.db.client import db
+from src.db.client import get_db
 from src.schemas.verbs import Database__VerbOutput
 
 
@@ -9,7 +9,7 @@ def insert_many_verbs(verbs: list):
     """
     Insert multiple verbs into the database.
     """
-    return db.verbs.insert_many(verbs)
+    return get_db().verbs.insert_many(verbs)
 
 
 # READ
@@ -17,14 +17,14 @@ def find_first_100_verbs() -> List[Database__VerbOutput]:
     """
     Retrieve the first 100 verbs from the database.
     """
-    return db.verbs.find().limit(100).sort({"infinitive": 1}).to_list(length=100)
+    return get_db().verbs.find().limit(100).sort({"infinitive": 1}).to_list(length=100)
 
 
 def find_verb_by_infinitive(infinitive: str) -> Database__VerbOutput | None:
     """
     Retrieve a single verb from the database by its infinitive form or translation.
     """
-    return db.verbs.find_one(
+    return get_db().verbs.find_one(
         {"$or": [{"infinitive": infinitive}, {"translation": infinitive}]}
     )
 
@@ -33,7 +33,7 @@ def find_verb_by_form(form: str) -> Database__VerbOutput | None:
     """
     Retrieve a single verb from the database by its form (mood -> tense -> conjugation).
     """
-    return db.verbs.find_one(
+    return get_db().verbs.find_one(
         {
             "$or": [
                 {"infinitive": re.compile(form, re.IGNORECASE)},
@@ -51,7 +51,7 @@ def find_verb_by_form(form: str) -> Database__VerbOutput | None:
 
 # UPDATE
 def find_one_and_update_verb(infinitive: str, update_data: dict):
-    return db.verbs.find_one_and_update(
+    return get_db().verbs.find_one_and_update(
         {"infinitive": infinitive},
         {"$set": update_data},
         upsert=True,
@@ -64,11 +64,11 @@ def delete_verb_by_form(form: str):
     """
     Delete a verb by its form.
     """
-    return db.verbs.delete_one({"moods.tenses.conjugation.forms": form})
+    return get_db().verbs.delete_one({"moods.tenses.conjugation.forms": form})
 
 
 def drop_verbs_collection():
     """
     Drop the verbs collection from the database.
     """
-    return db.drop_collection("verbs")
+    return get_db().drop_collection("verbs")

@@ -1,7 +1,9 @@
 import json
 import os
+from bs4 import BeautifulSoup
 from pytest import fixture
 import pytest
+from utils.fetch import Fetch
 
 from src.schemas.verbs import (
     Database__MoodBlock,
@@ -309,3 +311,26 @@ class TestPrefixes:
         assert expected_conjugation[0]["pronoun"] == conjugation[0]["pronoun"], (
             "The first conjugation pronoun should be <me'n>"
         )
+
+
+class TestLetters:
+    @pytest.mark.asyncio
+    async def test_get_verb_list_by_letter(self):
+        url = "https://www.softcatala.org/conjugador-de-verbs/lletra/A/"
+
+        response = await Fetch(url).get()
+        assert response.status_code == 200, "Response should be successful"
+
+        soup = BeautifulSoup(response.text, "lxml")
+        
+        dictionary = soup.find(class_="diccionari-resultat")
+    
+        
+        
+        def derive_verb_name(verb):
+            return verb.text.strip().lower()
+
+        verbs = list(map(derive_verb_name, dictionary.find_all("a")))
+
+        print(verbs)
+        print("Verbs found:", len(verbs))

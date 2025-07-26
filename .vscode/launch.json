@@ -9,11 +9,15 @@
             "type": "debugpy",
             "request": "launch",
             "module": "uvicorn",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/apps/backend"
+            },
             "args": [
-                "api.index:app",
-                "--reload"
+                "src.main:app",
+                "--reload",
             ],
-            "jinja": true
+            "jinja": true,
+            "cwd": "${workspaceFolder}",
         }
     ]
 }

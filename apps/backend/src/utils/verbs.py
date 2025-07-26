@@ -125,7 +125,12 @@ def update_translations_v3(
 ) -> Database__VerbOutput:
     copy_data = data.model_copy(deep=True)
 
-    copy_data.translation = translated_data.translation
+    try:
+        copy_data.translation = (
+            translated_data.moods[3].tenses[0].conjugation[0].translation
+        )
+    except IndexError:
+        copy_data.translation = translated_data.translation
 
     for idx, m in enumerate(copy_data.moods):
         if m.mood == "formes_no_personals":
@@ -170,8 +175,8 @@ def update_translations_v3(
                     conjugation.translation = delete_pronoun_if_exists(
                         translated_data.moods[i].tenses[j].conjugation[k].translation
                     )
-    except Exception as e:
-        print("Error occurred while updating translations:", e)
+    except Exception:
+        pass
 
     return Database__VerbOutput(
         infinitive=copy_data.infinitive,
@@ -263,38 +268,38 @@ class SeApostropheNSuffix(Enum):
 se__pronoun_prefix_mapping: Dict[str, SePrefix] = {
     "jo": SePrefix.EM.value,
     "tu": SePrefix.ET.value,
-    "ell/ella/vosté": SePrefix.ES_SG.value,
+    "ell, ella, vostè": SePrefix.ES_SG.value,
     "nosaltres": SePrefix.ENS.value,
-    "vosaltres": SePrefix.US.value,
-    "ells/elles/vostès": SePrefix.ES_PL.value,
+    "vosaltres, vós": SePrefix.US.value,
+    "ells, elles, vostès": SePrefix.ES_PL.value,
 }
 
 # Dict to handle the mapping of pronouns to reflexive suffixes if first letter has AOIUEH
 se__pronoun_aoiueh_mapping: Dict[str, str] = {
     "jo": SePrefix.EM_APOSTROPHE.value,
     "tu": SePrefix.ET_APOSTROPHE.value,
-    "ell/ella/vosté": SePrefix.ES_SG_APOSTROPHE.value,
+    "ell, ella, vostè": SePrefix.ES_SG_APOSTROPHE.value,
     "nosaltres": SePrefix.ENS_APOSTROPHE.value,
-    "vosaltres": SePrefix.US_APOSTROPHE.value,
-    "ells/elles/vostès": SePrefix.ES_PL_APOSTROPHE.value,
+    "vosaltres, vós": SePrefix.US_APOSTROPHE.value,
+    "ells, elles, vostès": SePrefix.ES_PL_APOSTROPHE.value,
 }
 
 
 se__pronoun_apostrophe_n_suffix_mapping: Dict[str, SeApostropheNSuffix] = {
     "jo": SeApostropheNSuffix.ME_N.value,
     "tu": SeApostropheNSuffix.TE_N.value,
-    "ell, ella, vosté": SeApostropheNSuffix.ES_N_SG.value,
+    "ell, ella, vostè": SeApostropheNSuffix.ES_N_SG.value,
     "nosaltres": SeApostropheNSuffix.ENS.value,
-    "vosaltres": SeApostropheNSuffix.US.value,
+    "vosaltres, vós": SeApostropheNSuffix.US.value,
     "ells, elles, vostès": SeApostropheNSuffix.ES_PL.value,
 }
 
 se__pronoun_aoiueh_apostrophe_n_suffix_mapping: Dict[str, SeApostropheNSuffix] = {
     "jo": SeApostropheNSuffix.ME_N_APOSTROPHE.value,
     "tu": SeApostropheNSuffix.TE_N_APOSTROPHE.value,
-    "ell, ella, vosté": SeApostropheNSuffix.ES_N_SG_APOSTROPHE.value,
+    "ell, ella, vostè": SeApostropheNSuffix.ES_N_SG_APOSTROPHE.value,
     "nosaltres": SeApostropheNSuffix.ENS_N_APOSTROPHE.value,
-    "vosaltres": SeApostropheNSuffix.US_N_APOSTROPHE.value,
+    "vosaltres, vós": SeApostropheNSuffix.US_N_APOSTROPHE.value,
     "ells, elles, vostès": SeApostropheNSuffix.ES_PL_N_APOSTROPHE.value,
 }
 
@@ -307,14 +312,14 @@ def add_reflexive_prefix(
     """
     if reflexive_suffix == "-se":
         if se__pronoun_prefix_mapping.get(pronoun):
-            if form.startswith(("A", "E", "I", "O", "U", "H")):
+            if form.startswith(("a", "e", "i", "o", "u", "h")):
                 return f"{se__pronoun_aoiueh_mapping[pronoun]}"
             else:
                 return f"{se__pronoun_prefix_mapping[pronoun]}"
 
     elif reflexive_suffix == "-se'n":
         if se__pronoun_apostrophe_n_suffix_mapping.get(pronoun):
-            if form.startswith(("A", "E", "I", "O", "U", "H")):
+            if form.startswith(("a", "e", "i", "o", "u", "h")):
                 return f"{se__pronoun_aoiueh_apostrophe_n_suffix_mapping[pronoun]}"
             else:
                 return f"{se__pronoun_apostrophe_n_suffix_mapping[pronoun]}"
@@ -368,9 +373,12 @@ class VerbUntranslatedTable:
                 variation_types = None
 
             # add reflexive suffix if needed
-            pronoun = add_reflexive_prefix(
+            new_pronoun = add_reflexive_prefix(
                 pronoun=pronoun, form=forms[0], reflexive_suffix=self.__reflexive_suffix
             )
+
+            if new_pronoun is not None:
+                pronoun = new_pronoun
 
             conjugation.append(
                 Database__ConjugatedForm(
@@ -468,6 +476,7 @@ class VerbUntranslatedTable:
             )
 
         return tenses
+
 
 def get_verb_list_by_alphabet():
     pass

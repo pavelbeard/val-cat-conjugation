@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any, Awaitable, Callable
+from typing import Any, Awaitable, Callable, Literal
 
 from src.schemas.verbs import (
     Database__VerbOutput,
@@ -44,13 +44,20 @@ async def create_verb_v2(
     checked_verb = checked_response.verb
 
     response = await Fetch(
-        f"https://www.softcatala.org/conjugador-de-verbs/verb/{checked_verb.replace('-se', '')}",
+        f"https://www.softcatala.org/conjugador-de-verbs/verb/{checked_verb.replace('-se', '').replace("-se'n", '')}",
     ).get()
+
+    def check_suffix(verb: str) -> Literal["-se", "-se'n", None]:
+        if verb.endswith("-se"):
+            return "-se"
+        elif verb.endswith("-se'n"):
+            return "-se'n"
+        return None
 
     verb_table = verbs_utils.VerbUntranslatedTable(
         html=response.text,
         reflexive=checked_verb.endswith(("-se", "-se'n")),
-        reflexive_suffix="-se" if checked_verb.endswith("-se") else "-se'n",
+        reflexive_suffix=check_suffix(checked_verb),
     )
 
     mood_blocks = verb_table.create_tense_blocks()
