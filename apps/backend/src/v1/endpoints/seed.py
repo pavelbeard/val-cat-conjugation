@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from openai import BaseModel
 
-from src.utils.queries import verbs as verbs_queries
+from src.db.queries import verbs as verbs_queries
 
 router = APIRouter(tags=["Database Seeding"])
 
@@ -13,7 +13,7 @@ class SeedResponseModel(BaseModel):
 
 @router.post("/seed", response_model=SeedResponseModel)
 async def seed_database():
-    from src.utils.seed import seed_data
+    from db.seed_db import seed_data
 
     # Clear existing data
     dropped = verbs_queries.drop_verbs_collection()  # Doesn't drop

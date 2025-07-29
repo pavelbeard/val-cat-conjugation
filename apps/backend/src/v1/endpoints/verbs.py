@@ -6,6 +6,8 @@ from fastapi.responses import JSONResponse
 from src.schemas.verbs import (
     Create__Verb,
     Database__VerbOutput,
+    Database__VerbOutput__ByForm,
+    Database__VerbOutput__ByLetter,
 )
 from src.services import verbs as verbs_service
 from src.utils.ai.clients import detection_client_gemini, translation_client_gemini
@@ -46,6 +48,37 @@ def get_verbs():
     Retrieve a list of verbs.
     """
     verbs = verbs_service.get_verbs()
+    return JSONResponse(
+        content=verbs,
+        status_code=200,
+    )
+
+
+@router.get(
+    "/verbs_first-letter",
+    response_model=List[Database__VerbOutput__ByLetter],
+    response_class=JSONResponse,
+)
+def get_verbs_by_first_letter():
+    """
+    Retrieve a list of verbs by their initial letter.
+    """
+    verbs = verbs_service.get_verbs_by_first_letter()
+    return JSONResponse(
+        content=verbs,
+        status_code=200,
+    )
+    
+@router.get(
+    "/verbs_by-form/{form}",
+    response_model=List[Database__VerbOutput__ByForm],
+    response_class=JSONResponse,
+)
+def get_verbs_by_form(form: str):
+    """
+    Retrieve a list of verbs by their form.
+    """
+    verbs = verbs_service.get_verbs_by_form(form)
     return JSONResponse(
         content=verbs,
         status_code=200,

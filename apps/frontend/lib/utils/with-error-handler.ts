@@ -1,6 +1,6 @@
 import { AppError } from "./app-error";
 
-export function withErrorHandler(handler: (...args: any[]) => Promise<any>) {
+export function withErrorHandler<T>(handler: (...args: any[]) => Promise<T>) {
   return async (...args: any[]) => {
     try {
       return await handler(...args);

@@ -175,7 +175,7 @@ export default function VerbTable({ data }: { data: Database__VerbOutput }) {
   return (
     <ScrollArea
       className={cn(
-        "flex-1 rounded-md h-screen overflow-y-auto overflow-x-hidden whitespace-nowrap",
+        "flex-1 rounded-md h-full overflow-y-auto overflow-x-hidden whitespace-nowrap",
         "w-[448px] md:w-[800px] lg:w-[1000px] xl:w-full dark:bg-zinc-800 dark:text-white"
       )}
     >

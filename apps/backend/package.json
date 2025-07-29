@@ -6,10 +6,15 @@
     "add_pkg:pip": "pip3.12 install -r requirements.txt",
     "add_pkg": "pdm add --",
     "dev": "fastapi dev ./src/main.py --port 8000",
-    "check-types": "exit 1"
+    "check-types": "pyright --project ./src",
+    "seed-db": "PYTHONPATH=./apps/backend/src python ./src/db/seed_db.py",
+    "reset-db": "PYTHONPATH=./apps/backend/src python ./src/db/reset_db.py"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.4.1"
+  "packageManager": "pnpm@10.4.1",
+  "dependencies": {
+    "pyright": "^1.1.403"
+  }
 }

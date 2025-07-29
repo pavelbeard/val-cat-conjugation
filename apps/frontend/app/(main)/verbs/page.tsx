@@ -1,27 +1,24 @@
-import getVerbs from "@/actions/get-verbs";
+"use client";
+
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import VerbsLettersSearch from "@/components/verbs/verbs-letters-search";
 import VerbsList from "@/components/verbs/verbs-list";
-import { Suspense } from "react";
+import VerbsSearch from "@/components/verbs/verbs-search";
 
-export default async function Search() {
-  const verbs = getVerbs();
-
+export default function SearchPage() {
   return (
-    <ScrollArea className="flex-1 bg-amber-400 w-full h-full p-4">
-      {/* <h1>¡Bienvenidos y bienvenidas al Conjugador de verbos de valencià!</h1>
-      <p>
-        Esta aplicación te ayuda a conjugar verbos en valenciano de forma rápida
-        y sencilla.
-      </p>
-      <p>
-        Para usar el conjugador, simplemente introduce el verbo en infinitivo en
-        el campo de búsqueda, presiona <b>Enter</b> y obtendrás la conjugación
-        al instante.
-      </p> */}
-      <Suspense fallback={<div>Loading verbs...</div>}>
-        <VerbsList verbsPromise={verbs} />
-      </Suspense>
-      <ScrollBar />
-    </ScrollArea>
+    <div className="flex flex-1 flex-col overflow-hidden">
+      <VerbsSearch className="flex-none p-4 bg-black" />
+
+      <div className="flex flex-1 overflow-hidden">
+        <ScrollArea className="flex-1 overflow-y-auto bg-white w-full h-full p-4">
+          <VerbsList />
+
+          <ScrollBar />
+        </ScrollArea>
+
+        <VerbsLettersSearch />
+      </div>
+    </div>
   );
 }

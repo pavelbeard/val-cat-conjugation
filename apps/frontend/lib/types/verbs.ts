@@ -32,9 +32,23 @@ export interface Database__VerbOutput {
   infinitive: string;
   moods?: Database__MoodBlock[];
   translation: string;
-  source?: string;
   created_at: string;
-  updated_at: string;
+  updated_at?: string;
+}
+
+export interface Database__VerbOutput__ByLetter {
+  _id: string;
+  verbs: Database__VerbOutput[];
+}
+
+export interface Database__VerbOutput__ByForm {
+  _id: string;
+  verb: string;
+  pronoun?: string;
+  tense?: string;
+  mood?: string;
+  infinitive: string;
+  translation?: string;
 }
 
 export type Conjugation = {

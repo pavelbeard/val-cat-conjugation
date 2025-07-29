@@ -1,15 +1,17 @@
 from datetime import datetime
-from typing import Any, Awaitable, Callable, Literal
+from typing import Any, Awaitable, Callable, List, Literal
 
 from src.schemas.verbs import (
     Database__VerbOutput,
+    Database__VerbOutput__ByForm,
+    Database__VerbOutput__ByLetter,
     Fetch__VerbCreated,
 )
 from src.utils import verbs as verbs_utils
 from src.utils.encoders import custom_jsonable_encoder
 from src.utils.exceptions import AppException, HttpStatus
 from src.utils.fetch import Fetch
-from src.utils.queries import verbs as verbs_queries
+from src.db.queries import verbs as verbs_queries
 
 
 async def create_verb_v2(
@@ -85,10 +87,19 @@ def get_verbs():
     """
     Retrieve a list of verbs.
     """
-    verbs = verbs_queries.find_first_100_verbs()
+    verbs = verbs_queries.get_verbs()
     validated_verbs = Database__VerbOutput.model_validate_many(verbs)
 
     return validated_verbs
+
+
+def get_verbs_by_first_letter() -> List[Database__VerbOutput__ByLetter]:
+    """
+    Retrieve a list of verbs grouped by their initial letter.
+    """
+    data = verbs_queries.get_all_verbs_by_first_letter()
+
+    return data
 
 
 async def get_verb(form: str) -> Database__VerbOutput | None:
@@ -103,16 +114,35 @@ async def get_verb(form: str) -> Database__VerbOutput | None:
     if not verb:
         raise AppException(HttpStatus.NOT_FOUND, "Verb not found")
 
-    content = Database__VerbOutput.model_validate(
+    validated_verb = Database__VerbOutput.model_validate(
         custom_jsonable_encoder(verb)
     ).model_dump(mode="json")
-    return content
+
+    return validated_verb
+
+
+def get_verbs_by_form(form: str) -> List[Database__VerbOutput]:
+    """
+    Retrieve a list of verbs by their form.
+    """
+    normalized_form = form.strip().lower().replace("_", " ")
+
+    verbs = verbs_queries.find_verbs_by_form(normalized_form)
+
+    if not verbs:
+        raise AppException(HttpStatus.NOT_FOUND, "No verbs found for this form")
+
+    validated_verbs = Database__VerbOutput__ByForm.model_validate_many(verbs)
+
+    return validated_verbs
 
 
 def delete_verb(form: str):
     """
     Delete a verb by its form.
     """
+    raise NotImplementedError("Delete verb functionality is not implemented yet")
+    
     result = verbs_queries.delete_verb_by_form(form)
 
     if not result:

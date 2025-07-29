@@ -5,6 +5,7 @@ from pathlib import Path
 src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 fixtures_path = os.path.join(src_path, "tests", "fixtures")
 prompts_path = os.path.join(src_path, "utils", "prompts")
+initial_data_path = os.path.join(src_path, "db", "initial_data")
 
 prompts_verbs_path = os.path.join(prompts_path, "verbs")
 

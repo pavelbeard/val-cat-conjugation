@@ -4,6 +4,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "./ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -23,21 +24,23 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ];
 
-export default function Footer() {
+export default function Footer({ className }: { className?: string }) {
   return (
-    <NavigationMenu className="flex-none place-self-center">
-      <NavigationMenuList className="flex items-center gap-4 md:gap-8 lg:gap-12 py-2">
-        {components.map((component) => (
-          <NavigationMenuLink
-            asChild
-            className="md:text-lg lg:text-xl text-gray-800 hover:text-blue-600 transition-colors"
-            key={component.href}
-            href={component.href}
-          >
-            <Link href={component.href}>{component.title}</Link>
-          </NavigationMenuLink>
-        ))}
-      </NavigationMenuList>
-    </NavigationMenu>
+    <footer className={cn("place-self-center w-full", className)}>
+      <NavigationMenu className="place-self-center shadow-none!">
+        <NavigationMenuList>
+          {components.map((component) => (
+            <NavigationMenuLink
+              asChild
+              className="md:text-lg lg:text-xl text-gray-800 hover:text-blue-600 transition-colors"
+              key={component.href}
+              href={component.href}
+            >
+              <Link href={component.href}>{component.title}</Link>
+            </NavigationMenuLink>
+          ))}
+        </NavigationMenuList>
+      </NavigationMenu>
+    </footer>
   );
 }

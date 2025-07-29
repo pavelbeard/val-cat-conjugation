@@ -7,13 +7,6 @@ class AIHandlerEnum(Enum):
     Enum to define the types of AI handlers available.
     """
 
-    CHATGPT = "chatgpt"
-    CHATGPT_ASYNC = "chatgpt_async"
-    CHATGPT_ASYNC_WITH_PROMPT_ID = "chatgpt_async_with_prompt_id"
-    OLLAMA = "ollama"
-    OLLAMA_ASYNC = "ollama_async"
-    PYDANTIC_AI = "pydantic_ai"
-    PYDANTIC_AI_PROMPT_ID = "pydantic_ai_prompt_id"
     GEMINI = "gemini"
 
 

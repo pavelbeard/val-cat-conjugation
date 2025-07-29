@@ -1,0 +1,16 @@
+.searchBarScroll {
+  position: relative;
+  -webkit-animation: searchBarScroll 5s linear infinite;
+  animation: searchBarScroll 5s linear infinite;
+  animation-range-start: cover 2%;
+  animation-timeline: scroll();
+}
+
+@keyframes searchBarScroll {
+  from {
+    position: relative;
+  }
+  to {
+    position: fixed;
+  }
+}

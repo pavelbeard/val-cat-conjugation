@@ -8,10 +8,10 @@ export default function MainLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section className="flex flex-col h-screen">
-      <Header />
-      <main className="flex-1 overflow-hidden">{children}</main>
-      <Footer />
+    <section className="h-screen flex flex-col">
+      <Header className="flex-none bg-white px-4 py-2 shadow z-10" />
+      {children}
+      <Footer className="flex-none bg-white px-4 py-2 shadow z-10" />
     </section>
   );
 }

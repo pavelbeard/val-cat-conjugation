@@ -1,8 +1,7 @@
 from fastapi import APIRouter
 
-from src.core.config import settings
 from src.utils.exceptions import AppException, HttpStatus
-from src.utils.queries import staff as staff_queries
+from src.db.queries import staff as staff_queries
 
 router = APIRouter(tags=["System"])
 

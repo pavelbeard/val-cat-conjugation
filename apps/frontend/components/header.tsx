@@ -1,8 +1,9 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
-export default function Header() {
+export default function Header({ className }: { className?: string }) {
   const pathname = usePathname();
 
   const verbName = new RegExp("/verbs/([^/]+)");
@@ -13,7 +14,7 @@ export default function Header() {
   if (verbMatch) return null;
 
   return (
-    <header className="flex-none flex items-center justify-center p-4 gap-4">
+    <header className={cn(className)}>
       <h1 className="text-lg font-semibold">
         {pageMatch && pageMatch[1].toLocaleUpperCase()}
       </h1>

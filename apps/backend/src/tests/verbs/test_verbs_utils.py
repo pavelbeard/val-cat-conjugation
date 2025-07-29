@@ -8,6 +8,7 @@ from utils.fetch import Fetch
 from src.schemas.verbs import (
     Database__MoodBlock,
     AI__VerbOutput,
+    Database__VerbInput,
     Database__VerbOutput,
     Fetch__VerbCreated,
 )
@@ -322,11 +323,9 @@ class TestLetters:
         assert response.status_code == 200, "Response should be successful"
 
         soup = BeautifulSoup(response.text, "lxml")
-        
+
         dictionary = soup.find(class_="diccionari-resultat")
-    
-        
-        
+
         def derive_verb_name(verb):
             return verb.text.strip().lower()
 
@@ -334,3 +333,42 @@ class TestLetters:
 
         print(verbs)
         print("Verbs found:", len(verbs))
+
+    @fixture
+    def json_input(self):
+        try:
+            with open(os.path.join(FIXTURES_PATH, "verbs_input.json"), "r") as file:
+                return json.load(file)
+        except FileNotFoundError:
+            return []
+
+    @pytest.mark.asyncio
+    async def test_create_data(self, json_input):
+        from db.seed_db import create_data
+
+        if not json_input:
+            data = await create_data()
+            with open(
+                os.path.join(FIXTURES_PATH, "verbs_input.json"), "w", encoding="utf-8"
+            ) as file:
+                json.dump(
+                    [item.model_dump_json() for item in data],
+                    file,
+                    ensure_ascii=False,
+                    indent=4,
+                )
+        else:
+            data = [
+                Database__VerbInput.model_validate(json.loads(item))
+                for item in json_input
+            ]
+
+        assert isinstance(data, list), "Data should be a list"
+        assert len(data) > 0, "Data list should not be empty"
+
+        for item in data:
+            assert isinstance(item, Database__VerbInput), (
+                "Each item in the data list should be a Database__VerbInput model"
+            )
+            assert item.infinitive, "Infinitive should not be empty"
+            assert item.initial_letter, "Initial letter should not be empty"

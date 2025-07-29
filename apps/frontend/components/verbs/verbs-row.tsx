@@ -6,10 +6,10 @@ import Link from "next/link";
 
 export default function VerbsRow({ verb }: { verb: Database__VerbOutput }) {
   return (
-    <Link href={`/verbs/${verb._id}`} className="p-4">
-      <h1 className="text-lg font-semibold">{verb.infinitive}</h1>
-      <p>{verb.translation}</p>
-      <Separator className="bg-gray-900" />
+    <Link href={`/verbs/${verb.infinitive}`} className="p-4 bg-white">
+      <h1 className="text-lg font-semibold text-black">{verb.infinitive}</h1>
+      <p className="text-gray-400">{verb.translation}</p>
+      <Separator className="bg-gray-400" />
     </Link>
   );
 }

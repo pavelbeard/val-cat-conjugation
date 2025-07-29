@@ -1,44 +1,10 @@
 from datetime import datetime
 from typing import List, Optional
 
-from pydantic import BaseModel
+from bson import ObjectId
+from pydantic import BaseModel, Field
 
 from src.utils.exceptions import HttpStatus
-
-
-class Database__TenseBlock(BaseModel):
-    tense: str
-    forms: List[str]
-
-
-class TenseBlockV2(Database__TenseBlock):
-    translations: List[str]
-
-
-class TenseBlocks(BaseModel):
-    result: List[Database__TenseBlock]
-
-
-class TenseBlocksV2(BaseModel):
-    result: List[TenseBlockV2]
-
-    @classmethod
-    def model_validate_json(cls, data):
-        """
-        Validate and convert JSON data to a TenseBlocksV2 instance.
-        """
-        return cls.model_validate(data)
-
-
-class TranslationError(BaseModel):
-    """
-    Model for translation error.
-    """
-
-    error: str
-
-
-# NEW Schemas
 
 
 # DATABASE SCHEMAS
@@ -79,11 +45,47 @@ class Database__VerbOutput(Database__VerbMain):
         """
 
         for item in data:
-            if item.get("created_at"):
+            if item.get("created_at") and isinstance(item["created_at"], datetime):
                 item["created_at"] = item["created_at"].isoformat()
-            if item.get("updated_at"):
+            if item.get("updated_at") and isinstance(item["updated_at"], datetime):
                 item["updated_at"] = item["updated_at"].isoformat()
+            if "_id" in item and isinstance(item["_id"], ObjectId):
+                item["_id"] = str(item["_id"])
         return data
+
+
+class Database__VerbOutput__ByLetter(BaseModel):
+    """
+    Model for verbs grouped by their initial letter.
+    """
+
+    _id: str
+    verbs: List[Database__VerbOutput]
+
+
+class Database__VerbInput(Database__VerbMain):
+    created_at: datetime = Field(default_factory=datetime.now)
+
+
+class Database__VerbOutput__ByForm(BaseModel):
+    """
+    Model for verbs grouped by their conjugated form.
+    """
+
+    _id: str
+    verb: str
+    pronoun: Optional[str] = None
+    tense: Optional[str] = None
+    mood: Optional[str] = None
+    infinitive: str
+    translation: Optional[str] = None
+
+    @classmethod
+    def model_validate_many(cls, data):
+        """
+        Validate and convert a list of dictionaries to a list of Database__VerbOutput__ByForm instances.
+        """
+        return [cls.model_validate(item).model_dump() for item in data if isinstance(item, dict)]
 
 
 # AI SCHEMAS
@@ -111,6 +113,7 @@ class AI__MoodBlock(BaseModel):
 
 
 class AI__VerbMain(BaseModel):
+    initial_letter: str
     infinitive: str
     translation: Optional[str] = None
     moods: Optional[List[AI__MoodBlock]] = None
@@ -132,7 +135,7 @@ class AIErrorOutput(BaseModel):
 
 
 class Fetch__VerbCreated(Database__VerbMain):
-    created_at: datetime
+    created_at: datetime = Field(default_factory=datetime.now)
 
 
 # ENDPOINT SCHEMAS

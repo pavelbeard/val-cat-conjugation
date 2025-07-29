@@ -1,9 +1,9 @@
-from src.utils.queries import verbs as queries
+from src.db.queries import verbs as queries
 
 
 class TestDatabaseQueries:
     def test_find_first_100_verbs(self):
-        result = queries.find_first_100_verbs()
+        result = queries.get_verbs()
         assert isinstance(result, list), "Expected a list of verbs"
         assert len(result) <= 100, "Expected at most 100 verbs"
 
@@ -37,3 +37,11 @@ class TestDatabaseQueries:
         infinitive = "nonexistentverb"
         result = queries.find_verb_by_infinitive(infinitive)
         assert result is None, f"Expected no verb found for infinitive '{infinitive}'"
+
+    def test_find_verbs_by_form(self):
+        form = "aba"
+        result = queries.find_verbs_by_form(form)
+        assert isinstance(result, list), "Expected a list of verbs"
+        assert len(result) > 0, f"Expected to find verbs with form '{form}'"
+
+        print(result)

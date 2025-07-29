@@ -7,7 +7,7 @@ client = MongoClient(settings.MONGODB_URL, server_api=ServerApi("1"))
 
 db = client[settings.MONGODB_NAME]
 
-def get_db(db_name: str = settings.MONGODB_NAME):
+def get_db(db_name: str = settings.MONGODB_NAME) -> MongoClient:
     """
     Returns the database instance.
     """

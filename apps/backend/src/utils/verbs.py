@@ -40,24 +40,20 @@ async def find_verb_with_ai(
 
 
 def create_translation_prompt_v3(data: Fetch__VerbCreated) -> List[Dict[str, str]]:
-    with open(
-        os.path.join(
-            CONSTANTS["PROMPTS_VERBS_PATH"], "gemini-2.5-flash-translator.txt"
-        ),
-        "r",
-    ) as file:
-        system_prompt = {
-            "role": "system",
-            "content": dedent(file.read()),
-        }
+    from src.utils.ai.prompts import get_system_prompt
 
-        # If the verb is reflexive, we need to remove the reflexive suffix for translation
-        derived_infinitive = data.infinitive.replace("-se", "").replace("-se'n", "")
+    prompt_path = os.path.join(
+        CONSTANTS["PROMPTS_VERBS_PATH"], "gemini-2.5-flash-translator.txt"
+    )
+    system_prompt = get_system_prompt(prompt_path)
 
-        user_prompt = {
-            "role": "user",
-            "content": f"Tradúceme el verbo catalán/valenciano '{derived_infinitive}' al español en todos modos, tiempos verbales y formas no personal con gerundios y compuestos masculinos/femeninos/plurales.",
-        }
+    # If the verb is reflexive, we need to remove the reflexive suffix for translation
+    derived_infinitive = data.infinitive.replace("-se", "").replace("-se'n", "")
+
+    user_prompt = {
+        "role": "user",
+        "content": f"Tradúceme el verbo catalán/valenciano '{derived_infinitive}' al español en todos modos, tiempos verbales y formas no personal con gerundios y compuestos",
+    }
 
     return [system_prompt, user_prompt]
 
@@ -476,7 +472,3 @@ class VerbUntranslatedTable:
             )
 
         return tenses
-
-
-def get_verb_list_by_alphabet():
-    pass
