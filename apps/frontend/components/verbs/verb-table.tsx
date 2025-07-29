@@ -53,46 +53,66 @@ function ConjugationCard({
   conjugation: Database__ConjugationForm;
 }) {
   return (
-    <li className="flex items-start gap-2">
-      <div className="flex flex-col gap-0.5 w-26">
-        <p className="text-xs font-semibold" style={{ marginBlock: "0.25lh" }}>
-          {conjugation.pronoun.replaceAll("_", " ")}:
-        </p>
-        <div
-          className="flex gap-0.5 text-[10px] text-gray-700"
-          style={{ marginBlock: "0.25lh" }}
-        >
-          {conjugation?.translation &&
-            conjugation?.translation?.split(",")?.map((item, index) => (
-              <span key={index}>
-                {item.trim()}
-                {index <
-                (conjugation?.translation?.split(",") as string[])?.length - 1
-                  ? ", "
-                  : ""}
-              </span>
-            ))}
+    <li className="flex flex-col items-start gap-0.5">
+      <div className="flex gap-2">
+        {![
+          "infinitiu",
+          "infinitiu_compost",
+          "gerundi",
+          "gerundi_compost",
+          "participi",
+        ].includes(conjugation.pronoun as string) && (
+          <p
+            aria-label="pronoun"
+            className="text-xs md:text-sm font-semibold"
+            style={{ marginBlock: "0.25lh" }}
+          >
+            {conjugation.pronoun.replaceAll("_", " ")}:
+          </p>
+        )}
+        <div className="flex flex-1 gap-0.5">
+          {conjugation?.variation_types
+            ? (
+                zip(
+                  conjugation.forms as string[],
+                  conjugation.variation_types as string[]
+                ) as [string, string][]
+              ).map(([form, type], i) => (
+                <p
+                  key={i}
+                  className="text-xs md:text-sm"
+                  style={{ marginBlock: "0.25lh" }}
+                >
+                  {`${form}${type ? ` ${type}` : ""}${
+                    i < conjugation.forms.length - 1 ? "," : ""
+                  }`}
+                </p>
+              ))
+            : conjugation.forms.map((form, i) => (
+                <p
+                  key={i}
+                  className="text-xs md:text-sm"
+                  style={{ marginBlock: "0.25lh" }}
+                >
+                  {form}
+                </p>
+              ))}
         </div>
       </div>
-      <div className="flex flex-1 gap-0.5">
-        {conjugation?.variation_types
-          ? (
-              zip(
-                conjugation.forms as string[],
-                conjugation.variation_types as string[]
-              ) as [string, string][]
-            ).map(([form, type], i) => (
-              <p key={i} className="text-xs" style={{ marginBlock: "0.25lh" }}>
-                {`${form}${type ? ` ${type}` : ""}${
-                  i < conjugation.forms.length - 1 ? "," : ""
-                }`}
-              </p>
-            ))
-          : conjugation.forms.map((form, i) => (
-              <p key={i} className="text-xs" style={{ marginBlock: "0.25lh" }}>
-                {form}
-              </p>
-            ))}
+      <div
+        className="flex gap-0.5 text-xs text-gray-700 w-32"
+        style={{ marginBlock: "0.25lh" }}
+      >
+        {conjugation?.translation &&
+          conjugation?.translation?.split(",")?.map((item, index) => (
+            <span key={index}>
+              {item.trim()}
+              {index <
+              (conjugation?.translation?.split(",") as string[])?.length - 1
+                ? ", "
+                : ""}
+            </span>
+          ))}
       </div>
     </li>
   );
@@ -101,7 +121,6 @@ function ConjugationCard({
 function BigTenseCard({
   mood,
   tenseBlock,
-  tenseBlockIndex,
 }: {
   mood: string;
   tenseBlock: Database__TenseBlock;
@@ -112,11 +131,7 @@ function BigTenseCard({
       className={cn(
         "flex-shrink-0",
         colors[mood]?.[tenseBlock?.tense],
-        mood === "indicatiu"
-          ? (tenseBlockIndex as number) > 3
-            ? "w-148"
-            : "w-94"
-          : "w-[600px] mr-4"
+        mood === "indicatiu" ? "w-90 md:w-100" : "w-[750px] mr-4"
       )}
     >
       <CardHeader>
@@ -145,7 +160,7 @@ function SmallTenseCard({
   return (
     <Card
       className={cn(
-        "w-148",
+        "w-90 md:w-100",
         colors[mood.toLowerCase().replaceAll(" ", "_")]?.[tenseBlock?.tense],
         tenseBlock.tense === "participi" && "mb-8"
       )}
@@ -191,7 +206,6 @@ export default function VerbTable({ data }: { data: Database__VerbOutput }) {
               <BigTenseCard
                 mood="indicatiu"
                 tenseBlock={indicatiu}
-                tenseBlockIndex={i}
               />
               {subjuntiu?.tense && (
                 <BigTenseCard mood="subjuntiu" tenseBlock={subjuntiu} />

@@ -1,5 +1,5 @@
 from functools import partial
-from typing import Any, Awaitable, Callable, Dict, List, Type
+from typing import Dict, Type
 
 from pydantic_ai.models.gemini import GeminiModelSettings
 from src.core.config import settings
@@ -57,7 +57,7 @@ async def detection_client_gemini():
     client: PydanticGeminiHandler = ai_handler_factory(
         handler_type=AIHandlerEnum.GEMINI,
         api_key=settings.GEMINI_API_KEY,
-        model="gemini-2.5-flash-lite-preview-06-17",
+        model="gemini-2.5-flash-lite",
     )
 
     model_settings: GeminiModelSettings = GeminiModelSettings(

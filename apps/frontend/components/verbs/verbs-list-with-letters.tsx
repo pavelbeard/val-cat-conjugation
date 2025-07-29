@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { queryOptionsGetVerbsWithFirstLetter } from "@/lib/quieries/verbs";
 import VerbsListLoading from "./verbs-list-loading";
 
-export default function VerbsList() {
+export default function VerbsListWithLetters() {
   const { data: allData } = useQuery(queryOptionsGetVerbsWithFirstLetter());
 
   if (!allData) {

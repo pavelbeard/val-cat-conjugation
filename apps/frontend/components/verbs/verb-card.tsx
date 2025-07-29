@@ -25,7 +25,7 @@ export default function VerbCard({ infinitive }: { infinitive: string }) {
       <div className="flex-1 lg:mx-auto overflow-hidden">
         {isTranslating ? <VerbTableLoading /> : <VerbTable data={verb} />}
       </div>
-      <footer className="flex-none mt-4 text-sm text-gray-500">
+      <footer className="flex-none mt-2 p-2 text-xs md:text-sm bg-gray-200 text-gray-500 rounded-xl">
         <p>Source: {"Gemini 2.5 flash"}</p>
         <p>Created at: {createdAt}</p>
         <p>

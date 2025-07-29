@@ -1,7 +1,12 @@
+from math import inf
 import re
 from typing import List
 from src.db.client import get_db
-from src.schemas.verbs import Database__VerbOutput, Database__VerbOutput__ByForm, Database__VerbOutput__ByLetter
+from src.schemas.verbs import (
+    Database__VerbOutput,
+    Database__VerbOutput__ByForm,
+    Database__VerbOutput__ByLetter,
+)
 
 
 # CREATE
@@ -79,33 +84,61 @@ def find_verbs_by_form(form: str) -> List[Database__VerbOutput__ByForm]:
     """
     Retrieve multiple verbs from the database by their form (mood -> tense -> conjugation).
     """
-    return get_db().verbs.aggregate(
-        [
-            {"$unwind": "$moods"},
-            {"$unwind": "$moods.tenses"},
-            {"$unwind": "$moods.tenses.conjugation"},
-            {"$unwind": "$moods.tenses.conjugation.forms"},
-            {
-                "$match": {
-                    "moods.tenses.conjugation.forms": {
-                        "$regex": f"^{re.escape(form)}",
-                        "$options": "i",
+    result = (
+        get_db()
+        .verbs.aggregate(
+            [
+                {"$unwind": "$moods"},
+                {"$unwind": "$moods.tenses"},
+                {"$unwind": "$moods.tenses.conjugation"},
+                {"$unwind": "$moods.tenses.conjugation.forms"},
+                {
+                    "$match": {
+                        "moods.tenses.conjugation.forms": {
+                            "$regex": f"^{re.escape(form)}",
+                            "$options": "i",
+                        },
                     },
                 },
-            },
-            {
-                "$project": {
-                    "_id": {"$toString": "$_id"},
-                    "verb": "$moods.tenses.conjugation.forms",
-                    "pronoun": "$moods.tenses.conjugation.pronoun",
-                    "tense": "$moods.tenses.tense",
-                    "mood": "$moods.mood",
-                    "infinitive": "$infinitive",
-                    "translation": "$moods.tenses.conjugation.translation",
+                {
+                    "$project": {
+                        "_id": {"$toString": "$_id"},
+                        "verb": "$moods.tenses.conjugation.forms",
+                        "pronoun": "$moods.tenses.conjugation.pronoun",
+                        "tense": "$moods.tenses.tense",
+                        "mood": "$moods.mood",
+                        "infinitive": "$infinitive",
+                        "translation": "$moods.tenses.conjugation.translation",
+                    },
                 },
-            },
-        ]
-    ).to_list()
+            ]
+        )
+        .to_list()
+    )
+
+    if not result:
+        result = (
+            get_db()
+            .verbs.aggregate(
+                [
+                    {"$match": {"infinitive": re.compile(form, re.IGNORECASE)}},
+                    {
+                        "$project": {
+                            "_id": {"$toString": "$_id"},
+                            "verb": "$infinitive",
+                            "pronoun": None,
+                            "tense": None,
+                            "mood": None,
+                            "infinitive": "$infinitive",
+                            "translation": "$translation",
+                        },
+                    },
+                ]
+            )
+            .to_list()
+        )
+
+    return result
 
 
 # UPDATE

@@ -164,9 +164,22 @@ def update_translations(
         for i, mood in enumerate(copy_data.moods):
             for j, entry in enumerate(mood.tenses):
                 for k, conjugation in enumerate(entry.conjugation):
-                    conjugation.translation = delete_pronoun_if_exists(
+                    # delete the pronoun if it exists in the translation
+                    # but we should add reflexive prefix if it exists
+                    translation_for_copy_data = ""
+                    if copy_data.infinitive.endswith(
+                        "-se"
+                    ) or copy_data.infinitive.endswith("-se'n"):
+                        translation_for_copy_data += (
+                            se__pronoun_mapping.get(conjugation.pronoun) + " "
+                        )
+
+                    translation_for_copy_data += delete_pronoun_if_exists(
                         translated_data.moods[i].tenses[j].conjugation[k].translation
                     )
+
+                    conjugation.translation = translation_for_copy_data.strip()
+
     except Exception:
         pass
 
@@ -255,6 +268,33 @@ class SeApostropheNSuffix(Enum):
     VOSALTRES = "vosaltres"
     ELLS_ELLES_VOSTES = "ells/elles/vostès"
 
+
+se__pronoun_mapping: Dict[str, str] = {
+    SePrefix.EM.value: "me",
+    SePrefix.ET.value: "te",
+    SePrefix.ES_SG.value: "se",
+    SePrefix.ENS.value: "nos",
+    SePrefix.US.value: "os",
+    SePrefix.ES_PL.value: "se",
+    SePrefix.EM_APOSTROPHE.value: "me",
+    SePrefix.ET_APOSTROPHE.value: "te",
+    SePrefix.ES_SG_APOSTROPHE.value: "se",
+    SePrefix.ENS_APOSTROPHE.value: "nos",
+    SePrefix.US_APOSTROPHE.value: "os",
+    SePrefix.ES_PL_APOSTROPHE.value: "se",
+    SeApostropheNSuffix.ME_N.value: "me",
+    SeApostropheNSuffix.TE_N.value: "te",
+    SeApostropheNSuffix.ES_N_SG.value: "se",
+    SeApostropheNSuffix.ENS.value: "nos",
+    SeApostropheNSuffix.US.value: "os",
+    SeApostropheNSuffix.ES_PL.value: "se",
+    SeApostropheNSuffix.ME_N_APOSTROPHE.value: "me",
+    SeApostropheNSuffix.TE_N_APOSTROPHE.value: "te",
+    SeApostropheNSuffix.ES_N_SG_APOSTROPHE.value: "se",
+    SeApostropheNSuffix.ENS_N_APOSTROPHE.value: "nos",
+    SeApostropheNSuffix.US_N_APOSTROPHE.value: "os",
+    SeApostropheNSuffix.ES_PL_N_APOSTROPHE.value: "se",
+}
 
 # Dict to handle the mapping of pronouns to reflexive prefixes
 se__pronoun_prefix_mapping: Dict[str, SePrefix] = {
