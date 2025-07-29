@@ -2,7 +2,6 @@ import os
 import re
 from copy import deepcopy
 from enum import Enum
-from textwrap import dedent
 from typing import Any, Callable, Dict, Generator, List, Literal
 
 from bs4 import BeautifulSoup, NavigableString
@@ -39,7 +38,7 @@ async def find_verb_with_ai(
     return await ai_client(messages=messages)
 
 
-def create_translation_prompt_v3(data: Fetch__VerbCreated) -> List[Dict[str, str]]:
+def create_translation_prompt(data: Fetch__VerbCreated) -> List[Dict[str, str]]:
     from src.utils.ai.prompts import get_system_prompt
 
     prompt_path = os.path.join(
@@ -59,16 +58,13 @@ def create_translation_prompt_v3(data: Fetch__VerbCreated) -> List[Dict[str, str
 
 
 def create_detection_prompt(verb: str) -> List[Dict[str, str]]:
-    with open(
-        os.path.join(
-            CONSTANTS["PROMPTS_VERBS_PATH"], "gemini-2.5-preview-06-17-detector.txt"
-        ),
-        "r",
-    ) as file:
-        system_prompt = {
-            "role": "system",
-            "content": dedent(file.read()),
-        }
+    from src.utils.ai.prompts import get_system_prompt
+
+    prompt_path = os.path.join(
+        CONSTANTS["PROMPTS_VERBS_PATH"], "gemini-2.5-preview-06-17-detector.txt"
+    )
+
+    system_prompt = get_system_prompt(prompt_path)
 
     user_prompt = {
         "role": "user",
@@ -116,7 +112,7 @@ def split_forms_non_personals_untranslated(
     return type(mood_block)(mood="Formes no personals", tenses=new_tenses)
 
 
-def update_translations_v3(
+def update_translations(
     data: Fetch__VerbCreated, translated_data: AI__VerbOutput
 ) -> Database__VerbOutput:
     copy_data = data.model_copy(deep=True)
@@ -183,7 +179,7 @@ def update_translations_v3(
     )
 
 
-async def perform_ai_translation_v3(
+async def perform_ai_translation(
     data: Fetch__VerbCreated,
     ai_client: Callable = None,
 ) -> Database__VerbOutput:
@@ -201,7 +197,7 @@ async def perform_ai_translation_v3(
             HttpStatus.BAD_REQUEST, "AI client function must be provided."
         )
 
-    messages = create_translation_prompt_v3(data)
+    messages = create_translation_prompt(data)
     translated_data: AI__VerbOutput = await ai_client(messages=messages)
 
     if not translated_data:
@@ -210,7 +206,7 @@ async def perform_ai_translation_v3(
             "No translations received from the AI client.",
         )
 
-    return update_translations_v3(data=data, translated_data=translated_data)
+    return update_translations(data=data, translated_data=translated_data)
 
 
 class SePrefix(Enum):

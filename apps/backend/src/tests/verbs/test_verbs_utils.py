@@ -99,7 +99,7 @@ class TestPerformAiTranslation:
         """
         Test the AI translation functionality with a mocked AI client.
         """
-        from src.utils.verbs import perform_ai_translation_v3
+        from src.utils.verbs import perform_ai_translation
 
         mock_ai_client = mocker.AsyncMock()
         mock_ai_client.return_value = anar_se_gemini
@@ -118,7 +118,7 @@ class TestPerformAiTranslation:
             ],
         )
 
-        result = await perform_ai_translation_v3(
+        result = await perform_ai_translation(
             data=anar_se_without_translation,
             ai_client=mock_ai_client,
         )
@@ -140,13 +140,13 @@ class TestPerformAiTranslation:
         """
         Test the AI translation functionality with no data.
         """
-        from src.utils.verbs import perform_ai_translation_v3
+        from src.utils.verbs import perform_ai_translation
 
         mock_ai_client = mocker.AsyncMock()
         mock_ai_client.return_value = None
 
         with pytest.raises(AppException, match="Invalid data provided for translation"):
-            await perform_ai_translation_v3(
+            await perform_ai_translation(
                 data=None,
                 ai_client=mock_ai_client,
             )
@@ -156,7 +156,7 @@ class TestPerformAiTranslation:
         """
         Test the AI translation functionality with invalid data.
         """
-        from src.utils.verbs import perform_ai_translation_v3
+        from src.utils.verbs import perform_ai_translation
 
         mock_ai_client = mocker.AsyncMock()
         mock_ai_client.return_value = None
@@ -173,7 +173,7 @@ class TestPerformAiTranslation:
         with pytest.raises(
             AppException, match="No translations received from the AI client."
         ):
-            await perform_ai_translation_v3(
+            await perform_ai_translation(
                 data=fake_data,
                 ai_client=mock_ai_client,
             )
@@ -211,9 +211,9 @@ class TestUpdateTranslationsV3:
             )
 
     def test_update_translations_v3(self, dummy_anar, dummy_translated_anar):
-        from src.utils.verbs import update_translations_v3
+        from src.utils.verbs import update_translations
 
-        result = update_translations_v3(dummy_anar, dummy_translated_anar)
+        result = update_translations(dummy_anar, dummy_translated_anar)
 
         print("Updated Translations:", result)
 

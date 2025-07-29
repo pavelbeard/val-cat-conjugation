@@ -38,8 +38,10 @@ Para los tiempos:
 - no añades PRONOUN a **las traducciones** (ejemplo: no él/ella/usted cierra, sino solo cierra).
 - `passat_perifrastic` usa la construcción:  
   **[forma de “vaig/vas/va...”] + [verbo en infinitivo]**
+- se traduce como "pretérito indefinido"
 - `passat_anterior_perifrastic` usa la construcción:  
   **[forma de “vaig/vas/va...”] + haver + [participio del verbo]**
+- se traduce como "pretérito anterior"
 
 Ejemplos esperados:  
 - `vaig menjar` → `yo comí`  

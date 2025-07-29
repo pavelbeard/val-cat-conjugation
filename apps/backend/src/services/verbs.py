@@ -14,7 +14,7 @@ from src.utils.fetch import Fetch
 from src.db.queries import verbs as verbs_queries
 
 
-async def create_verb_v2(
+async def create_verb(
     verb: str,
     translation_client: Callable[..., Awaitable[Any]] = None,
     detection_client: Callable[..., Awaitable[Any]] = None,
@@ -71,7 +71,7 @@ async def create_verb_v2(
         created_at=datetime.now().isoformat(),
     )
 
-    translated_verb = await verbs_utils.perform_ai_translation_v3(
+    translated_verb = await verbs_utils.perform_ai_translation(
         data=verb_model,
         ai_client=translation_client,
     )

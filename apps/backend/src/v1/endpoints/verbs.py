@@ -28,7 +28,7 @@ async def create_verb(
     Create a new verb.
     """
 
-    verb = await verbs_service.create_verb_v2(
+    verb = await verbs_service.create_verb(
         verb.infinitive,
         translation_client=translation_client,
         detection_client=detection_client,

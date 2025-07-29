@@ -132,7 +132,7 @@ class AIErrorOutput(BaseModel):
     error_type: str
     code: HttpStatus = HttpStatus.INTERNAL_SERVER_ERROR
     message: str = "An error occurred during AI translation."
-
+    
 
 class Fetch__VerbCreated(Database__VerbMain):
     created_at: datetime = Field(default_factory=datetime.now)
