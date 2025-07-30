@@ -1,4 +1,3 @@
-from math import inf
 import re
 from typing import List
 from src.db.client import get_db
@@ -67,13 +66,19 @@ def find_verb_by_form(form: str) -> Database__VerbOutput | None:
     return get_db().verbs.find_one(
         {
             "$or": [
-                {"infinitive": re.compile(form, re.IGNORECASE)},
-                {"translation": re.compile(form, re.IGNORECASE)},
-                {"moods.tenses.conjugation.forms": re.compile(form, re.IGNORECASE)},
+                {"infinitive": {"$regex": f"^{re.escape(form)}", "$options": "i"}},
+                {"translation": {"$regex": f"^{re.escape(form)}", "$options": "i"}},
                 {
-                    "moods.tenses.conjugation.translation": re.compile(
-                        form, re.IGNORECASE
-                    )
+                    "moods.tenses.conjugation.forms": {
+                        "$regex": f"^{re.escape(form)}",
+                        "$options": "i",
+                    }
+                },
+                {
+                    "moods.tenses.conjugation.translation": {
+                        "$regex": f"^{re.escape(form)}",
+                        "$options": "i",
+                    }
                 },
             ]
         }
@@ -121,7 +126,14 @@ def find_verbs_by_form(form: str) -> List[Database__VerbOutput__ByForm]:
             get_db()
             .verbs.aggregate(
                 [
-                    {"$match": {"infinitive": re.compile(form, re.IGNORECASE)}},
+                    {
+                        "$match": {
+                            "infinitive": {
+                                "$regex": f"^{re.escape(form)}",
+                                "$options": "i",
+                            }
+                        }
+                    },
                     {
                         "$project": {
                             "_id": {"$toString": "$_id"},

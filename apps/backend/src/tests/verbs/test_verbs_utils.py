@@ -44,6 +44,33 @@ class TestCreateTenseBlocks:
             "Each item in the list should be a MoodBlock model"
         )
 
+    @pytest.mark.asyncio
+    async def test_create_tense_block_with_fetch_data(self):
+        """
+        Test parsing conjugation data from a fixture HTML file.
+        """
+        from src.utils.verbs import VerbUntranslatedTable
+
+        response = await Fetch(
+            "https://www.softcatala.org/conjugador-de-verbs/verb/venir"
+        ).get()
+
+        text = response.text
+
+        verb_table = VerbUntranslatedTable(
+            html=text,
+            reflexive=False,
+            reflexive_suffix=None,
+        )
+
+        conjugation_data = verb_table.create_tense_blocks()
+
+        assert isinstance(conjugation_data, list)
+        assert len(conjugation_data) > 0
+        assert isinstance(conjugation_data[0], Database__MoodBlock), (
+            "Each item in the list should be a MoodBlock model"
+        )
+
     def test_create_tense_block_with_invalid_html(self):
         """Test parsing conjugation data with invalid HTML content."""
         invalid_html = "<html><body>Invalid HTML content</body></html>"

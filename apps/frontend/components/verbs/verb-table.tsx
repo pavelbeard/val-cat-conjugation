@@ -70,7 +70,7 @@ function ConjugationCard({
             {conjugation.pronoun.replaceAll("_", " ")}:
           </p>
         )}
-        <div className="flex flex-1 gap-0.5">
+        <div className="flex flex-1 gap-0.5 flex-wrap">
           {conjugation?.variation_types
             ? (
                 zip(
@@ -128,18 +128,19 @@ function BigTenseCard({
 }) {
   return (
     <Card
+      aria-label={`big-tense-card:${tenseBlock.tense}`}
       className={cn(
-        "flex-shrink-0",
+        "flex-shrink-0 py-2! gap-2!",
         colors[mood]?.[tenseBlock?.tense],
         mood === "indicatiu" ? "w-90 md:w-100" : "w-[750px] mr-4"
       )}
     >
-      <CardHeader>
+      <CardHeader className="px-2!">
         <CardTitle>
           {tenseBlock?.tense?.capitalize().replaceAll("_", " ")} {mood}
         </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-2!">
         <ul className="flex flex-col gap-1">
           {tenseBlock.conjugation.map((conjugation, index) => (
             <ConjugationCard key={index} conjugation={conjugation} />
@@ -159,19 +160,20 @@ function SmallTenseCard({
 }) {
   return (
     <Card
+      aria-label={`small-tense-card:${tenseBlock.tense}`}
       className={cn(
-        "w-90 md:w-100",
+        "w-90 md:w-100 py-2!",
         colors[mood.toLowerCase().replaceAll(" ", "_")]?.[tenseBlock?.tense],
         tenseBlock.tense === "participi" && "mb-8"
       )}
     >
-      <CardHeader>
+      <CardHeader className="px-2!">
         <CardTitle>
           {tenseBlock?.tense?.capitalize().replaceAll("_", " ")}{" "}
           {mood !== "Formes no personals" && mood}
         </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-2!">
         {mood.toLowerCase() === "imperatiu"
           ? tenseBlock?.conjugation?.map((conjugation, index) => (
               <ConjugationCard key={index} conjugation={conjugation} />
@@ -203,10 +205,7 @@ export default function VerbTable({ data }: { data: Database__VerbOutput }) {
         ).map(([indicatiu, subjuntiu], i) => (
           <ScrollArea className="w-full overflow-x-auto" key={i}>
             <section className="flex gap-4 w-max">
-              <BigTenseCard
-                mood="indicatiu"
-                tenseBlock={indicatiu}
-              />
+              <BigTenseCard mood="indicatiu" tenseBlock={indicatiu} />
               {subjuntiu?.tense && (
                 <BigTenseCard mood="subjuntiu" tenseBlock={subjuntiu} />
               )}

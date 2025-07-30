@@ -93,21 +93,9 @@ def split_forms_non_personals_untranslated(
 
     for item in mood_block.tenses[0].conjugation:
         key = name2key[item.pronoun]
-
-        if key != name2key["Participi"]:
-            conj = [deepcopy(item)]
-            conj[0].pronoun = key
-            conj[0].forms = [item.forms[0]]  # Keep only the first
-
-        else:
-            conj = []
-            for f in item.forms:
-                c = deepcopy(item)
-                c.pronoun = key
-                c.forms = [f]
-                conj.append(c)
-
-        new_tenses.append(type(mood_block.tenses[0])(tense=key, conjugation=conj))
+        new_tenses.append(
+            type(mood_block.tenses[0])(tense=key, conjugation=[deepcopy(item)])
+        )
 
     return type(mood_block)(mood="Formes no personals", tenses=new_tenses)
 
