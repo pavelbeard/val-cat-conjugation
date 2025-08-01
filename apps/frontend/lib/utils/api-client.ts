@@ -1,7 +1,6 @@
 import { withErrorHandler } from "./error-handler";
 
 export class ApiClient {
-  // ERROR HANDLER FOR API CLIENT
   static async get<T>(url: string, options?: RequestInit): Promise<T> {
     const response = await withErrorHandler(async () =>
       fetch(url, { method: "GET", ...options })
