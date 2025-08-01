@@ -5,7 +5,6 @@ import {
 } from "@/lib/types/verbs";
 import { ApiClient } from "@/lib/utils/api-client";
 import { createUrl } from "@/lib/utils/create-url";
-import { withErrorHandler } from "@/lib/utils/with-error-handler";
 
 const _traslateVerb = async (verb: string): Promise<Database__VerbOutput> => {
   const response = await ApiClient.post<Database__VerbOutput>(
@@ -18,7 +17,7 @@ const _traslateVerb = async (verb: string): Promise<Database__VerbOutput> => {
   return response;
 };
 
-export const translateVerb = withErrorHandler(_traslateVerb);
+export const translateVerb = _traslateVerb;
 
 const _getVerb = async ({ infinitive }: { infinitive: string }) => {
   const response = await ApiClient.get<Database__VerbOutput>(
@@ -27,7 +26,7 @@ const _getVerb = async ({ infinitive }: { infinitive: string }) => {
   return response;
 };
 
-export const getVerb = withErrorHandler(_getVerb);
+export const getVerb = _getVerb;
 
 const _getVerbsByForm = async (form: string) => {
   const response = await ApiClient.get<Database__VerbOutput__ByForm[]>(
@@ -36,7 +35,7 @@ const _getVerbsByForm = async (form: string) => {
   return response;
 };
 
-export const getVerbsByForm = withErrorHandler(_getVerbsByForm);
+export const getVerbsByForm = _getVerbsByForm;
 
 const _getVerbsWithFirstLetter = async () => {
   const response = await ApiClient.get<Database__VerbOutput__ByLetter[]>(
@@ -45,9 +44,7 @@ const _getVerbsWithFirstLetter = async () => {
   return response;
 };
 
-export const getVerbsWithFirstLetter = withErrorHandler(
-  _getVerbsWithFirstLetter
-);
+export const getVerbsWithFirstLetter = _getVerbsWithFirstLetter;
 
 const _getVerbs = async () => {
   const response = await ApiClient.get<Database__VerbOutput[]>(
@@ -56,4 +53,4 @@ const _getVerbs = async () => {
   return response;
 };
 
-export const getVerbs = withErrorHandler(_getVerbs);
+export const getVerbs = _getVerbs;

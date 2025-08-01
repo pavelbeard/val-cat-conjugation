@@ -3,6 +3,7 @@ import {
   QueryClient,
   QueryClientProvider as Query,
 } from "@tanstack/react-query";
+import { ThemeProvider } from "next-themes";
 
 const queryClient = new QueryClient();
 
@@ -11,5 +12,9 @@ export default function HocProvider({
 }: {
   children: Readonly<React.ReactNode>;
 }) {
-  return <Query client={queryClient}>{children}</Query>;
+  return (
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <Query client={queryClient}>{children}</Query>
+    </ThemeProvider>
+  );
 }

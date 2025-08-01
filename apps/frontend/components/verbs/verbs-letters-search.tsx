@@ -11,7 +11,7 @@ export default function VerbsLettersSearch() {
   };
 
   return (
-    <aside className="w-6 m-2 rounded-full bg-gray-100 z-50">
+    <aside className="w-6 m-2 rounded-full bg-gray-100 dark:bg-gray-800 overflow-y-auto z-50">
       <ul className="flex flex-col items-center justify-center h-full gap-0.5 ">
         {LETTERS.map((letter) => (
           <li

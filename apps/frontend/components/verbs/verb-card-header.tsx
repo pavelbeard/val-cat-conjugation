@@ -15,17 +15,17 @@ export default function VerbCardHeader() {
         }}
         variant="secondary"
         size="icon"
-        className="flex-none size-8 bg-amber-300"
+        className="flex-none size-8 bg-violet-300 dark:bg-violet-600 rounded-lg"
       >
-        <ChevronLeft />
+        <ChevronLeft className="stroke-black dark:stroke-white" />
       </Button>
 
       <Button
         variant="secondary"
         size="icon"
-        className="flex-none size-8 rounded-lg bg-zinc-500"
+        className="flex-none size-8 rounded-lg bg-zinc-300 dark:bg-zinc-600"
       >
-        <PlusIcon />
+        <PlusIcon className="stroke-black dark:stroke-white" />
       </Button>
     </header>
   );

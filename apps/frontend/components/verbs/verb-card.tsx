@@ -12,26 +12,21 @@ export default function VerbCard({ infinitive }: { infinitive: string }) {
   );
 
   const { isTranslating } = useVerbTranslate({ verb });
-  const createdAt = new Date(verb.created_at).toLocaleDateString();
 
   return (
     <>
       {/* Infinitiu */}
       <div className="flex flex-col items-center gap-2">
-        <h1 className="text-xl font-bold">{verb.infinitive}</h1>
-        <p className="text-lg text-gray-500">{verb.translation}</p>
+        <h1 className="text-sm lg:text-xl font-bold">{verb.infinitive}</h1>
+        <p className="text-xs lg:text-lg text-gray-500">{verb.translation}</p>
       </div>
       {/* Verb Card */}
       <div className="flex-1 lg:mx-auto overflow-hidden">
         {isTranslating ? <VerbTableLoading /> : <VerbTable data={verb} />}
       </div>
-      <footer className="flex-none mt-2 p-2 text-xs md:text-sm bg-gray-200 text-gray-500 rounded-xl">
-        <p>Source: {"Gemini 2.5 flash"}</p>
-        <p>Created at: {createdAt}</p>
-        <p>
-          Advertencia: traducciones están creadas por un modelo de IA y pueden
-          no ser precisas.
-        </p>
+      <footer className="p-2 text-xs w-full text-gray-500">
+        Advertencia: traducciones están creadas por un modelo de IA y pueden no
+        ser precisas.
       </footer>
     </>
   );

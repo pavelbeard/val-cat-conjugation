@@ -124,19 +124,10 @@ def update_translations(
         "él/ella/usted",
         "nosotros",
         "nosotras",
+        "nosotros/nosotras",
         "vosotros",
         "vosotras",
-        "ellos/ellas/ustedes",
-    ]
-
-    pronouns = [
-        "yo",
-        "tú",
-        "él/ella/usted",
-        "nosotros",
-        "nosotras",
-        "vosotros",
-        "vosotras",
+        "vosotras/vosotras",
         "ellos/ellas/ustedes",
     ]
 
@@ -155,15 +146,22 @@ def update_translations(
                     # delete the pronoun if it exists in the translation
                     # but we should add reflexive prefix if it exists
                     translation_for_copy_data = ""
+                    translation = (
+                        translated_data.moods[i].tenses[j].conjugation[k].translation
+                    )
                     if copy_data.infinitive.endswith(
                         "-se"
                     ) or copy_data.infinitive.endswith("-se'n"):
-                        translation_for_copy_data += (
-                            se__pronoun_mapping.get(conjugation.pronoun) + " "
-                        )
+                        # check if the translation doesn't have a reflexive prefix
+                        if not translation.startswith(
+                            tuple(se__pronoun_mapping.keys())
+                        ):
+                            translation_for_copy_data += (
+                                se__pronoun_mapping.get(conjugation.pronoun) + " "
+                            )
 
                     translation_for_copy_data += delete_pronoun_if_exists(
-                        translated_data.moods[i].tenses[j].conjugation[k].translation
+                        translation=translation
                     )
 
                     conjugation.translation = translation_for_copy_data.strip()

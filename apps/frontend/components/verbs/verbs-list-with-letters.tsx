@@ -20,7 +20,7 @@ export default function VerbsListWithLetters() {
           key={item._id}
           id={`section-${item._id}`}
         >
-          <h2 className="sticky top-0 z-20 p-4 text-lg font-bold uppercase bg-gray-500 text-white">
+          <h2 className="sticky top-0 z-20 p-4 text-lg font-bold uppercase bg-purple-500 dark:bg-purple-800 text-white">
             {item._id}
           </h2>
           {item.verbs.map((verb) => (

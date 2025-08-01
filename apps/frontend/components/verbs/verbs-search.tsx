@@ -29,7 +29,7 @@ export default function VerbsSearch({
     >
       <Input
         aria-label="search input"
-        className="mx-1 w-full max-w-md bg-amber-300 focus:ring-amber-600/80 text-black!"
+        className="w-full max-w-md bg-gray-300 text-black dark:text-white"
         type="text"
         placeholder="Search for verbs..."
         value={searchTerm}

@@ -1,157 +1,171 @@
 "use client";
 
+import React, { Fragment, JSX } from "react";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
-import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import {
   Database__ConjugationForm,
+  Database__MoodBlock,
   Database__TenseBlock,
   Database__VerbOutput,
 } from "@/lib/types/verbs";
 import { ScrollBar } from "../ui/scroll-area";
 import { zip } from "@/lib/utils/zip";
 import { cn } from "@/lib/utils";
-
 import "@/lib/utils/capitalize";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
 
-const colors: { [key: string]: { [key: string]: string } } = {
+const marginStyle = { marginBlock: "0.25lh" };
+
+const COLORS: { [key: string]: { [key: string]: string } } = {
   indicatiu: {
-    present: "bg-blue-400",
-    imperfet: "bg-red-400",
-    perfet: "bg-red-400",
-    plusquamperfet: "bg-red-400",
-    passat_simple: "bg-purple-400",
-    passat_perifràstic: "bg-purple-400",
-    passat_anterior: "bg-purple-400",
-    passat_anterior_perifràstic: "bg-purple-400",
-    futur: "bg-orange-400",
-    futur_perfet: "bg-orange-400",
-    condicional: "bg-yellow-400",
-    condicional_perfet: "bg-yellow-400",
+    present: "bg-red-600 dark:bg-red-700",
+    perfet: "bg-violet-600 dark:bg-violet-700",
+    imperfet: "bg-blue-600 dark:bg-blue-700",
+    plusquamperfet: "bg-sky-600 dark:bg-sky-700",
+    passat_simple: "bg-orange-600 dark:bg-orange-700",
+    passat_perifràstic: "bg-orange-600 dark:bg-orange-700",
+    passat_anterior: "bg-orange-600 dark:bg-orange-700",
+    passat_anterior_perifràstic: "bg-orange-600 dark:bg-orange-700",
+    futur: "bg-purple-600 dark:bg-purple-700",
+    futur_perfet: "bg-purple-600 dark:bg-purple-700",
+    condicional: "bg-cyan-600 dark:bg-cyan-700",
+    condicional_perfet: "bg-cyan-600 dark:bg-cyan-700",
   },
   subjuntiu: {
-    present: "bg-indigo-400",
-    imperfet: "bg-violet-400",
-    perfet: "bg-violet-400",
-    plusquamperfet: "bg-violet-400",
+    present: "bg-red-700/90 dark:bg-red-900",
+    perfet: "bg-violet-700/90 dark:bg-violet-900",
+    imperfet: "bg-blue-700/90 dark:bg-blue-900",
+    plusquamperfet: "bg-sky-700/90 dark:bg-sky-900",
   },
   imperatiu: {
-    present: "bg-green-400",
+    present: "bg-green-600 dark:bg-green-700",
   },
   formes_no_personals: {
-    infinitiu: "bg-slate-400",
-    infinitiu_compost: "bg-slate-400",
-    gerundi: "bg-slate-400",
-    gerundi_compost: "bg-slate-400",
-    participi: "bg-slate-400",
+    infinitiu: "bg-slate-500/80 dark:bg-slate-700",
+    infinitiu_compost: "bg-slate-500/80 dark:bg-slate-700",
+    gerundi: "bg-slate-500/80 dark:bg-slate-700",
+    gerundi_compost: "bg-slate-500/80 dark:bg-slate-700",
+    participi: "bg-slate-500/80 dark:bg-slate-700",
   },
 } as const;
+
+function renderTranslation(translation?: string): JSX.Element | null {
+  if (!translation) return null;
+  const items = translation.split(",").map((item) => item.trim());
+  return (
+    <div
+      className="flex gap-0.5 text-xs text-gray-100 w-36"
+      style={marginStyle}
+    >
+      {items.map((item, index) => (
+        <span key={index}>
+          {item}
+          {index < items.length - 1 ? ", " : ""}
+        </span>
+      ))}
+    </div>
+  );
+}
 
 function ConjugationCard({
   conjugation,
 }: {
   conjugation: Database__ConjugationForm;
 }) {
-  return (
-    <li className="flex flex-col items-start gap-0.5">
-      <div className="flex gap-2">
-        {![
-          "infinitiu",
-          "infinitiu_compost",
-          "gerundi",
-          "gerundi_compost",
-          "participi",
-        ].includes(conjugation.pronoun as string) && (
-          <p
-            aria-label="pronoun"
-            className="text-xs md:text-sm font-semibold"
-            style={{ marginBlock: "0.25lh" }}
-          >
-            {conjugation.pronoun.replaceAll("_", " ")}:
-          </p>
-        )}
-        <div className="flex flex-1 gap-0.5 flex-wrap">
-          {conjugation?.variation_types
-            ? (
-                zip(
-                  conjugation.forms as string[],
-                  conjugation.variation_types as string[]
-                ) as [string, string][]
-              ).map(([form, type], i) => (
-                <p
-                  key={i}
-                  className="text-xs md:text-sm"
-                  style={{ marginBlock: "0.25lh" }}
-                >
-                  {`${form}${type ? ` ${type}` : ""}${
-                    i < conjugation.forms.length - 1 ? "," : ""
-                  }`}
-                </p>
-              ))
-            : conjugation.forms.map((form, i) => (
-                <p
-                  key={i}
-                  className="text-xs md:text-sm"
-                  style={{ marginBlock: "0.25lh" }}
-                >
-                  {form}
-                </p>
-              ))}
-        </div>
-      </div>
-      <div
-        className="flex gap-0.5 text-xs text-gray-700 w-32"
-        style={{ marginBlock: "0.25lh" }}
-      >
-        {conjugation?.translation &&
-          conjugation?.translation?.split(",")?.map((item, index) => (
-            <span key={index}>
-              {item.trim()}
-              {index <
-              (conjugation?.translation?.split(",") as string[])?.length - 1
-                ? ", "
-                : ""}
-            </span>
-          ))}
-      </div>
-    </li>
-  );
-}
+  const {
+    pronoun,
+    forms,
+    variation_types: variationTypes,
+    translation,
+  } = conjugation;
 
-function BigTenseCard({
-  mood,
-  tenseBlock,
-}: {
-  mood: string;
-  tenseBlock: Database__TenseBlock;
-  tenseBlockIndex?: number;
-}) {
+  const central: string[] = [];
+  const valencian: string[] = [];
+  const balearic: string[] = [];
+  const ortPre2017: string[] = [];
+
+  if (variationTypes) {
+    variationTypes.forEach((type, index) => {
+      switch (type?.replace(/\(/g, "")?.replace(/\)/g, "")) {
+        case "cent.":
+          central.push(forms[index]);
+          break;
+        case "val.":
+          valencian.push(forms[index]);
+          break;
+        case "bal.":
+          balearic.push(forms[index]);
+          break;
+        case "ort. pre-2017":
+          ortPre2017.push(forms[index]);
+          break;
+        case "val., bal.":
+          valencian.push(forms[index]);
+          balearic.push(forms[index]);
+          break;
+        default:
+          central.push(forms[index]);
+          break;
+      }
+    });
+  } else {
+    central.push(...forms);
+  }
+
   return (
-    <Card
-      aria-label={`big-tense-card:${tenseBlock.tense}`}
-      className={cn(
-        "flex-shrink-0 py-2! gap-2!",
-        colors[mood]?.[tenseBlock?.tense],
-        mood === "indicatiu" ? "w-90 md:w-100" : "w-[750px] mr-4"
-      )}
-    >
-      <CardHeader className="px-2!">
-        <CardTitle>
-          {tenseBlock?.tense?.capitalize().replaceAll("_", " ")} {mood}
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="px-2!">
-        <ul className="flex flex-col gap-1">
-          {tenseBlock.conjugation.map((conjugation, index) => (
-            <ConjugationCard key={index} conjugation={conjugation} />
+    <>
+      {/* PRONOUN */}
+      <TableCell>
+        <div className="flex flex-col gap-0.5">
+          {pronoun.replaceAll("_", " ")}
+          {renderTranslation(translation)}
+        </div>
+      </TableCell>
+      {/* CENTRAL */}
+      <TableCell>
+        <ul className="flex flex-col gap-0.5">
+          {central.map((form, index) => (
+            <li key={index}>{form}</li>
           ))}
         </ul>
-      </CardContent>
-    </Card>
+      </TableCell>
+      {/* VALENCIAN */}
+      <TableCell>
+        <ul className="flex flex-col gap-0.5">
+          {valencian.map((form, index) => (
+            <li key={index}>{form}</li>
+          ))}
+        </ul>
+      </TableCell>
+      {/* BALEARIC */}
+      <TableCell>
+        <ul className="flex flex-col gap-0.5">
+          {balearic.map((form, index) => (
+            <li key={index}>{form}</li>
+          ))}
+        </ul>
+      </TableCell>
+      {/* ORT. PRE-2017 */}
+      <TableCell>
+        <ul className="flex flex-col gap-0.5">
+          {ortPre2017.map((form, index) => (
+            <li key={index}>{form}</li>
+          ))}
+        </ul>
+      </TableCell>
+    </>
   );
 }
 
-function SmallTenseCard({
+function TenseCard({
   mood,
   tenseBlock,
 }: {
@@ -160,71 +174,103 @@ function SmallTenseCard({
 }) {
   return (
     <Card
-      aria-label={`small-tense-card:${tenseBlock.tense}`}
+      aria-label={`tense-card:${tenseBlock?.tense}`}
       className={cn(
-        "w-90 md:w-100 py-2!",
-        colors[mood.toLowerCase().replaceAll(" ", "_")]?.[tenseBlock?.tense],
-        tenseBlock.tense === "participi" && "mb-8"
+        "flex-shrink-0 py-2! gap-2! w-xl",
+        COLORS[mood.toLowerCase().replaceAll(" ", "_")]?.[tenseBlock?.tense]
       )}
     >
-      <CardHeader className="px-2!">
-        <CardTitle>
-          {tenseBlock?.tense?.capitalize().replaceAll("_", " ")}{" "}
-          {mood !== "Formes no personals" && mood}
+      <CardHeader className="px-4!">
+        <CardTitle className="text-white font-bold [&>div>span]:text-sm lg:[&>div>span]:text-md">
+          <div className="flex flex-col items-start gap-2">
+            <span className="font-bold text-white">
+              {`${mood !== "Formes no personals" ? mood : ""}`.toUpperCase()}
+            </span>
+            <span className="font-bold text-white">
+              {tenseBlock?.tense?.replaceAll("_", " ").toUpperCase()}
+            </span>
+          </div>
         </CardTitle>
       </CardHeader>
+
       <CardContent className="px-2!">
-        {mood.toLowerCase() === "imperatiu"
-          ? tenseBlock?.conjugation?.map((conjugation, index) => (
-              <ConjugationCard key={index} conjugation={conjugation} />
-            ))
-          : tenseBlock?.conjugation
-              ?.slice(0, 1)
-              .map((conjugation, index) => (
-                <ConjugationCard key={index} conjugation={conjugation} />
-              ))}
+        <Table>
+          <TableHeader>
+            <TableRow className="[&>th]:text-white [&>th]:font-bold [&>th]:text-xs lg:[&>th]:text-sm">
+              <TableHead>Pronoun</TableHead>
+              <TableHead>Com.</TableHead>
+              <TableHead>Val.</TableHead>
+              <TableHead>Bal.</TableHead>
+              <TableHead>Ort. pre-2017</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {tenseBlock?.conjugation.map((conjugation, index) => (
+              <TableRow className="[&>td]:text-white" key={index}>
+                <ConjugationCard conjugation={conjugation} />
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
       </CardContent>
     </Card>
   );
 }
 
 export default function VerbTable({ data }: { data: Database__VerbOutput }) {
+  const firstFourhTenses = zip(
+    data?.moods?.[0]?.tenses?.slice(0, 4) as Database__TenseBlock[],
+    data?.moods?.[1]?.tenses as Database__TenseBlock[]
+  ) as [Database__TenseBlock, Database__TenseBlock][];
+
+  const theRestOfTenses = data?.moods?.[0]?.tenses?.slice(
+    4
+  ) as Database__TenseBlock[];
+
+  const imperativeAndFormsNoPersonals = data?.moods?.slice(
+    2
+  ) as Database__MoodBlock[];
+
   return (
     <ScrollArea
       className={cn(
-        "flex-1 rounded-md h-full overflow-y-auto overflow-x-hidden whitespace-nowrap",
-        "w-[448px] md:w-[800px] lg:w-[1000px] xl:w-full dark:bg-zinc-800 dark:text-white"
+        "flex-1 rounded-3xl h-full overflow-y-auto overflow-x-hidden",
+        "w-90 sm:w-96 md:w-[800px] lg:w-[1000px] xl:w-full dark:bg-zinc-800 p-4 text-white"
       )}
     >
-      <div className="flex flex-col gap-4 pr-4">
-        {(
-          zip(
-            data?.moods?.[0]?.tenses as Database__TenseBlock[],
-            data?.moods?.[1]?.tenses as Database__TenseBlock[]
-          ) as [Database__TenseBlock, Database__TenseBlock][]
-        ).map(([indicatiu, subjuntiu], i) => (
-          <ScrollArea className="w-full overflow-x-auto" key={i}>
-            <section className="flex gap-4 w-max">
-              <BigTenseCard mood="indicatiu" tenseBlock={indicatiu} />
+      <div className="flex flex-col gap-4">
+        {firstFourhTenses?.map(([indicatiu, subjuntiu], i) => (
+          <ScrollArea key={i} className="w-full overflow-x-auto">
+            <section
+              className="flex gap-4 w-max"
+              aria-label={`mood-block:${i}`}
+            >
+              <TenseCard mood="indicatiu" tenseBlock={indicatiu} />
               {subjuntiu?.tense && (
-                <BigTenseCard mood="subjuntiu" tenseBlock={subjuntiu} />
+                <TenseCard mood="subjuntiu" tenseBlock={subjuntiu} />
               )}
             </section>
           </ScrollArea>
         ))}
-        {data?.moods?.slice(2).map((moodBlock, i) => (
-          <section
-            className="flex flex-col gap-4 w-max"
-            key={`${moodBlock.mood}-${i}`}
+        {theRestOfTenses?.map((tenseBlock, i) => (
+          <ScrollArea
+            key={`${tenseBlock.tense}-${i}`}
+            className="w-full overflow-x-auto"
           >
+            <TenseCard mood="indicatiu" tenseBlock={tenseBlock} />
+          </ScrollArea>
+        ))}
+        {imperativeAndFormsNoPersonals?.map((moodBlock, i) => (
+          <Fragment key={i}>
             {moodBlock.tenses.map((tenseBlock) => (
-              <SmallTenseCard
+              <ScrollArea
                 key={`${moodBlock.mood}-${tenseBlock.tense}`}
-                mood={moodBlock.mood}
-                tenseBlock={tenseBlock}
-              />
+                className="w-full overflow-x-auto"
+              >
+                <TenseCard mood={moodBlock.mood} tenseBlock={tenseBlock} />
+              </ScrollArea>
             ))}
-          </section>
+          </Fragment>
         ))}
       </div>
       <ScrollBar orientation="vertical" />

@@ -9,9 +9,9 @@ export default function MainLayout({
 }>) {
   return (
     <section className="h-screen flex flex-col">
-      <Header className="flex-none bg-white px-4 py-2 shadow z-10" />
+      <Header className="flex-none bg-white dark:bg-black px-4 py-2 shadow z-10" />
       {children}
-      <Footer className="flex-none bg-white px-4 py-2 shadow z-10" />
+      <Footer className="flex-none bg-white dark:bg-black px-4 py-2 shadow z-10" />
     </section>
   );
 }
