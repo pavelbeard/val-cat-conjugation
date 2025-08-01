@@ -1,9 +1,9 @@
-import { withApiClientErrorHandler } from "./error-handler";
+import { withErrorHandler } from "./error-handler";
 
 export class ApiClient {
   // ERROR HANDLER FOR API CLIENT
   static async get<T>(url: string, options?: RequestInit): Promise<T> {
-    const response = await withApiClientErrorHandler(async () =>
+    const response = await withErrorHandler(async () =>
       fetch(url, { method: "GET", ...options })
     )();
 
@@ -15,7 +15,7 @@ export class ApiClient {
     data: any,
     options?: RequestInit
   ): Promise<T> {
-    const response = await withApiClientErrorHandler(async () =>
+    const response = await withErrorHandler(async () =>
       fetch(url, {
         method: "POST",
         headers: {
@@ -35,7 +35,7 @@ export class ApiClient {
     data: any,
     options?: RequestInit
   ): Promise<T> {
-    const response = await withApiClientErrorHandler(async () =>
+    const response = await withErrorHandler(async () =>
       fetch(url, {
         method: "PUT",
         headers: {
@@ -50,7 +50,7 @@ export class ApiClient {
   }
 
   static async delete(url: string): Promise<boolean> {
-    const response = await withApiClientErrorHandler(async () =>
+    const response = await withErrorHandler(async () =>
       fetch(url, {
         method: "DELETE",
         headers: {
