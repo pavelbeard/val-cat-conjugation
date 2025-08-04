@@ -30,7 +30,7 @@ export const getVerb = _getVerb;
 
 const _getVerbsByForm = async (form: string) => {
   const response = await ApiClient.get<Database__VerbOutput__ByForm[]>(
-    createUrl("verbs_by-form", form)
+    createUrl("verbs", `?form=${form}`)
   );
   return response;
 };
@@ -39,7 +39,7 @@ export const getVerbsByForm = _getVerbsByForm;
 
 const _getVerbsWithFirstLetter = async () => {
   const response = await ApiClient.get<Database__VerbOutput__ByLetter[]>(
-    createUrl("verbs_first-letter")
+    createUrl("verbs", "?letter=true")
   );
   return response;
 };

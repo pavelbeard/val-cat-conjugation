@@ -4,7 +4,7 @@ from typing import List, Optional
 from bson import ObjectId
 from pydantic import BaseModel, Field
 
-from src.utils.exceptions import HttpStatus
+from src.utils.exceptions import AppException, HttpStatus
 
 
 # DATABASE SCHEMAS
@@ -85,7 +85,11 @@ class Database__VerbOutput__ByForm(BaseModel):
         """
         Validate and convert a list of dictionaries to a list of Database__VerbOutput__ByForm instances.
         """
-        return [cls.model_validate(item).model_dump() for item in data if isinstance(item, dict)]
+        return [
+            cls.model_validate(item).model_dump()
+            for item in data
+            if isinstance(item, dict)
+        ]
 
 
 # AI SCHEMAS
@@ -132,7 +136,7 @@ class AIErrorOutput(BaseModel):
     error_type: str
     code: HttpStatus = HttpStatus.INTERNAL_SERVER_ERROR
     message: str = "An error occurred during AI translation."
-    
+
 
 class Fetch__VerbCreated(Database__VerbMain):
     created_at: datetime = Field(default_factory=datetime.now)
@@ -145,3 +149,22 @@ class Create__Verb(BaseModel):
     """
 
     infinitive: str
+
+
+class Get__Verb(BaseModel):
+    """
+    Schema for retrieving a verb.
+    """
+
+    form: Optional[str] = None
+    letter: bool = Field(default=False)
+
+
+def get_verb_params(form: Optional[str] = None, letter: bool = False) -> Get__Verb:
+    if form and letter:
+        raise AppException(
+            type=HttpStatus.BAD_REQUEST,
+            message="You can only search by one parameter at a time: 'form' or 'letter'.",
+        )
+
+    return Get__Verb(form=form, letter=letter)

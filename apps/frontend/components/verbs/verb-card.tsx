@@ -21,12 +21,18 @@ export default function VerbCard({ infinitive }: { infinitive: string }) {
         <p className="text-xs lg:text-lg text-gray-500">{verb.translation}</p>
       </div>
       {/* Verb Card */}
-      <div className="flex-1 lg:mx-auto overflow-hidden">
-        {isTranslating ? <VerbTableLoading /> : <VerbTable data={verb} />}
-      </div>
+      {isTranslating ? (
+        <VerbTableLoading />
+      ) : (
+        <div className="flex-1 lg:mx-auto overflow-hidden">
+          <VerbTable data={verb} />
+        </div>
+      )}
       <footer className="p-2 text-xs w-full text-gray-500">
         Advertencia: traducciones están creadas por un modelo de IA y pueden no
         ser precisas.
+        <br />
+        Materiales de referencia: <a className="text-blue-500 font-bold" href="https://www.softcatala.org/conjugador-de-verbs">Softcatala</a>
       </footer>
     </>
   );

@@ -130,7 +130,7 @@ def get_verbs_by_form(form: str) -> List[Database__VerbOutput]:
     verbs = verbs_queries.find_verbs_by_form(normalized_form)
 
     if not verbs:
-        raise AppException(HttpStatus.NOT_FOUND, "No verbs found for this form")
+        return []
 
     validated_verbs = Database__VerbOutput__ByForm.model_validate_many(verbs)
 
@@ -142,7 +142,7 @@ def delete_verb(form: str):
     Delete a verb by its form.
     """
     raise NotImplementedError("Delete verb functionality is not implemented yet")
-    
+
     result = verbs_queries.delete_verb_by_form(form)
 
     if not result:

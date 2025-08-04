@@ -31,7 +31,7 @@ export default function VerbsSearch({
         aria-label="search input"
         className="w-full max-w-md bg-gray-300 text-black dark:text-white"
         type="text"
-        placeholder="Search for verbs..."
+        placeholder="Buscar verbo..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         onClick={onClick}

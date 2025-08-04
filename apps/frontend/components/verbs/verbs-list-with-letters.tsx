@@ -1,33 +1,53 @@
 "use client";
 
 import VerbsRow from "./verbs-row";
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { queryOptionsGetVerbsWithFirstLetter } from "@/lib/quieries/verbs";
-import VerbsListLoading from "./verbs-list-loading";
+import { cn } from "@/lib/utils";
+import { useEffect, useRef } from "react";
+import { Database__VerbOutput__ByLetter } from "@/lib/types/verbs";
 
-export default function VerbsListWithLetters() {
-  const { data: allData } = useQuery(queryOptionsGetVerbsWithFirstLetter());
+function VerbRowWithLetter({ item }: { item: Database__VerbOutput__ByLetter }) {
+  const h2Ref = useRef<HTMLHeadingElement>(null);
 
-  if (!allData) {
-    return <VerbsListLoading />;
-  }
+  useEffect(() => {
+    if (h2Ref.current) {
+      console.log(h2Ref.current.getBoundingClientRect());
+    }
+  }, [h2Ref]);
 
   return (
-    <div className="flex flex-col gap-2 mx-1">
-      {allData.map((item) => (
-        <section
-          className="flex flex-col gap-2"
-          key={item._id}
-          id={`section-${item._id}`}
-        >
-          <h2 className="sticky top-0 z-20 p-4 text-lg font-bold uppercase bg-purple-500 dark:bg-purple-800 text-white">
-            {item._id}
-          </h2>
-          {item.verbs.map((verb) => (
-            <VerbsRow key={verb.infinitive} verb={verb} />
-          ))}
-        </section>
+    <>
+      <h2
+        ref={h2Ref}
+        className={cn(
+          "sticky top-0 z-20",
+          "p-4 mx-2 text-lg font-bold uppercase",
+          "bg-violet-500 dark:bg-violet-800 text-white rounded-b-2xl rounded-tr-2xl",
+          "shadow-lg shadow-violet-500/50 dark:shadow-violet-800/50"
+        )}
+      >
+        {item._id}
+      </h2>
+      {item.verbs.map((verb) => (
+        <VerbsRow key={verb.infinitive} verb={verb} />
       ))}
-    </div>
+    </>
   );
+}
+
+export default function VerbsListWithLetters() {
+  const { data: allData } = useSuspenseQuery(
+    queryOptionsGetVerbsWithFirstLetter()
+  );
+
+  return allData.map((item) => (
+    <section
+      className="flex flex-col gap-2"
+      key={item._id}
+      id={`section-${item._id}`}
+    >
+      <VerbRowWithLetter item={item} />
+    </section>
+  ));
 }

@@ -1,4 +1,4 @@
-from typing import Any, Awaitable, Callable, List
+from typing import Annotated, Any, Awaitable, Callable, List
 
 from fastapi import APIRouter, Depends, Response
 from fastapi.responses import JSONResponse
@@ -8,6 +8,8 @@ from src.schemas.verbs import (
     Database__VerbOutput,
     Database__VerbOutput__ByForm,
     Database__VerbOutput__ByLetter,
+    Get__Verb,
+    get_verb_params,
 )
 from src.services import verbs as verbs_service
 from src.utils.ai.clients import detection_client_gemini, translation_client_gemini
@@ -43,11 +45,22 @@ async def create_verb(
 @router.get(
     "/verbs", response_model=List[Database__VerbOutput], response_class=JSONResponse
 )
-def get_verbs():
+def get_verbs(search_params: Annotated[Get__Verb, Depends(get_verb_params)]):
     """
     Retrieve a list of verbs.
     """
-    verbs = verbs_service.get_verbs()
+
+    verbs = []
+
+    if not search_params:
+        verbs = verbs_service.get_verbs()
+
+    if search_params.letter:
+        verbs = verbs_service.get_verbs_by_first_letter()
+
+    if search_params.form:
+        verbs = verbs_service.get_verbs_by_form(search_params.form)
+
     return JSONResponse(
         content=verbs,
         status_code=200,
@@ -68,7 +81,8 @@ def get_verbs_by_first_letter():
         content=verbs,
         status_code=200,
     )
-    
+
+
 @router.get(
     "/verbs_by-form/{form}",
     response_model=List[Database__VerbOutput__ByForm],
