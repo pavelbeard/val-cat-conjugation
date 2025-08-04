@@ -12,7 +12,8 @@ from src.schemas.verbs import (
     get_verb_params,
 )
 from src.services import verbs as verbs_service
-from src.utils.ai.clients import detection_client_gemini, translation_client_gemini
+from src.utils.ai.clients import translation_client_gemini
+from src.utils.parsers.handlers import diccionari_parser
 
 router = APIRouter()
 
@@ -24,7 +25,7 @@ async def create_verb(
     translation_client: Callable[..., Awaitable[Any]] = Depends(
         translation_client_gemini
     ),
-    detection_client: Callable[..., Awaitable[Any]] = Depends(detection_client_gemini),
+    detection_client: Callable[..., Awaitable[Any]] = Depends(diccionari_parser),
 ):
     """
     Create a new verb.

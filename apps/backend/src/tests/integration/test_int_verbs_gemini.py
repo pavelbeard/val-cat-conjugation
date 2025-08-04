@@ -1,6 +1,9 @@
+import asyncio
 import os
 from textwrap import dedent
 
+from fastapi import FastAPI
+import httpx
 import pytest
 from fastapi.testclient import TestClient
 
@@ -232,3 +235,43 @@ class TestMatchVerbLanguage:
             match="El verbo proporcionado no es válido o no pertenece a ninguno de los idiomas admitidos.",
         ):
             await find_verb_with_ai("nonexistentverb", awaited_client)
+
+
+class TestAiHandlerLocker:
+    @pytest.fixture
+    def fake_app(self):
+        app = FastAPI()
+
+        @app.get("/test-lock")
+        async def test_lock():
+            from src.utils.ai.handlers import ai_handler_locker
+
+            @ai_handler_locker
+            async def mock_function():
+                from asyncio import sleep
+
+                await sleep(1)  # Simulate some processing time
+                return "Function executed"
+
+            result = await mock_function()
+
+            return {"message": result}
+
+        return app
+
+    @pytest.mark.asyncio
+    async def test_ai_handler_locker(self, fake_app):
+        async with httpx.AsyncClient(
+            transport=httpx.ASGITransport(app=fake_app), base_url="http://test"
+        ) as client:
+            task1 = asyncio.create_task(client.get("/test-lock"))
+
+            await asyncio.sleep(0.1)  # Ensure the first task starts before the second
+
+            task2 = asyncio.create_task(client.get("/test-lock"))
+
+            response1 = await task1
+            response2 = await task2
+
+            assert response1.status_code == 200, "First task should succeed"
+            assert response2.status_code == 429, "Second task should be rate-limited"

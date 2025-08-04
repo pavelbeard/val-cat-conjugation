@@ -1,10 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useVerbSearch } from "@/lib/hooks/use-verb-search";
 import { Input } from "../ui/input";
-import { useDebounce } from "@/lib/hooks/use-debounce";
 import { cn } from "@/lib/utils";
-import { useSearchStore } from "@/lib/store/use-search-store";
 
 export default function VerbsSearch({
   className,
@@ -13,14 +11,7 @@ export default function VerbsSearch({
   className?: string;
   onClick?: () => void;
 }) {
-  const [searchTerm, setSearchTerm] = useState("");
-  const value = useDebounce(searchTerm, 800);
-  const setQuery = useSearchStore((state) => state.setQuery);
-
-  useEffect(() => {
-    // This effect can be used to trigger a search or filter action
-    setQuery(value);
-  }, [value]);
+  const { form, setForm } = useVerbSearch();
 
   return (
     <div
@@ -32,8 +23,8 @@ export default function VerbsSearch({
         className="w-full max-w-md bg-gray-300 text-black dark:text-white"
         type="text"
         placeholder="Buscar verbo..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        value={form}
+        onChange={(e) => setForm(e.target.value)}
         onClick={onClick}
       />
     </div>

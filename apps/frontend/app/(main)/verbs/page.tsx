@@ -7,11 +7,12 @@ import VerbsListTopVerbs from "@/components/verbs/verbs-list-top-verbs";
 import VerbsListWithLetters from "@/components/verbs/verbs-list-with-letters";
 import VerbsSearch from "@/components/verbs/verbs-search";
 import { cn } from "@/lib/utils";
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import Loading from "./loading";
+import { useVerbSearch } from "@/lib/hooks/use-verb-search";
 
 export default function VerbsPage() {
-  const [tab, setTab] = useState<"top_verbs" | "verbs">("verbs");
+  const { tab, setTab } = useVerbSearch();
 
   // FOR TOP VERBS WE SHOULD ADD A CLICK-METER TO TRACK CLICKS ON TOP VERBS
   // AND USE IT TO SORT THEM IN THE FUTURE

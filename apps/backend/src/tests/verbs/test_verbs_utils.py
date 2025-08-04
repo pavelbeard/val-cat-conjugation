@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from bs4 import BeautifulSoup
 from pytest import fixture
 import pytest
@@ -237,13 +238,6 @@ class TestUpdateTranslationsV3:
                 }
             )
 
-    def test_update_translations_v3(self, dummy_anar, dummy_translated_anar):
-        from src.utils.verbs import update_translations
-
-        result = update_translations(dummy_anar, dummy_translated_anar)
-
-        print("Updated Translations:", result)
-
     def test_delete_pronoun_if_exists(self):
         pronouns = [
             "yo",
@@ -340,6 +334,21 @@ class TestPrefixes:
             "The first conjugation pronoun should be <me'n>"
         )
 
+    def test_check_reflexive_suffix(self):
+        from src.utils.verbs import se__pronoun_mapping
+
+        translation = "te vas"
+        conjugation_pronoun = "te'n"
+
+        if not translation.startswith(tuple(se__pronoun_mapping.keys())):
+            translation_for_copy_data = (
+                se__pronoun_mapping.get(conjugation_pronoun) + " "
+            )
+
+        assert translation_for_copy_data.startswith(
+            se__pronoun_mapping.get(conjugation_pronoun)
+        ), "Translation should start with the reflexive pronoun mapping"
+
 
 class TestLetters:
     @pytest.mark.asyncio
@@ -399,3 +408,77 @@ class TestLetters:
             )
             assert item.infinitive, "Infinitive should not be empty"
             assert item.initial_letter, "Initial letter should not be empty"
+
+
+async def parse_diccionari_cat(verb: str) -> str | None:
+    from bs4 import Tag
+
+    url = f"https://www.diccionari.cat/cerca/diccionari-catala-castella?search_api_fulltext_cust={verb}&search_api_fulltext_cust_1=&field_faceta_cerca_1=All&show=title"
+
+    response = await Fetch(url).get()
+    assert response.status_code == 200, "Response should be successful"
+
+    soup = BeautifulSoup(response.text, "lxml")
+
+    dict_ = soup.find_all("ol", class_="dict")
+
+    def clean_text(text: str) -> str:
+        clean = re.sub(r"\t+|\n+|\r+", "", text.strip())
+        clean = re.sub(r"\[.*?\]", "", clean)
+        clean = re.sub(
+            r"\bverb|pronominal|figuradament\b.*?\s", "", clean, flags=re.IGNORECASE
+        )
+        clean = clean.split(".")[0]
+        return re.sub(r"\s+,", "", clean).strip() if clean else ""
+
+    if dict_:
+        # finding the first item in the list, that contains the "verb"
+        for ol in dict_:
+            grammar = ol.find("span", class_="grammar")
+            if grammar and "verb" in grammar.text.lower():
+                f = ol.find_all("li")[0]
+                return clean_text(f.text) if isinstance(f, Tag) else None
+
+    else:
+        div1 = soup.find(class_="div1")
+        if div1:
+            f = clean_text(div1.text) if isinstance(div1, Tag) else None
+            return f
+
+    return None
+
+
+class TestDiccionariCat:
+    @pytest.mark.asyncio
+    async def test_parse_resource(self):
+        verbs = [
+            "fer",
+            "abacallanar-se",
+            "abaltir",
+            "abandonar",
+            "abastar",
+            "abatre",
+            "abellir",
+            "deixar",
+            "dormir",
+            "tancar",
+            "anar-se",
+            "menjar",
+            "beure",
+            "veure",
+            "parlar",
+            "escriure",
+            "cantar",
+            "jugar",
+        ]
+
+        results = []
+
+        for verb in verbs:
+            result = await parse_diccionari_cat(verb)
+            assert result, f"Result should not be empty for verb: {verb}"
+            results.append(result)
+            assert isinstance(result, str), "Result should be a string"
+            assert len(result) > 0, "Result string should not be empty"
+
+        print(results)

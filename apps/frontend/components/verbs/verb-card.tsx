@@ -32,7 +32,22 @@ export default function VerbCard({ infinitive }: { infinitive: string }) {
         Advertencia: traducciones están creadas por un modelo de IA y pueden no
         ser precisas.
         <br />
-        Materiales de referencia: <a className="text-blue-500 font-bold" href="https://www.softcatala.org/conjugador-de-verbs">Softcatala</a>
+        Materiales de referencia:{" "}
+        <a
+          className="text-blue-500 font-bold"
+          target="_blank"
+          href={`https://www.softcatala.org/conjugador-de-verbs/verb/${verb.infinitive.replace("-se", "").replace("-se'n", "")}`}
+        >
+          Softcatala
+        </a>
+        ,{" "}
+        <a
+          className="text-blue-500 font-bold"
+          target="_blank"
+          href={`https://www.diccionari.cat/catala-castella/${verb.infinitive}`}
+        >
+          Diccionari.cat
+        </a>
       </footer>
     </>
   );

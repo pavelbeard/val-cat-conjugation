@@ -1,3 +1,4 @@
+import asyncio
 from typing import Union
 from pydantic_ai import Agent, UnexpectedModelBehavior
 from pydantic_ai.models.gemini import GeminiModel, GeminiModelSettings
@@ -14,6 +15,29 @@ from src.utils.logger import create_logger
 
 logger = create_logger(__name__)
 
+ai_lock = asyncio.Semaphore(1)
+
+
+def ai_handler_locker(func):
+    """
+    Decorator to ensure that the AI handler is not used concurrently.
+    This is necessary to prevent multiple requests from interfering with each other,
+    """
+
+    async def wrapper(*args, **kwargs):
+        logger.info(f"Acquiring AI handler {ai_lock} lock...")
+
+        if ai_lock.locked():
+            raise AppException(
+                HttpStatus.TOO_MANY_REQUESTS,
+                "Gemini API is currently in use. Please try again later.",
+            )
+
+        async with ai_lock:
+            return await func(*args, **kwargs)
+
+    return wrapper
+
 
 class PydanticGeminiHandler(AIHandler):
     """
@@ -27,6 +51,7 @@ class PydanticGeminiHandler(AIHandler):
     ):
         super().__init__(api_key, model)
 
+    @ai_handler_locker
     async def query_api(
         self,
         messages: list,
@@ -36,7 +61,6 @@ class PydanticGeminiHandler(AIHandler):
         """
         Query the Gemini API with the provided messages.
         """
-
         if response_type is None:
             raise AppException(
                 HttpStatus.BAD_REQUEST,
@@ -123,5 +147,6 @@ class PydanticGeminiHandler(AIHandler):
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 f"Unexpected model behavior: {e}",
             )
+
 
 # Registry of available AI handlers

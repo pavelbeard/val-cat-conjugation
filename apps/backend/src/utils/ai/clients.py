@@ -62,8 +62,8 @@ async def detection_client_gemini():
 
     model_settings: GeminiModelSettings = GeminiModelSettings(
         max_tokens=200,
-        temperature=0.4,
-        top_p=0.95,
+        temperature=0,
+        top_p=1,
         gemini_thinking_config={"thinking_budget": 0},
     )
 

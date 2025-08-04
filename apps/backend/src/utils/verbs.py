@@ -6,6 +6,7 @@ from typing import Any, Callable, Dict, Generator, List, Literal
 
 from bs4 import BeautifulSoup, NavigableString
 from bs4.filter import _AtMostOneElement
+from utils.api_queries.verbs import get_infinitive_translation_from_diccionari_cat
 from src.core.constants import CONSTANTS
 from src.schemas.verbs import (
     AI__ResponseIdentifiedVerb,
@@ -24,6 +25,24 @@ logger = create_logger(__name__)
 prompts_path = os.path.join(os.path.dirname(__file__), "prompts", "verbs")
 
 
+async def find_verb_with_parser(verb: str, parser: Callable = None):
+    """
+    Find a verb using the provided parser.
+    """
+    if not verb:
+        raise AppException(HttpStatus.BAD_REQUEST, "Verb cannot be empty")
+
+    if not parser:
+        raise AppException(HttpStatus.BAD_REQUEST, "Parser must be provided")
+
+    data = await get_infinitive_translation_from_diccionari_cat(verb)
+
+    if not data:
+        raise AppException(HttpStatus.NOT_FOUND, "No data found for the verb")
+
+    return await parser(data)
+
+
 async def find_verb_with_ai(
     verb: str, ai_client: Callable = None
 ) -> AI__ResponseIdentifiedVerb:
@@ -38,7 +57,7 @@ async def find_verb_with_ai(
     return await ai_client(messages=messages)
 
 
-def create_translation_prompt(data: Fetch__VerbCreated) -> List[Dict[str, str]]:
+def create_conjugation_prompt__val(data: Fetch__VerbCreated) -> List[Dict[str, str]]:
     from src.utils.ai.prompts import get_system_prompt
 
     prompt_path = os.path.join(
@@ -57,11 +76,27 @@ def create_translation_prompt(data: Fetch__VerbCreated) -> List[Dict[str, str]]:
     return [system_prompt, user_prompt]
 
 
+def create_conjugation_prompt__esp(verb: str) -> List[Dict[str, str]]:
+    from src.utils.ai.prompts import get_system_prompt
+
+    prompt_path = os.path.join(
+        CONSTANTS["PROMPTS_VERBS_PATH"], "gemini-2.5-flash-conjugador.txt"
+    )
+    system_prompt = get_system_prompt(prompt_path)
+
+    user_prompt = {
+        "role": "user",
+        "content": f"conjuga el verbo '{verb}' en todos los modos, tiempos verbales y formas no personales con gerundios y compuestos",
+    }
+
+    return [system_prompt, user_prompt]
+
+
 def create_detection_prompt(verb: str) -> List[Dict[str, str]]:
     from src.utils.ai.prompts import get_system_prompt
 
     prompt_path = os.path.join(
-        CONSTANTS["PROMPTS_VERBS_PATH"], "gemini-2.5-preview-06-17-detector.txt"
+        CONSTANTS["PROMPTS_VERBS_PATH"], "gemini-2.5-flash-lite-detector.txt"
     )
 
     system_prompt = get_system_prompt(prompt_path)
@@ -153,8 +188,10 @@ def update_translations(
                         "-se"
                     ) or copy_data.infinitive.endswith("-se'n"):
                         # check if the translation doesn't have a reflexive prefix
+                        # REFACTOR: this is a hacky way to handle reflexive verbs
                         if not translation.startswith(
-                            tuple(se__pronoun_mapping.keys())
+                            # tuple(se__pronoun_mapping.keys())
+                            ("me ", "te ", "nos ", "os ", "se ")
                         ):
                             translation_for_copy_data += (
                                 se__pronoun_mapping.get(conjugation.pronoun) + " "
@@ -166,7 +203,7 @@ def update_translations(
 
                     conjugation.translation = translation_for_copy_data.strip()
 
-    except Exception:
+    except Exception as e:
         pass
 
     return Database__VerbOutput(
@@ -196,7 +233,7 @@ async def perform_ai_translation(
             HttpStatus.BAD_REQUEST, "AI client function must be provided."
         )
 
-    messages = create_translation_prompt(data)
+    messages = create_conjugation_prompt__esp(data)
     translated_data: AI__VerbOutput = await ai_client(messages=messages)
 
     if not translated_data:

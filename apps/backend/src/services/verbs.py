@@ -1,6 +1,8 @@
 from datetime import datetime
 from typing import Any, Awaitable, Callable, List, Literal
 
+from utils.api_queries.verbs import get_full_untranslated_conjugation
+
 from src.schemas.verbs import (
     Database__VerbOutput,
     Database__VerbOutput__ByForm,
@@ -10,7 +12,6 @@ from src.schemas.verbs import (
 from src.utils import verbs as verbs_utils
 from src.utils.encoders import custom_jsonable_encoder
 from src.utils.exceptions import AppException, HttpStatus
-from src.utils.fetch import Fetch
 from src.db.queries import verbs as verbs_queries
 
 
@@ -38,16 +39,24 @@ async def create_verb(
     if existing_verb and existing_verb.get("moods"):
         return custom_jsonable_encoder(existing_verb)
 
-    checked_response = await verbs_utils.find_verb_with_ai(
-        verb=existing_verb.get("infinitive") if existing_verb else verb,
-        ai_client=detection_client,
+    # AI detection of the verb
+
+    # checked_response = await verbs_utils.find_verb_with_ai(
+    #     verb=existing_verb.get("infinitive") if existing_verb else verb,
+    #     ai_client=detection_client,
+    # )
+
+    untranslated_verb = existing_verb.get("infinitive") if existing_verb else verb
+
+    checked_response = await verbs_utils.find_verb_with_parser(
+        verb=untranslated_verb,
+        parser=detection_client,
     )
 
-    checked_verb = checked_response.verb
+    # AI detection of the verb
+    # I NEED TO REFACTOR THIS
 
-    response = await Fetch(
-        f"https://www.softcatala.org/conjugador-de-verbs/verb/{checked_verb.replace('-se', '').replace("-se'n", '')}",
-    ).get()
+    # checked_verb = checked_response.verb
 
     def check_suffix(verb: str) -> Literal["-se", "-se'n", None]:
         if verb.endswith("-se"):
@@ -57,16 +66,16 @@ async def create_verb(
         return None
 
     verb_table = verbs_utils.VerbUntranslatedTable(
-        html=response.text,
-        reflexive=checked_verb.endswith(("-se", "-se'n")),
-        reflexive_suffix=check_suffix(checked_verb),
+        html=await get_full_untranslated_conjugation(untranslated_verb),
+        reflexive=untranslated_verb.endswith(("-se", "-se'n")),
+        reflexive_suffix=check_suffix(untranslated_verb),
     )
 
     mood_blocks = verb_table.create_tense_blocks()
 
     verb_model = Fetch__VerbCreated(
-        infinitive=checked_verb,
-        translation=None,
+        infinitive=untranslated_verb,
+        translation=checked_response.translation,
         moods=mood_blocks,
         created_at=datetime.now().isoformat(),
     )
@@ -75,6 +84,8 @@ async def create_verb(
         data=verb_model,
         ai_client=translation_client,
     )
+
+    translated_verb.translation = checked_response.translation
 
     created_or_updated_verb = verbs_queries.find_one_and_update_verb(
         translated_verb.infinitive, translated_verb.model_dump()

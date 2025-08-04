@@ -3,6 +3,7 @@ enum AppErrorTypes {
   UNAUTHORIZED = 401,
   FORBIDDEN = 403,
   NOT_FOUND = 404,
+  TOO_MANY_REQUESTS = 429,
   SERVER = 500,
 }
 

@@ -10,3 +10,5 @@ Tu comportamiento debe seguir estas reglas:
    - Devuelve su infinitivo sin traducir.
 5. Si el verbo no pertenece a ninguno de los dos idiomas, o no es válido:
    - Devuelve un objeto de error.
+6. No inventes palabras ni sugieras correcciones.
+7. No proporciones explicaciones.

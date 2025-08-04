@@ -98,6 +98,7 @@ class AI__ResponseIdentifiedVerb(BaseModel):
     Response model for identified a verb in infinitive form.
     """
 
+    language: str
     verb: str
 
 
@@ -137,9 +138,14 @@ class AIErrorOutput(BaseModel):
     code: HttpStatus = HttpStatus.INTERNAL_SERVER_ERROR
     message: str = "An error occurred during AI translation."
 
+# PARSING SCHEMAS
 
 class Fetch__VerbCreated(Database__VerbMain):
     created_at: datetime = Field(default_factory=datetime.now)
+    
+class Fetch__VerbIdentified(BaseModel):
+    verb: str
+    translation: str
 
 
 # ENDPOINT SCHEMAS

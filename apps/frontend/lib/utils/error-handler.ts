@@ -17,6 +17,8 @@ export const withErrorHandler = <T>(
               throw new AppError("BAD_REQUEST", result.statusText);
             case 404:
               notFound();
+            case 429:
+              throw new AppError("TOO_MANY_REQUESTS", result.statusText);
             default:
               throw new AppError("SERVER", result.statusText);
           }
