@@ -2,6 +2,8 @@ import os
 import sys
 from pathlib import Path
 
+from schemas.staff import AppSettings
+
 LETTERS = [
     "A",
     "B",
@@ -67,8 +69,7 @@ async def create_data():
 
     return data
 
-
-async def main():
+async def seed_verbs():
     import json
 
     from src.core.constants import initial_data_path
@@ -98,6 +99,28 @@ async def main():
         pass
 
     data_base.verbs.insert_many([json.loads(verb) for verb in data])
+    
+async def seed_settings():
+    from src.db.client import get_db
+
+    data_base = get_db("app_settings")
+
+    if data_base.settings.count_documents({}) > 0:
+        print("Settings already exist, skipping insertion.")
+        return
+
+    settings = AppSettings()
+
+    if data_base.settings.count_documents({}) > 0:
+        print("Settings already exist, skipping insertion.")
+        return
+
+    data_base.settings.insert_one(settings.model_dump())
+    print("Settings initialized.")
+
+async def main():
+    await seed_verbs()
+    await seed_settings()
 
 
 if __name__ == "__main__":

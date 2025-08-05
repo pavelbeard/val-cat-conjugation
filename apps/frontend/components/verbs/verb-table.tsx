@@ -21,6 +21,7 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
+import { useSettings } from "@/lib/hooks/use-settings";
 
 const marginStyle = { marginBlock: "0.25lh" };
 
@@ -80,6 +81,8 @@ function ConjugationCard({
 }: {
   conjugation: Database__ConjugationForm;
 }) {
+  const { settings } = useSettings();
+
   const {
     pronoun,
     forms,
@@ -138,29 +141,35 @@ function ConjugationCard({
         </ul>
       </TableCell>
       {/* VALENCIAN */}
-      <TableCell>
-        <ul className="flex flex-col gap-0.5">
-          {valencian.map((form, index) => (
-            <li key={index}>{form}</li>
-          ))}
-        </ul>
-      </TableCell>
+      {settings.show_valencian && (
+        <TableCell>
+          <ul className="flex flex-col gap-0.5">
+            {valencian.map((form, index) => (
+              <li key={index}>{form}</li>
+            ))}
+          </ul>
+        </TableCell>
+      )}
       {/* BALEARIC */}
-      <TableCell>
-        <ul className="flex flex-col gap-0.5">
-          {balearic.map((form, index) => (
-            <li key={index}>{form}</li>
-          ))}
-        </ul>
-      </TableCell>
+      {settings.show_balearic && (
+        <TableCell>
+          <ul className="flex flex-col gap-0.5">
+            {balearic.map((form, index) => (
+              <li key={index}>{form}</li>
+            ))}
+          </ul>
+        </TableCell>
+      )}
       {/* ORT. PRE-2017 */}
-      <TableCell>
-        <ul className="flex flex-col gap-0.5">
-          {ortPre2017.map((form, index) => (
-            <li key={index}>{form}</li>
-          ))}
-        </ul>
-      </TableCell>
+      {settings.show_opt_pre2017 && (
+        <TableCell>
+          <ul className="flex flex-col gap-0.5">
+            {ortPre2017.map((form, index) => (
+              <li key={index}>{form}</li>
+            ))}
+          </ul>
+        </TableCell>
+      )}
     </>
   );
 }
@@ -172,6 +181,8 @@ function TenseCard({
   mood: string;
   tenseBlock: Database__TenseBlock;
 }) {
+  const { settings } = useSettings();
+
   return (
     <Card
       aria-label={`tense-card:${tenseBlock?.tense}`}
@@ -199,9 +210,11 @@ function TenseCard({
             <TableRow className="[&>th]:text-white [&>th]:font-bold [&>th]:text-xs lg:[&>th]:text-sm">
               <TableHead>Pronoun</TableHead>
               <TableHead>Com.</TableHead>
-              <TableHead>Val.</TableHead>
-              <TableHead>Bal.</TableHead>
-              <TableHead>Ort. pre-2017</TableHead>
+              {settings.show_valencian && <TableHead>Val.</TableHead>}
+              {settings.show_balearic && <TableHead>Bal.</TableHead>}
+              {settings.show_opt_pre2017 && (
+                <TableHead>Ort. Pre-2017</TableHead>
+              )}
             </TableRow>
           </TableHeader>
           <TableBody>

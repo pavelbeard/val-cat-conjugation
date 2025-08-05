@@ -11,6 +11,7 @@ export default function VerbCard({ infinitive }: { infinitive: string }) {
     queryOptionsGetVerbByInfinitive(infinitive)
   );
 
+
   const { isTranslating } = useVerbTranslate({ verb });
 
   return (

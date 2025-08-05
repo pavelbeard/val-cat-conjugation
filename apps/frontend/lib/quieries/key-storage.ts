@@ -4,4 +4,8 @@ const verbsQueryKeys = {
   getVerbsByForm: (form: string) => ["verbs", "form", form],
 };
 
-export { verbsQueryKeys };
+const staffQueryKeys = {
+  getSettings: () => ["settings"],
+};
+
+export { staffQueryKeys, verbsQueryKeys };
