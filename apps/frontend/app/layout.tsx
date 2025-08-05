@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import HocProvider from "@/components/providers/hoc-provider";
 
 import "@/lib/utils/capitalize";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={cn(geistSans.variable, geistMono.variable, "antialiased")}
       >
         <HocProvider>{children}</HocProvider>
+        <Toaster position="bottom-right" />
       </body>
     </html>
   );

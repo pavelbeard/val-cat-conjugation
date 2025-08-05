@@ -6,6 +6,7 @@ import {
   useSuspenseQuery,
 } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z, ZodObject, ZodType } from "zod";
 import { staffQueryKeys } from "../quieries/key-storage";
 import { queryOptionsGetSettings } from "../quieries/staff";
@@ -38,6 +39,7 @@ export function useSettings() {
       updateSettings__action(settings),
     onSuccess: (data) => {
       queryClient.setQueryData(staffQueryKeys.getSettings(), data);
+      toast.success("Ajustes actualizados correctamente");
     },
   });
 
