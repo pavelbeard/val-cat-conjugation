@@ -1,16 +1,15 @@
 "use client";
 
+import VerbTable from "@/components/verbs/verb-table";
+import VerbTableLoading from "@/components/verbs/verb-table-loading";
 import useVerbTranslate from "@/lib/hooks/use-verb-translate";
 import { queryOptionsGetVerbByInfinitive } from "@/lib/quieries/verbs";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import VerbTable from "./verb-table";
-import VerbTableLoading from "./verb-table-loading";
 
 export default function VerbCard({ infinitive }: { infinitive: string }) {
   const { data: verb } = useSuspenseQuery(
     queryOptionsGetVerbByInfinitive(infinitive)
   );
-
 
   const { isTranslating } = useVerbTranslate({ verb });
 

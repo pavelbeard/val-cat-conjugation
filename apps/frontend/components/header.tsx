@@ -3,6 +3,12 @@
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
+const PAGENAME_MAP: Record<string, string> = {
+  "verbs": "Verbs",
+  "settings": "Ajusts",
+  "translator": "Traductor",
+};
+
 export default function Header({ className }: { className?: string }) {
   const pathname = usePathname();
 
@@ -16,7 +22,7 @@ export default function Header({ className }: { className?: string }) {
   return (
     <header className={cn(className)}>
       <h1 className="text-lg font-semibold">
-        {pageMatch && pageMatch[1].toLocaleUpperCase()}
+        {pageMatch && PAGENAME_MAP[pageMatch[1]].toLocaleUpperCase()}
       </h1>
     </header>
   );

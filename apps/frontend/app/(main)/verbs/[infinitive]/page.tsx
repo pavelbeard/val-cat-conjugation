@@ -1,13 +1,23 @@
-"use client";
-
-import VerbCard from "@/components/verbs/verb-card";
-import { Suspense, use } from "react";
+import { Suspense } from "react";
 import Loading from "./loading";
+import { Metadata } from "next";
+import VerbCard from "./client";
 
-type Params = Promise<{ infinitive: string }>;
+type Props = {
+  params: Promise<{ infinitive: string }>;
+};
 
-export default function VerbPage({ params }: { params: Params }) {
-  const { infinitive } = use(params);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { infinitive } = await params;
+
+  return {
+    title: `Verbs | ${infinitive}`,
+    description: `Conjugació del verb ${infinitive} en català`,
+  };
+}
+
+export default async function VerbPage({ params }: Props) {
+  const { infinitive } = await params;
 
   return (
     <Suspense fallback={<Loading />}>
