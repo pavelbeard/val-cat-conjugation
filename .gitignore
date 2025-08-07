@@ -55,3 +55,6 @@ __pycache__
 # tests
 .pytest_cache
 .coverage
+
+# db
+dump
