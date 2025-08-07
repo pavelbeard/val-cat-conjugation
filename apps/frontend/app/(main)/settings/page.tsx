@@ -1,6 +1,7 @@
-import React from 'react'
-import SettingsPageClient from './client'
-import { Metadata } from 'next';
+import React, { Suspense } from "react";
+import SettingsPageClient from "./client";
+import { Metadata } from "next";
+import Loading from "./loading";
 
 // This page is the settings page for the application and for metadata generation
 export const metadata: Metadata = {
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function SettingsPage() {
-  return <SettingsPageClient />
+  return (
+    <Suspense fallback={<Loading />}>
+      <SettingsPageClient />
+    </Suspense>
+  );
 }
