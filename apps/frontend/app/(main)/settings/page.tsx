@@ -3,6 +3,8 @@ import SettingsPageClient from "./client";
 import { Metadata } from "next";
 import Loading from "./loading";
 
+export const dynamic = "force-dynamic"; // Force dynamic rendering for this page
+
 // This page is the settings page for the application and for metadata generation
 export const metadata: Metadata = {
   title: "Verbs | Ajusts",
