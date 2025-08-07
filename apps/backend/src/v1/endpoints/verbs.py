@@ -6,9 +6,8 @@ from fastapi.responses import JSONResponse
 from src.schemas.verbs import (
     Create__Verb,
     Database__VerbOutput,
-    Database__VerbOutput__ByForm,
-    Database__VerbOutput__ByLetter,
     Get__Verb,
+    Update__Verb,
     get_verb_params,
 )
 from src.services import verbs as verbs_service
@@ -56,44 +55,15 @@ def get_verbs(search_params: Annotated[Get__Verb, Depends(get_verb_params)]):
     if not search_params:
         verbs = verbs_service.get_verbs()
 
+    if search_params.top:
+        verbs = verbs_service.get_top_verbs()
+
     if search_params.letter:
         verbs = verbs_service.get_verbs_by_first_letter()
 
     if search_params.form:
         verbs = verbs_service.get_verbs_by_form(search_params.form)
 
-    return JSONResponse(
-        content=verbs,
-        status_code=200,
-    )
-
-
-@router.get(
-    "/verbs_first-letter",
-    response_model=List[Database__VerbOutput__ByLetter],
-    response_class=JSONResponse,
-)
-def get_verbs_by_first_letter():
-    """
-    Retrieve a list of verbs by their initial letter.
-    """
-    verbs = verbs_service.get_verbs_by_first_letter()
-    return JSONResponse(
-        content=verbs,
-        status_code=200,
-    )
-
-
-@router.get(
-    "/verbs_by-form/{form}",
-    response_model=List[Database__VerbOutput__ByForm],
-    response_class=JSONResponse,
-)
-def get_verbs_by_form(form: str):
-    """
-    Retrieve a list of verbs by their form.
-    """
-    verbs = verbs_service.get_verbs_by_form(form)
     return JSONResponse(
         content=verbs,
         status_code=200,
@@ -119,6 +89,33 @@ async def get_verb(
 
 
 # UPDATE
+@router.patch(
+    "/verbs/{form}",
+    response_model=Database__VerbOutput,
+    response_class=JSONResponse,
+)
+async def partial_update_verb(
+    form: str,
+    data: Update__Verb,
+):
+    """
+    Partially update a verb by its form.
+    """
+
+    updated_verb = None
+
+    if data.clicks and data.clicks > 0:
+        updated_verb = await verbs_service.increment_verb_clicks(
+            form=form,
+        )
+    else:
+        updated_verb = await verbs_service.partial_update_verb(form=form, data=data)
+
+    return JSONResponse(
+        content=updated_verb,
+        status_code=200,
+    )
+
 
 # DELETE
 

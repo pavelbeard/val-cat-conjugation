@@ -48,6 +48,25 @@ export class ApiClient {
     return response.json() as Promise<T>;
   }
 
+  static async patch<T>(
+    url: string,
+    data: any,
+    options?: RequestInit
+  ): Promise<T> {
+    const response = await withErrorHandler(async () =>
+      fetch(url, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+        ...options,
+      })
+    )();
+
+    return response.json() as Promise<T>;
+  }
+
   static async delete(url: string): Promise<boolean> {
     const response = await withErrorHandler(async () =>
       fetch(url, {

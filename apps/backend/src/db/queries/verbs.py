@@ -149,8 +149,21 @@ def find_verbs_by_form(form: str) -> List[Database__VerbOutput__ByForm]:
             )
             .to_list()
         )
-
+        
     return result
+
+
+def get_top_verbs() -> List[Database__VerbOutput]:
+    """
+    Retrieve the top verbs based on their click count.
+    """
+    return (
+        get_db()
+        .verbs.find({"clicks": {"$exists": True}})
+        .sort("clicks", -1)
+        .limit(100)
+        .to_list()
+    )
 
 
 # UPDATE
@@ -159,6 +172,43 @@ def find_one_and_update_verb(infinitive: str, update_data: dict):
         {"infinitive": infinitive},
         {"$set": update_data},
         upsert=True,
+        return_document=True,
+    )
+
+
+def increment_verb_clicks(form: str):
+    """
+    Increment the click count for a verb by its form.
+    """
+    return get_db().verbs.find_one_and_update(
+        {
+            "$or": [
+                {"infinitive": form},
+                {"translation": form},
+                {
+                    "moods.tenses.conjugation.forms": form,
+                },
+            ]
+        },
+        {"$inc": {"clicks": 1}},
+        return_document=True,
+    )
+
+
+def find_one_and_partial_update_verb(
+    form: str, update_data: dict
+) -> Database__VerbOutput | None:
+    return get_db().verbs.find_one_and_update(
+        {
+            "$or": [
+                {"infinitive": form},
+                {"translation": form},
+                {
+                    "moods.tenses.conjugation.forms": form,
+                },
+            ]
+        },
+        {"$set": update_data},
         return_document=True,
     )
 

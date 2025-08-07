@@ -8,6 +8,7 @@ from src.schemas.verbs import (
     Database__VerbOutput__ByForm,
     Database__VerbOutput__ByLetter,
     Fetch__VerbCreated,
+    Update__Verb,
 )
 from src.utils import verbs as verbs_utils
 from src.utils.encoders import custom_jsonable_encoder
@@ -15,6 +16,7 @@ from src.utils.exceptions import AppException, HttpStatus
 from src.db.queries import verbs as verbs_queries
 
 
+# CREATE
 async def create_verb(
     verb: str,
     translation_client: Callable[..., Awaitable[Any]] = None,
@@ -94,6 +96,7 @@ async def create_verb(
     return custom_jsonable_encoder(created_or_updated_verb)
 
 
+# READ
 def get_verbs():
     """
     Retrieve a list of verbs.
@@ -148,6 +151,58 @@ def get_verbs_by_form(form: str) -> List[Database__VerbOutput]:
     return validated_verbs
 
 
+def get_top_verbs() -> List[Database__VerbOutput]:
+    """
+    Retrieve a list of top verbs by their usage.
+    """
+    verbs = verbs_queries.get_top_verbs()
+    validated_verbs = Database__VerbOutput.model_validate_many(verbs)
+
+    return validated_verbs
+
+
+# UPDATE
+async def partial_update_verb(form: str, data: Update__Verb) -> Database__VerbOutput:
+    """
+    Partially update a verb by its form.
+    """
+    normalized_form = form.strip().lower().replace("_", " ")
+
+    verb = verbs_queries.find_verb_by_form(normalized_form)
+
+    if not verb:
+        raise AppException(HttpStatus.NOT_FOUND, "Verb not found")
+
+    updated_verb = verbs_queries.find_one_and_partial_update_verb(normalized_form, data)
+
+    validated_verb = Database__VerbOutput.model_validate(
+        custom_jsonable_encoder(updated_verb)
+    ).model_dump(mode="json")
+
+    return validated_verb
+
+
+async def increment_verb_clicks(form: str) -> Database__VerbOutput:
+    """
+    Increment the click count for a verb by its form.
+    """
+    normalized_form = form.strip().lower().replace("_", " ")
+
+    verb = verbs_queries.find_verb_by_form(normalized_form)
+
+    if not verb:
+        raise AppException(HttpStatus.NOT_FOUND, "Verb not found")
+
+    updated_verb = verbs_queries.increment_verb_clicks(normalized_form)
+
+    validated_verb = Database__VerbOutput.model_validate(
+        custom_jsonable_encoder(updated_verb)
+    ).model_dump(mode="json")
+
+    return validated_verb
+
+
+# DELETE
 def delete_verb(form: str):
     """
     Delete a verb by its form.

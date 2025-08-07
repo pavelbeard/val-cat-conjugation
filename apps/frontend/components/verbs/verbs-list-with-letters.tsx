@@ -4,22 +4,12 @@ import VerbsRow from "./verbs-row";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { queryOptionsGetVerbsWithFirstLetter } from "@/lib/quieries/verbs";
 import { cn } from "@/lib/utils";
-import { useEffect, useRef } from "react";
 import { Database__VerbOutput__ByLetter } from "@/lib/types/verbs";
 
 function VerbRowWithLetter({ item }: { item: Database__VerbOutput__ByLetter }) {
-  const h2Ref = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    if (h2Ref.current) {
-      console.log(h2Ref.current.getBoundingClientRect());
-    }
-  }, [h2Ref]);
-
   return (
     <>
       <h2
-        ref={h2Ref}
         className={cn(
           "sticky top-0 z-20",
           "p-4 mx-2 text-lg font-bold uppercase",

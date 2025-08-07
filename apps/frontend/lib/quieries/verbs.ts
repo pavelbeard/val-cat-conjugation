@@ -1,4 +1,5 @@
 import {
+  getTopVerbs,
   getVerb,
   getVerbs,
   getVerbsByForm,
@@ -33,5 +34,12 @@ export function queryOptionsGetVerbsByForm(form: string) {
     queryKey: verbsQueryKeys.getVerbsByForm(form),
     queryFn: async () => getVerbsByForm(form),
     enabled: !!form, // Only run if form is provided
+  });
+}
+
+export function queryOptionsGetTopVerbs() {
+  return queryOptions({
+    queryKey: verbsQueryKeys.getTopVerbs(),
+    queryFn: async () => getTopVerbs(),
   });
 }

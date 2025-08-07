@@ -6,6 +6,6 @@ interface TabsStore {
 }
 
 export const useTabsStore = create<TabsStore>()((set) => ({
-  tab: "verbs",
+  tab: "top_verbs",
   setTab: (tab) => set({ tab }),
 }));

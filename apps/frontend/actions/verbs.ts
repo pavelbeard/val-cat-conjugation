@@ -54,3 +54,20 @@ const _getVerbs = async () => {
 };
 
 export const getVerbs = _getVerbs;
+
+export const getTopVerbs = async () => {
+  const response = await ApiClient.get<Database__VerbOutput[]>(
+    createUrl("verbs", `?top=true`)
+  );
+  return response;
+};
+
+export const updateClicks = async (form: string) => {
+  const response = await ApiClient.patch<Database__VerbOutput>(
+    createUrl("verbs", form),
+    {
+      clicks: 1,
+    }
+  );
+  return response;
+};

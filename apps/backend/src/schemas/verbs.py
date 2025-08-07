@@ -31,6 +31,10 @@ class Database__VerbMain(BaseModel):
     infinitive: str
     translation: Optional[str] = None
     moods: Optional[List[Database__MoodBlock]] = None
+    clicks: int = Field(
+        default=0,
+        description="Number of clicks on the verb. It needs to track the popularity of the verb.",
+    )
 
 
 class Database__VerbOutput(Database__VerbMain):
@@ -138,17 +142,21 @@ class AIErrorOutput(BaseModel):
     code: HttpStatus = HttpStatus.INTERNAL_SERVER_ERROR
     message: str = "An error occurred during AI translation."
 
+
 # PARSING SCHEMAS
+
 
 class Fetch__VerbCreated(Database__VerbMain):
     created_at: datetime = Field(default_factory=datetime.now)
-    
+
+
 class Fetch__VerbIdentified(BaseModel):
     verb: str
     translation: str
 
 
 # ENDPOINT SCHEMAS
+# CREATE
 class Create__Verb(BaseModel):
     """
     Schema for creating a new verb.
@@ -157,20 +165,34 @@ class Create__Verb(BaseModel):
     infinitive: str
 
 
+# READ
 class Get__Verb(BaseModel):
     """
     Schema for retrieving a verb.
     """
 
+    top: bool = Field(default=False)
     form: Optional[str] = None
     letter: bool = Field(default=False)
 
 
-def get_verb_params(form: Optional[str] = None, letter: bool = False) -> Get__Verb:
-    if form and letter:
+def get_verb_params(form: Optional[str] = None, letter: bool = False, top: bool = False) -> Get__Verb:
+    if form and letter and top:
         raise AppException(
             type=HttpStatus.BAD_REQUEST,
-            message="You can only search by one parameter at a time: 'form' or 'letter'.",
+            message="You can only search by one parameter at a time: 'form' or 'letter' or 'top'.",
         )
 
-    return Get__Verb(form=form, letter=letter)
+    return Get__Verb(form=form, letter=letter, top=top)
+
+
+# UPDATE
+class Update__Verb(BaseModel):
+    """
+    Schema for updating a verb.
+    """
+
+    infinitive: Optional[str] = None
+    moods: Optional[List[Database__MoodBlock]] = None
+    translation: Optional[str] = None
+    clicks: Optional[int] = None

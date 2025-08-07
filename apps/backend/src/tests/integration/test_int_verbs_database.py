@@ -1,12 +1,10 @@
+from fastapi.testclient import TestClient
+from schemas.verbs import Update__Verb
 from src.db.queries import verbs as queries
+from src.main import app
 
 
 class TestDatabaseQueries:
-    def test_find_first_100_verbs(self):
-        result = queries.get_verbs()
-        assert isinstance(result, list), "Expected a list of verbs"
-        assert len(result) <= 100, "Expected at most 100 verbs"
-
     def test_find_verb_by_infinitive(self):
         infinitive = "eixir"
         result = queries.find_verb_by_infinitive(infinitive)
@@ -45,3 +43,33 @@ class TestDatabaseQueries:
         assert len(result) > 0, f"Expected to find verbs with form '{form}'"
 
         print(result)
+
+    def test_increment_verb_clicks(self):
+        form = "eixir"
+        result = queries.increment_verb_clicks(form)
+
+        print(result["clicks"])
+
+        assert result is not None, f"Expected to increment clicks for verb '{form}'"
+        assert result["clicks"] > 0, "Expected clicks to be greater than 0 after increment"
+        
+    def test_get_top_verbs(self):
+        result = queries.get_top_verbs()
+        assert isinstance(result, list), "Expected a list of top verbs"
+        assert len(result) > 0, "Expected to find at least one top verb"
+        
+        print("Top verbs:", result)
+        
+        
+class TestEndpoints:
+    class TestVerbsEndpoints:
+        def test_update_verb_with_clicks(self):
+            client = TestClient(app)
+            
+            
+            form = "eixir"
+            data = Update__Verb(clicks=1).model_dump()
+            response = client.patch(f"/api/v1/verbs/{form}", json=data)
+            assert response.status_code == 200, "Expected status code 200 for successful update"
+            assert response.json()["clicks"] > 0, "Expected clicks to be updated to a positive value"
+            print("Updated verb clicks:", response.json()["clicks"])
