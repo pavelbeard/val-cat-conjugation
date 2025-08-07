@@ -9,7 +9,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "https://*.vercel.app",
+    "https://catalan-conjugador.vercel.app",
 ]
 
 

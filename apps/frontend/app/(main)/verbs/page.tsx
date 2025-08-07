@@ -11,6 +11,14 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import { useVerbSearch } from "@/lib/hooks/use-verb-search";
 
+// This page is the main entry point for the verbs section
+
+export async function generateMetadata() {
+  return {
+    title: "Verbs",
+    description: "Busca y explora los verbos en catalán",
+  };
+}
 export default function VerbsPage() {
   const { tab, setTab } = useVerbSearch();
 
