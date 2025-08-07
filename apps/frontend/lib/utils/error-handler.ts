@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import { AppError } from "./app-error";
 
 export const withErrorHandler = <T>(
-  handler: (...args: any[]) => Promise<T>
-): ((...args: any[]) => Promise<T>) => {
-  return async (...args: any[]): Promise<T> => {
+  handler: (...args: unknown[]) => Promise<T>
+): ((...args: unknown[]) => Promise<T>) => {
+  return async (...args: unknown[]): Promise<T> => {
     try {
       // Call the handler function and await its result
       const result = await handler(...args);

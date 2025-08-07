@@ -11,7 +11,7 @@ export class ApiClient {
 
   static async post<T>(
     url: string,
-    data: any,
+    data: unknown,
     options?: RequestInit
   ): Promise<T> {
     const response = await withErrorHandler(async () =>
@@ -31,7 +31,7 @@ export class ApiClient {
 
   static async put<T>(
     url: string,
-    data: any,
+    data: unknown,
     options?: RequestInit
   ): Promise<T> {
     const response = await withErrorHandler(async () =>
@@ -50,7 +50,7 @@ export class ApiClient {
 
   static async patch<T>(
     url: string,
-    data: any,
+    data: unknown,
     options?: RequestInit
   ): Promise<T> {
     const response = await withErrorHandler(async () =>
