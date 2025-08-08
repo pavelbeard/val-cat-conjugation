@@ -30,7 +30,10 @@ export const getVerb = _getVerb;
 
 const _getVerbsByForm = async (form: string) => {
   const response = await ApiClient.get<Database__VerbOutput__ByForm[]>(
-    createUrl("verbs", `?form=${form}`)
+    createUrl(
+      "verbs",
+      `?form=${form.normalize("NFKD").replace(/[\u0300-\u036f]/g, "")}`
+    ) // Normalize the form to remove accents
   );
   return response;
 };
