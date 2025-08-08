@@ -1,0 +1,8 @@
+{
+    "name": "Conjugador de verbs",
+    "description": "Una aplicació per a la conjugació de verbs en valencià, balear i català.",
+    "version": "1.0.0",
+    "author": "heavycream",
+    "license": "MIT",
+    "start_url": "/verbs"
+}
