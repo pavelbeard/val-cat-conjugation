@@ -13,6 +13,7 @@ class Database__ConjugatedForm(BaseModel):
     # "infinitiu", "infinitiu_compost", "gerundi", "gerundi_compost", "participi"
     pronoun: str
     forms: List[str]
+    normalized_forms: Optional[List[str]] = None
     variation_types: Optional[List[str | None]] = None
     translation: Optional[str] = None
 
@@ -29,6 +30,7 @@ class Database__MoodBlock(BaseModel):
 
 class Database__VerbMain(BaseModel):
     infinitive: str
+    normalized_infinitive: Optional[str] = None
     translation: Optional[str] = None
     moods: Optional[List[Database__MoodBlock]] = None
     clicks: int = Field(

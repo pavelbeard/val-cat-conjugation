@@ -1,6 +1,7 @@
 from datetime import datetime
 from typing import Any, Awaitable, Callable, List, Literal
 
+from src.db.normalize_accents import normalize
 from utils.api_queries.verbs import get_full_untranslated_conjugation
 
 from src.schemas.verbs import (
@@ -77,6 +78,7 @@ async def create_verb(
 
     verb_model = Fetch__VerbCreated(
         infinitive=untranslated_verb,
+        normalized_infinitive=normalize(untranslated_verb),
         translation=checked_response.translation,
         moods=mood_blocks,
         created_at=datetime.now().isoformat(),

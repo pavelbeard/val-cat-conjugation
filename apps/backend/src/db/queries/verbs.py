@@ -1,5 +1,7 @@
 import re
 from typing import List
+
+from db.normalize_accents import normalize
 from src.db.client import get_db
 from src.schemas.verbs import (
     Database__VerbOutput,
@@ -55,7 +57,13 @@ def find_verb_by_infinitive(infinitive: str) -> Database__VerbOutput | None:
     Retrieve a single verb from the database by its infinitive form or translation.
     """
     return get_db().verbs.find_one(
-        {"$or": [{"infinitive": infinitive}, {"translation": infinitive}]}
+        {
+            "$or": [
+                {"infinitive": infinitive},
+                {"normalized_infinitive": infinitive},
+                {"translation": infinitive},
+            ]
+        }
     )
 
 
@@ -63,20 +71,44 @@ def find_verb_by_form(form: str) -> Database__VerbOutput | None:
     """
     Retrieve a single verb from the database by its form (mood -> tense -> conjugation).
     """
+    normalized_form = normalize(form)
+
     return get_db().verbs.find_one(
         {
             "$or": [
-                {"infinitive": {"$regex": f"^{re.escape(form)}", "$options": "i"}},
-                {"translation": {"$regex": f"^{re.escape(form)}", "$options": "i"}},
                 {
-                    "moods.tenses.conjugation.forms": {
-                        "$regex": f"^{re.escape(form)}",
+                    "infinitive": {
+                        "$regex": f"^{re.escape(normalized_form)}",
                         "$options": "i",
                     }
                 },
                 {
+                    "normalized_infinitive": {
+                        "$regex": f"^{re.escape(normalized_form)}",
+                        "$options": "i",
+                    }
+                },
+                {
+                    "translation": {
+                        "$regex": f"^{re.escape(normalized_form)}",
+                        "$options": "i",
+                    }
+                },
+                {
+                    "moods.tenses.conjugation.forms": {
+                        "$regex": f"^{re.escape(normalized_form)}",
+                        "$options": "i",
+                    }
+                },
+                {
+                    "moods.tenses.conjugation.normalized_forms": {
+                        "$regex": f"^{re.escape(normalized_form)}",
+                        "$options": "i",
+                    },
+                },
+                {
                     "moods.tenses.conjugation.translation": {
-                        "$regex": f"^{re.escape(form)}",
+                        "$regex": f"^{re.escape(normalized_form)}",
                         "$options": "i",
                     }
                 },
@@ -89,6 +121,9 @@ def find_verbs_by_form(form: str) -> List[Database__VerbOutput__ByForm]:
     """
     Retrieve multiple verbs from the database by their form (mood -> tense -> conjugation).
     """
+
+    normalized_form = normalize(form)
+
     result = (
         get_db()
         .verbs.aggregate(
@@ -97,10 +132,11 @@ def find_verbs_by_form(form: str) -> List[Database__VerbOutput__ByForm]:
                 {"$unwind": "$moods.tenses"},
                 {"$unwind": "$moods.tenses.conjugation"},
                 {"$unwind": "$moods.tenses.conjugation.forms"},
+                {"$unwind": "$moods.tenses.conjugation.normalized_forms"},
                 {
                     "$match": {
-                        "moods.tenses.conjugation.forms": {
-                            "$regex": f"^{re.escape(form)}",
+                        "moods.tenses.conjugation.normalized_forms": {
+                            "$regex": f"^{re.escape(normalized_form)}",
                             "$options": "i",
                         },
                     },
@@ -129,7 +165,7 @@ def find_verbs_by_form(form: str) -> List[Database__VerbOutput__ByForm]:
                     {
                         "$match": {
                             "infinitive": {
-                                "$regex": f"^{re.escape(form)}",
+                                "$regex": f"^{re.escape(normalized_form)}",
                                 "$options": "i",
                             }
                         }
@@ -149,7 +185,7 @@ def find_verbs_by_form(form: str) -> List[Database__VerbOutput__ByForm]:
             )
             .to_list()
         )
-        
+
     return result
 
 
@@ -168,8 +204,10 @@ def get_top_verbs() -> List[Database__VerbOutput]:
 
 # UPDATE
 def find_one_and_update_verb(infinitive: str, update_data: dict):
+    normalized_infinitive = normalize(infinitive)
+
     return get_db().verbs.find_one_and_update(
-        {"infinitive": infinitive},
+        {"normalized_infinitive": normalized_infinitive},
         {"$set": update_data},
         upsert=True,
         return_document=True,
@@ -180,13 +218,15 @@ def increment_verb_clicks(form: str):
     """
     Increment the click count for a verb by its form.
     """
+    normalized_form = normalize(form)
+
     return get_db().verbs.find_one_and_update(
         {
             "$or": [
-                {"infinitive": form},
+                {"infinitive": normalized_form},
                 {"translation": form},
                 {
-                    "moods.tenses.conjugation.forms": form,
+                    "moods.tenses.conjugation.normalized_forms": normalized_form,
                 },
             ]
         },
@@ -198,13 +238,14 @@ def increment_verb_clicks(form: str):
 def find_one_and_partial_update_verb(
     form: str, update_data: dict
 ) -> Database__VerbOutput | None:
+    normalized_form = normalize(form)
     return get_db().verbs.find_one_and_update(
         {
             "$or": [
-                {"infinitive": form},
+                {"infinitive": normalized_form},
                 {"translation": form},
                 {
-                    "moods.tenses.conjugation.forms": form,
+                    "moods.tenses.conjugation.normalized_forms": normalized_form,
                 },
             ]
         },
@@ -218,10 +259,18 @@ def delete_verb_by_form(form: str):
     """
     Delete a verb by its form.
     """
-    return get_db().verbs.delete_one({"moods.tenses.conjugation.forms": form})
+
+    normalized_form = normalize(form)
+    return get_db().verbs.delete_one(
+        {"moods.tenses.conjugation.normalized_forms": normalized_form}
+    )
 
 
 def drop_verbs_collection():
+    raise NotImplementedError(
+        "Drop verbs collection functionality is not implemented yet"
+    )
+    
     """
     Drop the verbs collection from the database.
     """

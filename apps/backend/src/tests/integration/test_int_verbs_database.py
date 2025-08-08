@@ -16,7 +16,7 @@ class TestDatabaseQueries:
         )
 
     def test_find_verb_by_form(self):
-        form = "isc"
+        form = "coneixer"
         result = queries.find_verb_by_form(form)
         assert result is not None, f"Expected to find verb with form '{form}'"
 

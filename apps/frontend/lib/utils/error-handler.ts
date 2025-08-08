@@ -19,8 +19,13 @@ export const withErrorHandler = <T>(
               notFound();
             case 429:
               throw new AppError("TOO_MANY_REQUESTS", result.statusText);
-            default:
+            case 500:
               throw new AppError("SERVER", result.statusText);
+            default:
+              throw new AppError(
+                "SERVER",
+                `Unexpected error: ${result.statusText}`
+              );
           }
         }
 
@@ -32,6 +37,14 @@ export const withErrorHandler = <T>(
     } catch (error) {
       if (error instanceof AppError) {
         throw error;
+      }
+
+      if (error instanceof Error) {
+        console.log(`Error in handler: ${error.message}`);
+
+        if (error.message.includes("404")) {
+          notFound();
+        }
       }
 
       throw new AppError("SERVER", "An unexpected error occurred");

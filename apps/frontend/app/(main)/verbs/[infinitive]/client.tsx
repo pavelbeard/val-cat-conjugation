@@ -5,13 +5,18 @@ import VerbTableLoading from "@/components/verbs/verb-table-loading";
 import useVerbTranslate from "@/lib/hooks/use-verb-translate";
 import { queryOptionsGetVerbByInfinitive } from "@/lib/quieries/verbs";
 import { useSuspenseQuery } from "@tanstack/react-query";
+import { notFound } from "next/navigation";
 
 export default function VerbCard({ infinitive }: { infinitive: string }) {
   const { data: verb } = useSuspenseQuery(
     queryOptionsGetVerbByInfinitive(infinitive)
   );
 
-  const { isTranslating } = useVerbTranslate({ verb });
+  const { isTranslating, isError } = useVerbTranslate({ verb });
+
+  if (isError) {
+    notFound();
+  }
 
   return (
     <>

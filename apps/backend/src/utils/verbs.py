@@ -6,6 +6,7 @@ from typing import Any, Callable, Dict, Generator, List, Literal
 
 from bs4 import BeautifulSoup, NavigableString
 from bs4.filter import _AtMostOneElement
+from src.db.normalize_accents import normalize
 from utils.api_queries.verbs import get_infinitive_translation_from_diccionari_cat
 from src.core.constants import CONSTANTS
 from src.schemas.verbs import (
@@ -203,11 +204,12 @@ def update_translations(
 
                     conjugation.translation = translation_for_copy_data.strip()
 
-    except Exception as e:
-        pass
+    except Exception:
+        logger.error("An error occurred while updating translations.")
 
     return Database__VerbOutput(
         infinitive=copy_data.infinitive,
+        normalized_infinitive=copy_data.normalized_infinitive,
         translation=copy_data.translation,
         moods=copy_data.moods,
         created_at=copy_data.created_at,
@@ -439,6 +441,7 @@ class VerbUntranslatedTable:
                 Database__ConjugatedForm(
                     pronoun=pronoun,
                     forms=forms,
+                    normalized_forms=[normalize(form) for form in forms],
                     variation_types=variation_types,
                     translation=forms[0] if forms else None,
                 )
