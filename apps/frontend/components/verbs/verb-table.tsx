@@ -60,7 +60,20 @@ const COLORS: { [key: string]: { [key: string]: string } } = {
 
 function renderTranslation(translation?: string): JSX.Element | null {
   if (!translation) return null;
-  const items = translation.split(",").map((item) => item.trim());
+  const items = translation.split(",").map((item) => {
+    console.log(`Processing translation item: ${item}`);
+    
+    if (item.includes("havent")) {
+      return item.replace("havent", "habiendo");
+    }
+
+    if (item.includes("haver")) {
+      return item.replace("haver", "haber");
+    }
+
+    return item.trim();
+  });
+
   return (
     <div
       className="flex gap-0.5 text-xs text-gray-100 w-36"
