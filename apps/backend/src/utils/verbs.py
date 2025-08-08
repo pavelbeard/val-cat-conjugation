@@ -10,6 +10,7 @@ from src.db.normalize_accents import normalize
 from utils.api_queries.verbs import get_infinitive_translation_from_diccionari_cat
 from src.core.constants import CONSTANTS
 from src.schemas.verbs import (
+    AI__MoodBlock,
     AI__ResponseIdentifiedVerb,
     AI__VerbOutput,
     Database__ConjugatedForm,
@@ -139,22 +140,88 @@ def split_forms_non_personals_untranslated(
 def update_translations(
     data: Fetch__VerbCreated, translated_data: AI__VerbOutput
 ) -> Database__VerbOutput:
+    """Update the translations in the Database__VerbOutput model. Some of kind of post-processing is needed."""
     copy_data = data.model_copy(deep=True)
 
-    try:
-        copy_data.translation = (
-            translated_data.moods[3].tenses[0].conjugation[0].translation
-        )
-    except IndexError:
-        copy_data.translation = translated_data.translation
+    # Prefer present indicative 1st entry; fallback to overall translation
+    def safe_root_translation(td: AI__VerbOutput) -> str | None:
+        try:
+            return td.moods[3].tenses[0].conjugation[0].translation
+        except Exception:
+            return getattr(td, "translation", None)
 
+    copy_data.translation = safe_root_translation(translated_data)
+
+    # Split "Formes no personals" if needed (no translation case)
     for idx, m in enumerate(copy_data.moods):
-        if m.mood == "formes_no_personals":
-            # If the verb has no translation, split the forms into separate blocks
+        if getattr(m, "mood", None) == "formes_no_personals":
             copy_data.moods[idx] = split_forms_non_personals_untranslated(m)
             break
 
-    pronouns = [
+    # Reorganize "Formes no personals" mood
+    copy_translated_forms_no_personals = translated_data.moods[-1].tenses[0].conjugation
+    translated_data.moods[-1] = AI__MoodBlock(
+        mood="formes_no_personals",
+        tenses=[
+            {
+                "tense": copy_translated_forms_no_personals[0].pronoun,
+                "conjugation": [
+                    {
+                        "pronoun": copy_translated_forms_no_personals[0].pronoun,
+                        "translation": copy_translated_forms_no_personals[
+                            0
+                        ].translation,
+                    }
+                ],
+            },
+            {
+                "tense": copy_translated_forms_no_personals[1].pronoun,
+                "conjugation": [
+                    {
+                        "pronoun": copy_translated_forms_no_personals[1].pronoun,
+                        "translation": copy_translated_forms_no_personals[
+                            1
+                        ].translation,
+                    }
+                ],
+            },
+            {
+                "tense": copy_translated_forms_no_personals[2].pronoun,
+                "conjugation": [
+                    {
+                        "pronoun": copy_translated_forms_no_personals[2].pronoun,
+                        "translation": copy_translated_forms_no_personals[
+                            2
+                        ].translation,
+                    }
+                ],
+            },
+            {
+                "tense": copy_translated_forms_no_personals[3].pronoun,
+                "conjugation": [
+                    {
+                        "pronoun": copy_translated_forms_no_personals[3].pronoun,
+                        "translation": copy_translated_forms_no_personals[
+                            3
+                        ].translation,
+                    }
+                ],
+            },
+            {
+                "tense": copy_translated_forms_no_personals[4].pronoun,
+                "conjugation": [
+                    {
+                        "pronoun": copy_translated_forms_no_personals[4].pronoun,
+                        "translation": copy_translated_forms_no_personals[
+                            4
+                        ].translation,
+                    }
+                ],
+            },
+        ],
+    )
+
+    SPANISH_SUBJECTS = {
         "yo",
         "tú",
         "él/ella/usted",
@@ -163,49 +230,41 @@ def update_translations(
         "nosotros/nosotras",
         "vosotros",
         "vosotras",
-        "vosotras/vosotras",
+        "vosotros/vosotras",
         "ellos/ellas/ustedes",
-    ]
+    }
+    REFLEXIVE_PREFIXES = ("me ", "te ", "se ", "nos ", "os ")
+    is_reflexive = copy_data.infinitive.endswith(("-se", "-se'n"))
 
-    def delete_pronoun_if_exists(translation: str):
-        pronoun, word = (
-            translation.split(" ", 1) if " " in translation else (translation, "")
-        )
-        if pronoun in pronouns:
-            return word.strip()
-        return translation
+    def strip_spanish_subject(text: str | None) -> str:
+        if not text:
+            return ""
+        head, tail = (text.split(" ", 1) + [""])[:2] if " " in text else (text, "")
+        return tail.strip() if head in SPANISH_SUBJECTS else text
 
-    try:
-        for i, mood in enumerate(copy_data.moods):
-            for j, entry in enumerate(mood.tenses):
-                for k, conjugation in enumerate(entry.conjugation):
-                    # delete the pronoun if it exists in the translation
-                    # but we should add reflexive prefix if it exists
-                    translation_for_copy_data = ""
-                    translation = (
-                        translated_data.moods[i].tenses[j].conjugation[k].translation
-                    )
-                    if copy_data.infinitive.endswith(
-                        "-se"
-                    ) or copy_data.infinitive.endswith("-se'n"):
-                        # check if the translation doesn't have a reflexive prefix
-                        # REFACTOR: this is a hacky way to handle reflexive verbs
-                        if not translation.startswith(
-                            # tuple(se__pronoun_mapping.keys())
-                            ("me ", "te ", "nos ", "os ", "se ")
-                        ):
-                            translation_for_copy_data += (
-                                se__pronoun_mapping.get(conjugation.pronoun) + " "
-                            )
+    def get_ai_translation(i: int, j: int, k: int) -> str | None:
+        try:
+            return translated_data.moods[i].tenses[j].conjugation[k].translation
+        except Exception:
+            return None
 
-                    translation_for_copy_data += delete_pronoun_if_exists(
-                        translation=translation
-                    )
+    for i, mood in enumerate(copy_data.moods):
+        for j, tense in enumerate(mood.tenses):
+            for k, conj in enumerate(tense.conjugation):
+                ai_tr = get_ai_translation(i, j, k)
+                if ai_tr is None:
+                    continue
 
-                    conjugation.translation = translation_for_copy_data.strip()
+                base = strip_spanish_subject(ai_tr)
+                parts: list[str] = []
 
-    except Exception:
-        logger.error("An error occurred while updating translations.")
+                if is_reflexive and not base.startswith(REFLEXIVE_PREFIXES):
+                    sp_prefix = se__pronoun_mapping.get(conj.pronoun)
+                    if sp_prefix:
+                        parts.append(sp_prefix)
+
+                parts.append(base)
+                conj.translation = " ".join(filter(None, parts)).strip()
 
     return Database__VerbOutput(
         infinitive=copy_data.infinitive,

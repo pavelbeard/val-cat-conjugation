@@ -2,11 +2,10 @@ import asyncio
 import os
 from textwrap import dedent
 
-from fastapi import FastAPI
 import httpx
 import pytest
+from fastapi import FastAPI
 from fastapi.testclient import TestClient
-
 from src.main import app
 from src.schemas.verbs import AI__ResponseIdentifiedVerb, AI__VerbOutput
 from src.tests.setup import PROMPTS_VERBS_PATH
@@ -129,6 +128,7 @@ class TestCreateVerbIntegration:
         assert response.json()["infinitive"] == "tancar", (
             "Infinitive should match the input verb"
         )
+
 
 
 class TestOthersEndpointsIntegration:

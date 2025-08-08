@@ -2,11 +2,15 @@ import json
 import os
 import re
 from bs4 import BeautifulSoup
+from core.constants import CONSTANTS
 from pytest import fixture
 import pytest
 from utils.fetch import Fetch
 
 from src.schemas.verbs import (
+    AI__ConjugatedForm,
+    AI__MoodBlock,
+    AI__TenseBlock,
     Database__MoodBlock,
     AI__VerbOutput,
     Database__VerbInput,
@@ -511,3 +515,83 @@ class TestDiccionariCat:
             assert len(result) > 0, "Result string should not be empty"
 
         print(results)
+
+
+class TestCreateVerb:
+    @pytest.fixture
+    def original_data(self):
+        with open(
+            os.path.join(CONSTANTS["FIXTURES_PATH"], "sortir-translated-original.json"),
+            "r",
+        ) as file:
+            return json.load(file)
+
+    @pytest.fixture
+    def translated_data(self):
+        with open(
+            os.path.join(CONSTANTS["FIXTURES_PATH"], "sortir-translated.json"), "r"
+        ) as file:
+            return json.load(file)
+
+    @pytest.mark.asyncio
+    async def test_create_verb(self, original_data, translated_data):
+        from src.utils.verbs import perform_ai_translation
+
+        async def test_translation_client_gemini(messages: list):
+            print("Mocked AI client called with messages:", messages)
+
+            model = AI__VerbOutput.model_validate(
+                {
+                    **translated_data,
+                    "initial_letter": "s",
+                    "updated_at": "2023-10-01T12:00:00Z",
+                }
+            )
+
+            model.moods[-1] = AI__MoodBlock(
+                mood="Formes no personals",
+                tenses=[
+                    AI__TenseBlock(
+                        tense="formes_no_personals",
+                        conjugation=[
+                            AI__ConjugatedForm(
+                                pronoun="infinitiu", translation="salir"
+                            ),
+                            AI__ConjugatedForm(
+                                pronoun="infinitiu_compost", translation="haber salido"
+                            ),
+                            AI__ConjugatedForm(
+                                pronoun="gerundi", translation="saliendo"
+                            ),
+                            AI__ConjugatedForm(
+                                pronoun="gerundi_compost", translation="habiendo salido"
+                            ),
+                            AI__ConjugatedForm(
+                                pronoun="participi", translation="salido"
+                            ),
+                        ],
+                    )
+                ],
+            )
+            
+            return model
+
+        def fetch_verb_created():
+            return Fetch__VerbCreated.model_validate(
+                {
+                    **original_data,
+                }
+            )
+
+        result = await perform_ai_translation(
+            data=fetch_verb_created(),
+            ai_client=test_translation_client_gemini,
+        )
+
+        assert result.moods[-1].tenses[0].conjugation[0].translation == "salir"
+        assert result.moods[-1].tenses[1].conjugation[0].translation == "haber salido"
+        assert result.moods[-1].tenses[2].conjugation[0].translation == "saliendo"
+        assert (
+            result.moods[-1].tenses[3].conjugation[0].translation == "habiendo salido"
+        )
+        assert result.moods[-1].tenses[4].conjugation[0].translation == "salido"

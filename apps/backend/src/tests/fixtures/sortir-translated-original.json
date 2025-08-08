@@ -1,0 +1,1400 @@
+{
+    "_id": "688787c22974bd221ae8860b",
+    "infinitive": "sortir",
+    "translation": "salir",
+    "moods": [
+      {
+        "mood": "indicatiu",
+        "tenses": [
+          {
+            "tense": "present",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "surto",
+                  "surt"
+                ],
+                "normalized_forms": [
+                  "surto",
+                  "surt"
+                ],
+                "variation_types": [
+                  "(cent.)",
+                  "(val., bal.)"
+                ],
+                "translation": "salgo"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "surts"
+                ],
+                "normalized_forms": [
+                  "surts"
+                ],
+                "variation_types": null,
+                "translation": "sales"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "surt"
+                ],
+                "normalized_forms": [
+                  "surt"
+                ],
+                "variation_types": null,
+                "translation": "sale"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "sortim"
+                ],
+                "normalized_forms": [
+                  "sortim"
+                ],
+                "variation_types": null,
+                "translation": "salimos"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "sortiu"
+                ],
+                "normalized_forms": [
+                  "sortiu"
+                ],
+                "variation_types": null,
+                "translation": "salís"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "surten"
+                ],
+                "normalized_forms": [
+                  "surten"
+                ],
+                "variation_types": null,
+                "translation": "salen"
+              }
+            ]
+          },
+          {
+            "tense": "perfet",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "he sortit"
+                ],
+                "normalized_forms": [
+                  "he sortit"
+                ],
+                "variation_types": null,
+                "translation": "he salido"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "has sortit"
+                ],
+                "normalized_forms": [
+                  "has sortit"
+                ],
+                "variation_types": null,
+                "translation": "has salido"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "ha sortit"
+                ],
+                "normalized_forms": [
+                  "ha sortit"
+                ],
+                "variation_types": null,
+                "translation": "ha salido"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "hem sortit"
+                ],
+                "normalized_forms": [
+                  "hem sortit"
+                ],
+                "variation_types": null,
+                "translation": "hemos salido"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "heu sortit"
+                ],
+                "normalized_forms": [
+                  "heu sortit"
+                ],
+                "variation_types": null,
+                "translation": "habéis salido"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "han sortit"
+                ],
+                "normalized_forms": [
+                  "han sortit"
+                ],
+                "variation_types": null,
+                "translation": "han salido"
+              }
+            ]
+          },
+          {
+            "tense": "imperfet",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "sortia"
+                ],
+                "normalized_forms": [
+                  "sortia"
+                ],
+                "variation_types": null,
+                "translation": "salía"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "sorties"
+                ],
+                "normalized_forms": [
+                  "sorties"
+                ],
+                "variation_types": null,
+                "translation": "salías"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "sortia"
+                ],
+                "normalized_forms": [
+                  "sortia"
+                ],
+                "variation_types": null,
+                "translation": "salía"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "sortíem"
+                ],
+                "normalized_forms": [
+                  "sortiem"
+                ],
+                "variation_types": null,
+                "translation": "salíamos"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "sortíeu"
+                ],
+                "normalized_forms": [
+                  "sortieu"
+                ],
+                "variation_types": null,
+                "translation": "salíais"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "sortien"
+                ],
+                "normalized_forms": [
+                  "sortien"
+                ],
+                "variation_types": null,
+                "translation": "salían"
+              }
+            ]
+          },
+          {
+            "tense": "plusquamperfet",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "havia sortit"
+                ],
+                "normalized_forms": [
+                  "havia sortit"
+                ],
+                "variation_types": null,
+                "translation": "había salido"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "havies sortit"
+                ],
+                "normalized_forms": [
+                  "havies sortit"
+                ],
+                "variation_types": null,
+                "translation": "habías salido"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "havia sortit"
+                ],
+                "normalized_forms": [
+                  "havia sortit"
+                ],
+                "variation_types": null,
+                "translation": "había salido"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "havíem sortit"
+                ],
+                "normalized_forms": [
+                  "haviem sortit"
+                ],
+                "variation_types": null,
+                "translation": "habíamos salido"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "havíeu sortit"
+                ],
+                "normalized_forms": [
+                  "havieu sortit"
+                ],
+                "variation_types": null,
+                "translation": "habíais salido"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "havien sortit"
+                ],
+                "normalized_forms": [
+                  "havien sortit"
+                ],
+                "variation_types": null,
+                "translation": "habían salido"
+              }
+            ]
+          },
+          {
+            "tense": "passat_simple",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "sortí"
+                ],
+                "normalized_forms": [
+                  "sorti"
+                ],
+                "variation_types": null,
+                "translation": "salí"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "sortires"
+                ],
+                "normalized_forms": [
+                  "sortires"
+                ],
+                "variation_types": null,
+                "translation": "saliste"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "sortí"
+                ],
+                "normalized_forms": [
+                  "sorti"
+                ],
+                "variation_types": null,
+                "translation": "salió"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "sortírem"
+                ],
+                "normalized_forms": [
+                  "sortirem"
+                ],
+                "variation_types": null,
+                "translation": "salimos"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "sortíreu"
+                ],
+                "normalized_forms": [
+                  "sortireu"
+                ],
+                "variation_types": null,
+                "translation": "salisteis"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "sortiren"
+                ],
+                "normalized_forms": [
+                  "sortiren"
+                ],
+                "variation_types": null,
+                "translation": "salieron"
+              }
+            ]
+          },
+          {
+            "tense": "passat_perifràstic",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "vaig sortir"
+                ],
+                "normalized_forms": [
+                  "vaig sortir"
+                ],
+                "variation_types": null,
+                "translation": "salí"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "vas (vares) sortir"
+                ],
+                "normalized_forms": [
+                  "vas (vares) sortir"
+                ],
+                "variation_types": null,
+                "translation": "saliste"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "va sortir"
+                ],
+                "normalized_forms": [
+                  "va sortir"
+                ],
+                "variation_types": null,
+                "translation": "salió"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "vam (vàrem) sortir"
+                ],
+                "normalized_forms": [
+                  "vam (varem) sortir"
+                ],
+                "variation_types": null,
+                "translation": "salimos"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "vau (vàreu) sortir"
+                ],
+                "normalized_forms": [
+                  "vau (vareu) sortir"
+                ],
+                "variation_types": null,
+                "translation": "salisteis"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "van (varen) sortir"
+                ],
+                "normalized_forms": [
+                  "van (varen) sortir"
+                ],
+                "variation_types": null,
+                "translation": "salieron"
+              }
+            ]
+          },
+          {
+            "tense": "passat_anterior",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "haguí sortit"
+                ],
+                "normalized_forms": [
+                  "hagui sortit"
+                ],
+                "variation_types": null,
+                "translation": "hube salido"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "hagueres sortit"
+                ],
+                "normalized_forms": [
+                  "hagueres sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubiste salido"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "hagué sortit"
+                ],
+                "normalized_forms": [
+                  "hague sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubo salido"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "haguérem sortit"
+                ],
+                "normalized_forms": [
+                  "haguerem sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubimos salido"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "haguéreu sortit"
+                ],
+                "normalized_forms": [
+                  "haguereu sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubisteis salido"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "hagueren sortit"
+                ],
+                "normalized_forms": [
+                  "hagueren sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubieron salido"
+              }
+            ]
+          },
+          {
+            "tense": "passat_anterior_perifràstic",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "vaig haver sortit"
+                ],
+                "normalized_forms": [
+                  "vaig haver sortit"
+                ],
+                "variation_types": null,
+                "translation": "hube salido"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "vas haver sortit"
+                ],
+                "normalized_forms": [
+                  "vas haver sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubiste salido"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "va haver sortit"
+                ],
+                "normalized_forms": [
+                  "va haver sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubo salido"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "vam haver sortit"
+                ],
+                "normalized_forms": [
+                  "vam haver sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubimos salido"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "vau haver sortit"
+                ],
+                "normalized_forms": [
+                  "vau haver sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubisteis salido"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "van haver sortit"
+                ],
+                "normalized_forms": [
+                  "van haver sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubieron salido"
+              }
+            ]
+          },
+          {
+            "tense": "futur",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "sortiré"
+                ],
+                "normalized_forms": [
+                  "sortire"
+                ],
+                "variation_types": null,
+                "translation": "saldré"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "sortiràs"
+                ],
+                "normalized_forms": [
+                  "sortiras"
+                ],
+                "variation_types": null,
+                "translation": "saldrás"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "sortirà"
+                ],
+                "normalized_forms": [
+                  "sortira"
+                ],
+                "variation_types": null,
+                "translation": "saldrá"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "sortirem"
+                ],
+                "normalized_forms": [
+                  "sortirem"
+                ],
+                "variation_types": null,
+                "translation": "saldremos"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "sortireu"
+                ],
+                "normalized_forms": [
+                  "sortireu"
+                ],
+                "variation_types": null,
+                "translation": "saldréis"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "sortiran"
+                ],
+                "normalized_forms": [
+                  "sortiran"
+                ],
+                "variation_types": null,
+                "translation": "saldrán"
+              }
+            ]
+          },
+          {
+            "tense": "futur_perfet",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "hauré sortit"
+                ],
+                "normalized_forms": [
+                  "haure sortit"
+                ],
+                "variation_types": null,
+                "translation": "habré salido"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "hauràs sortit"
+                ],
+                "normalized_forms": [
+                  "hauras sortit"
+                ],
+                "variation_types": null,
+                "translation": "habrás salido"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "haurà sortit"
+                ],
+                "normalized_forms": [
+                  "haura sortit"
+                ],
+                "variation_types": null,
+                "translation": "habrá salido"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "haurem sortit"
+                ],
+                "normalized_forms": [
+                  "haurem sortit"
+                ],
+                "variation_types": null,
+                "translation": "habremos salido"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "haureu sortit"
+                ],
+                "normalized_forms": [
+                  "haureu sortit"
+                ],
+                "variation_types": null,
+                "translation": "habréis salido"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "hauran sortit"
+                ],
+                "normalized_forms": [
+                  "hauran sortit"
+                ],
+                "variation_types": null,
+                "translation": "habrán salido"
+              }
+            ]
+          },
+          {
+            "tense": "condicional",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "sortiria"
+                ],
+                "normalized_forms": [
+                  "sortiria"
+                ],
+                "variation_types": null,
+                "translation": "saldría"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "sortiries"
+                ],
+                "normalized_forms": [
+                  "sortiries"
+                ],
+                "variation_types": null,
+                "translation": "saldrías"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "sortiria"
+                ],
+                "normalized_forms": [
+                  "sortiria"
+                ],
+                "variation_types": null,
+                "translation": "saldría"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "sortiríem"
+                ],
+                "normalized_forms": [
+                  "sortiriem"
+                ],
+                "variation_types": null,
+                "translation": "saldríamos"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "sortiríeu"
+                ],
+                "normalized_forms": [
+                  "sortirieu"
+                ],
+                "variation_types": null,
+                "translation": "saldríais"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "sortirien"
+                ],
+                "normalized_forms": [
+                  "sortirien"
+                ],
+                "variation_types": null,
+                "translation": "saldrían"
+              }
+            ]
+          },
+          {
+            "tense": "condicional_perfet",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "hauria (haguera) sortit"
+                ],
+                "normalized_forms": [
+                  "hauria (haguera) sortit"
+                ],
+                "variation_types": null,
+                "translation": "habría salido"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "hauries (hagueres) sortit"
+                ],
+                "normalized_forms": [
+                  "hauries (hagueres) sortit"
+                ],
+                "variation_types": null,
+                "translation": "habrías salido"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "hauria (haguera) sortit"
+                ],
+                "normalized_forms": [
+                  "hauria (haguera) sortit"
+                ],
+                "variation_types": null,
+                "translation": "habría salido"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "hauríem (haguérem) sortit"
+                ],
+                "normalized_forms": [
+                  "hauriem (haguerem) sortit"
+                ],
+                "variation_types": null,
+                "translation": "habríamos salido"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "hauríeu (haguéreu) sortit"
+                ],
+                "normalized_forms": [
+                  "haurieu (haguereu) sortit"
+                ],
+                "variation_types": null,
+                "translation": "habríais salido"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "haurien (hagueren) sortit"
+                ],
+                "normalized_forms": [
+                  "haurien (hagueren) sortit"
+                ],
+                "variation_types": null,
+                "translation": "habrían salido"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mood": "subjuntiu",
+        "tenses": [
+          {
+            "tense": "present",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "surti",
+                  "surta"
+                ],
+                "normalized_forms": [
+                  "surti",
+                  "surta"
+                ],
+                "variation_types": [
+                  null,
+                  "(val.)"
+                ],
+                "translation": "salga"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "surtis",
+                  "surtes"
+                ],
+                "normalized_forms": [
+                  "surtis",
+                  "surtes"
+                ],
+                "variation_types": [
+                  null,
+                  "(val.)"
+                ],
+                "translation": "salgas"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "surti",
+                  "surta"
+                ],
+                "normalized_forms": [
+                  "surti",
+                  "surta"
+                ],
+                "variation_types": [
+                  null,
+                  "(val.)"
+                ],
+                "translation": "salga"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "sortim",
+                  "sortiguem"
+                ],
+                "normalized_forms": [
+                  "sortim",
+                  "sortiguem"
+                ],
+                "variation_types": [
+                  null,
+                  "(bal.)"
+                ],
+                "translation": "salgamos"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "sortiu",
+                  "sortigueu"
+                ],
+                "normalized_forms": [
+                  "sortiu",
+                  "sortigueu"
+                ],
+                "variation_types": [
+                  null,
+                  "(bal.)"
+                ],
+                "translation": "salgáis"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "surtin",
+                  "surten"
+                ],
+                "normalized_forms": [
+                  "surtin",
+                  "surten"
+                ],
+                "variation_types": [
+                  null,
+                  "(val.)"
+                ],
+                "translation": "salgan"
+              }
+            ]
+          },
+          {
+            "tense": "perfet",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "hagi (haja) sortit"
+                ],
+                "normalized_forms": [
+                  "hagi (haja) sortit"
+                ],
+                "variation_types": null,
+                "translation": "haya salido"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "hagis (hages) sortit"
+                ],
+                "normalized_forms": [
+                  "hagis (hages) sortit"
+                ],
+                "variation_types": null,
+                "translation": "hayas salido"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "hagi (haja) sortit"
+                ],
+                "normalized_forms": [
+                  "hagi (haja) sortit"
+                ],
+                "variation_types": null,
+                "translation": "haya salido"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "hàgim (hàgem) sortit"
+                ],
+                "normalized_forms": [
+                  "hagim (hagem) sortit"
+                ],
+                "variation_types": null,
+                "translation": "hayamos salido"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "hàgiu (hàgeu) sortit"
+                ],
+                "normalized_forms": [
+                  "hagiu (hageu) sortit"
+                ],
+                "variation_types": null,
+                "translation": "hayáis salido"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "hagin (hagen) sortit"
+                ],
+                "normalized_forms": [
+                  "hagin (hagen) sortit"
+                ],
+                "variation_types": null,
+                "translation": "hayan salido"
+              }
+            ]
+          },
+          {
+            "tense": "imperfet",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "sortís",
+                  "sortira"
+                ],
+                "normalized_forms": [
+                  "sortis",
+                  "sortira"
+                ],
+                "variation_types": [
+                  null,
+                  "(val.)"
+                ],
+                "translation": "saliera"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "sortissis",
+                  "sortires",
+                  "sortisses"
+                ],
+                "normalized_forms": [
+                  "sortissis",
+                  "sortires",
+                  "sortisses"
+                ],
+                "variation_types": [
+                  null,
+                  "(val.)",
+                  null
+                ],
+                "translation": "salieras"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "sortís",
+                  "sortira"
+                ],
+                "normalized_forms": [
+                  "sortis",
+                  "sortira"
+                ],
+                "variation_types": [
+                  null,
+                  "(val.)"
+                ],
+                "translation": "saliera"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "sortíssim",
+                  "sortírem",
+                  "sortíssem"
+                ],
+                "normalized_forms": [
+                  "sortissim",
+                  "sortirem",
+                  "sortissem"
+                ],
+                "variation_types": [
+                  null,
+                  "(val.)",
+                  null
+                ],
+                "translation": "saliéramos"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "sortíssiu",
+                  "sortíreu",
+                  "sortísseu"
+                ],
+                "normalized_forms": [
+                  "sortissiu",
+                  "sortireu",
+                  "sortisseu"
+                ],
+                "variation_types": [
+                  null,
+                  "(val.)",
+                  null
+                ],
+                "translation": "salierais"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "sortissin",
+                  "sortiren",
+                  "sortissen"
+                ],
+                "normalized_forms": [
+                  "sortissin",
+                  "sortiren",
+                  "sortissen"
+                ],
+                "variation_types": [
+                  null,
+                  "(val.)",
+                  null
+                ],
+                "translation": "salieran"
+              }
+            ]
+          },
+          {
+            "tense": "plusquamperfet",
+            "conjugation": [
+              {
+                "pronoun": "jo",
+                "forms": [
+                  "hagués (haguera) sortit"
+                ],
+                "normalized_forms": [
+                  "hagues (haguera) sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubiera salido"
+              },
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "haguessis (hagueres) sortit"
+                ],
+                "normalized_forms": [
+                  "haguessis (hagueres) sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubieras salido"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "hagués (haguera) sortit"
+                ],
+                "normalized_forms": [
+                  "hagues (haguera) sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubiera salido"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "haguéssim (haguérem) sortit"
+                ],
+                "normalized_forms": [
+                  "haguessim (haguerem) sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubiéramos salido"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "haguéssiu (haguéreu) sortit"
+                ],
+                "normalized_forms": [
+                  "haguessiu (haguereu) sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubierais salido"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "haguessin (hagueren) sortit"
+                ],
+                "normalized_forms": [
+                  "haguessin (hagueren) sortit"
+                ],
+                "variation_types": null,
+                "translation": "hubieran salido"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mood": "imperatiu",
+        "tenses": [
+          {
+            "tense": "present",
+            "conjugation": [
+              {
+                "pronoun": "tu",
+                "forms": [
+                  "surt"
+                ],
+                "normalized_forms": [
+                  "surt"
+                ],
+                "variation_types": null,
+                "translation": "sal, no salgas"
+              },
+              {
+                "pronoun": "ell, ella, vostè",
+                "forms": [
+                  "surti",
+                  "surta"
+                ],
+                "normalized_forms": [
+                  "surti",
+                  "surta"
+                ],
+                "variation_types": [
+                  null,
+                  "(val.)"
+                ],
+                "translation": "salga, no salga"
+              },
+              {
+                "pronoun": "nosaltres",
+                "forms": [
+                  "sortim"
+                ],
+                "normalized_forms": [
+                  "sortim"
+                ],
+                "variation_types": null,
+                "translation": "salgamos, no salgamos"
+              },
+              {
+                "pronoun": "vosaltres, vós",
+                "forms": [
+                  "sortiu"
+                ],
+                "normalized_forms": [
+                  "sortiu"
+                ],
+                "variation_types": null,
+                "translation": "salid, no salgáis"
+              },
+              {
+                "pronoun": "ells, elles, vostès",
+                "forms": [
+                  "surtin",
+                  "surten"
+                ],
+                "normalized_forms": [
+                  "surtin",
+                  "surten"
+                ],
+                "variation_types": [
+                  null,
+                  "(val.)"
+                ],
+                "translation": "salgan, no salgan"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "mood": "Formes no personals",
+        "tenses": [
+          {
+            "tense": "infinitiu",
+            "conjugation": [
+              {
+                "pronoun": "Infinitiu",
+                "forms": [
+                  "sortir"
+                ],
+                "normalized_forms": [
+                  "sortir"
+                ],
+                "variation_types": null,
+                "translation": "salir"
+              }
+            ]
+          },
+          {
+            "tense": "infinitiu_compost",
+            "conjugation": [
+              {
+                "pronoun": "Infinitiu compost",
+                "forms": [
+                  "haver sortit"
+                ],
+                "normalized_forms": [
+                  "haver sortit"
+                ],
+                "variation_types": null,
+                "translation": "haver sortit"
+              }
+            ]
+          },
+          {
+            "tense": "gerundi",
+            "conjugation": [
+              {
+                "pronoun": "Gerundi",
+                "forms": [
+                  "sortint"
+                ],
+                "normalized_forms": [
+                  "sortint"
+                ],
+                "variation_types": null,
+                "translation": "sortint"
+              }
+            ]
+          },
+          {
+            "tense": "gerundi_compost",
+            "conjugation": [
+              {
+                "pronoun": "Gerundi compost",
+                "forms": [
+                  "havent sortit"
+                ],
+                "normalized_forms": [
+                  "havent sortit"
+                ],
+                "variation_types": null,
+                "translation": "havent sortit"
+              }
+            ]
+          },
+          {
+            "tense": "participi",
+            "conjugation": [
+              {
+                "pronoun": "Participi",
+                "forms": [
+                  "sortit",
+                  "sortida",
+                  "sortits",
+                  "sortides"
+                ],
+                "normalized_forms": [
+                  "sortit",
+                  "sortida",
+                  "sortits",
+                  "sortides"
+                ],
+                "variation_types": null,
+                "translation": "sortit"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "created_at": "2025-08-08T19:09:09.048Z",
+    "normalized_infinitive": "sortir",
+    "clicks": 0,
+    "updated_at": "2025-08-08T19:09:09.048Z"
+  }
