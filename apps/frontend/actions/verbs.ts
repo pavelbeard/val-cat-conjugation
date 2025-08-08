@@ -26,7 +26,7 @@ export const translateVerb = _traslateVerb;
 
 const _getVerb = async ({ infinitive }: { infinitive: string }) => {
   const response = await ApiClient.get<Database__VerbOutput>(
-    createUrl("verbs", infinitive)
+    createUrl("verbs", _normalizeForm(infinitive)) // Normalize the infinitive to remove accents
   );
   return response;
 };
