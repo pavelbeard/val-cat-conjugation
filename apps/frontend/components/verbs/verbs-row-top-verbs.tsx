@@ -4,6 +4,7 @@ import { Database__VerbOutput } from "@/lib/types/verbs";
 import { Separator } from "../ui/separator";
 import Link from "next/link";
 import useVerbClick from "@/lib/hooks/use-verb-click";
+import { _normalizeForm } from "@/actions/verbs";
 
 export default function VerbsRowTopVerbs({
   verb,
@@ -15,7 +16,7 @@ export default function VerbsRowTopVerbs({
   return (
     <div className="p-4 mx-2">
       <Link
-        href={`/verbs/${verb.infinitive}`}
+        href={`/verbs/${_normalizeForm(verb.infinitive)}`}
         className="bg-white dark:bg-black"
         onClick={handleVerbClick}
       >

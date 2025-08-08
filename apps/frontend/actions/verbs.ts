@@ -6,7 +6,7 @@ import {
 import { ApiClient } from "@/lib/utils/api-client";
 import { createUrl } from "@/lib/utils/create-url";
 
-function _normalizeForm(form: string): string {
+export function _normalizeForm(form: string): string {
   // Normalize the form to remove accents
   return form.normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
 }
