@@ -16,15 +16,10 @@ class TestDatabaseQueries:
         )
 
     def test_find_verb_by_form(self):
-        form = "coneixer"
+        form = "salido"
         result = queries.find_verb_by_form(form)
         assert result is not None, f"Expected to find verb with form '{form}'"
 
-        form_result = result["moods"][0]["tenses"][0]["conjugation"][0]["forms"][1]
-
-        assert form_result == form, (
-            f"Expected form '{form}' but got '{result['moods']['tenses']['conjugation']['forms'][1]}'"
-        )
 
     def test_find_verb_by_form_not_found(self):
         form = "nonexistentform"

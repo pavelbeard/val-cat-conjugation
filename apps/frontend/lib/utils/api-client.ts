@@ -1,5 +1,15 @@
 import { withErrorHandler } from "./error-handler";
 
+const originalFetch = globalThis.fetch;
+
+globalThis.fetch = function (...args) {
+  const [url] = args;
+  if (typeof url === "string" && url.includes("/api/v1/verbs/anar")) {
+    console.trace(`Intercepted fetch call to: ${url}`);
+  }
+  return originalFetch.apply(this, args);
+};
+
 export class ApiClient {
   static async get<T>(url: string, options?: RequestInit): Promise<T> {
     const response = await withErrorHandler(async () =>

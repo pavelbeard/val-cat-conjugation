@@ -40,8 +40,6 @@ export const useVerbSearch = () => {
 
   useEffect(() => {
     if (debouncedForm) {
-      console.log("Setting search params:", debouncedForm);
-
       queryClient.removeQueries({ queryKey: verbsQueryKeys.getTopVerbs() });
     }
 

@@ -135,11 +135,21 @@ def find_verbs_by_form(form: str) -> List[Database__VerbOutput__ByForm]:
                 {"$unwind": "$moods.tenses.conjugation.normalized_forms"},
                 {
                     "$match": {
-                        "moods.tenses.conjugation.normalized_forms": {
-                            "$regex": f"^{re.escape(normalized_form)}",
-                            "$options": "i",
-                        },
-                    },
+                        "$or": [
+                            {
+                                "moods.tenses.conjugation.normalized_forms": {
+                                    "$regex": f"^{re.escape(normalized_form)}",
+                                    "$options": "i",
+                                },
+                            },
+                            {
+                                "moods.tenses.conjugation.translation": {
+                                    "$regex": f"^{re.escape(normalized_form)}",
+                                    "$options": "i",
+                                }
+                            },
+                        ]
+                    }
                 },
                 {
                     "$project": {
@@ -270,7 +280,7 @@ def drop_verbs_collection():
     raise NotImplementedError(
         "Drop verbs collection functionality is not implemented yet"
     )
-    
+
     """
     Drop the verbs collection from the database.
     """

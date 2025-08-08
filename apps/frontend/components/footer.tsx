@@ -60,6 +60,7 @@ export default function Footer({ className }: { className?: string }) {
               className="md:text-lg lg:text-xl text-gray-800 dark:text-white hover:text-blue-600 transition-colors"
               key={component.href}
               href={component.href}
+              
             >
               <Link href={component.href}>{component.title}</Link>
             </NavigationMenuLink>

@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   experimental: {
     devtoolSegmentExplorer: true,
-    browserDebugInfoInTerminal: true,
+    // browserDebugInfoInTerminal: true,
   },
 };
 

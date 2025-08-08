@@ -1,6 +1,6 @@
 from typing import Annotated, Any, Awaitable, Callable, List
 
-from fastapi import APIRouter, Depends, Response
+from fastapi import APIRouter, Depends, Request, Response
 from fastapi.responses import JSONResponse
 
 from src.schemas.verbs import (
@@ -77,11 +77,13 @@ def get_verbs(search_params: Annotated[Get__Verb, Depends(get_verb_params)]):
 )
 async def get_verb(
     form: str,
+    request: Request
 ):
     """
     Retrieve a single verb by its form.
     """
     data = await verbs_service.get_verb(form=form)
+    
     return JSONResponse(
         content=data,
         status_code=200,

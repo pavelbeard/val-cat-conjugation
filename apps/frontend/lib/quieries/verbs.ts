@@ -11,35 +11,35 @@ import { verbsQueryKeys } from "./key-storage";
 export function queryOptionsGetVerbs() {
   return queryOptions({
     queryKey: verbsQueryKeys.getVerbs(),
-    queryFn: async () => getVerbs(),
+    queryFn: () => getVerbs(),
   });
 }
 
 export function queryOptionsGetVerbsWithFirstLetter() {
   return queryOptions({
     queryKey: verbsQueryKeys.getVerbs(),
-    queryFn: async () => getVerbsWithFirstLetter(),
+    queryFn: () => getVerbsWithFirstLetter(),
   });
 }
 
 export function queryOptionsGetVerbByInfinitive(infinitive: string) {
   return queryOptions({
     queryKey: verbsQueryKeys.getVerbByInfinitive(infinitive),
-    queryFn: async () => getVerb({ infinitive }),
+    queryFn: () => getVerb({ infinitive }),
   });
 }
 
 export function queryOptionsGetVerbsByForm(form: string) {
   return queryOptions({
     queryKey: verbsQueryKeys.getVerbsByForm(form),
-    queryFn: async () => getVerbsByForm(form),
-    enabled: !!form, // Only run if form is provided
+    queryFn: () => getVerbsByForm(form),
   });
 }
 
 export function queryOptionsGetTopVerbs() {
   return queryOptions({
     queryKey: verbsQueryKeys.getTopVerbs(),
-    queryFn: async () => getTopVerbs(),
+    queryFn: () => getTopVerbs(),
+    staleTime: 0,
   });
 }
