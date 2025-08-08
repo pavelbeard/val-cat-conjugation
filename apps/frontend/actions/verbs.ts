@@ -6,11 +6,16 @@ import {
 import { ApiClient } from "@/lib/utils/api-client";
 import { createUrl } from "@/lib/utils/create-url";
 
+function _normalizeForm(form: string): string {
+  // Normalize the form to remove accents
+  return form.normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
+}
+
 const _traslateVerb = async (verb: string): Promise<Database__VerbOutput> => {
   const response = await ApiClient.post<Database__VerbOutput>(
     createUrl("verbs"),
     {
-      infinitive: verb,
+      infinitive: _normalizeForm(verb),
     }
   );
 
@@ -30,10 +35,7 @@ export const getVerb = _getVerb;
 
 const _getVerbsByForm = async (form: string) => {
   const response = await ApiClient.get<Database__VerbOutput__ByForm[]>(
-    createUrl(
-      "verbs",
-      `?form=${form.normalize("NFKD").replace(/[\u0300-\u036f]/g, "")}`
-    ) // Normalize the form to remove accents
+    createUrl("verbs", `?form=${_normalizeForm(form)}`) // Normalize the form to remove accents
   );
   return response;
 };
@@ -67,7 +69,7 @@ export const getTopVerbs = async () => {
 
 export const updateClicks = async (form: string) => {
   const response = await ApiClient.patch<Database__VerbOutput>(
-    createUrl("verbs", form),
+    createUrl("verbs", _normalizeForm(form)),
     {
       clicks: 1,
     }
