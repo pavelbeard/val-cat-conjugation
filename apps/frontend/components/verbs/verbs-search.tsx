@@ -22,7 +22,7 @@ export default function VerbsSearch({
         aria-label="search input"
         className="w-full max-w-md bg-gray-300 text-black dark:text-white"
         type="text"
-        placeholder="Buscar verbo..."
+        placeholder="Buscar verbs..."
         value={form}
         onChange={(e) => setForm(e.target.value)}
         onClick={onClick}

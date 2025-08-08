@@ -35,7 +35,7 @@ export default function VerbsPageClient() {
               tab === "top_verbs" && "bg-violet-700 font-bold"
             )}
           >
-            Top Verbs
+            Verbs principals
           </Button>
           <Button
             onClick={() => setTab("verbs")}

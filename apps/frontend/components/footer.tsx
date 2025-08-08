@@ -13,19 +13,19 @@ import RadioThemeItem from "./ui/radio-theme-item";
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Verbos",
+    title: "Verbs",
     href: "/verbs",
-    description: "La tabla de verbos",
+    description: "La taula de verbs",
   },
   {
     title: "Traductor",
     href: "/translator",
-    description: "La herramienta de traducción de verbos",
+    description: "La eina de traducció de verbs",
   },
   {
     title: "Ajustes",
     href: "/settings",
-    description: "Ajustes de la aplicación",
+    description: "Els ajustes de l'aplicació",
   },
 ];
 

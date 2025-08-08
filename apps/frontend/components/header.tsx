@@ -21,7 +21,7 @@ export default function Header({ className }: { className?: string }) {
 
   return (
     <header className={cn(className)}>
-      <h1 className="text-lg font-semibold">
+      <h1 className="text-lg font-semibold mx-3">
         {pageMatch && PAGENAME_MAP[pageMatch[1]].toLocaleUpperCase()}
       </h1>
     </header>

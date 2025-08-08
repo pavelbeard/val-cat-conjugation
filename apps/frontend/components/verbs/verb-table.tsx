@@ -208,8 +208,8 @@ function TenseCard({
         <Table>
           <TableHeader>
             <TableRow className="[&>th]:text-white [&>th]:font-bold [&>th]:text-xs lg:[&>th]:text-sm">
-              <TableHead>Pronoun</TableHead>
-              <TableHead>Com.</TableHead>
+              <TableHead className="w-32"></TableHead>
+              <TableHead>Cent.</TableHead>
               {settings.show_valencian && <TableHead>Val.</TableHead>}
               {settings.show_balearic && <TableHead>Bal.</TableHead>}
               {settings.show_opt_pre2017 && (
@@ -247,7 +247,7 @@ export default function VerbTable({ data }: { data: Database__VerbOutput }) {
   return (
     <ScrollArea
       className={cn(
-        "flex-1 rounded-3xl h-full overflow-y-auto overflow-x-hidden",
+        "flex-1 rounded-3xl h-full overflow-y-auto overflow-x-hidden place-self-center",
         "w-90 sm:w-96 md:w-[800px] lg:w-[1000px] xl:w-full dark:bg-zinc-800 p-4 text-white"
       )}
     >
