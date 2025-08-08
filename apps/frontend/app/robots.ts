@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://conjugador-catalan.vercel.app/sitemap.xml",
+    sitemap: "https://catala-conjugador.vercel.app/sitemap.xml",
   };
 }
