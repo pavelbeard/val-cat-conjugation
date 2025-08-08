@@ -12,6 +12,7 @@ async def get_full_untranslated_conjugation(checked_verb: str):
 async def get_infinitive_translation_from_diccionari_cat(verb: str) -> str:
     def neutralizar_acentos(texto: str) -> str:
         reemplazos = {
+            # vocales
             "à": "a",
             "á": "a",
             "è": "e",
@@ -32,6 +33,15 @@ async def get_infinitive_translation_from_diccionari_cat(verb: str) -> str:
             "Ó": "O",
             "Ù": "U",
             "Ú": "U",
+            # consonantes
+            "ç": "c",
+            "Ç": "C",
+            "ñ": "n",
+            "Ñ": "N",
+            # ela geminada
+            "·": "",
+            "ŀ": "l",
+            "Ŀ": "L",
         }
 
         return "".join(reemplazos.get(c, c) for c in texto)
