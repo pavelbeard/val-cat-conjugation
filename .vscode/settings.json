@@ -15,5 +15,10 @@
   "cSpell.words": ["anar", "OLLAMA", "parlar"],
   "vitest.rootConfig": "${workspaceFolder}/apps/frontend/vitest.config.ts",
   "vitest.nodeExecutable": "/Users/pavelbeard/.nvm/versions/node/v22.14.0/bin/node",
-  "python.analysis.extraPaths": ["./apps", "./apps/backend"]
+  "python.analysis.extraPaths": [
+    "./apps",
+    "./apps/backend",
+    "./apps/backend/src",
+    "./apps/backend/src/db/migrations"
+  ]
 }

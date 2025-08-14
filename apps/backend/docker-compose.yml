@@ -8,6 +8,7 @@ services:
       - dev-db-data:/data/db
     networks:
       - testing-network
+    restart: always
 
 volumes:
   dev-db-data:
