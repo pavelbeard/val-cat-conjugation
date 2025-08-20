@@ -306,6 +306,17 @@ async def perform_ai_translation(
     return update_translations(data=data, translated_data=translated_data)
 
 
+class Pronoun(Enum):
+    """Class to handle pronouns in verb conjugation."""
+
+    JO = "jo"
+    TU = "tu"
+    ELL_ELLA_VOSTE = "ell, ella, vostè"
+    NOSALTRES = "nosaltres"
+    VOSALTRES = "vosaltres, vós"
+    ELLS_ELLES_VOSTES = "ells, elles, vostès"
+
+
 class SePrefix(Enum):
     """Class to handle the reflexive prefix '-se' in verbs."""
 
@@ -316,7 +327,7 @@ class SePrefix(Enum):
     US = "us"
     ES_PL = "es"
 
-    # Apostrophes for AEOUIH
+    # Apostrophes for vowels and 'h'
     EM_APOSTROPHE = "m'"
     ET_APOSTROPHE = "t'"
     ES_SG_APOSTROPHE = "s'"
@@ -335,7 +346,7 @@ class SeApostropheNSuffix(Enum):
     US = "us en"
     ES_PL = "se'n"
 
-    # Apostrophes at the end for AEOUIH
+    # Apostrophes at the end for vowels and 'h'
     ME_N_APOSTROPHE = "me n'"
     TE_N_APOSTROPHE = "te n'"
     ES_N_SG_APOSTROPHE = "se n'"
@@ -343,35 +354,31 @@ class SeApostropheNSuffix(Enum):
     US_N_APOSTROPHE = "us n'"
     ES_PL_N_APOSTROPHE = "se n'"
 
-    """Class to handle pronouns in verb conjugation."""
 
-    JO = "jo"
-    TU = "tu"
-    ELL_ELLA_VOSTE = "ell/ella/vosté"
-    NOSALTRES = "nosaltres"
-    VOSALTRES = "vosaltres"
-    ELLS_ELLES_VOSTES = "ells/elles/vostès"
-
-
+# Mapping from Catalan reflexive prefixes to Spanish equivalents
 se__pronoun_mapping: Dict[str, str] = {
+    # Regular -se prefixes
     SePrefix.EM.value: "me",
     SePrefix.ET.value: "te",
     SePrefix.ES_SG.value: "se",
     SePrefix.ENS.value: "nos",
     SePrefix.US.value: "os",
     SePrefix.ES_PL.value: "se",
+    # Apostrophe variants
     SePrefix.EM_APOSTROPHE.value: "me",
     SePrefix.ET_APOSTROPHE.value: "te",
     SePrefix.ES_SG_APOSTROPHE.value: "se",
     SePrefix.ENS_APOSTROPHE.value: "nos",
     SePrefix.US_APOSTROPHE.value: "os",
     SePrefix.ES_PL_APOSTROPHE.value: "se",
+    # -se'n suffixes
     SeApostropheNSuffix.ME_N.value: "me",
     SeApostropheNSuffix.TE_N.value: "te",
     SeApostropheNSuffix.ES_N_SG.value: "se",
     SeApostropheNSuffix.ENS.value: "nos",
     SeApostropheNSuffix.US.value: "os",
     SeApostropheNSuffix.ES_PL.value: "se",
+    # -se'n apostrophe variants
     SeApostropheNSuffix.ME_N_APOSTROPHE.value: "me",
     SeApostropheNSuffix.TE_N_APOSTROPHE.value: "te",
     SeApostropheNSuffix.ES_N_SG_APOSTROPHE.value: "se",
@@ -380,68 +387,82 @@ se__pronoun_mapping: Dict[str, str] = {
     SeApostropheNSuffix.ES_PL_N_APOSTROPHE.value: "se",
 }
 
-# Dict to handle the mapping of pronouns to reflexive prefixes
-se__pronoun_prefix_mapping: Dict[str, SePrefix] = {
-    "jo": SePrefix.EM.value,
-    "tu": SePrefix.ET.value,
-    "ell, ella, vostè": SePrefix.ES_SG.value,
-    "nosaltres": SePrefix.ENS.value,
-    "vosaltres, vós": SePrefix.US.value,
-    "ells, elles, vostès": SePrefix.ES_PL.value,
+# Mapping from pronouns to reflexive prefixes
+_REFLEXIVE_MAPPINGS = {
+    Pronoun.JO.value: {
+        "regular": SePrefix.EM.value,
+        "apostrophe": SePrefix.EM_APOSTROPHE.value,
+        "n_suffix": SeApostropheNSuffix.ME_N.value,
+        "n_apostrophe": SeApostropheNSuffix.ME_N_APOSTROPHE.value,
+    },
+    Pronoun.TU.value: {
+        "regular": SePrefix.ET.value,
+        "apostrophe": SePrefix.ET_APOSTROPHE.value,
+        "n_suffix": SeApostropheNSuffix.TE_N.value,
+        "n_apostrophe": SeApostropheNSuffix.TE_N_APOSTROPHE.value,
+    },
+    Pronoun.ELL_ELLA_VOSTE.value: {
+        "regular": SePrefix.ES_SG.value,
+        "apostrophe": SePrefix.ES_SG_APOSTROPHE.value,
+        "n_suffix": SeApostropheNSuffix.ES_N_SG.value,
+        "n_apostrophe": SeApostropheNSuffix.ES_N_SG_APOSTROPHE.value,
+    },
+    Pronoun.NOSALTRES.value: {
+        "regular": SePrefix.ENS.value,
+        "apostrophe": SePrefix.ENS_APOSTROPHE.value,
+        "n_suffix": SeApostropheNSuffix.ENS.value,
+        "n_apostrophe": SeApostropheNSuffix.ENS_N_APOSTROPHE.value,
+    },
+    Pronoun.VOSALTRES.value: {
+        "regular": SePrefix.US.value,
+        "apostrophe": SePrefix.US_APOSTROPHE.value,
+        "n_suffix": SeApostropheNSuffix.US.value,
+        "n_apostrophe": SeApostropheNSuffix.US_N_APOSTROPHE.value,
+    },
+    Pronoun.ELLS_ELLES_VOSTES.value: {
+        "regular": SePrefix.ES_PL.value,
+        "apostrophe": SePrefix.ES_PL_APOSTROPHE.value,
+        "n_suffix": SeApostropheNSuffix.ES_PL.value,
+        "n_apostrophe": SeApostropheNSuffix.ES_PL_N_APOSTROPHE.value,
+    },
 }
 
-# Dict to handle the mapping of pronouns to reflexive suffixes if first letter has AOIUEH
+# Legacy mappings for backward compatibility
+se__pronoun_prefix_mapping: Dict[str, str] = {
+    pronoun: mappings["regular"] for pronoun, mappings in _REFLEXIVE_MAPPINGS.items()
+}
+
 se__pronoun_aoiueh_mapping: Dict[str, str] = {
-    "jo": SePrefix.EM_APOSTROPHE.value,
-    "tu": SePrefix.ET_APOSTROPHE.value,
-    "ell, ella, vostè": SePrefix.ES_SG_APOSTROPHE.value,
-    "nosaltres": SePrefix.ENS_APOSTROPHE.value,
-    "vosaltres, vós": SePrefix.US_APOSTROPHE.value,
-    "ells, elles, vostès": SePrefix.ES_PL_APOSTROPHE.value,
+    pronoun: mappings["apostrophe"] for pronoun, mappings in _REFLEXIVE_MAPPINGS.items()
 }
 
-
-se__pronoun_apostrophe_n_suffix_mapping: Dict[str, SeApostropheNSuffix] = {
-    "jo": SeApostropheNSuffix.ME_N.value,
-    "tu": SeApostropheNSuffix.TE_N.value,
-    "ell, ella, vostè": SeApostropheNSuffix.ES_N_SG.value,
-    "nosaltres": SeApostropheNSuffix.ENS.value,
-    "vosaltres, vós": SeApostropheNSuffix.US.value,
-    "ells, elles, vostès": SeApostropheNSuffix.ES_PL.value,
+se__pronoun_apostrophe_n_suffix_mapping: Dict[str, str] = {
+    pronoun: mappings["n_suffix"] for pronoun, mappings in _REFLEXIVE_MAPPINGS.items()
 }
 
-se__pronoun_aoiueh_apostrophe_n_suffix_mapping: Dict[str, SeApostropheNSuffix] = {
-    "jo": SeApostropheNSuffix.ME_N_APOSTROPHE.value,
-    "tu": SeApostropheNSuffix.TE_N_APOSTROPHE.value,
-    "ell, ella, vostè": SeApostropheNSuffix.ES_N_SG_APOSTROPHE.value,
-    "nosaltres": SeApostropheNSuffix.ENS_N_APOSTROPHE.value,
-    "vosaltres, vós": SeApostropheNSuffix.US_N_APOSTROPHE.value,
-    "ells, elles, vostès": SeApostropheNSuffix.ES_PL_N_APOSTROPHE.value,
+se__pronoun_aoiueh_apostrophe_n_suffix_mapping: Dict[str, str] = {
+    pronoun: mappings["n_apostrophe"] for pronoun, mappings in _REFLEXIVE_MAPPINGS.items()
 }
 
 
 def add_reflexive_prefix(
     pronoun: str, form: str, reflexive_suffix: Literal["-se", "-se'n"]
-) -> List[str]:
+) -> str:
     """
     Replace pronoun with the reflexive prefix of the verb.
     """
-    if reflexive_suffix == "-se":
-        if se__pronoun_prefix_mapping.get(pronoun):
-            if form.startswith(("a", "e", "i", "o", "u", "h")):
-                return f"{se__pronoun_aoiueh_mapping[pronoun]}"
-            else:
-                return f"{se__pronoun_prefix_mapping[pronoun]}"
-
-    elif reflexive_suffix == "-se'n":
-        if se__pronoun_apostrophe_n_suffix_mapping.get(pronoun):
-            if form.startswith(("a", "e", "i", "o", "u", "h")):
-                return f"{se__pronoun_aoiueh_apostrophe_n_suffix_mapping[pronoun]}"
-            else:
-                return f"{se__pronoun_apostrophe_n_suffix_mapping[pronoun]}"
-
-    else:
+    mappings = _REFLEXIVE_MAPPINGS.get(pronoun)
+    if not mappings:
         return pronoun
+
+    starts_with_vowel_or_h = form.startswith(("a", "e", "i", "o", "u", "h"))
+
+    if reflexive_suffix == "-se":
+        return mappings["apostrophe"] if starts_with_vowel_or_h else mappings["regular"]
+    elif reflexive_suffix == "-se'n":
+        return mappings["n_apostrophe"] if starts_with_vowel_or_h else mappings["n_suffix"]
+
+    return pronoun
 
 
 class VerbUntranslatedTable:
@@ -462,6 +483,7 @@ class VerbUntranslatedTable:
     def create_tense_block_from_table(
         self, tense: str, table: _AtMostOneElement | int | Any
     ):
+        """"""
         conjugation: List[Database__ConjugatedForm] = []
 
         for row in table.find_all("tr"):
