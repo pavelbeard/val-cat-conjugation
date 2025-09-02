@@ -10,7 +10,7 @@ router = APIRouter(tags=["System"])
 
 @router.get("/health")
 async def health_check():
-    return {"collections": staff_queries.list_collections()}
+    return JSONResponse(content={"status": "ok"}, status_code=200)
 
 
 @router.get("/settings", response_model=AppSettingsOutput, response_class=JSONResponse)
