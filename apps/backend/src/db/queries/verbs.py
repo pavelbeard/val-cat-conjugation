@@ -73,48 +73,127 @@ def find_verb_by_form(form: str) -> Database__VerbOutput | None:
     """
     normalized_form = normalize(form)
 
-    return get_db().verbs.find_one(
-        {
-            "$or": [
-                {
-                    "infinitive": {
-                        "$regex": f"^{re.escape(normalized_form)}",
-                        "$options": "i",
+    exact_match_query = {
+        "$or": [
+            {"infinitive": normalized_form},
+            {"normalized_infinitive": normalized_form},
+        ]
+    }
+
+    if verb := get_db().verbs.find_one(exact_match_query):
+        return verb
+
+    regex_query = {
+        "$or": [
+            {
+                "translation": {
+                    "$regex": f"\\b{re.escape(normalized_form)}\\b",
+                    "$options": "i",
+                },
+            },
+            {
+                "moods": {
+                    "$elemMatch": {
+                        "tenses": {
+                            "$elemMatch": {
+                                "conjugation.forms": {
+                                    "$regex": f"^{re.escape(normalized_form)}",
+                                    "$options": "i",
+                                }
+                            }
+                        }
                     }
-                },
-                {
-                    "normalized_infinitive": {
-                        "$regex": f"^{re.escape(normalized_form)}",
-                        "$options": "i",
+                }
+            },
+            {
+                "moods": {
+                    "$elemMatch": {
+                        "tenses": {
+                            "$elemMatch": {
+                                "conjugation.normalized_forms": {
+                                    "$regex": f"^{re.escape(normalized_form)}",
+                                    "$options": "i",
+                                }
+                            }
+                        }
                     }
-                },
-                {
-                    "translation": {
-                        "$regex": f"^{re.escape(normalized_form)}",
-                        "$options": "i",
+                }
+            },
+            {
+                "moods": {
+                    "$elemMatch": {
+                        "tenses": {
+                            "$elemMatch": {
+                                "conjugation.translation": {
+                                    "$regex": f"^{re.escape(normalized_form)}",
+                                    "$options": "i",
+                                }
+                            }
+                        }
                     }
-                },
-                {
-                    "moods.tenses.conjugation.forms": {
-                        "$regex": f"^{re.escape(normalized_form)}",
-                        "$options": "i",
-                    }
-                },
-                {
-                    "moods.tenses.conjugation.normalized_forms": {
-                        "$regex": f"^{re.escape(normalized_form)}",
-                        "$options": "i",
-                    },
-                },
-                {
-                    "moods.tenses.conjugation.translation": {
-                        "$regex": f"^{re.escape(normalized_form)}",
-                        "$options": "i",
-                    }
-                },
-            ]
-        }
-    )
+                }
+            },
+        ]
+    }
+
+    return get_db().verbs.find_one(regex_query)
+
+    # return get_db().verbs.find_one(
+    #     {
+    #         "$or": [
+    #             {"infinitive": normalized_form},
+    #             {"normalized_infinitive": normalized_form},
+    #             {
+    #                 "translation": {
+    #                     "$regex": f"\\b{re.escape(normalized_form)}\\b",
+    #                     "$options": "i",
+    #                 },
+    #             },
+    #             {
+    #                 "moods": {
+    #                     "$elemMatch": {
+    #                         "tenses": {
+    #                             "$elemMatch": {
+    #                                 "conjugation.forms": {
+    #                                     "$regex": f"^{re.escape(normalized_form)}",
+    #                                     "$options": "i",
+    #                                 }
+    #                             }
+    #                         }
+    #                     }
+    #                 }
+    #             },
+    #             {
+    #                 "moods": {
+    #                     "$elemMatch": {
+    #                         "tenses": {
+    #                             "$elemMatch": {
+    #                                 "conjugation.normalized_forms": {
+    #                                     "$regex": f"^{re.escape(normalized_form)}",
+    #                                     "$options": "i",
+    #                                 }
+    #                             }
+    #                         }
+    #                     }
+    #                 }
+    #             },
+    #             {
+    #                 "moods": {
+    #                     "$elemMatch": {
+    #                         "tenses": {
+    #                             "$elemMatch": {
+    #                                 "conjugation.translation": {
+    #                                     "$regex": f"^{re.escape(normalized_form)}",
+    #                                     "$options": "i",
+    #                                 }
+    #                             }
+    #                         }
+    #                     }
+    #                 }
+    #             },
+    #         ]
+    #     }
+    # )
 
 
 def find_verbs_by_form(form: str) -> List[Database__VerbOutput__ByForm]:

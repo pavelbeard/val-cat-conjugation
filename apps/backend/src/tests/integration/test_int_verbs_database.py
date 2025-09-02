@@ -16,10 +16,12 @@ class TestDatabaseQueries:
         )
 
     def test_find_verb_by_form(self):
-        form = "salido"
+        form = "estar"
         result = queries.find_verb_by_form(form)
         assert result is not None, f"Expected to find verb with form '{form}'"
-
+        assert "estar" in result["infinitive"], (
+            f"Expected infinitive 'estar' but got '{result['infinitive']}'"
+        )
 
     def test_find_verb_by_form_not_found(self):
         form = "nonexistentform"
@@ -46,25 +48,30 @@ class TestDatabaseQueries:
         print(result["clicks"])
 
         assert result is not None, f"Expected to increment clicks for verb '{form}'"
-        assert result["clicks"] > 0, "Expected clicks to be greater than 0 after increment"
-        
+        assert result["clicks"] > 0, (
+            "Expected clicks to be greater than 0 after increment"
+        )
+
     def test_get_top_verbs(self):
         result = queries.get_top_verbs()
         assert isinstance(result, list), "Expected a list of top verbs"
         assert len(result) > 0, "Expected to find at least one top verb"
-        
+
         print("Top verbs:", result)
-        
-        
+
+
 class TestEndpoints:
     class TestVerbsEndpoints:
         def test_update_verb_with_clicks(self):
             client = TestClient(app)
-            
-            
+
             form = "eixir"
             data = Update__Verb(clicks=1).model_dump()
             response = client.patch(f"/api/v1/verbs/{form}", json=data)
-            assert response.status_code == 200, "Expected status code 200 for successful update"
-            assert response.json()["clicks"] > 0, "Expected clicks to be updated to a positive value"
+            assert response.status_code == 200, (
+                "Expected status code 200 for successful update"
+            )
+            assert response.json()["clicks"] > 0, (
+                "Expected clicks to be updated to a positive value"
+            )
             print("Updated verb clicks:", response.json()["clicks"])
