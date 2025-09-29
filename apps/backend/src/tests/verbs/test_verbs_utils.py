@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from core.constants import CONSTANTS
 from pytest import fixture
 import pytest
+from utils import logger
 from utils.fetch import Fetch
 
 from src.schemas.verbs import (
@@ -573,7 +574,7 @@ class TestCreateVerb:
                     )
                 ],
             )
-            
+
             return model
 
         def fetch_verb_created():
@@ -595,3 +596,23 @@ class TestCreateVerb:
             result.moods[-1].tenses[3].conjugation[0].translation == "habiendo salido"
         )
         assert result.moods[-1].tenses[4].conjugation[0].translation == "salido"
+
+
+class TestUpdateTranslations:
+    @pytest.fixture
+    def original_data(self):
+        from data import test_parlar_original, test_parlar_translated
+
+        return [test_parlar_original, test_parlar_translated]
+
+    def test_update_translations(self, original_data):
+        from src.utils.verbs import update_translations
+
+        log = logger.create_logger("TestUpdateTranslations")
+
+        update_translations(data=original_data[0], translated_data=original_data[1])
+        try:
+            pass
+        except Exception as e:
+            # log.error("Error during update_translations:", e)
+            pass

@@ -159,62 +159,63 @@ def update_translations(
             break
 
     # Reorganize "Formes no personals" mood
-    copy_translated_forms_no_personals = translated_data.moods[-1].tenses[0].conjugation
+    copy_translated_forms_no_personals = translated_data.moods[-1].tenses
+    
     translated_data.moods[-1] = AI__MoodBlock(
         mood="formes_no_personals",
         tenses=[
             {
-                "tense": copy_translated_forms_no_personals[0].pronoun,
+                "tense": copy_translated_forms_no_personals[0].conjugation[0].pronoun,
                 "conjugation": [
                     {
-                        "pronoun": copy_translated_forms_no_personals[0].pronoun,
+                        "pronoun": copy_translated_forms_no_personals[0].conjugation[0].pronoun,
                         "translation": copy_translated_forms_no_personals[
                             0
-                        ].translation,
+                        ].conjugation[0].translation,
                     }
                 ],
             },
             {
-                "tense": copy_translated_forms_no_personals[1].pronoun,
+                "tense": copy_translated_forms_no_personals[1].conjugation[0].pronoun,
                 "conjugation": [
                     {
-                        "pronoun": copy_translated_forms_no_personals[1].pronoun,
+                        "pronoun": copy_translated_forms_no_personals[1].conjugation[0].pronoun,
                         "translation": copy_translated_forms_no_personals[
                             1
-                        ].translation,
+                        ].conjugation[0].translation,
                     }
                 ],
             },
             {
-                "tense": copy_translated_forms_no_personals[2].pronoun,
+                "tense": copy_translated_forms_no_personals[2].conjugation[0].pronoun,
                 "conjugation": [
                     {
-                        "pronoun": copy_translated_forms_no_personals[2].pronoun,
+                        "pronoun": copy_translated_forms_no_personals[2].conjugation[0].pronoun,
                         "translation": copy_translated_forms_no_personals[
                             2
-                        ].translation,
+                        ].conjugation[0].translation,
                     }
                 ],
             },
             {
-                "tense": copy_translated_forms_no_personals[3].pronoun,
+                "tense": copy_translated_forms_no_personals[3].conjugation[0].pronoun,
                 "conjugation": [
                     {
-                        "pronoun": copy_translated_forms_no_personals[3].pronoun,
+                        "pronoun": copy_translated_forms_no_personals[3].conjugation[0].pronoun,
                         "translation": copy_translated_forms_no_personals[
                             3
-                        ].translation,
+                        ].conjugation[0].translation,
                     }
                 ],
             },
             {
-                "tense": copy_translated_forms_no_personals[4].pronoun,
+                "tense": copy_translated_forms_no_personals[4].conjugation[0].pronoun,
                 "conjugation": [
                     {
-                        "pronoun": copy_translated_forms_no_personals[4].pronoun,
+                        "pronoun": copy_translated_forms_no_personals[4].conjugation[0].pronoun,
                         "translation": copy_translated_forms_no_personals[
                             4
-                        ].translation,
+                        ].conjugation[0].translation,
                     }
                 ],
             },
@@ -265,15 +266,18 @@ def update_translations(
 
                 parts.append(base)
                 conj.translation = " ".join(filter(None, parts)).strip()
-
-    return Database__VerbOutput(
+                
+                
+    result = Database__VerbOutput(
         infinitive=copy_data.infinitive,
         normalized_infinitive=copy_data.normalized_infinitive,
         translation=copy_data.translation,
-        moods=copy_data.moods,
+        moods=[mood.model_dump() for mood in copy_data.moods],
         created_at=copy_data.created_at,
         updated_at=translated_data.updated_at,
     )
+    
+    return result
 
 
 async def perform_ai_translation(
