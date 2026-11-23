@@ -1,0 +1,124 @@
+{
+  "ser": {
+    "indicatiu": {
+      "present": ["soy", "eres", "es", "somos", "sois", "son"],
+      "imperfet": ["era", "eras", "era", "éramos", "erais", "eran"],
+      "futur": ["seré", "serás", "será", "seremos", "seréis", "serán"],
+      "condicional": ["sería", "serías", "sería", "seríamos", "seríais", "serían"]
+    },
+    "subjuntiu": {
+      "present": ["sea", "seas", "sea", "seamos", "seáis", "sean"]
+    },
+    "imperatiu": {
+      "present": ["", "sé", "sea", "seamos", "sed", "sean"]
+    },
+    "formes_no_personals": {
+      "gerundi": ["siendo"],
+      "participi": ["sido"]
+    }
+  },
+  "estar": {
+    "indicatiu": {
+      "present": ["estoy", "estás", "está", "estamos", "estáis", "están"],
+      "imperfet": ["estaba", "estabas", "estaba", "estábamos", "estabais", "estaban"],
+      "futur": ["estaré", "estarás", "estará", "estaremos", "estaréis", "estarán"],
+      "condicional": ["estaría", "estarías", "estaría", "estaríamos", "estaríais", "estaría"]
+    },
+    "subjuntiu": {
+      "present": ["esté", "estés", "esté", "estemos", "estéis", "estén"]
+    },
+    "imperatiu": {
+      "present": ["", "está", "esté", "estemos", "estad", "estén"]
+    },
+    "formes_no_personals": {
+      "gerundi": ["estando"],
+      "participi": ["estado"]
+    }
+  },
+  "ir": {
+    "indicatiu": {
+      "present": ["voy", "vas", "va", "vamos", "vais", "van"],
+      "imperfet": ["iba", "ibas", "iba", "íbamos", "ibais", "iban"],
+      "futur": ["iré", "irás", "irá", "iremos", "iréis", "irán"],
+      "condicional": ["iría", "irías", "iría", "iríamos", "iríais", "irían"]
+    },
+    "subjuntiu": {
+      "present": ["vaya", "vayas", "vaya", "vayamos", "vayáis", "vayan"]
+    },
+    "imperatiu": {
+      "present": ["", "ve", "vaya", "vayamos", "id", "vayan"]
+    },
+    "formes_no_personals": {
+      "gerundi": ["yendo"],
+      "participi": ["ido"]
+    }
+  },
+  "hacer": {
+    "indicatiu": {
+      "present": ["hago", "haces", "hace", "hacemos", "hacéis", "hacen"],
+      "imperfet": ["hacía", "hacías", "hacía", "hacíamos", "hacíais", "hacían"],
+      "futur": ["haré", "harás", "hará", "haremos", "haréis", "harán"],
+      "condicional": ["haría", "harías", "haría", "haríamos", "haríais", "harían"]
+    },
+    "subjuntiu": {
+      "present": ["haga", "hagas", "haga", "hagamos", "hagáis", "hagan"]
+    },
+    "imperatiu": {
+      "present": ["", "haz", "haga", "hagamos", "haced", "hagan"]
+    },
+    "formes_no_personals": {
+      "gerundi": ["haciendo"],
+      "participi": ["hecho"]
+    }
+  },
+  "venir": {
+    "indicatiu": {
+      "present": ["vengo", "vienes", "viene", "venimos", "venís", "vienen"],
+      "imperfet": ["venía", "venías", "venía", "veníamos", "veníais", "venían"],
+      "futur": ["vendré", "vendrás", "vendrá", "vendremos", "vendréis", "vendrán"],
+      "condicional": ["vendría", "vendrías", "vendría", "vendríamos", "vendríais", "vendrían"]
+    },
+    "subjuntiu": {
+      "present": ["venga", "vengas", "venga", "vengamos", "vengáis", "vengan"]
+    },
+    "imperatiu": {
+      "present": ["", "ven", "venga", "vengamos", "venid", "vengan"]
+    },
+    "formes_no_personals": {
+      "gerundi": ["viniendo"],
+      "participi": ["venido"]
+    }
+  },
+  "poder": {
+    "indicatiu": {
+      "present": ["puedo", "puedes", "puede", "podemos", "podéis", "pueden"],
+      "imperfet": ["podía", "podías", "podía", "podíamos", "podíais", "podían"],
+      "futur": ["podré", "podrás", "podrá", "podremos", "podréis", "podrán"],
+      "condicional": ["podría", "podrías", "podría", "podríamos", "podríais", "podrían"]
+    },
+    "subjuntiu": {
+      "present": ["pueda", "puedas", "pueda", "podamos", "podáis", "puedan"]
+    },
+    "formes_no_personals": {
+      "participi": ["podido"]
+    }
+  },
+  "correr": {
+    "indicatiu": {
+      "present": ["corro", "corres", "corre", "corremos", "corréis", "corren"],
+      "imperfet": ["corría", "corrías", "corría", "corríamos", "corríais", "corrían"],
+      "futur": ["correré", "correrás", "correrá", "correremos", "correréis", "correrán"],
+      "condicional": ["correría", "correrías", "correría", "correríamos", "correríais", "correrían"]
+    },
+    "subjuntiu": {
+      "present": ["corra", "corras", "corra", "corramos", "corráis", "corran"]
+    },
+    "imperatiu": {
+      "present": ["", "corre", "corra", "corramos", "corred", "corran"]
+    },
+    "formes_no_personals": {
+      "gerundi": ["corriendo"],
+      "participi": ["corrido"]
+    }
+  }
+}

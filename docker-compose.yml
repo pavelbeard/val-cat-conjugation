@@ -1,0 +1,114 @@
+name: val-cat-conjugation
+
+# Entorno de desarrollo encapsulado: MongoDB + API (apps/api) + web (apps/web).
+# El código legacy (apps/frontend, apps/backend) fue eliminado; resumen en LEGACY-IA.md y LEGACY-FETCH-VERBS.md.
+#
+#   docker compose up --build                 # web en :5173, API en :3001, Mongo en :27017
+#   docker compose run --rm api pnpm import:dump   # seed desde dump/verbs/verbs.bson
+#   docker compose --profile tools up         # añade mongo-express en :8081
+
+services:
+  mongo:
+    image: mongo:7
+    container_name: vcc-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: vcc-api
+    restart: unless-stopped
+    working_dir: /app/apps/api
+    command: pnpm dev
+    ports:
+      - "3001:3001"
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/conjugador
+      PORT: "3001"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/apps/api/node_modules
+    depends_on:
+      mongo:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3001/api/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 15s
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: vcc-web
+    restart: unless-stopped
+    working_dir: /app/apps/web
+    command: pnpm exec vite --host 0.0.0.0 --port 5173 --strictPort
+    ports:
+      - "5173:5173"
+    environment:
+      # El proxy de Vite (server.proxy en vite.config.ts) apunta al servicio api
+      # dentro de la red de Docker. El navegador solo habla con /api (relativo).
+      VCC_API_PROXY: http://api:3001
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/apps/web/node_modules
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:5173/"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 15s
+
+  # Opcional: GUI web para inspeccionar MongoDB (perfil "tools")
+  mongo-express:
+    image: mongo-express:latest
+    container_name: vcc-mongo-express
+    profiles: ["tools"]
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://mongo:27017/
+      ME_CONFIG_BASICAUTH: "false"
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  # Opcional: visor de logs de todos los contenedores (perfil "tools")
+  # Acceso restringido: solo 127.0.0.1 y con login (usuarios en /data/users.yml,
+  # volumen dozzle-data persistente para que nadie pierda la configuración).
+  dozzle:
+    image: amir20/dozzle:latest
+    container_name: vcc-dozzle
+    profiles: ["tools"]
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      DOZZLE_AUTH_PROVIDER: simple
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - dozzle-data:/data
+
+volumes:
+  mongo-data:
+  dozzle-data:

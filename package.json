@@ -4,16 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "backend-install": "turbo run add_pkg",
-    "dev": "turbo run dev",
-    "prettier": "prettier --write \"**/*.{ts,tsx,json}\""
+    "dev": "pnpm -r run dev",
+    "prettier": "prettier --write \"**/*.{ts,tsx,json}\"",
+    "docker:up": "docker compose up --build",
+    "docker:down": "docker compose down",
+    "docker:seed": "docker compose run --rm api pnpm import:dump",
+    "docker:logs": "docker compose logs -f",
+    "dockertest": "docker compose run --rm -e MONGODB_URI=mongodb://mongo:27017/conjugador_test api pnpm test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.17.1",
   "dependencies": {
-    "prettier": "^3.6.2",
-    "turbo": "^2.5.5"
+    "prettier": "^3.6.2"
   }
 }

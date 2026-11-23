@@ -1,0 +1,124 @@
+{
+  "ser": {
+    "indicatiu": {
+      "present": ["sóc", "eres", "és", "som", "sou", "són"],
+      "imperfet": ["era", "eres", "era", "érem", "éreu", "eren"],
+      "futur": ["seré", "seràs", "serà", "serem", "sereu", "seran"],
+      "condicional": ["seria", "series", "seria", "seríem", "seríeu", "serien"]
+    },
+    "subjuntiu": {
+      "present": ["siga", "sigues", "siga", "siguem", "sigueu", "siguen"]
+    },
+    "imperatiu": {
+      "present": ["", "sigues", "siga", "siguem", "sigueu", "siguen"]
+    },
+    "formes_no_personals": {
+      "gerundi": ["sent"],
+      "participi": ["estat", "estada", "estats", "estades"]
+    }
+  },
+  "estar": {
+    "indicatiu": {
+      "present": ["estic", "estàs", "està", "estem", "esteu", "estan"],
+      "imperfet": ["estava", "estaves", "estava", "estàvem", "estàveu", "estaven"],
+      "futur": ["estaré", "estaràs", "estarà", "estarem", "estareu", "estaran"],
+      "condicional": ["estaria", "estaries", "estaria", "estaríem", "estaríeu", "estarien"]
+    },
+    "subjuntiu": {
+      "present": ["estiga", "estigues", "estiga", "estiguem", "estigueu", "estiguen"]
+    },
+    "imperatiu": {
+      "present": ["", "estigues", "estiga", "estiguem", "estigueu", "estiguen"]
+    },
+    "formes_no_personals": {
+      "gerundi": ["estant"],
+      "participi": ["estat", "estada", "estats", "estades"]
+    }
+  },
+  "anar": {
+    "indicatiu": {
+      "present": ["vaig", "vas", "va", "anem", "aneu", "van"],
+      "imperfet": ["anava", "anaves", "anava", "anàvem", "anàveu", "anaven"],
+      "futur": ["anaré", "anaràs", "anarà", "anarem", "anareu", "anaran"],
+      "condicional": ["anaria", "anaries", "anaria", "anaríem", "anaríeu", "anarien"]
+    },
+    "subjuntiu": {
+      "present": ["vaja", "vages", "vaja", "anem", "aneu", "vagen"]
+    },
+    "imperatiu": {
+      "present": ["", "vés", "vaja", "anem", "aneu", "vagen"]
+    },
+    "formes_no_personals": {
+      "gerundi": ["anant"],
+      "participi": ["anat", "anada", "anats", "anades"]
+    }
+  },
+  "fer": {
+    "indicatiu": {
+      "present": ["faig", "fas", "fa", "fem", "feu", "fan"],
+      "imperfet": ["feia", "feies", "feia", "fèiem", "fèieu", "feien"],
+      "futur": ["faré", "faràs", "farà", "farem", "fareu", "faran"],
+      "condicional": ["faria", "faries", "faria", "faríem", "faríeu", "farien"]
+    },
+    "subjuntiu": {
+      "present": ["faça", "faces", "faça", "fem", "feu", "façen"]
+    },
+    "imperatiu": {
+      "present": ["", "fes", "faça", "fem", "feu", "façen"]
+    },
+    "formes_no_personals": {
+      "gerundi": ["fent"],
+      "participi": ["fet", "feta", "fets", "fetes"]
+    }
+  },
+  "venir": {
+    "indicatiu": {
+      "present": ["vinc", "véns", "ve", "venim", "veniu", "venen"],
+      "imperfet": ["venia", "venies", "venia", "veníem", "veníeu", "venien"],
+      "futur": ["vendré", "vendràs", "vendrà", "vendrem", "vendreu", "vendran"],
+      "condicional": ["vendria", "vendries", "vendria", "vendríem", "vendríeu", "vendrien"]
+    },
+    "subjuntiu": {
+      "present": ["vinga", "vingues", "vinga", "vinguem", "vingueu", "vinguen"]
+    },
+    "imperatiu": {
+      "present": ["", "vine", "vinga", "vinguem", "veniu", "vinguen"]
+    },
+    "formes_no_personals": {
+      "gerundi": ["venint"],
+      "participi": ["vingut", "vinguda", "vinguts", "vingudes"]
+    }
+  },
+  "poder": {
+    "indicatiu": {
+      "present": ["puc", "pots", "pot", "podem", "podeu", "poden"],
+      "imperfet": ["podia", "podies", "podia", "podíem", "podíeu", "podien"],
+      "futur": ["podré", "podràs", "podrà", "podrem", "podreu", "podran"],
+      "condicional": ["podria", "podries", "podria", "podríem", "podríeu", "podrien"]
+    },
+    "subjuntiu": {
+      "present": ["puga", "pugues", "puga", "puguem", "pugueu", "puguen"]
+    },
+    "formes_no_personals": {
+      "participi": ["pogut", "poguda", "poguts", "pogudes"]
+    }
+  },
+  "córrer": {
+    "indicatiu": {
+      "present": ["corr", "corres", "corre", "correm", "correu", "corren"],
+      "imperfet": ["corria", "corries", "corria", "corríem", "corríeu", "corrien"],
+      "futur": ["correré", "correràs", "correrà", "correrem", "correreu", "correran"],
+      "condicional": ["correria", "correries", "correria", "correríem", "correríeu", "correrien"]
+    },
+    "subjuntiu": {
+      "present": ["correga", "corregues", "correga", "corregem", "corregueu", "corregen"]
+    },
+    "imperatiu": {
+      "present": ["", "corre", "correga", "corregem", "correu", "corregen"]
+    },
+    "formes_no_personals": {
+      "gerundi": ["corrent"],
+      "participi": ["corregut", "correguda", "correguts", "corregudes"]
+    }
+  }
+}
