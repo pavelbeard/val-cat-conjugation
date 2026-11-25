@@ -9,7 +9,6 @@ WORKDIR /app
 # Solo las dependencias del paquete @vcc/frontend y sus dependencias del workspace
 COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
 COPY apps/frontend/package.json apps/frontend/
-COPY packages/web-builder/package.json packages/web-builder/
 RUN pnpm install --frozen-lockfile --filter @vcc/frontend...
 
 COPY apps/frontend apps/frontend

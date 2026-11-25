@@ -33,6 +33,17 @@ docker compose down                             # parar (añade -v para borrar e
 
 O con los scripts del package.json raíz: `pnpm docker:up`, `pnpm docker:seed`, `pnpm docker:down`, `pnpm docker:logs`.
 
+**Gestión de paquetes: solo dentro de los contenedores.** No se ejecuta `pnpm add/remove/install` en el host (los `node_modules` locales se corrompen con instalaciones lockfile-only y el límite de file descriptors del sistema). Todas las manipulaciones de paquetes se hacen vía shell del contenedor, que escribe `package.json`/`pnpm-lock.yaml` en el repo (bind mount) y actualiza su `node_modules`:
+
+```
+pnpm docker:pnpm:fe add @tanstack/react-query     # docker compose run --rm frontend pnpm add …
+pnpm docker:pnpm:fe remove lodash                 # igual para remove
+pnpm docker:pnpm:api add axios                    # en el servicio conjugator
+pnpm docker:rebuild                               # tras cambiar dependencias: reconstruye imágenes y contenedores
+```
+
+El código se expone con bind mount (`./:/app` + `node_modules` anónimos de la imagen), así que editar ficheros en el host reinicia la app dentro del contenedor (`tsx watch` en conjugator, HMR de Vite en frontend) sin recrear contenedores; `docker compose up` sin `--build` no reconstruye nada.
+
 URLs: web en http://localhost:5173, API en http://localhost:3001 (`/api/health`), Mongo en `mongodb://localhost:27017/conjugador`, Dozzle en http://127.0.0.1:8080, mongo-express en http://localhost:8081 (ambos con `--profile tools`).
 
 **Dozzle va cerrado:** solo publica `127.0.0.1:8080` y exige login (`DOZZLE_AUTH_PROVIDER: simple`). Los usuarios viven en `/data/users.yml` dentro del volumen `dozzle-data` (persistente, modo 600), así que nadie accede sin credenciales y la configuración no se pierde al recrear el contenedor. Usuario: `admin`. Para rotar la contraseña: genera un hash bcrypt con cualquier herramienta (formato `$2b$12$…`), actualiza `users.yml` en el volumen `dozzle-data` y `docker compose --profile tools restart dozzle`.

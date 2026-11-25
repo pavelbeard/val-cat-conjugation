@@ -1,17 +1,16 @@
 import { Fragment } from 'react'
-import type { ConjugationForm, TenseBlock, Verb } from '@/types'
-import { Card, CardContent, CardHeader, CardTitle } from '@vcc/web-builder'
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableRow,
-} from '@vcc/web-builder'
-import { cn, zip } from '@vcc/web-builder'
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+  type ColumnDef,
+} from '@tanstack/react-table'
+import type { ConjugationForm, TenseBlock, Verb } from '@/types'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
+import { Col, Row } from '@/components/layout'
+import { cn, zip } from '@/lib/utils'
 import { useSettings } from '@/lib/settings'
-import { th } from '@vcc/web-builder'
-import { Col } from '@vcc/web-builder'
-import { Row } from '@vcc/web-builder'
 
 // Paleta de la demo: un color por tiempo verbal
 const COLORS: Record<string, Record<string, string>> = {
@@ -61,39 +60,54 @@ function visibleForm(index: number, variation: string | null | undefined, settin
   return true
 }
 
-function ConjugationRow({ conjugation }: { conjugation: ConjugationForm }) {
-  const settings = useSettings()
+function PronounCell({ conjugation }: { conjugation: ConjugationForm }) {
   return (
-    <TableRow>
-      <TableCell className="align-top">
-        <Col gap={0.5}>
-          <span className="font-medium whitespace-normal">{conjugation.pronoun.replaceAll('_', ' ')}</span>
-          {conjugation.translation && (
-            <span className="text-xs text-muted-foreground">{conjugation.translation}</span>
-          )}
-        </Col>
-      </TableCell>
-      <TableCell className="align-top">
-        <ul className="flex flex-col gap-0.5">
-          {conjugation.forms.map((form, i) =>
-            visibleForm(i, conjugation.variation_types?.[i], settings) ? (
-              <li key={i}>
-                {form}
-                {conjugation.variation_types?.[i] && (
-                  <sup className="text-muted-foreground ml-0.5 text-[0.65rem]">
-                    {conjugation.variation_types[i]}
-                  </sup>
-                )}
-              </li>
-            ) : null,
-          )}
-        </ul>
-      </TableCell>
-    </TableRow>
+    <Col gap={0.5}>
+      <span className="font-medium whitespace-normal">{conjugation.pronoun.replaceAll('_', ' ')}</span>
+      {conjugation.translation && (
+        <span className="text-xs text-muted-foreground">{conjugation.translation}</span>
+      )}
+    </Col>
   )
 }
 
+function FormsCell({ conjugation }: { conjugation: ConjugationForm }) {
+  const settings = useSettings()
+  return (
+    <ul className="flex flex-col gap-0.5">
+      {conjugation.forms.map((form, i) =>
+        visibleForm(i, conjugation.variation_types?.[i], settings) ? (
+          <li key={i}>
+            {form}
+            {conjugation.variation_types?.[i] && (
+              <sup className="text-muted-foreground ml-0.5 text-[0.65rem]">
+                {conjugation.variation_types[i]}
+              </sup>
+            )}
+          </li>
+        ) : null,
+      )}
+    </ul>
+  )
+}
+
+const columns: ColumnDef<ConjugationForm>[] = [
+  {
+    accessorKey: 'pronoun',
+    cell: ({ row }) => <PronounCell conjugation={row.original} />,
+  },
+  {
+    id: 'forms',
+    cell: ({ row }) => <FormsCell conjugation={row.original} />,
+  },
+]
+
 function TenseCard({ mood, tenseBlock }: { mood: string; tenseBlock: TenseBlock }) {
+  const table = useReactTable({
+    data: tenseBlock.conjugation,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  })
   return (
     <Card className="overflow-hidden w-90 sm:w-96 md:w-[420px] shrink-0 gap-0 py-0">
       <CardHeader className={cn('py-2', tenseColor(mood, tenseBlock.tense))}>
@@ -104,8 +118,14 @@ function TenseCard({ mood, tenseBlock }: { mood: string; tenseBlock: TenseBlock 
       <CardContent className="p-0">
         <Table>
           <TableBody>
-            {tenseBlock.conjugation.map((c, i) => (
-              <ConjugationRow key={i} conjugation={c} />
+            {table.getRowModel().rows.map((row) => (
+              <TableRow key={row.id}>
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell key={cell.id} className="align-top">
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                ))}
+              </TableRow>
             ))}
           </TableBody>
         </Table>
@@ -123,13 +143,13 @@ export function VerbDetail({ verb }: { verb: Verb }) {
   const restMoods = moods.slice(2)
 
   return (
-    <div className={th.page}>
+    <div className="flex flex-col flex-1 overflow-hidden">
       <Col align="center" gap={1} className="pt-3 pb-2">
         <h1 className="text-sm lg:text-xl font-bold">{verb.infinitive}</h1>
-        <p className="text-xs lg:text-lg text-gray-500">{verb.translation}</p>
+        <p className="text-xs lg:text-lg text-muted-foreground">{verb.translation}</p>
       </Col>
 
-      <div className="flex-1 overflow-y-auto overflow-x-hidden w-full dark:bg-zinc-800 p-4">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden w-full p-4">
         <Col align="center" gap={4}>
           {firstFour.map(([ind, subj], i) => (
             <Row key={i} gap={4} align="start" justify="center" wrap>
@@ -150,12 +170,12 @@ export function VerbDetail({ verb }: { verb: Verb }) {
         </Col>
       </div>
 
-      <footer className={th.footerNote}>
+      <footer className="p-2 text-xs w-full text-muted-foreground">
         Advertencia: traducciones están creadas por un modelo de IA y pueden no ser precisas.
         <br />
         Materiales de referencia:{' '}
         <a
-          className={th.link}
+          className="text-primary font-bold hover:underline"
           target="_blank"
           rel="noreferrer"
           href={`https://www.softcatala.org/conjugador-de-verbs/verb/${verb.infinitive.replace("-se", "").replace("-se'n", '')}`}
@@ -164,7 +184,7 @@ export function VerbDetail({ verb }: { verb: Verb }) {
         </a>
         ,{' '}
         <a
-          className={th.link}
+          className="text-primary font-bold hover:underline"
           target="_blank"
           rel="noreferrer"
           href={`https://www.diccionari.cat/catala-castella/${verb.infinitive}`}

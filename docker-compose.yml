@@ -41,6 +41,7 @@ services:
       - ./:/app
       - /app/node_modules
       - /app/apps/conjugator/node_modules
+      - /app/packages/api-builder/node_modules
     depends_on:
       mongo:
         condition: service_healthy

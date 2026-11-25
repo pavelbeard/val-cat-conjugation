@@ -1,8 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Card, CardContent, CardHeader, CardTitle } from '@vcc/web-builder'
-import { Label } from '@vcc/web-builder'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Label } from '@/components/ui/label'
 import { getSettings, updateSettings, useSettings } from '@/lib/settings'
-import { th } from '@vcc/web-builder'
 
 const FIELDS: { key: keyof ReturnType<typeof getSettings>; label: string }[] = [
   { key: 'show_valencian', label: 'Mostrar Valenciano' },
@@ -14,7 +13,7 @@ export const Route = createFileRoute('/settings')({
   component: function SettingsPage() {
     const settings = useSettings()
     return (
-      <div className={th.scrollPage}>
+      <div className="flex-1 overflow-y-auto p-4">
         <Card className="p-4 m-3 max-w-md">
           <CardHeader>
             <CardTitle className="text-lg font-semibold">Ajustes</CardTitle>
@@ -25,7 +24,7 @@ export const Route = createFileRoute('/settings')({
                 <Label key={key}>
                   <input
                     type="checkbox"
-                    className="size-4 accent-violet-700"
+                    className="size-4 accent-primary"
                     checked={settings[key]}
                     onChange={(e) => updateSettings({ [key]: e.target.checked })}
                   />

@@ -1,6 +1,6 @@
 /**
  * @vcc/api-builder — librería de backend reutilizable.
- * Expone lo mismo que web-builder: un punto único de entrada (este index)
+ * Punto único de entrada (este index)
  * con db, middlewares, validator, errors y axios.
  */
 export * from './errors.js'
