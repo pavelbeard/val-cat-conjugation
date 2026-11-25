@@ -9,6 +9,7 @@ export interface SearchParams {
   q?: string
   form?: string
   letter?: string
+  translation?: string
   sort?: string
   page?: number
   limit?: number
@@ -24,12 +25,15 @@ export async function search(params: SearchParams) {
     q: params.q?.trim() || undefined,
     form: params.form?.trim() || undefined,
     letter: params.letter?.trim() || undefined,
+    translation: params.translation?.trim() || undefined,
   }
   const limit = Math.max(1, Math.floor(params.limit ?? 50))
   const options: SearchOptions = {
     limit,
     skip: Math.max(0, Math.floor(params.skip ?? (Math.max(1, params.page ?? 1) - 1) * limit)),
     sort: params.sort === 'clicks' ? { clicks: -1, infinitive: 1 } : { infinitive: 1 },
+    // Los infinitivos que empiezan por el término buscado van primero (relevancia)
+    startsWithValue: params.sort === 'clicks' ? undefined : query.q,
   }
   const [data, count] = await Promise.all([
     verbsRepository.search(query, options),

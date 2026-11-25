@@ -5,9 +5,12 @@ import { useDebouncedValue } from '@/hooks/use-debounced-value'
 import { useMediaQuery } from '@/hooks/use-media-query'
 import { usePageSize } from '@/hooks/use-page-size'
 
+/** Modo de búsqueda: por infinitivo (normal), por forma conjugada o por traducción. */
+export type SearchMode = 'inf' | 'form' | 'translation'
+
 /**
- * Lógica de la búsqueda de verbs: pestañas, query con debounce, letra,
- * modo "por forma", tamaño de página y la query paginada al servidor.
+ * Lógica de la búsqueda de verbs: pestañas, query con debounce, modo de búsqueda,
+ * letra, tamaño de página y la query paginada al servidor.
  * `page`/`onPageChange` vienen de la URL (?page=n) y son de la ruta.
  */
 export function useVerbSearch({
@@ -21,7 +24,7 @@ export function useVerbSearch({
   const [tab, setTab] = useState<'top' | 'all'>('all')
   const [query, setQuery] = useState('')
   const [letter, setLetter] = useState('')
-  const [byForm, setByForm] = useState(false)
+  const [mode, setMode] = useState<SearchMode>('inf')
   const { pageSize, setPageSize } = usePageSize()
   const debouncedQuery = useDebouncedValue(query, 250)
   const isDesktop = useMediaQuery('(min-width: 640px)')
@@ -36,7 +39,7 @@ export function useVerbSearch({
     }
     onPageChange(1)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tab, debouncedQuery, letter, byForm, pageSize])
+  }, [tab, debouncedQuery, letter, mode, pageSize])
 
   // Búsqueda paginada en el servidor (nunca se cargan todos los verbs) vía TanStack Query
   const params = useMemo<SearchVerbsParams>(() => {
@@ -45,16 +48,17 @@ export function useVerbSearch({
       limit: pageSize,
       sort: tab === 'top' ? 'clicks' : 'infinitive',
     }
-    if (byForm) {
-      const f = debouncedQuery.trim()
-      if (f) p.form = f
+    const q = debouncedQuery.trim()
+    if (mode === 'form') {
+      if (q) p.form = q
+    } else if (mode === 'translation') {
+      if (q) p.translation = q
     } else {
-      const q = debouncedQuery.trim()
       if (q) p.q = q
       if (tab === 'all' && letter) p.letter = letter
     }
     return p
-  }, [tab, debouncedQuery, letter, byForm, page, pageSize])
+  }, [tab, debouncedQuery, letter, mode, page, pageSize])
 
   const { data: result, isLoading } = useQuery({
     queryKey: ['verbs', 'search', params],
@@ -74,8 +78,8 @@ export function useVerbSearch({
     setQuery,
     letter,
     setLetter,
-    byForm,
-    setByForm,
+    mode,
+    setMode,
     pageSize,
     setPageSize,
     isDesktop,

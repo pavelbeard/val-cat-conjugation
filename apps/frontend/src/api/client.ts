@@ -14,6 +14,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 export interface SearchVerbsParams {
   q?: string
   form?: string
+  translation?: string
   letter?: string
   sort?: 'infinitive' | 'clicks'
   page?: number

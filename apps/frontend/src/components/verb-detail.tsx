@@ -55,6 +55,7 @@ function visibleForm(index: number, variation: string | null | undefined, settin
   const v = variation?.replace(/[()]/g, '').trim() ?? ''
   if (!v) return true
   if (v.includes('val') && !v.includes('cent')) return settings.show_valencian
+  if (v.includes('cent')) return settings.show_catalan
   if (v.includes('bal')) return settings.show_balearic
   if (v.includes('pre-2017')) return settings.show_opt_pre2017
   return true
@@ -103,16 +104,24 @@ const columns: ColumnDef<ConjugationForm>[] = [
 ]
 
 function TenseCard({ mood, tenseBlock }: { mood: string; tenseBlock: TenseBlock }) {
+  // Del participi se muestran todas las formas, pero la traducción solo en la primera
+  const data =
+    tenseBlock.tense === 'participi'
+      ? tenseBlock.conjugation.map((c, i) => (i === 0 ? c : { ...c, translation: undefined }))
+      : tenseBlock.conjugation
   const table = useReactTable({
-    data: tenseBlock.conjugation,
+    data,
     columns,
     getCoreRowModel: getCoreRowModel(),
   })
   return (
     <Card className="overflow-hidden w-90 sm:w-96 md:w-[420px] shrink-0 gap-0 py-0">
-      <CardHeader className={cn('py-2', tenseColor(mood, tenseBlock.tense))}>
+      <CardHeader className={cn('py-2 flex flex-col items-start gap-0.5', tenseColor(mood, tenseBlock.tense))}>
+        <span className="text-[10px] font-medium uppercase tracking-wider text-white/80">
+          {mood.replaceAll('_', ' ')}
+        </span>
         <CardTitle className="text-white text-sm uppercase tracking-wide">
-          {tenseBlock.tense}
+          {tenseBlock.tense.replaceAll('_', ' ')}
         </CardTitle>
       </CardHeader>
       <CardContent className="p-0">
@@ -169,29 +178,6 @@ export function VerbDetail({ verb }: { verb: Verb }) {
           ))}
         </Col>
       </div>
-
-      <footer className="p-2 text-xs w-full text-muted-foreground">
-        Advertencia: traducciones están creadas por un modelo de IA y pueden no ser precisas.
-        <br />
-        Materiales de referencia:{' '}
-        <a
-          className="text-primary font-bold hover:underline"
-          target="_blank"
-          rel="noreferrer"
-          href={`https://www.softcatala.org/conjugador-de-verbs/verb/${verb.infinitive.replace("-se", "").replace("-se'n", '')}`}
-        >
-          Softcatala
-        </a>
-        ,{' '}
-        <a
-          className="text-primary font-bold hover:underline"
-          target="_blank"
-          rel="noreferrer"
-          href={`https://www.diccionari.cat/catala-castella/${verb.infinitive}`}
-        >
-          Diccionari.cat
-        </a>
-      </footer>
     </div>
   )
 }

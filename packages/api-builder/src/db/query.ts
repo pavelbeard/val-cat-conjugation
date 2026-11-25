@@ -26,3 +26,8 @@ export function orRegex(fields: string[], value: string): { $or: Array<Record<st
 export function startsWith(value: string): { $regex: string; $options: string } {
   return { $regex: `^${escapeRegExp(value)}`, $options: 'i' }
 }
+
+/** Filtro "contiene" (regex insensible a mayúsculas) para aplicarlo a un solo campo. */
+export function contains(value: string): { $regex: string; $options: string } {
+  return { $regex: escapeRegExp(value), $options: 'i' }
+}

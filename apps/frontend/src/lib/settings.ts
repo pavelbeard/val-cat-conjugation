@@ -2,6 +2,7 @@ import { useSyncExternalStore } from 'react'
 
 export interface Settings {
   show_valencian: boolean
+  show_catalan: boolean
   show_balearic: boolean
   show_opt_pre2017: boolean
 }
@@ -10,6 +11,7 @@ const KEY = 'vcc-settings'
 
 const DEFAULTS: Settings = {
   show_valencian: true,
+  show_catalan: false,
   show_balearic: false,
   show_opt_pre2017: false,
 }

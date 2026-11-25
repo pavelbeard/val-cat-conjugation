@@ -8,6 +8,7 @@ const search = {
   query: {
     q: validator.string.notRequired(), // busca en infinitivo y traducción
     form: validator.string.notRequired(), // busca por forma conjugada exacta
+    translation: validator.string.notRequired(), // busca solo en la traducción
     letter: validator.string.notRequired(), // infinitivo empieza por letra
     sort: validator.string.notRequired(), // 'infinitive' (default) | 'clicks'
     page: validator.number.notRequired(), // 1-based; alternativa a skip
