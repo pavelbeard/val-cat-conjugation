@@ -8,9 +8,9 @@
     "prettier": "prettier --write \"**/*.{ts,tsx,json}\"",
     "docker:up": "docker compose up --build",
     "docker:down": "docker compose down",
-    "docker:seed": "docker compose run --rm api pnpm import:dump",
+    "docker:seed": "docker compose run --rm conjugator pnpm import:dump",
     "docker:logs": "docker compose logs -f",
-    "dockertest": "docker compose run --rm -e MONGODB_URI=mongodb://mongo:27017/conjugador_test api pnpm test"
+    "dockertest": "docker compose run --rm -e MONGODB_URI=mongodb://mongo:27017/conjugador_test conjugator pnpm test"
   },
   "keywords": [],
   "author": "",

@@ -4,7 +4,7 @@
 
 Monorepo con dos apps nuevas:
 
-- **apps/web** — SPA con **TanStack Router + Vite + React**. 100% estática, desplegable en Netlify/GH Pages.
+- **apps/frontend** — SPA con **TanStack Router + Vite + React**. 100% estática, desplegable en Netlify/GH Pages.
 - **apps/api** — API **Express + Mongoose** que sirve los verbos desde MongoDB (Netlify + Atlas). Expone `/api/verbs/search` (búsqueda **paginada** → `{ data, metadata }`), `/api/verbs/:infinitive` y un CRUD en `/api/admin` para el panel de administración.
 
 Las apps antiguas (`apps/frontend`, `apps/backend`) **fueron eliminadas** tras el refactor; su información (uso de IA y fetch de recursos externos) quedó resumida en [LEGACY-IA.md](LEGACY-IA.md) y [LEGACY-FETCH-VERBS.md](LEGACY-FETCH-VERBS.md), y el código original sigue en el historial de git.
@@ -17,11 +17,11 @@ Las apps antiguas (`apps/frontend`, `apps/backend`) **fueron eliminadas** tras e
 | --- | --- | --- | --- |
 | `mongo` | `mongo:7` | 27017 | Volumen `mongo-data`, healthcheck `ping` |
 | `api` | `apps/api/Dockerfile` (node:24-alpine + pnpm) | 3001 | `MONGODB_URI=mongodb://mongo:27017/conjugador` |
-| `web` | `apps/web/Dockerfile` (node:24-alpine + pnpm) | 5173 | Vite con `--host 0.0.0.0`, proxy `/api` → `http://api:3001` |
+| `web` | `apps/frontend/Dockerfile` (node:24-alpine + pnpm) | 5173 | Vite con `--host 0.0.0.0`, proxy `/api` → `http://api:3001` |
 | `mongo-express` | `mongo-express` (perfil `tools`) | 8081 | GUI opcional de MongoDB |
 | `dozzle` | `amir20/dozzle` (perfil `tools`) | 8080 (solo `127.0.0.1`) | Logs de contenedores con login obligatorio; volumen `dozzle-data` en `/data` |
 
-En dev, el repo se monta como volumen sobre `/app` (los `node_modules` quedan en volúmenes anónimos de la imagen), así que los cambios en `apps/web` y `apps/api` se reflejan con hot reload sin reconstruir.
+En dev, el repo se monta como volumen sobre `/app` (los `node_modules` quedan en volúmenes anónimos de la imagen), así que los cambios en `apps/frontend` y `apps/api` se reflejan con hot reload sin reconstruir.
 
 ```
 docker compose up --build                      # levantar mongo + api + web
@@ -123,5 +123,5 @@ pnpm --filter @vcc/api test   # en local, contra el Mongo publicado en localhost
 pnpm install
 pnpm --filter @vcc/api dev       # API en :3001 (necesita apps/api/.env con MONGODB_URI)
 pnpm --filter @vcc/api import:dump  # importar dump/verbs/verbs.bson a Mongo
-pnpm --filter @vcc/web dev       # SPA en :5173 con proxy /api -> :3001
+pnpm --filter @vcc/frontend dev       # SPA en :5173 con proxy /api -> :3001
 ```

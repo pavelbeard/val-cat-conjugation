@@ -1,6 +1,6 @@
-# Plan de refactorización — apps/web (React SPA)
+# Plan de refactorización — apps/frontend (React SPA)
 
-Objetivo: llevar `apps/web` (Vite + React + TanStack Router) al nivel visual y
+Objetivo: llevar `apps/frontend` (Vite + React + TanStack Router) al nivel visual y
 funcional de la app demo (la app Next.js existente en `apps/frontend`), **módulo
 a módulo y paso a paso**, sin tocar el código legacy salvo como referencia de
 estilos. La IA entra de otra manera: con sesión propia en un proveedor (Mistral
@@ -14,15 +14,15 @@ gestión de usuarios.
 
 ## Fase 0 — Base de estilos (demo → web)
 
-- [x] Decidir stack de estilos de `apps/web`: Tailwind v4 (`@tailwindcss/vite`)
+- [x] Decidir stack de estilos de `apps/frontend`: Tailwind v4 (`@tailwindcss/vite`)
       con el mismo tema de la demo (base zinc, `--radius`, modo oscuro), para
       paridad con los componentes shadcn. Alternativa: CSS plano con las mismas
       variables.
 - [x] Portar los tokens del tema: variables oklch de `apps/frontend/app/globals.css`
-      → hoja de estilos de `apps/web`.
-- [x] Crear `apps/web/src/components/ui/` con los equivalentes a los de la demo:
+      → hoja de estilos de `apps/frontend`.
+- [x] Crear `apps/frontend/src/components/ui/` con los equivalentes a los de la demo:
       `button`, `input`, `card`, `table`, `tabs`, `scroll-area`.
-- [x] Verificar: `pnpm --filter @vcc/web typecheck && pnpm --filter @vcc/web build`
+- [x] Verificar: `pnpm --filter @vcc/frontend typecheck && pnpm --filter @vcc/frontend build`
       y revisión visual con `docker compose up` (web en :5173).
 
 ## Fase 1 — Módulos, uno por paso (cada paso = un commit pequeño y verificable)
@@ -58,7 +58,7 @@ de pasar al siguiente. Nada de refactor masivo de golpe.
 ## Reglas de trabajo
 
 - Legacy intocable: `apps/frontend` y `apps/backend` solo se leen como referencia.
-- Código nuevo solo en `apps/web` y `apps/api`.
+- Código nuevo solo en `apps/frontend` y `apps/api`.
 - Entorno Docker: `docker compose up` (mongo :27017, api :3001, web :5173),
   seed con `docker compose run --rm api pnpm import:dump`, logs en Dozzle
   (http://127.0.0.1:8080, con login) vía `docker compose --profile tools up -d`.

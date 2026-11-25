@@ -1,10 +1,10 @@
 name: val-cat-conjugation
 
-# Entorno de desarrollo encapsulado: MongoDB + API (apps/api) + web (apps/web).
-# El código legacy (apps/frontend, apps/backend) fue eliminado; resumen en LEGACY-IA.md y LEGACY-FETCH-VERBS.md.
+# Entorno de desarrollo encapsulado: MongoDB + conjugator (apps/conjugator) + frontend (apps/frontend).
+# El código legacy (Next.js/Python) fue eliminado; resumen en LEGACY-IA.md y LEGACY-FETCH-VERBS.md.
 #
 #   docker compose up --build                 # web en :5173, API en :3001, Mongo en :27017
-#   docker compose run --rm api pnpm import:dump   # seed desde dump/verbs/verbs.bson
+#   docker compose run --rm conjugator pnpm import:dump   # seed desde dump/verbs/verbs.bson
 #   docker compose --profile tools up         # añade mongo-express en :8081
 
 services:
@@ -23,23 +23,24 @@ services:
       retries: 12
       start_period: 10s
 
-  api:
+  conjugator:
     build:
       context: .
-      dockerfile: apps/api/Dockerfile
-    container_name: vcc-api
+      dockerfile: apps/conjugator/Dockerfile
+    container_name: vcc-conjugator
     restart: unless-stopped
-    working_dir: /app/apps/api
+    working_dir: /app/apps/conjugator
     command: pnpm dev
     ports:
       - "3001:3001"
     environment:
       MONGODB_URI: mongodb://mongo:27017/conjugador
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-dev-admin-token}
       PORT: "3001"
     volumes:
       - ./:/app
       - /app/node_modules
-      - /app/apps/api/node_modules
+      - /app/apps/conjugator/node_modules
     depends_on:
       mongo:
         condition: service_healthy
@@ -50,26 +51,26 @@ services:
       retries: 12
       start_period: 15s
 
-  web:
+  frontend:
     build:
       context: .
-      dockerfile: apps/web/Dockerfile
-    container_name: vcc-web
+      dockerfile: apps/frontend/Dockerfile
+    container_name: vcc-frontend
     restart: unless-stopped
-    working_dir: /app/apps/web
+    working_dir: /app/apps/frontend
     command: pnpm exec vite --host 0.0.0.0 --port 5173 --strictPort
     ports:
       - "5173:5173"
     environment:
       # El proxy de Vite (server.proxy en vite.config.ts) apunta al servicio api
       # dentro de la red de Docker. El navegador solo habla con /api (relativo).
-      VCC_API_PROXY: http://api:3001
+      VCC_API_PROXY: http://conjugator:3001
     volumes:
       - ./:/app
       - /app/node_modules
-      - /app/apps/web/node_modules
+      - /app/apps/frontend/node_modules
     depends_on:
-      api:
+      conjugator:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:5173/"]
